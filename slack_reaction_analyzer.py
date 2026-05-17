@@ -472,80 +472,6 @@ def generate_excel_report(
 
 
 # ==============================
-# Gmail でメール送信
-# ==============================
-
-def send_report_by_email(file_path: str, report_date: str):
-    """
-    生成したExcelレポートをGmail SMTP経由でメール送信する。
-    環境変数 GMAIL_ADDRESS / GMAIL_APP_PASSWORD / REPORT_TO_EMAIL が
-    未設定の場合はスキップする。
-
-    Args:
-        file_path: 添付するExcelファイルのパス
-        report_date: レポートの対象日付文字列（件名に使用）
-    """
-    import smtplib
-    import ssl
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.base import MIMEBase
-    from email.mime.text import MIMEText
-    from email import encoders
-
-    gmail_address = os.environ.get("GMAIL_ADDRESS", "")
-    gmail_app_password = os.environ.get("GMAIL_APP_PASSWORD", "")
-    report_to = os.environ.get("REPORT_TO_EMAIL", "")
-
-    # 環境変数が未設定ならスキップ
-    if not all([gmail_address, gmail_app_password, report_to]):
-        logger.warning(
-            "Email credentials not set. Skipping email. "
-            "Set GMAIL_ADDRESS, GMAIL_APP_PASSWORD, REPORT_TO_EMAIL to enable."
-        )
-        return
-
-    logger.info("Sending report email to %s ...", report_to)
-
-    # メールメッセージの構築
-    msg = MIMEMultipart()
-    msg["From"] = gmail_address
-    msg["To"] = report_to
-    msg["Subject"] = f"[Slack分析] リアクションレポート {report_date}"
-
-    # 本文
-    body = f"""Slack チャンネル #{CHANNEL_ID} のリアクション分析レポートをお送りします。
-
-対象期間: 過去{DAYS_TO_ANALYZE}日間
-生成日時: {report_date}
-
-添付のExcelファイルをご確認ください。
-"""
-    msg.attach(MIMEText(body, "plain", "utf-8"))
-
-    # Excelファイルを添付
-    with open(file_path, "rb") as f:
-        attachment = MIMEBase("application", "octet-stream")
-        attachment.set_payload(f.read())
-    encoders.encode_base64(attachment)
-    attachment.add_header(
-        "Content-Disposition",
-        f'attachment; filename="{os.path.basename(file_path)}"',
-    )
-    msg.attach(attachment)
-
-    # Gmail SMTP（TLS）で送信
-    context = ssl.create_default_context()
-    try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-            server.login(gmail_address, gmail_app_password)
-            server.sendmail(gmail_address, report_to, msg.as_string())
-        logger.info("Email sent successfully.")
-    except smtplib.SMTPException as e:
-        logger.error("Failed to send email: %s", e)
-        raise
-
-
-# ==============================
 # メイン処理
 # ==============================
 
@@ -583,9 +509,6 @@ def main():
     # --- Step 4: Excel レポート生成 ---
     report_date = now.strftime("%Y-%m-%d")
     output_path = generate_excel_report(reactions_made, reactions_received, emoji_total, users)
-
-    # --- Step 5: メール送信 ---
-    send_report_by_email(output_path, report_date)
 
     logger.info("Done! Report: %s", output_path)
 
