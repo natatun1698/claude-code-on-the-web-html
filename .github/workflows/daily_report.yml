@@ -1,0 +1,48 @@
+name: Daily Slack Reaction Report
+
+on:
+  # 毎朝6時(JST) = UTC 21時に実行（前日の夜）
+  schedule:
+    - cron: "0 21 * * *"
+
+  # 手動実行も可能にする（テスト用）
+  workflow_dispatch:
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Python のセットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 依存パッケージのインストール
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Slack リアクション分析を実行
+      # GitHub Secrets に各環境変数を登録しておく必要があります
+      - name: Run Slack reaction analyzer
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
+        run: python slack_reaction_analyzer.py
+
+      # 生成されたレポートをアーティファクトとして保存
+      # （Actions の実行結果ページからダウンロード可能になる）
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        if: always()  # 失敗時もアップロードを試みる
+        with:
+          name: slack-reaction-report-${{ github.run_id }}
+          path: output/slack_reaction_report.xlsx
+          retention-days: 30  # 30日間保存
