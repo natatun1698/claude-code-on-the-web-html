@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>放射線医療機器メーカー 財務分布図（2024年度）</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+      background: #f4f6f9;
+      color: #1a202c;
+      padding: 32px 24px;
+    }
+    .page { max-width: 960px; margin: 0 auto; }
+    header { margin-bottom: 28px; }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      color: #4a5568;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .chart-wrap {
+      position: relative;
+      height: 480px;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      color: #2d3748;
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    th {
+      background: #f7fafc;
+      border-bottom: 2px solid #e2e8f0;
+      padding: 10px 14px;
+      text-align: right;
+      font-weight: 600;
+      color: #4a5568;
+      white-space: nowrap;
+    }
+    th:first-child { text-align: left; }
+    td {
+      border-bottom: 1px solid #edf2f7;
+      padding: 11px 14px;
+      text-align: right;
+      color: #2d3748;
+    }
+    td:first-child { text-align: left; font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f7fafc; }
+    .color-chip {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .margin-bar {
+      display: inline-block;
+      height: 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .notes {
+      font-size: 0.75rem;
+      color: #718096;
+      line-height: 1.7;
+    }
+    .notes p { margin-bottom: 4px; }
+    .bubble-note {
+      font-size: 0.78rem;
+      color: #718096;
+      margin-top: 10px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>放射線医療機器メーカー 財務分布図（日本市場）</h1>
+    <p class="subtitle">売上高 × 営業利益率　直近決算期（2024年9月期〜2025年3月期）</p>
+  </header>
+
+  <div class="card">
+    <div class="chart-wrap">
+      <canvas id="bubbleChart"></canvas>
+    </div>
+    <p class="bubble-note">● バブルの大きさは営業利益額に比例</p>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="card">
+    <h2>財務データ一覧</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>社名</th>
+          <th>決算期</th>
+          <th>売上高（億円）</th>
+          <th>営業利益（億円）</th>
+          <th>営業利益率</th>
+        </tr>
+      </thead>
+      <tbody id="dataTable"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>データソース・注記</h2>
+    <div class="notes">
+      <p>・ <strong>キヤノンメディカルシステムズ</strong>：第98期決算公告（2024年12月期）。グローバル売上を含む単体決算。</p>
+      <p>・ <strong>富士フイルムメディカル</strong>：第68期決算公告（2025年3月期）。富士フイルムHD傘下の日本医療機器販売子会社。</p>
+      <p>・ <strong>フィリップス・ジャパン</strong>：第38期決算公告（2024年12月期）。ヘルスケア機器・サービス全般を含む。</p>
+      <p>・ <strong>GEヘルスケア・ジャパン</strong>：第44期決算公告（2024年12月期）。日本法人単体。</p>
+      <p>・ <strong>シーメンスヘルスケア</strong>：第45期決算公告（2024年9月期）。Siemens Healthineers日本法人。</p>
+      <p>・ <strong>島津製作所（医用機器）</strong>：2025年3月期 セグメント情報。島津製作所の医用機器事業部門のみ。</p>
+      <p style="margin-top:8px;">※ 各社の決算期末は9月〜翌3月に分散しており、いずれも2024年度相当の直近1年間の実績。</p>
+      <p>※ キヤノンメディカルシステムズはグローバル事業体のため他社（主に日本市場向け法人）と規模感が異なる。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  Chart.register(ChartDataLabels);
+
+  const companies = [
+    {
+      name: 'キヤノンメディカルシステムズ',
+      nameShort: 'キヤノン\nメディカル',
+      fy: '2024年12月期',
+      revenue: 3398,
+      opProfit: 173.5,
+      opMargin: 5.11,
+      color: '#DC2626',
+    },
+    {
+      name: '富士フイルムメディカル',
+      nameShort: '富士フイルム\nメディカル',
+      fy: '2025年3月期',
+      revenue: 1858,
+      opProfit: 116.8,
+      opMargin: 6.28,
+      color: '#D97706',
+    },
+    {
+      name: 'フィリップス・ジャパン',
+      nameShort: 'フィリップス\n・ジャパン',
+      fy: '2024年12月期',
+      revenue: 1459,
+      opProfit: 39.2,
+      opMargin: 2.69,
+      color: '#7C3AED',
+    },
+    {
+      name: 'GEヘルスケア・ジャパン',
+      nameShort: 'GEヘルス\nケア・ジャパン',
+      fy: '2024年12月期',
+      revenue: 1279,
+      opProfit: 57.3,
+      opMargin: 4.48,
+      color: '#2563EB',
+    },
+    {
+      name: 'シーメンスヘルスケア',
+      nameShort: 'シーメンス\nヘルスケア',
+      fy: '2024年9月期',
+      revenue: 856,
+      opProfit: 69.2,
+      opMargin: 8.08,
+      color: '#059669',
+    },
+    {
+      name: '島津製作所（医用機器）',
+      nameShort: '島津製作所\n（医用機器）',
+      fy: '2025年3月期',
+      revenue: 726,
+      opProfit: 42.6,
+      opMargin: 5.87,
+      color: '#0891B2',
+    },
+  ];
+
+  // Scale bubble radius proportional to sqrt(opProfit) for area
+  const maxOp = Math.max(...companies.map(c => c.opProfit));
+  const minR = 14, maxR = 42;
+  function getRadius(op) {
+    return minR + (Math.sqrt(op) / Math.sqrt(maxOp)) * (maxR - minR);
+  }
+
+  const avgMargin = companies.reduce((s, c) => s + c.opMargin, 0) / companies.length;
+
+  const datasets = companies.map(c => ({
+    label: c.name,
+    data: [{ x: c.revenue, y: c.opMargin, r: getRadius(c.opProfit) }],
+    backgroundColor: c.color + 'b3',
+    borderColor: c.color,
+    borderWidth: 2,
+    hoverBackgroundColor: c.color + 'e0',
+  }));
+
+  const ctx = document.getElementById('bubbleChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bubble',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 20, right: 20, bottom: 10, left: 10 } },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: '売上高（億円）',
+            font: { size: 13, weight: '600' },
+            color: '#4a5568',
+          },
+          min: 0,
+          max: 4000,
+          ticks: { callback: v => v.toLocaleString() + '億', color: '#718096', font: { size: 11 } },
+          grid: { color: '#e2e8f0' },
+        },
+        y: {
+          title: {
+            display: true,
+            text: '営業利益率（%）',
+            font: { size: 13, weight: '600' },
+            color: '#4a5568',
+          },
+          min: 0,
+          max: 11,
+          ticks: { callback: v => v.toFixed(0) + '%', color: '#718096', font: { size: 11 } },
+          grid: { color: '#e2e8f0' },
+        },
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const c = companies[ctx.datasetIndex];
+              return [
+                `売上高：${c.revenue.toLocaleString()}億円`,
+                `営業利益：${c.opProfit.toFixed(1)}億円`,
+                `営業利益率：${c.opMargin.toFixed(2)}%`,
+                `決算期：${c.fy}`,
+              ];
+            },
+          },
+          backgroundColor: 'rgba(26,32,44,0.92)',
+          titleColor: '#fff',
+          bodyColor: '#e2e8f0',
+          padding: 12,
+          bodyFont: { size: 12 },
+        },
+        annotation: {
+          annotations: {
+            avgLine: {
+              type: 'line',
+              yMin: avgMargin,
+              yMax: avgMargin,
+              borderColor: '#94a3b8',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              label: {
+                content: `平均 ${avgMargin.toFixed(1)}%`,
+                enabled: true,
+                position: 'end',
+                backgroundColor: 'transparent',
+                color: '#94a3b8',
+                font: { size: 11 },
+              },
+            },
+          },
+        },
+        datalabels: {
+          formatter: (val, ctx) => companies[ctx.datasetIndex].nameShort,
+          color: (ctx) => companies[ctx.datasetIndex].color,
+          font: { size: 11, weight: '700' },
+          anchor: 'end',
+          align: (ctx) => {
+            const idx = ctx.datasetIndex;
+            const alignMap = ['end', 'top', 'bottom', 'bottom', 'start', 'start'];
+            return alignMap[idx] || 'top';
+          },
+          offset: 6,
+          textAlign: 'center',
+        },
+      },
+    },
+  });
+
+  // Build legend
+  const legendEl = document.getElementById('legend');
+  companies.forEach(c => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<span class="legend-dot" style="background:${c.color}"></span><span>${c.name}</span>`;
+    legendEl.appendChild(item);
+  });
+
+  // Build table (sorted by revenue desc)
+  const sorted = [...companies].sort((a, b) => b.revenue - a.revenue);
+  const tbody = document.getElementById('dataTable');
+  const maxRev = sorted[0].revenue;
+  sorted.forEach(c => {
+    const barW = Math.round((c.opMargin / 11) * 60);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><span class="color-chip" style="background:${c.color}"></span>${c.name}</td>
+      <td>${c.fy}</td>
+      <td>${c.revenue.toLocaleString()}</td>
+      <td>${c.opProfit.toFixed(1)}</td>
+      <td>${c.opMargin.toFixed(2)}%<span class="margin-bar" style="width:${barW}px;background:${c.color}80"></span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+</script>
+</body>
+</html>
