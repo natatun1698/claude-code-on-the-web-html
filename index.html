@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>レイアウト図(案) - 放射線室Y方向300mm縮小</title>
+<style>
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    margin: 16px;
+    background: #f5f5f5;
+  }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .meta { font-size: 12px; color: #555; margin-bottom: 12px; }
+  .controls {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .controls label { margin-right: 16px; cursor: pointer; }
+  .legend {
+    display: inline-block;
+    margin-left: 16px;
+    font-size: 12px;
+  }
+  .legend .sw {
+    display: inline-block; width: 14px; height: 14px;
+    vertical-align: middle; margin-right: 4px; border: 1px solid #888;
+  }
+  .stage {
+    background: #fff;
+    border: 1px solid #aaa;
+    padding: 12px;
+    overflow: auto;
+  }
+  svg { display: block; }
+  text { font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif; }
+  .room { fill: #fafafa; stroke: #333; stroke-width: 2; }
+  .room-rad { fill: #ffe9c7; stroke: #d97706; stroke-width: 2.5; }
+  .room-rad.changed { fill: #cffafe; stroke: #0891b2; }
+  .removed { fill: #fee2e2; stroke: #ef4444; stroke-width: 1; stroke-dasharray: 4 3; }
+  .room-label { font-size: 14px; font-weight: bold; fill: #222; text-anchor: middle; }
+  .room-sub { font-size: 10px; fill: #555; text-anchor: middle; }
+  .grid-line { stroke: #999; stroke-width: 0.8; stroke-dasharray: 6 3; }
+  .grid-label { font-size: 12px; fill: #555; text-anchor: middle; }
+  .grid-label circle { fill: #fff; stroke: #555; }
+  .dim-line { stroke: #1e40af; stroke-width: 0.8; }
+  .dim-text { font-size: 11px; fill: #1e40af; text-anchor: middle; }
+  .dim-text.hl { fill: #b91c1c; font-weight: bold; font-size: 12px; }
+  .wall-thick { fill: #333; }
+  .note { font-size: 11px; fill: #b91c1c; }
+  .title-block {
+    fill: #fff; stroke: #333; stroke-width: 1;
+  }
+  .title-block text { font-size: 10px; fill: #222; }
+</style>
+</head>
+<body>
+
+<h1>レイアウト図(案) - きたじま田岡病院 御中</h1>
+<div class="meta">図番 0E370-14067 / SEET 1/2 / 縮尺 1/60 (画面上は別倍率) / 株式会社 島津製作所</div>
+
+<div class="controls">
+  <strong>表示:</strong>
+  <label><input type="radio" name="view" value="before" onclick="setView('before')"> 現状</label>
+  <label><input type="radio" name="view" value="after" checked onclick="setView('after')"> 変更後 (放射線室 Y方向 -300mm)</label>
+  <label><input type="radio" name="view" value="compare" onclick="setView('compare')"> 比較表示</label>
+  <span class="legend">
+    <span class="sw" style="background:#ffe9c7;border-color:#d97706"></span>放射線室(現状)
+    <span class="sw" style="background:#cffafe;border-color:#0891b2;margin-left:8px;"></span>放射線室(変更後)
+    <span class="sw" style="background:#fee2e2;border-color:#ef4444;margin-left:8px;"></span>縮小部分(300mm)
+  </span>
+</div>
+
+<div class="stage">
+  <!--
+    座標系: 1 user unit = 1 mm。viewBox を 1/15 にしたい所だが SVG 内で自由スケーリングするので
+    実寸 mm でそのまま描画し、viewBox で全体を見せる。
+    原点: 図面左上を (0,0)。X方向: 右がプラス。Y方向: 下がプラス。
+    PDF レイアウトから読み取った主要寸法:
+      - 通り芯  X4 (左) — X5 (中央) — X6 (右)   X4-X5 間 8,500mm (5,000+3,500), X5-X6 間 8,500mm
+      - 通り芯  Y3 (上) — Y2 (下)   Y3-Y2 間 8,500mm
+      - 図面右側に 8,082mm の縦寸 (透視室/MRI用CPU室の高さ目安)
+      - 放射線室の幅 (X方向) 5,718mm 程度
+    放射線室の Y方向高さは現状を 5,718mm と仮定し、変更後 5,418mm (-300mm) とする。
+  -->
+  <svg id="plan" xmlns="http://www.w3.org/2000/svg"
+       viewBox="-1500 -1500 22000 13500"
+       width="1320" height="810">
+
+    <!-- ===== 通り芯 ===== -->
+    <g id="grid">
+      <!-- 縦の通り芯 -->
+      <line class="grid-line" x1="0"    y1="-800" x2="0"    y2="11500"/>
+      <line class="grid-line" x1="8500" y1="-800" x2="8500" y2="11500"/>
+      <line class="grid-line" x1="17000" y1="-800" x2="17000" y2="11500"/>
+      <!-- 横の通り芯 -->
+      <line class="grid-line" x1="-800"  y1="0"     x2="20000" y2="0"/>
+      <line class="grid-line" x1="-800"  y1="8500"  x2="20000" y2="8500"/>
+
+      <!-- 通り芯ラベル -->
+      <g class="grid-label">
+        <circle cx="0"     cy="-1000" r="280"/><text x="0"    y="-960">X4</text>
+        <circle cx="8500"  cy="-1000" r="280"/><text x="8500" y="-960">X5</text>
+        <circle cx="17000" cy="-1000" r="280"/><text x="17000" y="-960">X6</text>
+        <circle cx="-1100" cy="0"    r="280"/><text x="-1100" y="40">Y3</text>
+        <circle cx="-1100" cy="8500" r="280"/><text x="-1100" y="8540">Y2</text>
+      </g>
+
+      <!-- 通り芯間寸法 (上) -->
+      <g class="dim-text">
+        <line class="dim-line" x1="0"    y1="-500" x2="5000" y2="-500"/>
+        <line class="dim-line" x1="5000" y1="-500" x2="8500" y2="-500"/>
+        <line class="dim-line" x1="8500" y1="-500" x2="17000" y2="-500"/>
+        <text x="2500" y="-560">5,000</text>
+        <text x="6750" y="-560">3,500</text>
+        <text x="12750" y="-560">8,500</text>
+        <text x="5000" y="-340" style="font-size:9px;fill:#666">KS-70 中心</text>
+      </g>
+      <!-- 通り芯間寸法 (左) -->
+      <g class="dim-text">
+        <line class="dim-line" x1="-500" y1="0"    x2="-500" y2="8500"/>
+        <text x="-700" y="4250" transform="rotate(-90 -700 4250)">8,500</text>
+      </g>
+    </g>
+
+    <!-- ===== 部屋 (放射線室以外) ===== -->
+    <g id="rooms-fixed">
+      <!-- CT 室 -->
+      <rect class="room" x="0" y="0" width="5000" height="3500"/>
+      <text class="room-label" x="2500" y="1700">Ｃ Ｔ</text>
+      <text class="room-sub"   x="2500" y="1900">(CT 室)</text>
+
+      <!-- 操作室(1) -->
+      <rect class="room" x="5000" y="1500" width="3500" height="2000"/>
+      <text class="room-label" x="6750" y="2400">操作室(1)</text>
+      <text class="room-sub"   x="6750" y="2600">DRY / LAPTOP PC / 机 / CR / PC 台</text>
+
+      <!-- 更衣・X線1・X線2 (操作室の上) -->
+      <rect class="room" x="5000" y="0" width="1500" height="1500"/>
+      <text class="room-sub" x="5750" y="780">更衣</text>
+      <rect class="room" x="6500" y="0" width="3500" height="1500"/>
+      <text class="room-label" x="8250" y="800">Ｘ線１</text>
+      <rect class="room" x="10000" y="0" width="3500" height="1500"/>
+      <text class="room-label" x="11750" y="800">Ｘ線２</text>
+      <rect class="room" x="13500" y="0" width="1500" height="1500"/>
+      <text class="room-sub" x="14250" y="780">更衣</text>
+
+      <!-- 読影室 -->
+      <rect class="room" x="13500" y="1500" width="3500" height="2000"/>
+      <text class="room-label" x="15250" y="2500">読影室</text>
+
+      <!-- シャウカステン / ロッカー (操作室下) -->
+      <rect class="room" x="5000" y="3500" width="3500" height="1500"/>
+      <text class="room-sub" x="6750" y="4280">シャウカステン / ロッカー</text>
+
+      <!-- MRI 用 CPU 室 -->
+      <rect class="room" x="8500" y="5000" width="4500" height="3500"/>
+      <text class="room-label" x="10750" y="6700">ＭＲＩ用ＣＰＵ室</text>
+
+      <!-- 透視室 -->
+      <rect class="room" x="13000" y="3500" width="4000" height="5000"/>
+      <text class="room-label" x="15000" y="5800">透視室</text>
+
+      <!-- DSA -->
+      <rect class="room" x="0" y="3500" width="2486.5" height="3121"/>
+      <text class="room-label" x="1243" y="5000">ＤＳＡ</text>
+
+      <!-- PS / CPU 室 / メンテナンススペース (左下) -->
+      <rect class="room" x="0" y="6621" width="2486.5" height="2436"/>
+      <text class="room-sub" x="1243" y="7800">CPU 室</text>
+      <rect class="room" x="0" y="9057" width="2486.5" height="1280"/>
+      <text class="room-sub" x="1243" y="9700">階段(2) / PS</text>
+
+      <!-- MRI -->
+      <rect class="room" x="13000" y="8500" width="6500" height="2500"/>
+      <text class="room-label" x="16250" y="9800">ＭＲＩ</text>
+
+      <!-- 透視室 下の更衣 -->
+      <rect class="room" x="8500" y="8500" width="4500" height="2500"/>
+      <text class="room-sub" x="10750" y="9800">更衣 / 廊下</text>
+    </g>
+
+    <!-- ===== 放射線室 (現状: Y=5,718mm) ===== -->
+    <g id="rad-before">
+      <rect class="room-rad" x="2486.5" y="3500" width="5718" height="5718"/>
+      <text class="room-label" x="5345" y="6200">放射線室</text>
+      <text class="room-sub"   x="5345" y="6420">(推奨 CH=2,855)</text>
+      <text class="room-sub"   x="5345" y="6620" style="font-size:9px">幅 5,718 × 高 5,718 mm</text>
+
+      <!-- Y方向寸法 (現状) -->
+      <g class="dim-text">
+        <line class="dim-line" x1="8400" y1="3500" x2="8400" y2="9218"/>
+        <line class="dim-line" x1="8300" y1="3500" x2="8500" y2="3500"/>
+        <line class="dim-line" x1="8300" y1="9218" x2="8500" y2="9218"/>
+        <text x="8550" y="6400" transform="rotate(-90 8550 6400)">5,718</text>
+      </g>
+    </g>
+
+    <!-- ===== 放射線室 (変更後: Y=5,418mm) ===== -->
+    <g id="rad-after" style="display:none">
+      <!-- 縮小された 300mm 部分 (赤の点線枠) -->
+      <rect class="removed" x="2486.5" y="8918" width="5718" height="300"/>
+      <text class="note" x="5345" y="9100" text-anchor="middle">▲ 300mm 縮小</text>
+
+      <rect class="room-rad changed" x="2486.5" y="3500" width="5718" height="5418"/>
+      <text class="room-label" x="5345" y="6200">放射線室</text>
+      <text class="room-sub"   x="5345" y="6420">(推奨 CH=2,855)</text>
+      <text class="room-sub"   x="5345" y="6620" style="font-size:9px">幅 5,718 × 高 5,418 mm</text>
+
+      <!-- Y方向寸法 (変更後) -->
+      <g class="dim-text">
+        <line class="dim-line" x1="8400" y1="3500" x2="8400" y2="8918"/>
+        <line class="dim-line" x1="8300" y1="3500" x2="8500" y2="3500"/>
+        <line class="dim-line" x1="8300" y1="8918" x2="8500" y2="8918"/>
+        <text class="dim-text hl" x="8550" y="6200" transform="rotate(-90 8550 6200)">5,418 (-300)</text>
+      </g>
+    </g>
+
+    <!-- ===== 放射線室 (比較: 半透明重ね) ===== -->
+    <g id="rad-compare" style="display:none">
+      <rect class="room-rad" x="2486.5" y="3500" width="5718" height="5718" fill-opacity="0.4"/>
+      <rect class="removed" x="2486.5" y="8918" width="5718" height="300"/>
+      <rect x="2486.5" y="3500" width="5718" height="5418"
+            fill="none" stroke="#0891b2" stroke-width="3" stroke-dasharray="8 4"/>
+      <text class="room-label" x="5345" y="6200">放射線室</text>
+      <text class="room-sub"   x="5345" y="6420">現状 5,718 → 変更後 5,418 (-300)</text>
+      <text class="note" x="5345" y="9100" text-anchor="middle">▲ 300mm 縮小</text>
+
+      <g class="dim-text">
+        <line class="dim-line" x1="8400" y1="3500" x2="8400" y2="9218" stroke="#999"/>
+        <text x="8550" y="6700" transform="rotate(-90 8550 6700)" fill="#999">現状 5,718</text>
+
+        <line class="dim-line" x1="9100" y1="3500" x2="9100" y2="8918"/>
+        <text class="dim-text hl" x="9250" y="6000" transform="rotate(-90 9250 6000)">変更後 5,418</text>
+      </g>
+    </g>
+
+    <!-- ===== 機器配置 (簡略) ===== -->
+    <g id="equipment" opacity="0.7">
+      <!-- X線装置の簡易表現 -->
+      <circle cx="5000" cy="5000" r="220" fill="none" stroke="#444"/>
+      <circle cx="5000" cy="6500" r="220" fill="none" stroke="#444"/>
+      <rect x="4500" y="5200" width="1000" height="1200" fill="none" stroke="#444"/>
+      <text x="5000" y="5900" text-anchor="middle" style="font-size:9px;fill:#444">X線装置</text>
+    </g>
+
+    <!-- ===== 図面枠下部 (タイトルブロック) ===== -->
+    <g class="title-block" transform="translate(11800, 9500)">
+      <rect x="0" y="0" width="7200" height="1400"/>
+      <line x1="0" y1="350" x2="7200" y2="350"/>
+      <line x1="0" y1="700" x2="7200" y2="700"/>
+      <line x1="0" y1="1050" x2="7200" y2="1050"/>
+      <line x1="1800" y1="0" x2="1800" y2="1400"/>
+      <line x1="3600" y1="0" x2="3600" y2="1400"/>
+      <line x1="5400" y1="0" x2="5400" y2="1400"/>
+      <text x="100" y="150">作成日</text><text x="100" y="280">2014-11-11</text>
+      <text x="1900" y="150">営業担当</text><text x="1900" y="280">沖野</text>
+      <text x="3700" y="150">顧客名</text><text x="3700" y="280">きたじま田岡病院 御中</text>
+      <text x="100" y="500">作図</text><text x="100" y="630">長里</text>
+      <text x="1900" y="500">検討</text><text x="1900" y="630">松下</text>
+      <text x="3700" y="500">承認</text><text x="3700" y="630">山下</text>
+      <text x="5500" y="500">図面名称</text><text x="5500" y="630">レイアウト図(案)</text>
+      <text x="100" y="850">図面番号</text><text x="100" y="980">0E370-14067</text>
+      <text x="1900" y="850">改定</text><text x="1900" y="980">C</text>
+      <text x="3700" y="850">SEET</text><text x="3700" y="980">1/2</text>
+      <text x="5500" y="850">縮尺</text><text x="5500" y="980">1/60</text>
+      <text x="100" y="1200" style="font-size:11px;font-weight:bold">株式会社 島津製作所</text>
+    </g>
+  </svg>
+</div>
+
+<div style="margin-top:12px;font-size:12px;color:#444;">
+  <strong>変更内容:</strong> 放射線室を Y方向に <span style="color:#b91c1c;font-weight:bold">300mm</span> 縮小 (5,718mm → 5,418mm)。
+  下端 (Y2 側) を 300mm 引き上げ、MRI用CPU室および透視室との壁位置を再調整する想定です。<br>
+  <strong>注意:</strong> 本ファイルは PDF「0E370-14067 レイアウト図(案)」を HTML+SVG で再現した簡略図です。正式な施工図ではありません。
+  実際の寸法・機器配置・建築構造との整合は CAD 原図にて再確認してください。
+</div>
+
+<script>
+  function setView(v) {
+    document.getElementById('rad-before').style.display  = (v === 'before')  ? '' : 'none';
+    document.getElementById('rad-after').style.display   = (v === 'after')   ? '' : 'none';
+    document.getElementById('rad-compare').style.display = (v === 'compare') ? '' : 'none';
+  }
+</script>
+
+</body>
+</html>
