@@ -1,0 +1,35 @@
+name: fetch
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Newline separated URLs'
+        required: true
+        type: string
+      batch:
+        description: 'Batch name'
+        required: false
+        default: 'batch'
+        type: string
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pages
+        env:
+          URLS: ${{ inputs.urls }}
+          BATCH: ${{ inputs.batch }}
+        run: python3 fetch.py
+      - name: Push results
+        env:
+          BATCH: ${{ inputs.batch }}
+        run: |
+          git config user.name "fetch-bot"
+          git config user.email "fetch-bot@users.noreply.github.com"
+          git checkout -b "results-$BATCH"
+          git add -A out
+          git commit -m "results $BATCH"
+          git push -f origin "results-$BATCH"
