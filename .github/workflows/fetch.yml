@@ -1,16 +1,8 @@
 name: fetch
 on:
-  workflow_dispatch:
-    inputs:
-      urls:
-        description: 'Newline separated URLs'
-        required: true
-        type: string
-      batch:
-        description: 'Batch name'
-        required: false
-        default: 'batch'
-        type: string
+  push:
+    branches: [main]
+    paths: ['request/**']
 permissions:
   contents: write
 jobs:
@@ -19,14 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Fetch pages
-        env:
-          URLS: ${{ inputs.urls }}
-          BATCH: ${{ inputs.batch }}
         run: python3 fetch.py
       - name: Push results
-        env:
-          BATCH: ${{ inputs.batch }}
         run: |
+          BATCH=$(cat request/batch.txt 2>/dev/null || echo batch)
           git config user.name "fetch-bot"
           git config user.email "fetch-bot@users.noreply.github.com"
           git checkout -b "results-$BATCH"

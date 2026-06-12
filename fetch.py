@@ -1,7 +1,12 @@
 import os, re, ssl, urllib.request
 
-urls = [u.strip() for u in os.environ.get("URLS", "").splitlines() if u.strip()]
-batch = os.environ.get("BATCH", "batch")
+with open("request/urls.txt") as f:
+    urls = [u.strip() for u in f.read().splitlines() if u.strip()]
+try:
+    with open("request/batch.txt") as f:
+        batch = f.read().strip() or "batch"
+except Exception:
+    batch = "batch"
 outdir = os.path.join("out", batch)
 os.makedirs(outdir, exist_ok=True)
 ctx = ssl.create_default_context()
