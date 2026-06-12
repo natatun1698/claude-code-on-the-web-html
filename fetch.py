@@ -21,7 +21,11 @@ index = []
 for i, u in enumerate(urls):
     base = os.path.join(outdir, "%03d" % i)
     try:
-        req = urllib.request.Request(u, headers=HEADERS)
+        from urllib.parse import urlsplit
+        parts = urlsplit(u)
+        h = dict(HEADERS)
+        h["Referer"] = "%s://%s/" % (parts.scheme, parts.netloc)
+        req = urllib.request.Request(u, headers=h)
         r = urllib.request.urlopen(req, timeout=40, context=ctx)
         data = r.read()
         status = getattr(r, "status", None) or r.getcode()

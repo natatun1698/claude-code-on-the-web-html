@@ -1,9 +1,2 @@
-https://nerima-hosp.or.jp/data/media/nerima-hos/page/departments/radiology/img01.jpg
-https://nerima-hosp.or.jp/data/media/nerima-hos/page/departments/radiology/img04.jpg
-https://nerima-hosp.or.jp/data/media/nerima-hos/page/departments/radiology/img18.jpg
 https://www.midorikai-youwa.jp/dcms_media/image/technology-04-01.jpg
-https://static.wixstatic.com/media/d5040e_259c0c4492cb454696c96e766aff2552~mv2.jpg
-https://static.wixstatic.com/media/d5040e_b4e2a03519c748c5a5a6b9705c1e09be~mv2.jpg
-https://static.wixstatic.com/media/d5040e_b7243235794d407b89f12c9c27ec9ee3~mv2.jpg
-https://oizumi.tokyo-health.coop/team/img/img_team14.jpg
-https://hikarigaoka-jadecom.jp/department/radiology.html
+https://hikarigaoka-jadecom.jp/data/media/hikarigaoka-jadecom/page/department/radiology/img05.jpg
