@@ -1,0 +1,2 @@
+000	ERROR	https://www.midorikai-youwa.jp/dcms_media/image/technology-04-01.jpg	<HTTPError 403: 'Forbidden'>
+001	OK 200	https://hikarigaoka-jadecom.jp/data/media/hikarigaoka-jadecom/page/department/radiology/img05.jpg	10759 bytes
