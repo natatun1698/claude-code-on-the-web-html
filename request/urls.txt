@@ -1,8 +1,4 @@
-https://tanaka-nrsg.jp/radiation
-https://tanaka-nrsg.jp/inspection
-https://nerima-hosp.or.jp/sitemap.xml
-https://nerima-hosp.or.jp/
-https://www.nerimatakanodai-hp.jp/
-https://www.nerimatakanodai-hp.jp/sitemap.xml
-https://suzuki-hospi.or.jp/
-https://suzuki-hospi.or.jp/sitemap.xml
+https://nerima-hosp.or.jp/departments/radiology.html
+https://suzuki-hospi.or.jp/inspection-equipment
+https://www.nerimatakanodai-hp.jp/facility
+https://oizumi.tokyo-health.coop/info/info4.shtml
