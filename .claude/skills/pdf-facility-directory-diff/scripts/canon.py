@@ -57,12 +57,25 @@ def canon_system(raw):
     best_fam, best_sc = None, 0
     for fam, probes in FAMILIES:
         for p in probes:
-            sc = fuzz.partial_ratio(p, n)
-            # weight longer probes higher
-            sc = sc * (1 - 0.25 / max(len(p), 2))
+            if len(p) < 4:
+                # very short probes (e.g. IGS, CVS, MH): require near-exact presence
+                if re.search(re.escape(p) + r'\s*\d', n) or p in n:
+                    sc = 90
+                else:
+                    continue
+            else:
+                sc = fuzz.partial_ratio(p, n)
+                sc = sc * (1 - 0.25 / max(len(p), 2))
             if sc > best_sc:
                 best_fam, best_sc = fam, sc
-    if best_sc < 68:
+    # option-only continuation lines must never match
+    OPT = {'DSA', 'FPD', 'CD', 'NET', 'ICT', '3D', 'S', 'B', 'D', 'SP', 'BP', 'DP',
+           'PPD', 'FED', 'EPD', 'FD', 'CDNET', '3DNET', 'DSA3DNET', 'DSA3D', 'SD',
+           'DSASDNET', 'DSA3DNE', 'CDNE', 'FPDCDNET', '3DFPDCDNET', 'IS', 'ISI', 'SI', 'IB', 'IBI'}
+    toks = [t for t in re.split(r'[^A-Z0-9]+', n) if t]
+    if toks and all(t in OPT or t.isdigit() for t in toks):
+        return None, raw.strip(), None, 0
+    if len(n) < 4 or best_sc < 72:
         return None, raw.strip(), None, 0
     fam = best_fam
     maker = MAKER_BY_FAMILY[fam]
