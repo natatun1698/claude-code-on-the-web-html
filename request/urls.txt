@@ -1,6 +1,3 @@
-https://web.archive.org/web/20211026053039/https://www.tokushima-med.jrc.or.jp/file/attachment/6660.pdf
-https://web.archive.org/web/20230604202802/https://www.tokushima-med.jrc.or.jp/file/attachment/7372.pdf
-https://web.archive.org/web/20250430033401/https://www.tokushima-med.jrc.or.jp/file/attachment/8486.pdf
-https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/6660.pdf&output=json&limit=50
-https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/7372.pdf&output=json&limit=50
-https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/8486.pdf&output=json&limit=50
+https://www.tokushima-med.jrc.or.jp/file/attachment/6660.pdf
+https://www.tokushima-med.jrc.or.jp/file/attachment/7372.pdf
+https://www.tokushima-med.jrc.or.jp/file/attachment/8486.pdf

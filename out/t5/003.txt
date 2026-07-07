@@ -1,0 +1,11 @@
+URL: https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/6660.pdf&output=json&limit=50
+FINAL: https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/6660.pdf&output=json&limit=50
+STATUS: 200
+
+[]
+
+
+==== IMG TAGS ====
+
+
+==== LINKS ====
