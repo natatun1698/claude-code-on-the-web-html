@@ -1,0 +1,4 @@
+000	OK 200	https://www.iiyama.jrc.or.jp/file/attachment/1364.pdf	728051 bytes
+001	OK 200	https://www.iiyama.jrc.or.jp/file/attachment/1026.pdf	698798 bytes
+002	OK 200	https://www.iiyama.jrc.or.jp/file/attachment/1711.pdf	266004 bytes
+003	OK 200	https://www.yamanashi-med.jrc.or.jp/wp-content/uploads/2025/04/contract_20250409.pdf	94204 bytes
