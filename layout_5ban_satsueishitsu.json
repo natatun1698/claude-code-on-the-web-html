@@ -1,0 +1,39 @@
+{
+  "$comment": "手書きスケッチ「5番撮影室」からの起こし。寸法・表題欄の一部は仮値/推測（ユーザー確認済み: 操作室=縦4550×横2000、操作室-検査室間はスライドドア）。",
+  "project": {
+    "customer_name": "",
+    "drawing_title": "5番撮影室 レイアウト図（案）",
+    "drawing_number": "DRAFT-20260707",
+    "revision": "A",
+    "sheet": "1/1",
+    "created_date": "2026-07-07",
+    "disclaimer_kind": "plan",
+    "special_notes": [
+      "※本図は手書きスケッチからの読み取りに基づく仮案です。寸法・装置配置は現地確認の上、確定してください。"
+    ]
+  },
+  "rooms": [
+    {
+      "role": "exam_room",
+      "name": "5番撮影室",
+      "outline_mm": [[0, 0], [2900, 0], [2900, 4550], [0, 4550]],
+      "wall_thickness_mm": 150,
+      "openings": [
+        {"kind": "swing_door", "wall_index": 0, "offset_mm": 1100, "width_mm": 900, "swing": "in_left"},
+        {"kind": "sliding_door", "wall_index": 3, "offset_mm": 1825, "width_mm": 900}
+      ]
+    },
+    {
+      "role": "control_room",
+      "name": "操作室",
+      "outline_mm": [[-2000, 0], [0, 0], [0, 4550], [-2000, 4550]],
+      "wall_thickness_mm": 150
+    }
+  ],
+  "optional_equipment": [],
+  "equipment_placement": [
+    {"no": 1, "block": "ZS200_MAIN",  "room_role": "exam_room",    "position_mm": [1450, 2600], "rotation_deg": 90},
+    {"no": 5, "block": "DR_EXAM_CAB", "room_role": "exam_room",    "position_mm": [2600, 4050], "rotation_deg": 90},
+    {"no": 4, "block": "ZS200_RC",    "room_role": "control_room", "position_mm": [-1000, 2600], "rotation_deg": 0}
+  ]
+}
