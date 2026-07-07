@@ -1,0 +1,62 @@
+# Slackデータ取得リレー
+#
+# Claude Codeのサンドボックスからslack.comへ直接アクセスできない場合に、
+# GitHub Actions経由でSlackデータを取得してブランチにコミットする。
+#
+# 事前準備(1回だけ):
+#   リポジトリの Settings > Secrets and variables > Actions に
+#   SLACK_TOKEN を登録する(xoxb- または xoxp- トークン)。
+#   必要スコープ: channels:history, groups:history, reactions:read, users:read
+#
+# 使い方: workflow_dispatch で channel / days / branch を指定して実行。
+# 結果は指定ブランチの data/slack_raw.json にコミットされる。
+name: Slack Fetch Relay
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "SlackチャンネルID (例: CBHRRSZAP)"
+        required: true
+        default: "CBHRRSZAP"
+      days:
+        description: "遡る日数"
+        required: false
+        default: "30"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch Slack data
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        run: |
+          if [ -z "$SLACK_TOKEN" ]; then
+            echo "::error::SLACK_TOKEN secret が未設定です。リポジトリのSettings > Secrets and variables > Actions で登録してください。"
+            exit 1
+          fi
+          python .claude/skills/slack-reaction-dashboard/scripts/slack_reaction_dashboard.py fetch \
+            --channel "${{ inputs.channel }}" \
+            --days "${{ inputs.days }}" \
+            --out data/slack_raw.json
+
+      - name: Commit fetched data
+        run: |
+          git config user.name "slack-fetch-relay"
+          git config user.email "actions@github.com"
+          git add data/slack_raw.json
+          git commit -m "Fetch Slack data: ${{ inputs.channel }} (${{ inputs.days }}d)" || echo "no changes"
+          git push
