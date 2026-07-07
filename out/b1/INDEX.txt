@@ -1,0 +1,13 @@
+000	OK 200	https://www.med.jrc.or.jp/chotatsu/tabid/379/Default.aspx	195624 bytes
+001	OK 200	https://omori.jrc.or.jp/guidance/bid/	44789 bytes
+002	OK 200	https://www.musashino.jrc.or.jp/medical-personnel/tender.html	221029 bytes
+003	OK 200	https://katsushika.jrc.or.jp/bid/voluntary-contract/	48500 bytes
+004	OK 200	https://www.narita.jrc.or.jp/about/bid/index.html	58720 bytes
+005	OK 200	https://www.yamanashi-med.jrc.or.jp/other/tendering.html	13784 bytes
+006	ERROR	https://www.nagano-med.jrc.or.jp/information/bid/zuii/	<HTTPError 404: 'Not Found'>
+007	OK 200	http://www.suwa.jrc.or.jp/0400168.html	9236 bytes
+008	OK 200	https://www.azumino.jrc.or.jp/nyusatu/	346264 bytes
+009	OK 200	https://www.iiyama.jrc.or.jp/auctionInformation/385/	25614 bytes
+010	OK 200	https://shimoina.jrc.or.jp/	26036 bytes
+011	OK 200	https://mito.jrc.or.jp/about/bid/	39209 bytes
+012	OK 200	https://www.koga.jrc.or.jp/bidpublic/	63702 bytes
