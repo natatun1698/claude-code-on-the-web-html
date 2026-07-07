@@ -43,9 +43,9 @@
     {"no": 1,  "block": "ZS200_MAIN",     "room_role": "exam_room",    "position_mm": [2600, 2200], "rotation_deg": 0},
     {"no": 2,  "block": "ZS200_CAB",      "room_role": "exam_room",    "position_mm": [4900, 3400], "rotation_deg": 90},
     {"no": 3,  "block": "ZS200_LCC",      "room_role": "exam_room",    "position_mm": [1500, 1800], "rotation_deg": 0},
-    {"no": 4,  "block": "ZS200_RC",       "room_role": "control_room", "position_mm": [2600, -800], "rotation_deg": 180},
+    {"no": 4,  "block": "ZS200_RC",       "room_role": "control_room", "position_mm": [2600, -550], "rotation_deg": 0},
     {"no": 5,  "block": "DR_EXAM_CAB",    "room_role": "exam_room",    "position_mm": [4900, 1200], "rotation_deg": 90},
-    {"no": 9,  "block": "DR_OPE_CAB",     "room_role": "control_room", "position_mm": [3300, -800], "rotation_deg": 180},
+    {"no": 9,  "block": "DR_OPE_CAB",     "room_role": "control_room", "position_mm": [3400, -750], "rotation_deg": 0},
     {"no": 12, "block": "HV_D150BC_40S",  "room_role": "exam_room",    "position_mm": [4900, 2600], "rotation_deg": 90}
   ]
 }
