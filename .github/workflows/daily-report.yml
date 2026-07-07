@@ -1,0 +1,76 @@
+# ============================================================
+# 毎朝6時(日本時間)に Slack リアクションレポートを自動生成して
+# メール送信する GitHub Actions ワークフロー
+#
+# 事前準備:
+#   リポジトリの Settings → Secrets and variables → Actions で
+#   以下の Secrets を登録してください。
+#     - SLACK_BOT_TOKEN    (必須)
+#     - GMAIL_ADDRESS      (メール送信に必須)
+#     - GMAIL_APP_PASSWORD (メール送信に必須)
+#     - REPORT_TO_EMAIL    (メール送信に必須)
+#     - NOTION_TOKEN           (Notion 連携を使う場合のみ)
+#     - NOTION_PARENT_PAGE_ID  (Notion 連携を使う場合のみ)
+# ============================================================
+
+name: Daily Slack Reaction Report
+
+on:
+  schedule:
+    # GitHub Actions の cron は UTC(世界標準時)で指定します。
+    # 日本時間の朝6時 = UTC の前日21時 なので "0 21 * * *" になります。
+    - cron: "0 21 * * *"
+  # 手動でも実行できるようにしておく(Actions タブの Run workflow ボタン)
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    # 無限に動き続けないようにタイムアウトを設定(分)
+    timeout-minutes: 30
+
+    steps:
+      # リポジトリのコードを取得する
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Python をセットアップする
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 必要なライブラリをインストールする
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # レポート(Excel)を生成する
+      - name: Generate reaction report
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        run: python src/slack_reaction_report.py
+
+      # レポートをメールで送信する
+      - name: Send report by email
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
+        run: python src/send_email.py
+
+      # Notion にもアップロードする(Secrets が設定されている場合のみ実行)
+      - name: Upload report to Notion
+        if: ${{ vars.ENABLE_NOTION_UPLOAD == 'true' }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+        run: python src/upload_to_notion.py
+
+      # 生成した Excel を GitHub 上にも保存する(あとからダウンロード可能)
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: slack-reaction-report
+          path: output/slack_reaction_report.xlsx
+          retention-days: 30

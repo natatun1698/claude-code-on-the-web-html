@@ -1,0 +1,11 @@
+# Slack Web API クライアント(公式SDK)
+slack_sdk>=3.27.0
+
+# .env ファイルから環境変数を読み込むためのライブラリ
+python-dotenv>=1.0.0
+
+# Excel (.xlsx) ファイルを作成するためのライブラリ
+openpyxl>=3.1.0
+
+# Notion API を呼び出すための HTTP ライブラリ
+requests>=2.31.0
