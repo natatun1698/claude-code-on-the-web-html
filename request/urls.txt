@@ -1,2 +1,2 @@
-https://www.tokushima-med.jrc.or.jp/file/attachment/11106.pdf
-https://www.tokushima-med.jrc.or.jp/sitemap/
+https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/&output=json&limit=200
+https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/*&output=json&collapse=urlkey&filter=mimetype:application/pdf&limit=3000

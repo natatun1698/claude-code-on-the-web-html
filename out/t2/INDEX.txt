@@ -1,0 +1,2 @@
+000	OK 200	https://www.tokushima-med.jrc.or.jp/file/attachment/11106.pdf	242325 bytes
+001	ERROR	https://www.tokushima-med.jrc.or.jp/sitemap/	<HTTPError 403: 'Forbidden'>
