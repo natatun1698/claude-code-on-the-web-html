@@ -1,0 +1,9 @@
+000	OK 200	https://web.archive.org/web/20211026053039/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	59086 bytes
+001	OK 200	https://web.archive.org/web/20220808010912/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	59659 bytes
+002	OK 200	https://web.archive.org/web/20221206040025/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	58082 bytes
+003	OK 200	https://web.archive.org/web/20230604202802/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	58091 bytes
+004	OK 200	https://web.archive.org/web/20230922181559/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	59422 bytes
+005	OK 200	https://web.archive.org/web/20240526210930/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	59418 bytes
+006	OK 200	https://web.archive.org/web/20250113001944/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	59148 bytes
+007	OK 200	https://web.archive.org/web/20250430033401/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	60525 bytes
+008	OK 200	https://web.archive.org/web/20251106204339/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	62956 bytes
