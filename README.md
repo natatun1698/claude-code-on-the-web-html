@@ -41,6 +41,10 @@ python3 scripts/slack_reaction_dashboard.py
 # チャネル・期間を指定
 python3 scripts/slack_reaction_dashboard.py --channels C02REH1V7QW C02SC8DRRDG --days 30
 
+# Slack エクスポート (ZIP / 展開済みディレクトリ) から生成 — トークン不要
+# --channels はチャネル ID・チャネル名どちらでも指定可
+python3 scripts/slack_reaction_dashboard.py --export path/to/export.zip
+
 # トークンなしでレイアウト確認 (サンプルデータ)
 python3 scripts/slack_reaction_dashboard.py --demo
 ```

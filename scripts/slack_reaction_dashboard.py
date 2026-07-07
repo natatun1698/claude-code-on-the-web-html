@@ -15,6 +15,9 @@ output/notion/ に出力する。
   export SLACK_BOT_TOKEN=xoxb-...   # または SLACK_USER_TOKEN / SLACK_TOKEN
   python scripts/slack_reaction_dashboard.py --channels C02REH1V7QW C02SC8DRRDG --days 30
 
+  # Slack エクスポート (ZIP または展開済みディレクトリ) から生成する場合 (トークン不要):
+  python scripts/slack_reaction_dashboard.py --export path/to/export.zip
+
   # Slack トークンなしでレイアウト確認用のサンプルを生成する場合:
   python scripts/slack_reaction_dashboard.py --demo
 
@@ -212,6 +215,130 @@ def fetch_channel_messages(token: str, channel_id: str, oldest: float) -> list[d
         time.sleep(1.0)
 
     return messages
+
+
+# ---------------------------------------------------------------------------
+# Slack エクスポート (ZIP / ディレクトリ) の読み込み
+# ---------------------------------------------------------------------------
+class SlackExport:
+    """Slack のワークスペースエクスポートを読む。
+
+    構成: users.json / channels.json (+ groups.json 等) /
+    <channel_name>/YYYY-MM-DD.json (その日のメッセージ配列)
+    """
+
+    def __init__(self, path: str):
+        import io
+        import json
+        import zipfile
+
+        self._json = json
+        p = Path(path)
+        if p.is_file():
+            self._zip = zipfile.ZipFile(p)
+            self._names = self._zip.namelist()
+            self._root = self._common_zip_root(self._names)
+            self._dir = None
+        elif p.is_dir():
+            self._zip = None
+            self._dir = p
+        else:
+            raise FileNotFoundError(f"エクスポートが見つかりません: {path}")
+
+    @staticmethod
+    def _common_zip_root(names: list[str]) -> str:
+        """ZIP 直下に単一フォルダが挟まっている場合はそれをルートとして扱う。"""
+        tops = {n.split("/", 1)[0] for n in names if n.strip("/")}
+        if len(tops) == 1 and any("/" in n for n in names):
+            top = next(iter(tops))
+            if not any(n == top for n in names):  # 単一フォルダのみ
+                return top + "/"
+        return ""
+
+    def _read_json(self, rel: str):
+        if self._zip is not None:
+            full = self._root + rel
+            if full not in self._names:
+                return None
+            return self._json.loads(self._zip.read(full).decode("utf-8"))
+        f = self._dir / rel
+        if not f.is_file():
+            return None
+        return self._json.loads(f.read_text(encoding="utf-8"))
+
+    def _list_day_files(self, channel_name: str) -> list[str]:
+        prefix = f"{channel_name}/"
+        if self._zip is not None:
+            full_prefix = self._root + prefix
+            return sorted(
+                n[len(self._root):] for n in self._names
+                if n.startswith(full_prefix) and n.endswith(".json")
+            )
+        d = self._dir / channel_name
+        if not d.is_dir():
+            return []
+        return sorted(f"{channel_name}/{f.name}" for f in d.glob("*.json"))
+
+    def user_map(self) -> dict[str, str]:
+        users = {}
+        for m in self._read_json("users.json") or []:
+            prof = m.get("profile", {})
+            name = prof.get("display_name") or prof.get("real_name") or m.get("name") or m["id"]
+            users[m["id"]] = name
+        return users
+
+    def channel_index(self) -> dict[str, str]:
+        """channel_id -> channel_name (public: channels.json, private: groups.json)"""
+        index = {}
+        for fname in ("channels.json", "groups.json", "mpims.json"):
+            for ch in self._read_json(fname) or []:
+                if "id" in ch and "name" in ch:
+                    index[ch["id"]] = ch["name"]
+        return index
+
+    def channel_messages(self, channel_name: str, oldest: float) -> list[dict]:
+        oldest_day = (datetime.fromtimestamp(oldest, tz=JST) - timedelta(days=2)).date()
+        messages = []
+        for rel in self._list_day_files(channel_name):
+            stem = rel.rsplit("/", 1)[-1][:-5]  # YYYY-MM-DD
+            try:
+                file_day = datetime.strptime(stem, "%Y-%m-%d").date()
+            except ValueError:
+                continue
+            if file_day < oldest_day:
+                continue
+            for raw in self._read_json(rel) or []:
+                if float(raw.get("ts", 0)) < oldest:
+                    continue
+                norm = _normalize_message(raw)
+                if norm is not None:
+                    messages.append(norm)
+        return messages
+
+
+def collect_from_export(export_path: str, channels: list[str],
+                        oldest: float) -> tuple[list[ChannelStats], dict[str, str]]:
+    exp = SlackExport(export_path)
+    user_map = exp.user_map()
+    index = exp.channel_index()  # id -> name
+    by_name = {v: k for k, v in index.items()}
+
+    all_stats = []
+    for ch in channels:
+        if ch in index:
+            cid, name = ch, index[ch]
+        elif ch.lstrip("#") in by_name:
+            name = ch.lstrip("#")
+            cid = by_name[name]
+        else:
+            available = ", ".join(sorted(index.values())[:20])
+            print(f"警告: チャネル '{ch}' はエクスポートに含まれていません。スキップします。\n"
+                  f"  エクスポート内のチャネル (先頭20件): {available}", file=sys.stderr)
+            continue
+        msgs = exp.channel_messages(name, oldest)
+        print(f"#{name} ({cid}): {len(msgs)} 件のメッセージ")
+        all_stats.append(aggregate(cid, name, msgs))
+    return all_stats, user_map
 
 
 # ---------------------------------------------------------------------------
@@ -682,6 +809,9 @@ def main() -> int:
     ap.add_argument("--out", default="output", help="出力ディレクトリ")
     ap.add_argument("--token", default=None,
                     help="Slack トークン (省略時は SLACK_BOT_TOKEN / SLACK_USER_TOKEN / SLACK_TOKEN)")
+    ap.add_argument("--export", default=None, metavar="PATH",
+                    help="Slack エクスポート (ZIP または展開済みディレクトリ) から読み込む。"
+                         "指定時はトークン不要。--channels にはチャネル ID か名前を指定可")
     ap.add_argument("--demo", action="store_true",
                     help="Slack に接続せずサンプルデータでダッシュボードを生成")
     args = ap.parse_args()
@@ -696,7 +826,13 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     all_stats: list[ChannelStats] = []
-    if args.demo:
+    if args.export:
+        print(f"エクスポートから読み込み: {args.export}")
+        all_stats, user_map = collect_from_export(args.export, args.channels, oldest)
+        if not all_stats:
+            print("エラー: 対象チャネルがエクスポート内に見つかりませんでした。", file=sys.stderr)
+            return 1
+    elif args.demo:
         print("デモモード: サンプルデータでダッシュボードを生成します")
         user_map: dict[str, str] = {}
         demo_names = ["demo-market-team", "demo-dev-random"]

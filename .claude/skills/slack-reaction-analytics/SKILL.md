@@ -23,33 +23,44 @@ description: Slackチャネルの過去30日間（日数変更可）のリアク
    pip install -r requirements.txt
    ```
 
-2. Slack トークンを確認する。優先順: `SLACK_BOT_TOKEN` → `SLACK_USER_TOKEN` → `SLACK_TOKEN`。
+2. データソースを決める。優先順に:
+
+   **(a) Slack エクスポート (ZIP)** — ユーザーがエクスポート ZIP を渡してきた場合。
+   トークン不要。ZIP のまま、または展開済みディレクトリを `--export` に渡す。
+   ```bash
+   python3 scripts/slack_reaction_dashboard.py \
+     --export path/to/export.zip \
+     --channels C02REH1V7QW C02SC8DRRDG --days 30 --out output
+   ```
+   - `--channels` はチャネル ID・チャネル名のどちらでも指定できる。
+   - 標準エクスポートには**パブリックチャネルのみ**含まれる。対象チャネルが
+     見つからない場合は警告に出るエクスポート内チャネル一覧をユーザーに示す。
+   - エクスポートの取得方法（ユーザー向け案内）: Slack の
+     「設定と管理」→「ワークスペースの設定」→「データのインポート/
+     エクスポート」→ エクスポート範囲を選んで書き出し。
+
+   **(b) Slack API トークン** — 環境変数を確認する。
+   優先順: `SLACK_BOT_TOKEN` → `SLACK_USER_TOKEN` → `SLACK_TOKEN`。
    ```bash
    env | grep -oE 'SLACK_(BOT_|USER_)?TOKEN' | head -3
    ```
-   - トークンが**ある**場合 → 手順3で本番実行。
-   - トークンが**ない**場合 → ユーザーに設定を依頼する
-     （Claude Code on the Web なら環境設定の環境変数に追加してもらう）。
-     レイアウト確認だけなら `--demo` でサンプル生成できる。
+   ```bash
+   python3 scripts/slack_reaction_dashboard.py \
+     --channels C02REH1V7QW C02SC8DRRDG --days 30 --out output
+   ```
    - 必要スコープ: `channels:read` `channels:history` `groups:read`
      `groups:history` `reactions:read` `users:read`
      （プライベートチャネルは Bot をチャネルに招待しておく必要がある）
+   - レートリミット処理はスクリプト内蔵。メッセージ数が多いと数分かかる。
 
-3. スクリプトを実行する:
-   ```bash
-   python3 scripts/slack_reaction_dashboard.py \
-     --channels C02REH1V7QW C02SC8DRRDG \
-     --days 30 \
-     --out output
-   ```
-   - デフォルトチャネルは `C02REH1V7QW` と `C02SC8DRRDG`
-     （ワークスペース TBJRY8G6S）。ユーザーが別チャネルを指定したら
-     `--channels` を差し替える。
-   - 期間の指定があれば `--days` を変更する。
-   - Slack API のレートリミット処理はスクリプト内蔵。メッセージ数が多いと
-     数分かかることがあるので、そのまま完了を待つ。
+   **(c) どちらも無い場合** — ユーザーにエクスポート ZIP かトークン設定を
+   依頼する。レイアウト確認だけなら `--demo` でサンプル生成できる。
 
-4. 生成物をユーザーに送る（SendUserFile など、その環境のファイル送信手段で）:
+   共通: デフォルトチャネルは `C02REH1V7QW` と `C02SC8DRRDG`
+   （ワークスペース TBJRY8G6S）。ユーザーが別チャネル・別期間を指定したら
+   `--channels` / `--days` を差し替える。
+
+3. 生成物をユーザーに送る（SendUserFile など、その環境のファイル送信手段で）:
    - `output/slack_reaction_dashboard_YYYYMMDD.xlsx` … メイン成果物
    - `output/notion/summary.md` … Notion 貼り付け用サマリー
 
@@ -73,5 +84,6 @@ description: Slackチャネルの過去30日間（日数変更可）のリアク
 - スレッド返信も投稿数・リアクションに含む。join/leave 等のシステム
   メッセージは除外。
 - Slack の仕様でメッセージ本体の reactions.users が切り詰められる場合は
-  `reactions.get` で自動補完する。
+  `reactions.get` で自動補完する（API モードのみ。エクスポートには全員分が
+  含まれる）。
 - 出力ディレクトリ `output/` は git 管理外。成果物はコミットしない。
