@@ -1,0 +1,14 @@
+URL: https://web.archive.org/cdx/search/cdx?url=shimoina.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|bid|nyusatsu|nyusatu|contract|keiyaku|shizai).*&collapse=urlkey
+FINAL: https://web.archive.org/cdx/search/cdx?url=shimoina.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|bid|nyusatsu|nyusatu|contract|keiyaku|shizai).*&collapse=urlkey
+STATUS: 200
+
+[["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["jp,or,jrc,shimoina)/bid","20191020201625","http://shimoina.jrc.or.jp/bid","text/html","200","WB26IJ23BXOP4XQOBW3NID2HV643IBJC","5050"],
+["jp,or,jrc,shimoina)/keiyaku","20201026071443","https://shimoina.jrc.or.jp/keiyaku/","text/html","200","GDPF4UXQ3TMVWNGXYGQKNYXV7T577SK3","5450"],
+["jp,or,jrc,shimoina)/wp-content/uploads/2020/10/keiyaku-bana-1-1-e1602228626784.jpg","20210114123124","https://shimoina.jrc.or.jp/wp-content/uploads/2020/10/keiyaku-bana-1-1-e1602228626784.jpg","image/jpeg","200","BWQSGP63YFJ46VFLWXC54DHBZVVNSWCT","3285"]]
+
+
+==== IMG TAGS ====
+
+
+==== LINKS ====

@@ -1,0 +1,12 @@
+URL: https://web.archive.org/cdx/search/cdx?url=musashino.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|nyusatsu|nyusatu|contract|keiyaku|kouhyou).*&collapse=urlkey
+FINAL: https://web.archive.org/cdx/search/cdx?url=musashino.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|nyusatsu|nyusatu|contract|keiyaku|kouhyou).*&collapse=urlkey
+STATUS: 200
+
+[["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["jp,or,jrc,musashino)/tender/images/zuii.pdf","20070925124749","http://www.musashino.jrc.or.jp/tender/images/zuii.pdf","text/html","404","OXGL4VHDZOQ6HK5QBC2EVQWBK3WHMECH","397"]]
+
+
+==== IMG TAGS ====
+
+
+==== LINKS ====

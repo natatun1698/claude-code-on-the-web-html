@@ -1,0 +1,18 @@
+URL: https://web.archive.org/cdx/search/cdx?url=suwa.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|bid|nyusatsu|nyusatu|contract|keiyaku).*&collapse=urlkey
+FINAL: https://web.archive.org/cdx/search/cdx?url=suwa.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|bid|nyusatsu|nyusatu|contract|keiyaku).*&collapse=urlkey
+STATUS: 200
+
+[["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["jp,or,jrc,suwa)/cgi-bin/news/image/nyusatsu_kouji.pdf","20060620060650","http://www.suwa.jrc.or.jp:80/cgi-bin/news/image/nyusatsu_kouji.pdf","application/pdf","200","HJLL44QOJ62DCP3WEE5SBV5E3OL5K6GS","85709"],
+["jp,or,jrc,suwa)/cgi-bin/news/image/nyusatsu_kouji_070611.pdf","20070714231315","http://www.suwa.jrc.or.jp/cgi-bin/news/image/nyusatsu_kouji_070611.pdf","application/pdf","200","DFHCNUKBVDP4HDPDSSDHNN4IWPE3SG5L","85658"],
+["jp,or,jrc,suwa)/cgi-bin/news/image/nyusatsu_kounyu.pdf","20060620060618","http://www.suwa.jrc.or.jp:80/cgi-bin/news/image/nyusatsu_kounyu.pdf","application/pdf","200","XJMABHGB6PQ6LTZO7VTTELFB2B3QPPG2","86484"],
+["jp,or,jrc,suwa)/cgi-bin/news/image/nyusatsu_kounyu_070611.pdf","20070714231248","http://www.suwa.jrc.or.jp/cgi-bin/news/image/nyusatsu_kounyu_070611.pdf","application/pdf","200","2P5FNRLNBBBHPSZF5GTX7HUIIZ4GQUYA","86418"],
+["jp,or,jrc,suwa)/cgi-bin/news/image/nyusatsu_shikaku.pdf","20060620060735","http://www.suwa.jrc.or.jp:80/cgi-bin/news/image/nyusatsu_shikaku.pdf","application/pdf","200","2Q6N7K4RRL7SCO7J7MRXYJR7X2WKKRA2","180456"],
+["jp,or,jrc,suwa)/cgi-bin/news/image/nyusatsu_shikaku_070511.pdf","20070729023021","http://www.suwa.jrc.or.jp/cgi-bin/news/image/nyusatsu_shikaku_070511.pdf","application/pdf","200","3J4FGA3JDPYPZE2UTMUIIPKSWXGERMM6","180416"],
+["jp,or,jrc,suwa)/pdf/kyukyu_nyusatsu.pdf","20060505055619","http://www.suwa.jrc.or.jp:80/pdf/kyukyu_nyusatsu.pdf","application/pdf","200","XYMEGB54R2FLOGHDAMDKFYO7PRG2IFHF","228031"]]
+
+
+==== IMG TAGS ====
+
+
+==== LINKS ====

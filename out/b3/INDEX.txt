@@ -1,0 +1,5 @@
+000	OK 200	https://web.archive.org/cdx/search/cdx?url=suwa.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|bid|nyusatsu|nyusatu|contract|keiyaku).*&collapse=urlkey	1582 bytes
+001	OK 200	https://web.archive.org/cdx/search/cdx?url=shimoina.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|bid|nyusatsu|nyusatu|contract|keiyaku|shizai).*&collapse=urlkey	622 bytes
+002	OK 200	https://web.archive.org/cdx/search/cdx?url=musashino.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|nyusatsu|nyusatu|contract|keiyaku|kouhyou).*&collapse=urlkey	259 bytes
+003	OK 200	https://web.archive.org/cdx/search/cdx?url=yamanashi-med.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(contract|zuii).*&collapse=urlkey	332 bytes
+004	OK 200	https://web.archive.org/cdx/search/cdx?url=nagano-med.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuikei).*&collapse=urlkey	5883 bytes

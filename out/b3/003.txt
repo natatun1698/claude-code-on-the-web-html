@@ -1,0 +1,12 @@
+URL: https://web.archive.org/cdx/search/cdx?url=yamanashi-med.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(contract|zuii).*&collapse=urlkey
+FINAL: https://web.archive.org/cdx/search/cdx?url=yamanashi-med.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(contract|zuii).*&collapse=urlkey
+STATUS: 200
+
+[["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["jp,or,jrc,yamanashi-med)/wp-content/uploads/2024/03/contract_20240312-1.pdf","20240812152915","https://www.yamanashi-med.jrc.or.jp/wp-content/uploads/2024/03/contract_20240312-1.pdf","application/pdf","200","2MGXPO5Z3VSYZBSYCBYWBSRGKVZONLMI","87122"]]
+
+
+==== IMG TAGS ====
+
+
+==== LINKS ====
