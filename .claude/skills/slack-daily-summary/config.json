@@ -1,0 +1,17 @@
+{
+  "lookback_hours": 24,
+  "channels": [
+    {
+      "workspace": "T05FDPJRQBD",
+      "channel": "C05FDPJT3NF",
+      "token_env": "SLACK_TOKEN_T05FDPJRQBD",
+      "url": "https://app.slack.com/client/T05FDPJRQBD/C05FDPJT3NF"
+    },
+    {
+      "workspace": "TBJRY8G6S",
+      "channel": "CBHRRSZAP",
+      "token_env": "SLACK_TOKEN_TBJRY8G6S",
+      "url": "https://app.slack.com/client/TBJRY8G6S/CBHRRSZAP"
+    }
+  ]
+}
