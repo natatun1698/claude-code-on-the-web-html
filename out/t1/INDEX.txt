@@ -1,0 +1,3 @@
+000	OK 200	https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/	42090 bytes
+001	OK 200	https://www.tokushima-med.jrc.or.jp/	51034 bytes
+002	OK 200	https://www.tokushima-med.jrc.or.jp/medicalPersonnel/	41525 bytes
