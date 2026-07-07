@@ -1,0 +1,94 @@
+{
+  "$comment": "SONIALVISION G4 レイアウト図テンプレート固定部マスタ。見本4件（TD500-22047 / 2022-08-10版 / TD500-15773 / 0E370-15107）から抽出。",
+  "sheet": {
+    "size": "A3",
+    "orientation": "landscape",
+    "form_number": "SQR-MS4232H",
+    "form_variants": ["様式3A", "様式4A"],
+    "logo_top_left": "SHIMADZU",
+    "logo_bottom_right": "株式会社 島津製作所"
+  },
+  "title": {
+    "line1": "X線テレビシステム",
+    "line2": "SONIALVISION G4"
+  },
+  "system_table": {
+    "title": "システム構成表",
+    "columns": ["No.", "装置名", "型式", "質量(kg)"],
+    "standard_rows": [
+      {"no": 1,  "name": "遠隔操作式X線透視撮影台",       "model": "ZS-200",              "mass_kg": "1,560"},
+      {"no": 2,  "name": "制御キャビネット",               "model": "ZS-200キャビネット",   "mass_kg": "230"},
+      {"no": 3,  "name": "タッチパネル付ローカルコンソール", "model": "ZS-200LCC",           "mass_kg": "約30"},
+      {"no": 4,  "name": "遠隔操作卓",                     "model": "ZS-200RC",            "mass_kg": "約35"},
+      {"no": null, "name": "デジタルラジオグラフィー装置",  "model": "DR-300",              "mass_kg": null, "is_group_header": true},
+      {"no": 5,  "name": "デジタル収集キャビネット",        "model": "DR-EXAMキャビネット",  "mass_kg": "260"},
+      {"no": 6,  "name": "検査室内収集モニター",            "model": null,                  "mass_kg": "11"},
+      {"no": 7,  "name": "検査室内参照モニター",            "model": null,                  "mass_kg": "11"},
+      {"no": 8,  "name": "モニター懸垂器",                 "model": null,                  "mass_kg": "---", "name_variants": ["天吊りモニター懸垂器"]},
+      {"no": 9,  "name": "デジタル参照キャビネット",        "model": "DR-OPEキャビネット",   "mass_kg": "25"},
+      {"no": 10, "name": "操作室内収集モニター",            "model": null,                  "mass_kg": "11"},
+      {"no": 11, "name": "操作室内参照モニター",            "model": null,                  "mass_kg": "11"},
+      {"no": 12, "name": "診断用X線高電圧装置",             "model": "D150BC-40S",          "mass_kg": "300"}
+    ],
+    "optional_rows": [
+      {"key": "side_table",        "name": "サイドテーブル",       "model": "OAデスク",         "mass_kg": "約10"},
+      {"key": "side_station_i3",   "name": "サイドステーション i3", "model": "ワークステーション", "mass_kg": "約30"},
+      {"key": "smart_bmd_monitor", "name": "Smart BMD モニター",   "model": null,               "mass_kg": "11"},
+      {"key": "side_station",      "name": "サイドステーション",    "model": null,               "mass_kg": "---"},
+      {"key": "mini_local_cart",   "name": "ミニローカル付モニタ台車", "model": null,             "mass_kg": null}
+    ]
+  },
+  "environment_table": {
+    "title": "環境条件",
+    "columns": ["部屋名", "周囲温度", "相対湿度", "発熱量(kcal/h)"],
+    "rows": [
+      {
+        "room_role": "exam_room",
+        "room_name_placeholder": "{{exam_room_name}}",
+        "temperature_humidity": "右図斜線の範囲内にあること（結露しないこと）",
+        "chart_block": "humidity_chart",
+        "chart_spec": {"temp_axis_c": [10, 30], "humidity_axis_pct": [15, 75]},
+        "heat_kcal_h": "2,704"
+      },
+      {
+        "room_role": "control_room",
+        "room_name": "操作室",
+        "temperature": "10〜30℃",
+        "humidity": "20〜70%（結露しないこと）",
+        "heat_kcal_h": "164"
+      }
+    ]
+  },
+  "notes": [
+    "注1）上記の発熱量は平均的使用状態の値です。使用状況により増減します。",
+    "注2）上記の発熱量には、人から発生する熱量は含んでおりません。空調設備の設計においては、室内に入る人数を考慮して下さい。",
+    "注3）{{exam_room_name}}の空調機器は、必ず上記の空調条件を終日満足するように運転させて下さい。",
+    "注4）{{exam_room_name}}の温度勾配が2.7℃/hr以下になるようにしてください。",
+    "注5）空調機から吹き出す風が直接機器に当たらないような空調機レイアウトを検討してください。"
+  ],
+  "scope_of_work": {
+    "title": "島津製作所担当施工範囲",
+    "items": [
+      "（1）装置一式の搬入据付工事及び調整",
+      "（2）装置一式の機器相互間の配線、接続及び利用者設備との接続工事"
+    ],
+    "footer": "上記の島津製作所担当施工範囲以外は全て施主（御得意様）側設備工事となります。"
+  },
+  "disclaimer": {
+    "plan": "この図面は配置案図です。建築設備等の確認及び機器搬入については、別途打合せが必要です。",
+    "study": "この図面は検討案図です。建築設備等の確認及び機器搬入については、別途打合せが必要です。"
+  },
+  "title_block": {
+    "fields": ["作成日", "営業担当", "顧客名", "作図", "検討", "承認", "図面名称", "図面番号", "改定", "SHEET", "縮尺"],
+    "customer_suffix": "御中",
+    "company": "株式会社 島津製作所",
+    "revision_history_variant": true
+  },
+  "drawing_conventions": {
+    "units": "mm",
+    "allowed_scales": ["1/30", "1/50"],
+    "balloon_style": "circled_number",
+    "ceiling_height_label": "CH={{value}}mm",
+    "monitor_note": "※モニター懸垂器及び検査室内モニターは記載していません。"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SONIALVISION G4 レイアウト図 可変部データ（layout.json）",
+  "description": "手書き建築図から抽出し、レビューUIで確定する案件ごとのデータ。fixed_master.json と合成して DXF/PDF を生成する。",
+  "type": "object",
+  "required": ["project", "rooms", "equipment_placement"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["customer_name", "drawing_title", "drawing_number", "created_date"],
+      "properties": {
+        "customer_name": {"type": "string", "description": "例: 戸田中央総合病院（『御中』は自動付加）"},
+        "drawing_title": {"type": "string", "description": "例: X線TV室 レイアウト図。『（案）』の有無も含む"},
+        "drawing_number": {"type": "string", "description": "例: TD500-22047"},
+        "revision": {"type": "string", "default": "A"},
+        "sheet": {"type": "string", "default": "1/1"},
+        "scale": {"type": "string", "enum": ["1/30", "1/50"], "description": "省略時は部屋サイズから自動選択"},
+        "created_date": {"type": "string", "format": "date"},
+        "sales_rep": {"type": "string"},
+        "drafter": {"type": "string"},
+        "checker": {"type": "string"},
+        "approver": {"type": "string"},
+        "disclaimer_kind": {"type": "string", "enum": ["plan", "study"], "default": "plan"},
+        "special_notes": {"type": "array", "items": {"type": "string"}, "description": "例: ＊透視撮影台と天井吊モニタの干渉に注意が必要です。"},
+        "revision_history": {"type": "array", "items": {"type": "object", "properties": {"rev": {"type": "string"}, "date": {"type": "string"}, "note": {"type": "string"}}}}
+      }
+    },
+    "rooms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["role", "name", "outline_mm"],
+        "properties": {
+          "role": {"type": "string", "enum": ["exam_room", "control_room", "other"]},
+          "name": {"type": "string", "description": "例: X線TV室 / 撮影室8（X線テレビ室）。exam_roomのnameは環境条件表・注3/4にも差し込まれる"},
+          "outline_mm": {"type": "array", "minItems": 4, "items": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2}, "description": "内法頂点列 [x,y]（mm、時計回り）"},
+          "wall_thickness_mm": {"type": "integer", "default": 150},
+          "ceiling_height_mm": {"type": "integer", "description": "CH表記。例: 2800"},
+          "openings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["kind", "wall_index", "offset_mm", "width_mm"],
+              "properties": {
+                "kind": {"type": "string", "enum": ["swing_door", "double_swing_door", "sliding_door", "shield_window", "hatch", "opening"]},
+                "wall_index": {"type": "integer", "description": "outline_mmの辺番号（0始まり）"},
+                "offset_mm": {"type": "integer", "description": "辺始点から開口始端までの距離"},
+                "width_mm": {"type": "integer"},
+                "swing": {"type": "string", "enum": ["in_left", "in_right", "out_left", "out_right"]}
+              }
+            }
+          },
+          "fixtures": {
+            "type": "array",
+            "description": "分電盤・表示灯・流し等",
+            "items": {"type": "object", "properties": {"kind": {"type": "string"}, "label": {"type": "string"}, "position_mm": {"type": "array", "items": {"type": "integer"}}}}
+          },
+          "adjacent_labels": {
+            "type": "array",
+            "description": "隣接室の表示のみ行うラベル（更衣室・便所・WC等）",
+            "items": {"type": "object", "properties": {"text": {"type": "string"}, "position_mm": {"type": "array", "items": {"type": "integer"}}}}
+          },
+          "extra_dimensions": {
+            "type": "array",
+            "description": "全体寸法以外に明示する寸法線",
+            "items": {"type": "object", "properties": {"from_mm": {"type": "array", "items": {"type": "integer"}}, "to_mm": {"type": "array", "items": {"type": "integer"}}, "label": {"type": "string"}}}
+          }
+        }
+      }
+    },
+    "optional_equipment": {
+      "type": "array",
+      "description": "fixed_master.json の optional_rows のキーを列挙（構成表に追記され、No.は13以降を自動採番）",
+      "items": {"type": "string"}
+    },
+    "equipment_placement": {
+      "type": "array",
+      "description": "構成表No.（バルーン番号）と平面配置の対応",
+      "items": {
+        "type": "object",
+        "required": ["no", "block", "position_mm"],
+        "properties": {
+          "no": {"type": "integer", "description": "構成表No.＝丸数字バルーン"},
+          "block": {"type": "string", "description": "equipment_blocks.dxf のブロック名。例: ZS200_MAIN, ZS200_RC, DR_EXAM_CAB"},
+          "room_role": {"type": "string", "enum": ["exam_room", "control_room"]},
+          "position_mm": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+          "rotation_deg": {"type": "number", "default": 0},
+          "balloon_offset_mm": {"type": "array", "items": {"type": "integer"}, "description": "バルーン引き出し位置（省略時自動）"}
+        }
+      }
+    }
+  }
+}
