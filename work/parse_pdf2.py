@@ -49,6 +49,11 @@ def rows_from_table(t, source_url):
             name, dept, date, cp, amount, reason, remark = cells
             qty = ""
             no = str(seq)
+        elif n == 6:
+            name, dept, date, cp, amount, reason = cells
+            qty = ""
+            remark = ""
+            no = str(seq)
         else:
             continue
         if not name:
@@ -76,10 +81,11 @@ def parse_pdf(path, source_url):
     pdf = pdfplumber.open(path)
     out = []
     for p in pdf.pages:
+        tables = p.extract_tables()
         page_rows = []
-        for t in p.extract_tables():
+        for t in tables:
             page_rows.extend(rows_from_table(t, source_url))
-        if not page_rows:
+        if not tables:
             t = p.extract_table({"vertical_strategy": "text",
                                  "horizontal_strategy": "lines"})
             if t:

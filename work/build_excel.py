@@ -4,6 +4,7 @@
 usage: python3 build_excel.py <病院名> <contracts.json...> <output.xlsx>
 """
 import json
+import os
 import re
 import sys
 import unicodedata
@@ -32,18 +33,22 @@ CATEGORIES = [
 
 MAINTENANCE_KW = ["保守", "点検", "メンテナンス", "修理"]
 
-# 病院ごとの注記（実行前に必要に応じて編集する）
-EXTRA_NOTES = [
-    "・出典: 徳島赤十字病院「入札に関するお知らせ」ページ https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/",
-    "・2021年度分のPDF(7372.pdf)は現在2020年度分(6660.pdf)と同一内容が掲載されており、2021年度・2023年度の公表データは取得できず。",
-    "・保守（保守点検・メンテナンス）契約は全年度を通じて公表対象に含まれていない（該当なし）。",
+# 病院ごとの注記。BUILD_EXCEL_NOTES 環境変数でテキストファイル（1行1注記）を指定すると読み込む。
+DEFAULT_NOTES = [
     "・公表対象は日本赤十字社会計規則に基づく随意契約のみ。競争入札による調達は含まれない。",
 ]
 
-NOTES = {
-    "画像読み取り装置FCR": "FCR=富士フイルムCR(Computed Radiography)画像読取装置。一般撮影（レントゲン）系の画像化装置として抽出",
-    "移動型汎用X線透視診断装置": "移動型汎用X線透視診断装置＝外科用イメージ（可搬型Cアーム）に相当する一般的名称",
-}
+
+def load_extra_notes():
+    path = os.environ.get("BUILD_EXCEL_NOTES")
+    if path and os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            return [line.rstrip("\n") for line in f if line.strip()]
+    return list(DEFAULT_NOTES)
+
+
+EXTRA_NOTES = load_extra_notes()
+NOTES = {}
 
 
 def norm(s):

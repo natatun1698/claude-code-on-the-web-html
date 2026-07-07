@@ -1,0 +1,13 @@
+000	OK 200	https://shimoina.jrc.or.jp/keiyaku/	17231 bytes
+001	OK 200	https://web.archive.org/web/20201026071443/https://shimoina.jrc.or.jp/keiyaku/	31061 bytes
+002	OK 200	https://www.yamanashi-med.jrc.or.jp/wp-content/uploads/2024/03/contract_20240312-1.pdf	90284 bytes
+003	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/zuikeikouhyou.pdf	347383 bytes
+004	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R4zuikeikouhyou2.pdf	720428 bytes
+005	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei1.pdf	70868 bytes
+006	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf	121777 bytes
+007	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf	88140 bytes
+008	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei4.pdf	83145 bytes
+009	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei5.pdf	115697 bytes
+010	OK 200	https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei6.pdf	108427 bytes
+011	OK 200	https://www.iiyama.jrc.or.jp/auctionInformation/281/	25613 bytes
+012	OK 200	https://www.iiyama.jrc.or.jp/auctionInformation/511/	25616 bytes
