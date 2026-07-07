@@ -1,2 +1,9 @@
-https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/&output=json&limit=200
-https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/*&output=json&collapse=urlkey&filter=mimetype:application/pdf&limit=3000
+https://web.archive.org/web/20211026053039/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20220808010912/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20221206040025/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20230604202802/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20230922181559/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20240526210930/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20250113001944/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20250430033401/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/
+https://web.archive.org/web/20251106204339/https://www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/

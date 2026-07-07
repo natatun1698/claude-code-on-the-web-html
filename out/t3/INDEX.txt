@@ -1,0 +1,2 @@
+000	OK 200	https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/medicalPersonnel/bidInformation/&output=json&limit=200	3644 bytes
+001	OK 200	https://web.archive.org/cdx/search/cdx?url=www.tokushima-med.jrc.or.jp/file/attachment/*&output=json&collapse=urlkey&filter=mimetype:application/pdf&limit=3000	112832 bytes
