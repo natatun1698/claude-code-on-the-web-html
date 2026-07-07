@@ -1,0 +1,203 @@
+URL: https://www.sekimachi-hosp.com/department/index.html
+FINAL: https://www.sekimachi-hosp.com/department/index.html
+STATUS: 200
+
+
+診療科・部門紹介 | 関町病院 ホームページ ホームページ
+整形外科・リハビリテーション科・内科・外科 --- 東京都練馬区
+東京都練馬区関町北１－６－１９
+当院について
+病院紹介
+院長ご挨拶
+特色
+資格・所属
+フロアのご案内
+交通アクセス
+学会・研究会
+セミナー・講演会
+病院行事
+患者様への医薬品情報（DI月報）
+外来のご案内
+診療科目
+受付・診療時間
+外来診療担当医一覧
+専門外来
+入院のご案内
+入院手続き
+入院費用
+お会計
+入院中のお持物
+入院中のご注意・お願い
+お見舞いの方へ
+診療科・部門紹介
+整形外科
+内科
+外科
+麻酔科
+ペインクリニック
+皮膚科
+リハビリテーション科
+薬剤科
+看護科
+栄養課
+医事課
+メディア掲載
+医学専門誌
+雑誌・書籍
+新聞
+インターネット・WEB
+採用情報
+ホーム
+診療科・部門紹介
+診療科・部門紹介
+診療科
+整形外科
+整形外科の対象疾患、診療方針・治療方法、診療スタッフをご紹介しています。
+内科
+内科からのメッセージや診療スタッフをご紹介しています。
+外科
+外科からのメッセージや診療スタッフをご紹介しています。
+麻酔科
+麻酔の目的や種類、処置を受ける患者様への注意事項等をご説明しています。
+ペインクリニック
+ペインクリニックの適応疾患や治療法についてご説明しています。
+皮膚科
+皮膚科の診療スタッフをご紹介しています。
+医務・医事部門
+リハビリテーション科
+対象とする疾患・障害、外来患者様のリハビリテーションのご予約方法、リハビリテーションの内容等がご覧いただけます。
+薬剤科
+薬剤科の業務内容をご紹介しています。
+看護科
+患者様の健康へのお手伝いをさせて頂く看護科の業務内容をご紹介します。
+栄養課
+患者様の毎日のお食事をお作りする栄養課の業務内容をご紹介します。
+医事課
+患者様が安心して治療をお受け頂くための医事課の業務内容をご紹介します。
+診療科・部門紹介
+整形外科
+内科
+外科
+麻酔科
+ペインクリニック
+皮膚科
+リハビリテーション科
+薬剤科
+看護科
+栄養課
+医事課
+当院について
+外来のご案内
+入院のご案内
+診療科・部門紹介
+メディア掲載
+採用情報
+このページの
+先頭へ
+医療法人社団遼山会&nbsp;
+関町病院
+〒177-0051&nbsp;東京都練馬区関町北&nbsp;1-6-19&nbsp;&nbsp;&nbsp;TEL.&nbsp;03-3920-0532&nbsp;/&nbsp;0533
+Copyright &copy; Sekimachi Hospital All rights Reserved.
+
+
+==== IMG TAGS ====
+<img src="../images/banners/logo.gif" alt="関町病院" width="475" height="88">
+<img src="../images/banners/tel.png" width="242" height="50" alt="関町病院電話番号 03-3920-0532/0533">
+<img src="../images/banners/btn_sitemap.png" width="114" height="33" alt="サイトマップ">
+<img src="../images/banners/btn_access.png" width="115" height="33" alt="交通アクセス">
+<img src="../images/banners/btn_home.png" width="82" height="33" alt="ホーム">
+<img src="../images/banners/title_department.png" width="710" height="80" alt="診療科・部門紹介">
+<img src="../images/shinryouka.png" width="211" height="40">
+<img src="../images/imubu_ijibu.png" width="211" height="40">
+<img src="../images/banners/banner_schedule.png" alt="外来診療担当医一覧表" width="225" height="71" />
+<img src="../images/banners/banner_joa.png" alt="JOAスコア" width="225" height="71" />
+<img src="../images/banners/banner_nadeshiko.png" alt="変形性膝関節症用ブレイス なでしこ" width="225" height="71" />
+<img src="../images/banners/banner_ctp.png" alt="コラーゲン・トリペプチド" width="225" height="71" />
+<img src="../images/banners/banner_lecture.png" alt="セミナー・講演会" width="225" height="71" />
+<img src="../images/banners/banner_link.png" alt="リンク" width="225" height="71" />
+
+==== LINKS ====
+../index.html	
+../sitemap/index.html	
+../aboutus/access.html	
+../index.html	
+../aboutus/index.html	当院について
+../aboutus/outline.html	病院紹介
+../aboutus/greeting_inchou.html	院長ご挨拶
+../aboutus/feature.html	特色
+../aboutus/capacity_belong.html	資格・所属
+../aboutus/floor.html	フロアのご案内
+../aboutus/access.html	交通アクセス
+../aboutus/study_group.html	学会・研究会
+../aboutus/lecture.html	セミナー・講演会
+../aboutus/events.html	病院行事
+../aboutus/di.html	患者様への医薬品情報（DI月報）
+../outpatient/index.html	外来のご案内
+../outpatient/schedule.html	外来診療担当医一覧
+../outpatient/senmon.html	専門外来
+../inpatient/index.html	入院のご案内
+index.html	診療科・部門紹介
+orthopedics.html	整形外科
+internal.html	内科
+surgery.html	外科
+aneasth.html	麻酔科
+pain.html	ペインクリニック
+dermatology.html	皮膚科
+rehabilitation.html	リハビリテーション科
+pharm.html	薬剤科
+nursing.html	看護科
+nutrition.html	栄養課
+clerk.html	医事課
+../media/index.html	メディア掲載
+../media/journal_of_medicine.html	医学専門誌
+../media/magazine.html	雑誌・書籍
+../media/newspaper.html	新聞
+../media/web.html	インターネット・WEB
+../recruit/index.html	採用情報
+../index.html	ホーム
+orthopedics.html	整形外科
+                                    整形外科の対象疾患、診療方針・治療方法、診療スタッフをご紹介しています。
+internal.html	内科
+                                    内科からのメッセージや診療スタッフをご紹介しています。
+surgery.html	外科
+                                    外科からのメッセージや診療スタッフをご紹介しています。
+aneasth.html	麻酔科
+                                    麻酔の目的や種類、処置を受ける患者様への注意事項等をご説明しています。
+pain.html	ペインクリニック
+                                    ペインクリニックの適応疾患や治療法についてご説明しています。
+dermatology.html	皮膚科
+                                    皮膚科の診療スタッフをご紹介しています。
+rehabilitation.html	リハビリテーション科
+                                    対象とする疾患・障害、外来患者様のリハビリテーションのご予約方法、
+pharm.html	薬剤科
+                                    薬剤科の業務内容をご紹介しています。
+nursing.html	看護科
+                                    患者様の健康へのお手伝いをさせて頂く看護科の業務内容をご紹介します。
+nutrition.html	栄養課
+                                    患者様の毎日のお食事をお作りする栄養課の業務内容をご紹介します。
+clerk.html	医事課
+                                    患者様が安心して治療をお受け頂くための医事課の業務内容をご紹介します。
+index.html	診療科・部門紹介
+orthopedics.html	整形外科
+internal.html	内科
+surgery.html	外科
+aneasth.html	麻酔科
+pain.html	ペインクリニック
+dermatology.html	皮膚科
+rehabilitation.html	リハビリテーション科
+pharm.html	薬剤科
+nursing.html	看護科
+nutrition.html	栄養課
+clerk.html	医事課
+../outpatient/schedule.html	
+../features/joa.html	
+../features/index.html	
+../features/ctp.html	
+../aboutus/lecture.html	
+../link/index.html	
+../aboutus/index.html	当院について
+../outpatient/index.html	外来のご案内
+../inpatient/index.html	入院のご案内
+index.html	診療科・部門紹介
+../media/index.html	メディア掲載
+../recruit/index.html	採用情報
