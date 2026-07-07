@@ -50,13 +50,16 @@ GitHub Actionsリレー `.github/workflows/slack-fetch.yml` を使う:
 1. 前提: リポジトリのActions secretsに `SLACK_TOKEN` が登録済みであること。
    未登録ならユーザーに依頼する(必要スコープ: `channels:history`, `groups:history`,
    `reactions:read`, `users:read`)。
-2. 現在のブランチをpushしてから、GitHub MCPの `actions_run_trigger` で
-   workflow `slack-fetch.yml` を現在のブランチref・inputs `{channel, days}` で起動する。
-3. `actions_get`(または `actions_list`)で実行完了をポーリングする(通常1〜3分。
-   メッセージやスレッドが多いとSlackのレート制限で10分以上かかることもある)。
-4. 完了後 `git pull` して `data/slack_raw.json` を取り込む。
-5. 失敗した場合は `get_job_logs` でログを確認する(トークン未設定・スコープ不足・
-   `not_in_channel`=Botが未参加、が典型)。
+2. `request/slack.json` に `{"channel": "CBHRRSZAP", "days": 30}` を書いて
+   コミット&pushする。pushトリガーでworkflowが起動する
+   (Claude CodeのGitHub Appは `actions_run_trigger` の権限を持たないため、
+   push方式が基本。dispatchを試して403ならこちらに切り替える)。
+3. GitHub MCPの `actions_list`(list_workflow_runs, branchフィルタ)で実行完了を
+   ポーリングする(通常1〜3分。メッセージやスレッドが多いとSlackのレート制限で
+   10分以上かかることもある)。ポーリング間隔は60秒程度でよい。
+4. 成功(conclusion=success)後 `git pull` して `data/slack_raw.json` を取り込む。
+5. 失敗した場合は `get_job_logs`(failed_only=true)でログを確認する
+   (トークン未設定・スコープ不足・`not_in_channel`=Botがチャンネル未参加、が典型)。
 
 ### 2. ダッシュボード生成
 

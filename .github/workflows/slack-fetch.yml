@@ -8,8 +8,11 @@
 #   SLACK_TOKEN を登録する(xoxb- または xoxp- トークン)。
 #   必要スコープ: channels:history, groups:history, reactions:read, users:read
 #
-# 使い方: workflow_dispatch で channel / days / branch を指定して実行。
-# 結果は指定ブランチの data/slack_raw.json にコミットされる。
+# 使い方(2通り):
+#   A. request/slack.json ({"channel": "C…", "days": 30}) をブランチにコミットする
+#      (Claude CodeのGitHub Appはworkflow dispatch権限を持たないため、こちらが基本)
+#   B. GitHubのUIから workflow_dispatch で channel / days を指定して実行
+# 結果は同じブランチの data/slack_raw.json にコミットされる。
 name: Slack Fetch Relay
 
 on:
@@ -23,6 +26,9 @@ on:
         description: "遡る日数"
         required: false
         default: "30"
+  push:
+    paths:
+      - "request/slack.json"
 
 permissions:
   contents: write
@@ -40,6 +46,17 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Resolve parameters
+        id: params
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "channel=${{ inputs.channel }}" >> "$GITHUB_OUTPUT"
+            echo "days=${{ inputs.days }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "channel=$(jq -r '.channel' request/slack.json)" >> "$GITHUB_OUTPUT"
+            echo "days=$(jq -r '.days // 30' request/slack.json)" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Fetch Slack data
         env:
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
@@ -49,8 +66,8 @@ jobs:
             exit 1
           fi
           python .claude/skills/slack-reaction-dashboard/scripts/slack_reaction_dashboard.py fetch \
-            --channel "${{ inputs.channel }}" \
-            --days "${{ inputs.days }}" \
+            --channel "${{ steps.params.outputs.channel }}" \
+            --days "${{ steps.params.outputs.days }}" \
             --out data/slack_raw.json
 
       - name: Commit fetched data
