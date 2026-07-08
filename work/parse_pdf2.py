@@ -18,7 +18,11 @@ HEADER_MARKERS = ("随意契約", "物品等", "No.", "会計課長", "作成者
 
 def is_header_row(cells):
     joined = "".join(cells)
-    return any(m in joined for m in HEADER_MARKERS)
+    if not any(m in joined for m in HEADER_MARKERS):
+        return False
+    # Header rows are short column labels; data rows contain a long reason
+    # paragraph, which can itself mention "随意契約" and must not be dropped.
+    return not any(len(c) > 40 for c in cells)
 
 
 def clean(c):
