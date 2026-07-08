@@ -1,0 +1,3 @@
+000	ERROR	https://www.haramachi.jrc.or.jp/grit/wp-content/uploads/2026/07/media-38.pdf	<HTTPError 404: 'Not Found'>
+001	ERROR	https://www.haramachi.jrc.or.jp/grit/wp-content/uploads/2026/07/media-33.pdf	<HTTPError 404: 'Not Found'>
+002	ERROR	https://www.haramachi.jrc.or.jp/grit/wp-content/uploads/2026/07/media-34.pdf	<HTTPError 404: 'Not Found'>
