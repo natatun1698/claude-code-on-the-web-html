@@ -1,0 +1,3 @@
+000	OK 200	https://www.sendai.jrc.or.jp/file/attachment/3929.pdf	80668 bytes
+001	OK 200	https://www.sendai.jrc.or.jp/file/attachment/3890.pdf	145664 bytes
+002	OK 200	https://www.sendai.jrc.or.jp/file/attachment/3769.pdf	118928 bytes
