@@ -1,0 +1,8 @@
+000	OK 200	http://www.takayama.jrc.or.jp/img/medical/pdf/R05_keiyaku.pdf	384968 bytes
+001	OK 200	http://www.takayama.jrc.or.jp/img/medical/pdf/R04_keiyaku.pdf	322199 bytes
+002	OK 200	http://www.takayama.jrc.or.jp/img/medical/pdf/R04_keiyaku_02.pdf	366151 bytes
+003	OK 200	http://www.takayama.jrc.or.jp/img/medical/pdf/R03_keiyaku.pdf	223708 bytes
+004	OK 200	http://www.takayama.jrc.or.jp/img/medical/pdf/R03_keiyaku_02.pdf	363665 bytes
+005	OK 200	https://www.ise.jrc.or.jp/file/attachment/6263.pdf	305958 bytes
+006	OK 200	https://www.ise.jrc.or.jp/file/attachment/3639.pdf	241004 bytes
+007	OK 200	https://www.ise.jrc.or.jp/file/attachment/3638.pdf	234655 bytes

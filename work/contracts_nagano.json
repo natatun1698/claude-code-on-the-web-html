@@ -889,18 +889,6 @@
  },
  {
   "no": 1,
-  "name": "令和3年度 随意契約締結状況 対象期間：令和3年4月1日～令和3年5月31日（単位：円）",
-  "qty": "",
-  "dept": "",
-  "date": "",
-  "counterparty": "",
-  "amount": "",
-  "reason": "",
-  "remark": "",
-  "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei1.pdf"
- },
- {
-  "no": 2,
   "name": "全身用Ｘ線ＣＴ装置(Aquilion LB)【TSX-201A/1A】保守委託契約（更新）",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -912,7 +900,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei1.pdf"
  },
  {
-  "no": 3,
+  "no": 2,
   "name": "第3CT室全身用CT装置(Aquilion/CX型)【TSX-101A/NA】保守委託契約（更新）",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -925,18 +913,6 @@
  },
  {
   "no": 1,
-  "name": "令和3年度 随意契約締結状況 対象期間：令和3年6月1日～令和3年7月31日（単位：円）",
-  "qty": "",
-  "dept": "",
-  "date": "",
-  "counterparty": "",
-  "amount": "",
-  "reason": "",
-  "remark": "",
-  "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
- },
- {
-  "no": 2,
   "name": "採血業務支援システム更新整備に伴うリース契約",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -948,7 +924,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 3,
+  "no": 2,
   "name": "Elekta社製 放射線治療システムの売買契約",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -960,7 +936,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 4,
+  "no": 3,
   "name": "S2病棟にかかる電源設備増強工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -972,7 +948,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 5,
+  "no": 4,
   "name": "透析液供給配管の入れ替え工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -984,7 +960,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 6,
+  "no": 5,
   "name": "医療ガス設備吸引ポンプ分解整備工事",
   "qty": "二式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -996,7 +972,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 7,
+  "no": 6,
   "name": "病院敷地内における樹木剪定工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1008,7 +984,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 8,
+  "no": 7,
   "name": "泌尿器科外来(処置室）エアコン新設工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1020,7 +996,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 9,
+  "no": 8,
   "name": "泌尿器科外来（待合室）エアコン新設工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1032,7 +1008,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
  },
  {
-  "no": 10,
+  "no": 9,
   "name": "厚生棟2Fエアコン整備工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1045,30 +1021,6 @@
  },
  {
   "no": 1,
-  "name": "令和3年度 随意契約締結状況 対象期間：令和3年6月1日～令和3年7月31日（単位：円）",
-  "qty": "",
-  "dept": "",
-  "date": "",
-  "counterparty": "",
-  "amount": "",
-  "reason": "",
-  "remark": "",
-  "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei2.pdf"
- },
- {
-  "no": 1,
-  "name": "令和3年度 随意契約締結状況 対象期間：令和3年8月1日～令和3年9月30日（単位：円）",
-  "qty": "",
-  "dept": "",
-  "date": "",
-  "counterparty": "",
-  "amount": "",
-  "reason": "",
-  "remark": "",
-  "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
- },
- {
-  "no": 2,
   "name": "NTTWi-Fi対応LAN工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1080,7 +1032,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 3,
+  "no": 2,
   "name": "西5病棟クラス100（無菌室1、2）定期保守点検ならびに部品交換の実施について",
   "qty": "",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1092,7 +1044,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 4,
+  "no": 3,
   "name": "全熱交換機設置",
   "qty": "75台",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1104,7 +1056,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 5,
+  "no": 4,
   "name": "食器消毒保管庫（№4，5号機）",
   "qty": "二式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1116,7 +1068,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 6,
+  "no": 5,
   "name": "食器消毒保管庫（№7A，7B号機）",
   "qty": "二式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1128,7 +1080,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 7,
+  "no": 6,
   "name": "全熱交換機設置",
   "qty": "17台",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1140,7 +1092,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 8,
+  "no": 7,
   "name": "栄養課厨房床改修工事",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
@@ -1152,7 +1104,7 @@
   "source_url": "https://www.nagano-med.jrc.or.jp/wp/wp-content/uploads/R3zuikei3.pdf"
  },
  {
-  "no": 9,
+  "no": 8,
   "name": "NTTWi-Fi対応LAN工事(アクセスポイント増設分）",
   "qty": "一式",
   "dept": "長野赤十字病院管財課長野市若里五丁目22番1号",
