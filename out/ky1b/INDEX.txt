@@ -1,0 +1,5 @@
+000	OK 200	https://www.karatsu.jrc.or.jp/	33085 bytes
+001	OK 200	http://isahaya.jrc.or.jp/	28865 bytes
+002	OK 200	https://www.kumamoto-med.jrc.or.jp/	99367 bytes
+003	OK 200	http://www.kagoshima-med.jrc.or.jp/	20308 bytes
+004	OK 200	https://www.okinawa-med.jrc.or.jp/	111043 bytes
