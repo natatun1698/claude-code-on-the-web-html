@@ -1,0 +1,124 @@
+URL: http://izurc.jp/guidance/bid.html
+FINAL: http://izurc.jp/guidance/bid.html
+STATUS: 200
+
+
+入札情報｜伊豆赤十字病院
+&nbsp;
+0558-72-2148
+〒410-2413&nbsp;&nbsp;静岡県伊豆市小立野100
+病院案内
+院長挨拶
+病院概要
+病院沿革
+理念
+基本方針
+統計
+診察案内
+診療科紹介
+外来担当表
+受診案内
+入院案内
+救急担当表
+看護部の紹介
+その他関連部門の紹介
+健診・予防接種
+人間ドック
+事業所健診
+特定健診
+婦人科検診
+骨密度検診
+予防接種
+地域連携
+地域連携について
+相談窓口
+検査のご依頼
+しびれ・腰痛・骨粗鬆症
+交通アクセス
+交通アクセス
+採用情報
+採用情報
+HOME
+入札情報
+入札情報
+現在、「医療費自動精算機一式」があります。
+入札参加資格申請書等について
+伊豆赤十字病院の物品製造、物品の販売、役務の提供および物品の買い受け等（建設工事を除く）にかかる一般競争入札及び指名競争入札に参加する者に必要な資格、資格審査の申請時期、方法等について、下記のとおり公示する。
+一般競争入札公告(医療費自動精算機一式）
+医療費自動精算機一式 仕様書
+別紙様式7-1　入札説明書（医療費自動精算機一式)
+入札心得
+別紙様式10　入札書
+別紙様式11　入札辞退届
+別紙様式12　入札委任状
+別紙様式13　入札参加表明書
+一般競争入札参加資格申請について
+一般競争入札資格審査申請書
+一般競争（指名競争）入札参加資格審査申請書変更届
+有資格者数（「設計・測量」資格を申請する場合のみ記入）
+別表1・別表2・別表3
+記入要領
+ご案内
+伊豆赤十字病院だより
+赤十字病院としての特長
+禁止事項について
+入札情報
+個人情報保護方針
+個人情報の利用目的
+お問い合わせ
+〒410-2413 静岡県伊豆市小立野100&nbsp;TEL.0558-72-2148&nbsp;FAX.0558-72-6564 
+copyright&nbsp;2016&nbsp;Izu&nbsp;Red&nbsp;Cross&nbsp;Hospital&nbsp;all&nbsp;rights&nbsp;reserved.
+
+
+==== IMG TAGS ====
+<img src="../images/icon/icon250_byoin.gif" border="0">
+<img src="../images/logo/footer-logo.jpg" border="0">
+
+==== LINKS ====
+../index.html	&nbsp;
+../about/message.html	院長挨拶
+../about/outline.html	病院概要
+../about/history.html	病院沿革
+../about/vision.html	理念
+../about/policy.html	基本方針
+../about/statistics.html	統計
+../section/medical/internal.html	診療科紹介
+../section/schedule.html	外来担当表
+../section/guide.html	受診案内
+../section/guide-ad.html	入院案内
+../section/schedule-er.html	救急担当表
+../section/nurse/nurse-vision.html	看護部の紹介
+../section/related/socialprojct.html	その他関連部門の紹介
+../check/dock.html	人間ドック
+../check/office.html	事業所健診
+../check/specific.html	特定健診
+../check/gynecology.html	婦人科検診
+../check/bonedensity.html	骨密度検診
+../check/vaccination.html	予防接種
+../network/regionNet.html	地域連携について
+../network/helpdesk.html	相談窓口
+../network/request.html	検査のご依頼
+../network/specialty.html	しびれ・腰痛・骨粗鬆症
+../access/access.html	交通アクセス
+../recruit/recruit-nurse.html	採用情報
+../index.html	HOME
+pdf/1.koukokur8.5.pdf	一般競争入札公告(医療費自動精算機一式）
+pdf/3shiyousyor8.5.pdf	医療費自動精算機一式 仕様書
+pdf/2.setumeisyor8.5.pdf	別紙様式7-1　入札説明書（医療費自動精算機一式)
+pdf/4.kokoroer8.5.pdf	入札心得
+word/7.nyuusatusyor8.5.docx	別紙様式10　入札書
+word/8.jitaitodoker8.5.docx	別紙様式11　入札辞退届
+word/6.ininjyour8.5.docx	別紙様式12　入札委任状
+word/5.sanka-hyoumeir8.5.docx	別紙様式13　入札参加表明書
+word/nyuusatu-sankashikaku-shinsei.docx	一般競争入札参加資格申請について
+excel/nyuusatu-sankashikaku-shinseisyo.xlsx	一般競争入札資格審査申請書
+word/henkou-todoke.doc	一般競争（指名競争）入札参加資格審査申請書変更届
+excel/shikaku-shinnsei.xls	有資格者数（「設計・測量」資格を申請する場合のみ記入）
+excel/bepppyou1.2.3.xls	別表1・別表2・別表3
+pdf/r1.11kinyuuyouryou.pdf	記入要領
+free_paper.html	伊豆赤十字病院だより
+attribute.html	赤十字病院としての特長
+nonsmoking.html	禁止事項について
+privacypolicy.html	個人情報保護方針
+personaldata.html	個人情報の利用目的
+contact_us.html	お問い合わせ
