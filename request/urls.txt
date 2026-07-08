@@ -1,9 +1,2 @@
-http://www.nagaoka.jrc.or.jp/contents/nyusatsu/
-https://www.nasu.jrc.or.jp/tender.html
-https://www.haga.jrc.or.jp/hospital/bid/
-https://www.ashikaga.jrc.or.jp/pages/162/
-https://www.maebashi.jrc.or.jp/other/bidding.html
-https://www.haramachi.jrc.or.jp/news/post-6189/
-https://www.saitama-med.jrc.or.jp/nyuusatu/index.html
-https://www.ogawa.jrc.or.jp/bid/
-https://www.fukaya.jrc.or.jp/announcement/
+https://www.nagaoka.jrc.or.jp/nyusatsu/keiyaku/
+http://www.haramachi.jrc.or.jp/08_gyousya/08_00gyousya.html
