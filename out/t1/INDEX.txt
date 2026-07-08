@@ -1,0 +1,6 @@
+000	OK 200	https://www.hachinohe.jrc.or.jp/business/bid/	61241 bytes
+001	OK 200	http://www.morioka.jrc.or.jp/bid_info/	55115 bytes
+002	OK 200	https://www.sendai.jrc.or.jp/auctionInformation	50100 bytes
+003	OK 200	https://www.ishinomaki.jrc.or.jp/medical/tender/index20220705_1.html	20965 bytes
+004	OK 200	http://www.akita-med.jrc.or.jp/pages/d-nyusatsu1-at	41738 bytes
+005	OK 200	https://www.fukushima-med-jrc.jp/bidlist.html	42967 bytes
