@@ -1,0 +1,224 @@
+URL: http://www.takayama.jrc.or.jp/medical/nyusatsu.html
+FINAL: http://www.takayama.jrc.or.jp/medical/nyusatsu.html
+STATUS: 200
+
+
+入札公告 - 医療関係の皆さまへ - 高山赤十字病院
+岐阜県高山市天満町3丁目11番地
+0577-32-1111
+（代表）
+背景色
+文字サイズ
+ホーム
+患者さん・ご家族の皆さまへ
+医療関係の皆さまへ
+病院のご案内
+診療科のご案内
+職員採用情報
+交通アクセス
+ホーム
+&nbsp;&gt;&nbsp;
+医療関係の皆さまへ
+&nbsp;&gt;&nbsp;入札公告
+入札公告
+競争入札参加資格に関する公示
+高山赤十字病院の役務提供等に係る一般競争入札及び指名競争入札（以下「競争入札」という。）に参加する者に必要な資格、資格審査の申込時期、方法等について、次のとおり公示します。
+※ファイルのダウンロード方法：右クリックで「名前をつけてリンク先を保存」をしてください。
+&#9312;競争入札参加資格に関する公示
+(PDF)
+ R6～8年度(2024-2026年度)
+          &#9313;一般競争(指名競争)入札参加資格審査申請書
+(Excel)
+(PDF)
+ R6～8年度(2024-2026年度)
+          &#9314;一般競争(指名競争)入札参加資格審査申請書変更届
+(Excel)
+(PDF)
+ R6～8年度(2024-2026年度)
+          &#9315;一般競争(指名競争)入札参加資格審査【記入要領】
+(PDF)
+ R6～8年度(2024-2026年度)
+医療費自動精算機の導入に係る一般競争入札について
+①総合評価落札方式による一般競争入札の実施について（公告）
+(PDF)
+         ②総合評価落札方式による一般競争入札説明書
+(PDF)
+          ➂-1医療費自動精算機の導入に係る仕様書
+(PDF)
+          ➂-2（別紙１）機能要件一覧
+(PDF)
+-->
+入札公告等
+高山赤十字病院　新病院建設に係る基本構想・基本計画策定支援業務
+「高山赤十字病院 新病院建設に係る基本構想・基本計画策定支援業務」における公告及び説明書（PDF）
+新病院建設に係る基本構想・基本計画策定支援業務　仕様書（PDF）
+参加表明書・見積書・質疑書（Word）
+        -->
+高山赤十字病院不動産(土地・建物)の処分
+        入札公告
+(PDF)
+-->
+高山赤十字病院　駐車場料金精算システム機器更新による賃貸借
+入札公告
+入札説明書
+入札心得
+仕様書
+参加表明書
+参考見積書
+質問書
+入札書
+委任状（代理人入札）
+        -->
+随意契約締結状況
+令和５年度
+令和４年度_01
+令和４年度_02
+令和３年度_01
+令和３年度_02
+平成30年度
+-->
+令和元年度
+令和２年度
+-->
+入札広告
+・高山赤十字病院不動産（土地・建物）処分
+-->
+医療関係の皆さまへ
+地域医療連携
+地域医療連携の目的
+登録医制度について
+地域連携係のご利用手順
+医療機器共同利用のご案内
+広報誌『病院長よりこんにちは！』
+入札公告
+医師面談について
+がん診療
+がん診療にかかるチーム体制
+がん治療についてのガイドライン等
+セカンドオピニオンについて
+がん診療関連機器の紹介
+緩和ケア内科外来
+緩和ケアチーム
+緩和ケアについて
+緩和ケアチーム
+緩和ケアチームの紹介
+がん相談支援センター
+超音波検査を用いた特殊な検査と治療
+がんについて知りたい方へ
+高山赤十字病院
+〒506-8550 岐阜県高山市天満町3丁目11番地
+          TEL : 0577-32-1111（代表）
+          FAX : 0577-34-4155
+【お願い】
+メールでのお問合せはお受けしておりませんのでご了承ください
+ホーム
+患者さん・ご家族の皆さまへ
+医療関係の皆さまへ
+病院のご案内
+診療科のご案内
+職員採用情報
+交通アクセス
+サイトマップ
+ &copy;
+ Japanese Red Cross Takayama Hospital. All Rights Reserved.
+
+
+==== IMG TAGS ====
+<img src="../img/common/logo.png" alt="高山赤十字病院" width="276" />
+<img
+          src="http://www.takayama.jrc.or.jp/img/top/english.jpg" alt="" height="21" width="76" />
+<img src="../img/common/bt_color_default.gif" width="35" height="20"
+              alt="標準" id="bgcolorBtnWhite" />
+<img src="../img/common/bt_color_yellow.gif" width="20" height="20"
+              alt="黄" id="bgcolorBtnYellow" />
+<img src="../img/common/bt_color_blue.gif" width="20" height="20"
+              alt="青" id="bgcolorBtnBlue" />
+<img src="../img/common/bt_color_black.gif" width="20" height="20"
+              alt="黒" id="bgcolorBtnBlack" />
+<img src="../img/common/font_size_mid.png" alt="中" />
+<img src="../img/common/font_size_large.png" alt="大" />
+<img src="../img/medical/section_medical.jpg" alt="医療関係の皆さまへ" />
+<img src="../img/common/side_bnr_doc.jpg" alt="人間ドック" />
+<img src="../img/common/side_bnr_kenshu.jpg" alt="臨床研修医のページ" />
+<img src="../img/common/side_bnr_nurse.jpg"
+                alt="看護部のページ" />
+<img src="../img/common/totop.png" alt="このページの先頭へ" />
+
+==== LINKS ====
+http://www.takayama.jrc.or.jp/english.html	
+javascript:void(0);	
+javascript:void(0);	
+../index.html	ホーム
+../patient/index.html	患者さん・ご家族の皆さまへ
+index.html	医療関係の皆さまへ
+../hospital-info/index.html	病院のご案内
+../section-info/index.html	診療科のご案内
+../recruit	職員採用情報
+../access	交通アクセス
+../	ホーム
+index.html	医療関係の皆さまへ
+../img/medical/pdf/2023/kouji20231204.pdf	(PDF)
+../img/medical/pdf/2023/sikakusinsa_sinsei_2023.xlsx	(Excel)
+../img/medical/pdf/2023/sikakusinsa_sinsei_2023.pdf	(PDF)
+../img/medical/pdf/2023/sikakusinsa_sinsei_henkou2023.xlsx	(Excel)
+../img/medical/pdf/2023/sikakusinsa_sinsei_henkou2023.pdf	(PDF)
+../img/medical/pdf/2023/sikakusinsa_sinsei_henkou_kinyuyoko_2023.pdf	(PDF)
+../img/medical/pdf/2024/01ippannyusatu20240709.pdf	(PDF)
+../img/medical/pdf/2024/02ippansetumeisho20240709.pdf	(PDF)
+../img/medical/pdf/2024/03-1shiyousho20240709.pdf	(PDF)
+../img/medical/pdf/2024/03-2yoken20240709.pdf	(PDF)
+../img/medical/pdf/setsumei20180918.pdf	「高山赤十字病院 新病院建設に係る基本構想・基本計画策定支援業務」における公告及び説明書（PDF）
+../img/medical/pdf/siyousyo20180918.pdf	新病院建設に係る基本構想・基本計画策定支援業務　仕様書（PDF）
+../img/medical/pdf/sankahyoumei20180918.docx	参加表明書・見積書・質疑書（Word）
+../img/medical/pdf/2024/nyusatsukoukoku_20240610.pdf	(PDF)
+../img/medical/pdf/nyusatsu/nyusatsukoukoku.pdf	入札公告
+../img/medical/pdf/nyusatsu/nyusatsusetsumei.pdf	入札説明書
+../img/medical/pdf/nyusatsu/nyusatsukokoroe.pdf	入札心得
+../img/medical/pdf/nyusatsu/shiyousho.pdf	仕様書
+../img/medical/pdf/nyusatsu/sankahyoumei.pdf	参加表明書
+../img/medical/pdf/nyusatsu/sankoumitsumori.pdf	参考見積書
+../img/medical/pdf/nyusatsu/shitsumonsho.xlsx	質問書
+../img/medical/pdf/nyusatsu/nyusatsusho.pdf	入札書
+../img/medical/pdf/nyusatsu/ininjou.pdf	委任状（代理人入札）
+../img/medical/pdf/R05_keiyaku.pdf	令和５年度
+../img/medical/pdf/R04_keiyaku.pdf	令和４年度_01
+../img/medical/pdf/R04_keiyaku_02.pdf	令和４年度_02
+../img/medical/pdf/R03_keiyaku.pdf	令和３年度_01
+../img/medical/pdf/R03_keiyaku_02.pdf	令和３年度_02
+../img/medical/pdf/H30_keiyaku_004.pdf	平成30年度
+../img/medical/pdf/R01_keiyaku.pdf	令和元年度
+../img/medical/pdf/2020/R02_keiyaku.pdf	令和２年度
+../download/nyusatu/nyusatu20220808.pdf	・高山赤十字病院不動産（土地・建物）処分
+/medical/renkei/index.html	地域医療連携
+/medical/renkei/mokuteki.html	地域医療連携の目的
+/medical/renkei/tourokui.html	登録医制度について
+/medical/renkei/tejyun.html	地域連携係のご利用手順
+/medical/renkei/kyoudou.html	医療機器共同利用のご案内
+/medical/renkei/kouhoushi.html	広報誌『病院長よりこんにちは！』
+/medical/nyusatsu.html	入札公告
+/medical/mendan.html	医師面談について
+/patient/gansinryou/index.html	がん診療
+/patient/gansinryou/team.html	がん診療にかかるチーム体制
+/patient/gansinryou/guideline.html	がん治療についてのガイドライン等
+/patient/gansinryou/opinion.html	セカンドオピニオンについて
+/patient/gansinryou/sinryoukiki.html	がん診療関連機器の紹介
+/patient/gansinryou/kanwanaika.html	緩和ケア内科外来
+/patient/gansinryou/kanwacare/index.html	緩和ケアチーム
+/patient/gansinryou/kanwacare/about.html	緩和ケアについて
+/patient/gansinryou/kanwacare/intro.html	緩和ケアチーム
+/patient/gansinryou/kanwacare/info.html	緩和ケアチームの紹介
+/patient/gansinryou/gansoudan.html	がん相談支援センター
+/patient/gansinryou/tyouonpasouchi.html	超音波検査を用いた特殊な検査と治療
+http://www.fpcr.or.jp/	がんについて知りたい方へ
+../patient/doc/index.html	
+rinsyou/index.html	
+../section-info/kangobu/index.html	
+../mail.html	メールでのお問合せはお受けしておりませんのでご了承ください
+../index.html	ホーム
+../patient	患者さん・ご家族の皆さまへ
+../medical	医療関係の皆さまへ
+../hospital-info	病院のご案内
+../section-info	診療科のご案内
+../recruit	職員採用情報
+../access	交通アクセス
+../sitemap.html	サイトマップ

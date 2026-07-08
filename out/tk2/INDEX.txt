@@ -1,0 +1,10 @@
+000	OK 200	http://www.takayama.jrc.or.jp/medical/nyusatsu.html	18361 bytes
+001	ERROR	https://www.ise.jrc.or.jp/bind/index.html	<HTTPError 404: 'Not Found'>
+002	OK 200	https://www.gifu-med.jrc.or.jp/medical/nyusatu/file/d43176aeaf3662afc0a87154e9ffa3e9f9610508.pdf	334667 bytes
+003	OK 200	https://www.gifu-med.jrc.or.jp/medical/nyusatu/file/c8156619680585943cd9f73faf81370b2821d6fa.pdf	573008 bytes
+004	OK 200	https://www.gifu-med.jrc.or.jp/medical/nyusatu/file/e36d12ec4b46373bc79b526469b37a13d9f49811.pdf	438593 bytes
+005	OK 200	https://www.gifu-med.jrc.or.jp/medical/nyusatu/file/72c7f32c41cf0bfd8de6f190012aac287440ae00.pdf	112132 bytes
+006	OK 200	https://www.nagoya2.jrc.or.jp/content/uploads/2025/04/d76b6080924b3169fda065dbe1d20e72.pdf	252684 bytes
+007	OK 200	https://www.nagoya2.jrc.or.jp/content/uploads/2025/04/1af53d7865f8caf5c4758e74fca1e49b.pdf	193578 bytes
+008	OK 200	https://www.nagoya2.jrc.or.jp/content/uploads/2024/11/2983efa972cf4c86f2edaffbba3866a9.pdf	141731 bytes
+009	OK 200	https://www.nagoya2.jrc.or.jp/content/uploads/2024/07/296cacfd27737a97a12c2d5b243d4ec8.pdf	134509 bytes
