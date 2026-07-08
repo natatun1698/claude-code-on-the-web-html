@@ -1,0 +1,18 @@
+000	OK 200	https://www.kyoto1.jrc.or.jp/about/contract-info/1128/	57032 bytes
+001	OK 200	https://www.kyoto1.jrc.or.jp/about/contract-info/1125/	57037 bytes
+002	OK 200	https://www.kyoto1.jrc.or.jp/about/contract-info/1027/	57062 bytes
+003	ERROR	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku₋2026042.pdf	UnicodeEncodeError('ascii', 'GET /wp/wp-content/uploads/zuiikeiyaku₋2026042.pdf HTTP/1.1', 38, 39, 'ordinal not in range(128)')
+004	ERROR	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku₋202603.pdf	UnicodeEncodeError('ascii', 'GET /wp/wp-content/uploads/zuiikeiyaku₋202603.pdf HTTP/1.1', 38, 39, 'ordinal not in range(128)')
+005	ERROR	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku₋202602.pdf	UnicodeEncodeError('ascii', 'GET /wp/wp-content/uploads/zuiikeiyaku₋202602.pdf HTTP/1.1', 38, 39, 'ordinal not in range(128)')
+006	ERROR	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku₋202601.pdf	UnicodeEncodeError('ascii', 'GET /wp/wp-content/uploads/zuiikeiyaku₋202601.pdf HTTP/1.1', 38, 39, 'ordinal not in range(128)')
+007	OK 200	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku_202512.pdf	97302 bytes
+008	OK 200	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku_202511.pdf	95283 bytes
+009	ERROR	https://www.otsu.jrc.or.jp/wp-content/uploads/2024/05/2023年度_随意契約（様式11）.pdf	UnicodeEncodeError('ascii', 'GET /wp-content/uploads/2024/05/2023年度_随意契約（様式11）.pdf HTTP/1.1', 36, 38, 'ordinal not in range(128)')
+010	ERROR	https://www.otsu.jrc.or.jp/wp-content/uploads/2023/08/2022年度_随意契約（様式11）.pdf	UnicodeEncodeError('ascii', 'GET /wp-content/uploads/2023/08/2022年度_随意契約（様式11）.pdf HTTP/1.1', 36, 38, 'ordinal not in range(128)')
+011	ERROR	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2025/10/【令和7年5-6月分】随意契約.pdf	UnicodeEncodeError('ascii', 'GET /wp-content/uploads/2025/10/【令和7年5-6月分】随意契約.pdf HTTP/1.1', 32, 35, 'ordinal not in range(128)')
+012	ERROR	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2025/04/【令和6年12月分-令和7年3月分】随意契約.pdf	UnicodeEncodeError('ascii', 'GET /wp-content/uploads/2025/04/【令和6年12月分-令和7年3月分】随意契約.pdf HTTP/1.1', 32, 35, 'ordinal not in range(128)')
+013	ERROR	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2024/12/【令和6年11-12月分】随意契約.pdf	UnicodeEncodeError('ascii', 'GET /wp-content/uploads/2024/12/【令和6年11-12月分】随意契約.pdf HTTP/1.1', 32, 35, 'ordinal not in range(128)')
+014	ERROR	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2024/05/【令和6年5月分】随意契約.pdf	UnicodeEncodeError('ascii', 'GET /wp-content/uploads/2024/05/【令和6年5月分】随意契約.pdf HTTP/1.1', 32, 35, 'ordinal not in range(128)')
+015	OK 200	https://www.nagahama.jrc.or.jp/data/media/nagahama-jrc/page/about/bidding/pdf09.pdf	114463 bytes
+016	OK 200	https://www.nagahama.jrc.or.jp/data/media/nagahama-jrc/page/about/bidding/pdf08.pdf	109060 bytes
+017	OK 200	https://www.nagahama.jrc.or.jp/data/media/nagahama-jrc/page/about/bidding/pdf07.pdf	96967 bytes
