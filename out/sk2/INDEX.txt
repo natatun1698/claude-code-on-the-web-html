@@ -1,0 +1,14 @@
+000	OK 200	https://www.asahikawa.jrc.or.jp/	193208 bytes
+001	OK 200	http://www.kitami.jrc.or.jp/	215733 bytes
+002	OK 200	https://date.jrc.or.jp/	116478 bytes
+003	OK 200	http://www.kushiro.jrc.or.jp/	39153 bytes
+004	OK 200	http://www.urakawa.jrc.or.jp/	58859 bytes
+005	OK 200	http://kuriyama.jrc.or.jp/	60681 bytes
+006	OK 200	https://shimizu.jrc.or.jp/	74896 bytes
+007	OK 200	http://oketo.jrc.or.jp/	53692 bytes
+008	OK 200	http://www.phoenix-c.or.jp/~krchp/	35789 bytes
+009	OK 200	http://www.hakodate.jrc.or.jp/	10870 bytes
+010	OK 200	https://www.takamatsu.jrc.or.jp/	92475 bytes
+011	OK 200	https://www.tokushima-med.jrc.or.jp/	51034 bytes
+012	OK 200	https://www.matsuyama.jrc.or.jp/	339302 bytes
+013	OK 200	https://kochi-med.jrc.or.jp/	136819 bytes
