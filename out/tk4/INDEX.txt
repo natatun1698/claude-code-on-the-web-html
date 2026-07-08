@@ -1,0 +1,6 @@
+000	OK 200	https://www.ise.jrc.or.jp/bidding-info	51222 bytes
+001	ERROR	https://www.takayama.jrc.or.jp/img/medical/pdf/R05_keiyaku.pdf	URLError(ConnectionRefusedError(111, 'Connection refused'))
+002	ERROR	https://www.takayama.jrc.or.jp/img/medical/pdf/R04_keiyaku.pdf	URLError(ConnectionRefusedError(111, 'Connection refused'))
+003	ERROR	https://www.takayama.jrc.or.jp/img/medical/pdf/R04_keiyaku_02.pdf	URLError(ConnectionRefusedError(111, 'Connection refused'))
+004	ERROR	https://www.takayama.jrc.or.jp/img/medical/pdf/R03_keiyaku.pdf	URLError(ConnectionRefusedError(111, 'Connection refused'))
+005	ERROR	https://www.takayama.jrc.or.jp/img/medical/pdf/R03_keiyaku_02.pdf	URLError(ConnectionRefusedError(111, 'Connection refused'))
