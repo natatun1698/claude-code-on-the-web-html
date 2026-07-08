@@ -1,0 +1,8 @@
+000	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai1.pdf	URLError(TimeoutError('timed out'))
+001	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai2.pdf	URLError(TimeoutError('timed out'))
+002	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai3.pdf	URLError(TimeoutError('timed out'))
+003	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf	URLError(TimeoutError('timed out'))
+004	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai1.pdf	URLError(TimeoutError('timed out'))
+005	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai2.pdf	URLError(TimeoutError('timed out'))
+006	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai3.pdf	URLError(TimeoutError('timed out'))
+007	ERROR	https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai4_2.pdf	URLError(TimeoutError('timed out'))
