@@ -1,0 +1,50 @@
+[
+ {
+  "no": 1,
+  "name": "血液ガス分析装置 1式",
+  "qty": "",
+  "dept": "会計課兵庫県多可郡多可町中区岸上280",
+  "date": "令和7年2月19日",
+  "counterparty": "アルフレッサ株式会社丹波支店兵庫県丹波市氷上町石生1984-1",
+  "amount": "1,452,000円",
+  "reason": "予定価格が160万円を超えない財産の買い入れに該当するため（日本赤十字社会計規則施行細則第35条第2項）",
+  "remark": "",
+  "source_url": "https://www.taka.jrc.or.jp/data/media/zuikeijyokyo.R7.2.pdf"
+ },
+ {
+  "no": 1,
+  "name": "健診センター改修工事 1式",
+  "qty": "",
+  "dept": "会計課兵庫県多可郡多可町中区岸上280",
+  "date": "令和7年4月10日",
+  "counterparty": "株式会社アクール兵庫県西脇市野村町821",
+  "amount": "2,490,000円",
+  "reason": "予定価格が250万円を超えない工事に該当するため（日本赤十字社会計規則施行細則第35条第1項）",
+  "remark": "",
+  "source_url": "https://www.taka.jrc.or.jp/data/media/zuikeiyokyo.R7.4.pdf"
+ },
+ {
+  "no": 1,
+  "name": "多可赤十字老人保健施設多目的ホール空調設備更新工事",
+  "qty": "",
+  "dept": "会計課兵庫県多可郡多可町中区岸上280",
+  "date": "令和6年12月3日",
+  "counterparty": "ミカタ株式会社大阪府大阪市平野区背戸口3-3-25",
+  "amount": "1,848,000円",
+  "reason": "予定価格が２５０万円を超えない工事又は製造をさせる場合に該当するため（日本赤十字社会計規則施行細則第35条第1項）",
+  "remark": "",
+  "source_url": "https://www.taka.jrc.or.jp/data/media/takared-hos/page/information/tender/pdf/zuikei-2024-12.pdf"
+ },
+ {
+  "no": 1,
+  "name": "多可赤十字介護医療院スタッフステーション改修工事",
+  "qty": "",
+  "dept": "会計課兵庫県多可郡多可町中区岸上280",
+  "date": "令和6年10月28日",
+  "counterparty": "株式会社アクール兵庫県西脇市野村町821",
+  "amount": "1,199,000円",
+  "reason": "予定価格が２５０万円を超えない工事又は製造をさせる場合に該当するため（日本赤十字社会計規則施行細則第35条第1項）",
+  "remark": "",
+  "source_url": "https://www.taka.jrc.or.jp/data/media/takared-hos/page/information/tender/pdf/随意契約締結状況（令和6年10月分）.pdf"
+ }
+]

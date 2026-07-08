@@ -1,0 +1,37 @@
+URL: https://web.archive.org/web/20251016070805/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf
+FINAL: https://web.archive.org/web/20251016070805/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf
+STATUS: 200
+
+
+Wayback Machine
+1 capture
+16 Oct 2025
+Sep
+OCT
+Nov
+16
+2024
+2025
+2026
+success
+fail
+About this capture
+COLLECTED BY
+Collection: 
+Common Crawl
+	  Web crawl data from Common Crawl.
+TIMESTAMPS
+The Wayback Machine - https://web.archive.org/web/20251016070805/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf
+
+
+==== IMG TAGS ====
+<img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0" />
+<img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading" />
+
+==== LINKS ====
+/web/	
+/web/20251016070805*/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf	1 capture
+https://archive.org/account/login.php	
+https://help.archive.org/help/category/the-wayback-machine/	
+/web/20251016070805/http://web.archive.org/screenshot/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf	
+https://archive.org/details/commoncrawl	Common Crawl

@@ -1,0 +1,8 @@
+000	OK 200	https://web.archive.org/web/20250404070313/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai1.pdf	12679 bytes
+001	OK 200	https://web.archive.org/web/20250402161259/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai2.pdf	12679 bytes
+002	OK 200	https://web.archive.org/web/20251016070612/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai3.pdf	10030 bytes
+003	OK 200	https://web.archive.org/web/20251016070805/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf	10030 bytes
+004	OK 200	https://web.archive.org/web/20240304084814/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai1.pdf	10045 bytes
+005	OK 200	https://web.archive.org/web/20240528003822/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai2.pdf	12679 bytes
+006	OK 200	https://web.archive.org/web/20240528003835/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai3.pdf	12679 bytes
+007	OK 200	https://web.archive.org/web/20250402132330/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai4_2.pdf	12697 bytes
