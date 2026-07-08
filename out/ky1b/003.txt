@@ -1,0 +1,208 @@
+URL: http://www.kagoshima-med.jrc.or.jp/
+FINAL: http://www.kagoshima-med.jrc.or.jp/
+STATUS: 200
+
+
+日本赤十字社 鹿児島赤十字病院
+&nbsp;
+総合診療科
+リウマチ科（リウマチ・膠原病センター）
+循環器内科
+呼吸器内科
+整形外科
+脳神経外科
+麻酔科
+放射線科部
+リハビリテーション科部
+薬剤部
+検査部
+看護部
+地域医療連携室
+医療安全推進室
+栄養係
+臨床工学係(ME)
+医事課
+臨床倫理委員会
+社会事業課
+2026.05.15
+医師（常勤職員）募集要項
+2026.04.24
+2026年ゴールデンウィーク期間中の休診日のご案内
+2026.04.09
+随意契約の公表-令和7年度第4四半期
+2026.01.28
+随意契約の公表-令和7年度第3四半期
+2025.12.26
+令和７年青森県東方沖地震義援金の受付について
+2025.11.28
+令和７年11月18日大分市佐賀関の大規模火災義援金の受付について
+2025.10.15
+随意契約の公表-令和7年度第2四半期
+2025.09.09
+2025年アフガニスタン地震救援金の受付について
+午前
+受付時間　8:00 ～ 11:30
+診療時間　8:30 ～ 12:00
+外来診療は
+原則予約制
+です。
+ 予約の方を優先して診察を行いますが、
+予約がない場合でも受診は可能
+です（混雑状況によりお待ちいただくことがあります）。
+土・日・祝祭日
+振替休日
+年末年始(12/29～1/3)
+5月1日(日赤創立記念日)
+新型コロナウイルス感染症重点医療機関の指定について
+指定
+区分
+重点医療機関
+所在地
+鹿児島市平川町
+2545番地
+指定
+年月日
+令和2年10月1日〜
+令和5年9月30日
+確保
+病床数
+最大12床
+RSS
+リンク
+プライバシーポリシー
+サイトマップ
+〒891-0133 鹿児島県鹿児島市平川町2545
+TEL.099-261-2111（代表）
+Copyright(C) Japanese Red Cross Kagoshima Hospital All Rights Reserved.
+PC
+ | 
+Mobile
+
+
+==== IMG TAGS ====
+<img src="/templates/jrc_kagoshima-med/images/logo.gif" alt="鹿児島赤十字病院" />
+<img src="/templates/jrc_kagoshima-med/images/textsize.gif" width="100" height="25" alt="文字サイズ変更" />
+<img src="/templates/jrc_kagoshima-med/images/textsize_s.gif" width="33" height="25" alt="文字サイズ：小" />
+<img src="/templates/jrc_kagoshima-med/images/textsize_m.gif" width="32" height="25" alt="文字サイズ：中" />
+<img src="/templates/jrc_kagoshima-med/images/textsize_l.gif" width="33" height="25" alt="文字サイズ：大" />
+<img src="/templates/jrc_kagoshima-med/images/bt_contact.gif" border="0" alt="〒891-0133 鹿児島市平川町2545/電話番号099-261-2111" width="440" height="47" />
+<img src="/templates/jrc_kagoshima-med/images/gnav01.gif" alt="鹿児島赤十字病院 home" width="100" height="54" />
+<img src="/templates/jrc_kagoshima-med/images/gnav02.gif" alt="診療科・部門" width="164" height="54" />
+<img src="/templates/jrc_kagoshima-med/images/gnav03.gif" alt="外来・入院のご案内" width="164" height="54" />
+<img src="/templates/jrc_kagoshima-med/images/gnav04.gif" alt="病院について" width="164" height="54" />
+<img src="/templates/jrc_kagoshima-med/images/gnav05.gif" alt="交通アクセス" width="164" height="54" />
+<img src="/templates/jrc_kagoshima-med/images/gnav06.gif" alt="お問い合わせ" width="164" height="54" />
+<img src="/images/contents/slideshow/slide01-2014.jpg" alt="患者さんを笑顔にするのはあったかい気持ち" height="350" width="920" />
+<img src="/images/contents/slideshow/slide02-2014.jpg" alt="命を救うため全力をつくす" height="350" width="920" />
+<img src="/images/contents/slideshow/slide03.jpg" alt="たすけあう気持ちを胸に地域のためにできることを" height="350" width="920" />
+<img src="/images/contents/slideshow/slide03-2014.jpg" alt="たすけあう気持ちを胸に地域のためにできることを" />
+<img src="/images/contents/slideshow/slide04-2014.jpg" alt="心をひとつにすべての部署が命のために" height="350" width="920" />
+<img style="margin-right: 12px; float: left;" src="/images/contents/parts/home_visiters.jpg" alt="外来受診を受ける方へ" width="221" height="90" />
+<img style="margin-right: 12px; float: left;" src="/images/contents/parts/home_guidance.jpg" alt="入院・お見舞いをされる方へ" width="221" height="90" />
+<img style="margin-right: 12px; float: left;" src="/images/contents/parts/home_em.jpg" alt="夜間・救急医療を受ける方へ" width="221" height="90" />
+<img src="/images/contents/parts/home_health-screening.jpg" alt="人間ドッグ・検診を受ける方へ" width="221" height="90" />
+<img src="/images/thumbnails/images/contents/media/掲載写真/260227/jpg-393x555.pg" alt="電話相談案内" width="393" height="555" />
+<img src="/images/thumbnails/images/contents/parts/home-shinryou-440x79.png" alt="当院はこちらの診療を行っています。 ご相談等ございましたらご連絡ください。" width="440" height="79" />
+<img src="/images/contents/parts/home_service-tit.gif" alt="診療科・部門" width="220" height="30" />
+<img src="/images/contents/parts/side_section-tit.gif" alt="診療科" />
+<img src="/images/contents/parts/side_department-tit.gif" alt="部門" />
+<img src="/images/contents/parts/home_news-tit.gif" alt="病院からのお知らせ" width="440" height="40" />
+<img src="/images/contents/parts/ico_re.gif" alt="リクルート" />
+<img src="/images/contents/parts/ico_info.gif" alt="お知らせ" />
+<img src="/images/contents/parts/ico_nyusatsu.gif" alt="入札情報" />
+<img src="/images/contents/parts/ico_nyusatsu.gif" alt="入札情報" />
+<img src="/images/contents/parts/ico_info.gif" alt="お知らせ" />
+<img src="/images/contents/parts/ico_info.gif" alt="お知らせ" />
+<img src="/images/contents/parts/ico_nyusatsu.gif" alt="入札情報" />
+<img src="/images/contents/parts/ico_info.gif" alt="お知らせ" />
+<img src="/images/contents/parts/home_appointment.gif" alt="受付時間について" width="240" height="60" />
+<img src="/images/contents/parts/home_ap01.gif" alt="外来受付時間" width="105" height="20" />
+<img style="margin-top: 5px;" src="/images/contents/parts/ico_gairaishinryo.gif" alt="外来診療について" width="120" height="20" />
+<img src="/images/contents/parts/home_yoyaku.png" alt="予約受付時間 平日　14:00〜17:00" />
+<img style="margin-top: 10px;" src="/images/contents/parts/home_yoyaku2.gif" alt="予約受付電話番号 099-261-2111" width="210" height="52" />
+<img src="/images/contents/parts/home_ap03.gif" alt="休診日" width="105" height="20" />
+<img src="/images/contents/parts/home_menkai2.gif" alt="面会時間 午後のみ14:00～16:00" width="210" height="53" />
+<img src="/images/contents/parts/home_guidance-mail.gif" alt="入院患者さんへのお見舞いメールはこちら" width="240" height="60" />
+<img style="margin-bottom: 10px;" src="/images/contents/parts/expo2025.png" alt="国際赤十字・赤新月運動館" width="200" height="190" />
+<img src="/templates/jrc_kagoshima-med/images/side_recruit.jpg" alt="リクルートのご案内。職員募集" width="200" height="220" />
+<img src="/templates/jrc_kagoshima-med/images/side_faq.jpg" alt="よくある質問" width="200" height="70" />
+<img src="/templates/jrc_kagoshima-med/images/side_regional-alliances.jpg" alt="地域医療連携室" width="200" height="70" />
+<img src="/templates/jrc_kagoshima-med/images/side_nursing.jpg" alt="看護部のご紹介" width="200" height="70" />
+<img src="/images/contents/parts/side_nyusatsu.gif" alt="鹿児島赤十字病院の入札情報" width="200" height="70" />
+<img src="/templates/jrc_kagoshima-med/images/side_magazine.gif" alt="鹿児島赤十字病院の広報誌" width="200" height="70" />
+<img src="/templates/jrc_kagoshima-med/images/side_facebook.gif" alt="鹿児島赤十字病院 facebook" width="200" height="70" />
+<img src="/images/contents/banner/202209-banner.jpg" alt="ACTION！防災・減災" width="200" height="200" />
+<img src="/images/contents/banner/2021-c-banner.jpg" alt="新型コロナウイルス感染症　活動報告" />
+<img src="/media/system/images/livemarks.png" alt="RSS feed"/>
+<img src="/templates/jrc_kagoshima-med/images/pagetop_nav.gif" border="0" alt="このページのTOPへ" width="150" height="30" />
+<img src="/templates/jrc_kagoshima-med/images/bn_jrc.gif" alt="日本赤十字社" width="215" height="50" />
+<img src="/templates/jrc_kagoshima-med/images/bn_jrc-kagoshima.gif" alt="日本赤十字社鹿児島県支部" width="215" height="50" />
+<img src="/templates/jrc_kagoshima-med/images/logo_footer.gif" alt="鹿児島赤十字病院" />
+
+==== LINKS ====
+/	
+JavaScript:;	
+JavaScript:;	
+JavaScript:;	
+JavaScript:;	
+/	
+/section.html	
+/information/appointment.html	
+/aboutus/index.html	
+/access.html	
+/contact.html	
+/information/appointment.html	
+/information/guidance.html	
+/information/emergency.html	
+/information/health-screening.html	
+/images/contents/media/掲載写真/260227/電話相談案内.jpg	
+/images/contents/parts/home-shinryou.png	
+/section.html	
+/section/internal-medicine.html	総合診療科
+/section/rheumatology.html	リウマチ科（リウマチ・膠原病センター）
+/section/cardiovascular-medicine.html	循環器内科
+/section/respiratory-medicine.html	呼吸器内科
+/section/orthopedics.html	整形外科
+/section/neurosurgery.html	脳神経外科
+/section/anesthesiology.html	麻酔科
+/department.html	
+/department/radiology.html	放射線科部
+/department/rehabilitation.html	リハビリテーション科部
+/department/pharmacy.html	薬剤部
+/department/inspection.html	検査部
+/nursing.html	看護部
+/department/med-social-work.html	地域医療連携室
+/department/med-safety-office.html	医療安全推進室
+/department/nutrition.html	栄養係
+/department/medical-engineering.html	臨床工学係(ME)
+/department/medical-professions.html	医事課
+/department/clinical-ethics-committee.html	臨床倫理委員会
+/department/syakaijigyou.html	社会事業課
+/news.html	
+/news/recruit/351-医師（常勤職員）募集要項.html	2026.05.15医師（常勤職員）募集要項
+/news/patients/371-2026年-ゴールデンウィーク期間中の休診日のご案内.html	2026.04.242026年ゴールデンウィーク期間中の休診日のご案内
+/news/bidding/370-随意契約の公表-令和7年度第4四半期.html	2026.04.09随意契約の公表-令和7年度第4四半期
+/news/bidding/369-随意契約の公表-令和7年度第3四半期.html	2026.01.28随意契約の公表-令和7年度第3四半期
+/news/patients/368-令和７年青森県東方沖地震義援金の受付について.html	2025.12.26令和７年青森県東方沖地震義援金の受付について
+/news/patients/367-令和７年11月18日大分市佐賀関の大規模火災義援金の受付について.html	2025.11.28令和７年11月18日大分市佐賀関の大規模火災義援金の受付について
+/news/bidding/366-随意契約の公表-令和7年度第2四半期.html	2025.10.15随意契約の公表-令和7年度第2四半期
+/news/patients/363-2025年アフガニスタン地震救援金の受付について.html	2025.09.092025年アフガニスタン地震救援金の受付について
+/information/guidance/omimai-mail.html	
+https://expo2025.jrc.or.jp/?utm_source=branch&amp;utm_medium=bnr&amp;utm_cam%20paign=expo2025	
+/recruit.html	
+/faq.html	
+/regional-alliances.html	
+/nursing.html	
+/news/bidding.html	
+/magazine.html	
+https://www.facebook.com/pages/%E9%B9%BF%E5%85%90%E5%B3%B6%E8%B5%A4%E5%8D%81%E5%AD%97%E7%97%85%E9%99%A2/221743867997891	
+https://www.jrc.or.jp/lp/bousai/	
+https://www.jrc.or.jp/lp/kansensho/	
+/news.feed?type=rss	RSS
+http://www.jrc.or.jp/	
+https://www.jrc.or.jp/chapter/kagoshima/	
+/link.html	リンク
+/privacypolicy.html	プライバシーポリシー
+/sitemap.html	サイトマップ
+/	
+http://www.kagoshima-med.jrc.or.jp/?device=iphone	Mobile

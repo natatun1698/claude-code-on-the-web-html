@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- head.php -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="心のこもった良質な医療の提供を目指す、長崎原爆諫早病院のホームページです。" />
+	<meta name="keywords" content="長崎原爆諫早病院,看護,看護部,赤十字,日赤,医療,病院,総合病院,長崎,諫早" />
+	<title>日本赤十字社 長崎原爆諫早病院</title>
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/style.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/layout.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/responsive.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/print.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/hover.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/drawer.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/dropdown.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/slick.css">
+	<link rel="stylesheet" href="http://isahaya.jrc.or.jp/css/slick-theme.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3http://isahaya.jrc.or.jp/css/all.css">
+	<!-- Japascript jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://isahaya.jrc.or.jp/js/slick.min.js"></script>
+	<script src="http://isahaya.jrc.or.jp/js/drawer.min.js"></script>
+	<script src="http://isahaya.jrc.or.jp/js/iscroll-lite.js"></script>
+	<script src="http://isahaya.jrc.or.jp/js/tendina.js"></script>
+	<script src="http://isahaya.jrc.or.jp/js/dropdown.js"></script>
+	<script src="http://isahaya.jrc.or.jp/js/flexibility.js"></script>
+
+	<script>
+	$(document).ready(function() {
+		if ($(window).width() < 640) {
+			$('.drawer').drawer();
+			$('.dropdown').tendina({
+				animate: true,
+				speed: 200,
+				openCallback: function($clickedEl) {
+					console.log($clickedEl);
+				},
+				closeCallback: function($clickedEl) {
+					console.log($clickedEl);
+				}
+			});
+		};
+	});
+	</script>
+
+
+	<script>
+	jQuery(function($) {
+		$('.tab').click(function() {
+			$('.is-active').removeClass('is-active');
+			$(this).addClass('is-active');
+			$('.is-show').removeClass('is-show');
+			// クリックしたタブからインデックス番号を取得
+			const index = $(this).index();
+			// クリックしたタブと同じインデックス番号をもつコンテンツを表示
+			$('.panel').eq(index).addClass('is-show');
+		});
+	});
+	</script>
+
+	<script>
+	$(function() {
+		var topBtn = $('#pagetop');
+		topBtn.hide();
+		//スクロールが100に達したらボタン表示
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 100) {
+				topBtn.fadeIn();
+			} else {
+				topBtn.fadeOut();
+			}
+		});
+		//スクロールしてトップ
+		topBtn.click(function() {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 500);
+			return false;
+		});
+	});
+	</script>
+
+	<script>
+	$(function() {
+		$('.single-item').slick({
+			autoplay: true,
+			autoplaySpeed: 5000,
+			dots: true,
+			infinite: true,
+			arrows: true
+		});
+	});
+	</script>
+
+	<script>
+	$(function() {
+		$(".font-size ul li a").click(function() {
+			$(".font-size ul li a").removeClass("active");
+			var fontCss = $(this).attr("class");
+			$(this).addClass("active");
+			if (fontCss == "large") {
+				$("#main p,.main_menu span,#next_main p,#next_main li").css("fontSize", "140%");
+			} else if (fontCss == "middle") {
+				$("#main p,.main_menu span,#next_main p,#next_main li").css("fontSize", "120%");
+			} else {
+				$("#main p,.main_menu span,#next_main p,#next_main li").css("fontSize", "100%");
+			}
+
+		});
+	});
+	</script>
+
+	<script>
+	if (screen.width < 640) {
+		document.write('<meta name="viewport" content="width=device-width, initial-scale=1">');
+	} else {
+		document.write('<meta name="viewport" content="width=1200">');
+	}
+	</script>
+
+	<script>
+	$(document).ready(function() {
+		if ($(window).width() > 640) {
+			$('.dropdown').tendina();
+		};
+	});
+	</script>
+
+	<script>
+	$(document).ready(function() {
+		if ($(window).width() > 640) {
+			$("#dropmenu a.sp").remove();
+		};
+	});
+	</script>
+
+
+
+	<!-- Analytics_Start -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39740676-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-39740676-1');
+	</script>
+	<!-- Analytics_End -->
+
+
+
+
+
+	<!-- head.php -->
+	<style>
+	#dropmenu li:hover>ul>li {
+		overflow: initial;
+		height: auto;
+		border-left: none;
+		opacity: initial;
+	}
+
+	#dropmenu li ul li {
+		height: auto;
+		overflow: initial;
+		transition: initial;
+		opacity: initial;
+	}
+
+	#dropmenu li ul.level {
+		position: static;
+		display: none;
+	}
+
+	nav ul li a.menu_open {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 7px 0;
+		vertical-align: middle;
+	}
+
+	#dropmenu li ul {
+		bottom: 100%;
+		top: auto;
+	}
+
+	.nav_change #dropmenu li ul {
+		bottom: auto;
+		top: 100%;
+	}
+
+	#dropmenu li ul li ul {
+		display: none;
+		top: 0 !important;
+		bottom: auto;
+	}
+
+	#dropmenu li.long a.menu_open {
+		padding: 5px 0;
+	}
+
+	#dropmenu li>ul>li {
+		border-bottom: 1px solid #9b633d;
+	}
+
+	#dropmenu li:hover>ul>li {
+		border-bottom: 1px solid #9b633d !important;
+	}
+	</style>
+</head>
+
+<body class="drawer drawer--right">
+	<div id="wrap">
+		<div id="hero">
+			<header id="header">
+	<div class="header_container">
+		<div id="logo">
+			<a href="http://isahaya.jrc.or.jp/"><img src="http://isahaya.jrc.or.jp/images/common/logo.jpg" alt=""></a>
+		</div>
+		<div id="header_menu">
+			<div class="header_menu1-1">
+				<ul>
+					<li class="sitemap_icon"><a href="http://isahaya.jrc.or.jp/sitemap/">サイトマップ</a></li>
+					<li class="privacy_icon"><a href="http://isahaya.jrc.or.jp/privacy/">個人情報保護方針</a></li>
+					<li class="access_icon"><a href="http://isahaya.jrc.or.jp/access/">交通アクセス</a></li>
+				</ul>
+
+				<div class="search">
+					<form id="cse-search-box" action="http://google.com/cse">
+						<input type="hidden" name="cx" value="013875919593207551503:jtypzd0owqq" />
+						<input type="hidden" name="ie" value="UTF-8" />
+						<input type="text" name="q" size="26" />
+						<input type="submit" name="sa" value="Search" id="search_btn" />
+					</form>
+					<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=ja"></script>
+				</div>
+			</div>
+			<div class="header_menu2-2">
+				<p class="tel">お問い合わせは、<span>0957-43-2111</span></p>
+				<!-- <div class="yoyaku_btn"><a href="http://isahaya.jrc.or.jp/form/">オンライン面会はこちらから</a></div> -->
+				<div class="font-size">
+					<p>文字サイズ</p>
+					<ul>
+						<li><a class="active normal">標準</a></li>
+						<li><a class="middle">大</a></li>
+						<li><a class="large">特大</a></li>
+					</ul>
+					<p class="jrc"><img src="http://isahaya.jrc.or.jp/images/common/jrc.jpg" alt="Japanese Red Cross Society"></p>
+				</div>
+			</div>
+			<ul class="sp_menu">
+				<li><a href="tel:0957432111"><img src="http://isahaya.jrc.or.jp/images/common/sp_tel.svg" alt=""></a></li>
+				<li>
+					<button type="button" class="drawer-toggle drawer-hamburger">
+						<span class="sr-only">toggle navigation</span>
+						<span class="drawer-hamburger-icon"></span>
+					</button>
+				</li>
+			</ul>
+		</div>
+	</div><!-- .header_container_end -->
+</header>			<div id="slider">
+				<ul class="single-item">
+					<li><a href="/bumon/hoshasenkabu/#section0"><img class="pc" src="images/mri_slide.jpg" alt=""><img class="sp" src="images/mri_slide_sp.jpg" alt=""></a></li>
+					<li>
+						<a href="pcr/"><img class="pc" src="images/slide01.jpg" alt=""></a>
+						<img class="sp" src="images/slide01_sp.jpg" alt="">
+					</li>
+					<li>
+						<a href="pcr/"><img class="pc" src="images/slide02.jpg" alt=""></a>
+						<img class="sp" src="images/slide02_sp.jpg" alt="">
+					</li>
+					<!-- <li>
+						<a href="/byoin/katsudo/">
+							<img class="pc" src="images/slide03.jpg" alt="">
+							<img class="sp" src="images/slide03_sp.jpg" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="/bumon/rehabilitationkabu/">
+							<img class="pc" src="images/slide04.jpg" alt="">
+							<img class="sp" src="images/slide04_sp.jpg" alt="">
+						</a>
+					</li> -->
+				</ul>
+			</div>
+
+			<!-- nav -->
+
+			<nav id="global-nav" class="drawer-nav" role="navigation">
+				<ul id="dropmenu" class="drawer-menu dropdown">
+					<li class="dropdown_menu first_menu">
+						<a class="toggle-link menu_open hvr-radial-out pc" id="menu01">
+							<img src="images/icon01.png" alt="">
+							<span>ご来院の方へ</span>
+						</a>
+						<a class="menu_open sp" href="#">ご来院の方へ</a>
+						<ul class="level sinryo_level">
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/gairai/">外来のご案内</a></li>
+							<li><a class="menu_open level2 level_child1">入院のご案内</a>
+								<ul class="level_child_open1">
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/nyuin/">入院・退院手続き</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/nyuin/life/">入院中の生活</a></li>
+								</ul>
+							</li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/certificate/">各種診断書等</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/record/">カルテ開示について</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/pdf/gairai_shinsatsui.pdf?20260708-1443" target="_blank">外来診療医表</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/suimin_center/">睡眠センター</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/senmon/">専門外来</a></li>
+							<li><a class="menu_open level2 level_child2">各種教室</a>
+								<ul class="level_child_open2">
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/#kokyuki">呼吸器教室</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/#tounyoubyou">糖尿病教室</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/#zenso">喘息教室</a></li>
+								</ul>
+							</li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/safety/">医療安全</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/ishi/">医師の紹介</a></li>
+							<li><a class="menu_open level2 level_child3">診療科のご案内</a>
+								<ul class="level_child_open3">
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/shinryoka/kokyukika/">呼吸器科</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/shinryoka/syokakika/">消化器科</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/shinryo/shinryoka/jyunkankika/">循環器科</a></li>
+								</ul>
+							</li>
+							<li><a class="menu_open level2 level_child4">部門紹介</a>
+								<ul class="level_child_open4">
+									<li><a href="http://isahaya.jrc.or.jp/bumon/yakuzaibu/">薬剤部</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/bumon/hoshasenkabu/">放射線科部</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/bumon/rehabilitationkabu/">リハビリテーション科部</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/bumon/kensaka/">医療技術部　検査課</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/bumon/eiyoka/">医療技術部　栄養課</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/bumon/kango/" target="_blank">看護部</a></li>
+								</ul>
+							</li>
+							<li><a href="http://isahaya.jrc.or.jp/shinryo/optout/">研究情報（オプトアウト）</a></li>
+						</ul>
+					</li>
+					<li class="first_menu">
+						<a class="toggle-link menu_open hvr-radial-out pc" id="menu02">
+							<img src="images/icon02.png" alt="">
+							<span>地域との連携・在宅医療</span>
+						</a>
+						<a class="menu_open sp" href="#">地域との連携・在宅医療</a>
+						<ul class="level chiiki_level">
+							<li><a href="http://isahaya.jrc.or.jp/chiiki/renkei/">医療連携室</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/chiiki/care/">地域包括ケア病棟</a></li>
+							<!-- <li><a href="#">外来・検査予約について</a></li> -->
+							<li><a href="http://isahaya.jrc.or.jp/chiiki/respite/">レスパイト入院</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/chiiki/houmonkango/">訪問看護ステーション</a></li>
+						</ul>
+					</li>
+					<li class="first_menu">
+						<a class="menu_open hvr-radial-out pc" id="menu03">
+							<img src="images/icon11.png" alt="">
+							<span>人間ドック・健診について</span>
+						</a>
+						<a class="menu_open sp" href="#">人間ドック・健診について</a>
+						<ul class="level dock_level">
+							<li><a href="http://isahaya.jrc.or.jp/dock/summary/">各種健診のご案内</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/dock/beginners/">人間ドックについて</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/dock/shukanbyo/">生活習慣病予防健診、<br>
+									基本健診、特定健診</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/dock/support/">健診後のサポート</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/dock/option/">オプション検査</a></li>
+						</ul>
+					</li>
+					<li class="first_menu">
+						<a class="menu_open hvr-radial-out pc" id="menu05">
+							<img src="images/icon05.png" alt="">
+							<span>病院のご案内</span>
+						</a>
+						<a class="menu_open sp" href="#">病院のご案内</a>
+						<ul class="level byoin_level">
+							<li><a class="level2 menu_open level_child1">病院のご案内</a>
+								<ul class="level_child_open1">
+									<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section01">院長あいさつ</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section02">理念・方針</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section03">病院概要</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section04">施設基準</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section05">指定医療機関</a></li>
+									<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section06">学会等認定施設</a></li>
+								</ul>
+							</li>
+							<li><a href="http://isahaya.jrc.or.jp/byoin/katsudo/">赤十字病院としての活動</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/byoin/publications/">病院刊行物</a></li>
+							<li><a href="http://isahaya.jrc.or.jp/byoin/information/shisetsu_kijun/">厚生労働大臣が定める掲示事項</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- nav -->
+
+			
+		</div>
+
+
+		<div id="main">
+			<div class="container">
+				<p class="sp"><a href="pcr"><img src="images/sp_pcr.jpg" alt=""></a></p>
+				<p class="sp"><img src="images/sp_time.jpg" alt=""></p>
+			</div>
+
+			<div id="news">
+				<div class="container">
+					<div class="tab_menu">
+						<!--タブ-->
+						<ul class="tab-group">
+							<li class="tab is-active">ALL</li>
+							<li class="tab">お知らせ</li>
+							<li class="tab">採用情報</li>
+						</ul>
+					</div>
+
+					<!--タブを切り替えて表示するコンテンツ-->
+					<div class="panel-group" id="news_content">
+										<div class="panel is-show">
+				<dl>
+					<dt>2024年07月24日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=199">新型コロナウイルス対策に伴う面会制限について</a></dd>
+				</dl>
+				<dl>
+					<dt>2024年06月20日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=308">診察・検査予約申込書の変更について</a></dd>
+				</dl>
+				<dl>
+					<dt>2024年01月05日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=203">入館時間・受付時間のお知らせ</a></dd>
+				</dl>
+				<dl>
+					<dt>2021年10月12日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=243">日本財団様から設備整備の支援を受けました！</a></dd>
+				</dl>
+				<dl>
+					<dt>2021年10月08日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=236">（健診部）健診受診者の方へお知らせとお願い</a></dd>
+				</dl>
+				<dl>
+					<dt>2021年09月30日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=239">当院で新型コロナワクチン抗体検査ができます！</a></dd>
+				</dl>
+				<dl>
+					<dt>2020年12月28日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=24">オンライン面会を開始しました！</a></dd>
+				</dl>
+				<dl>
+					<dt>2018年10月29日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=142">レスパイト入院のご案内</a></dd>
+				</dl>
+
+				</div>
+				<div class="panel">
+				<dl>
+					<dt>2026年03月27日<span class="cat08">入札・契約情報</span></dt>
+					<dd><a href="news/detail.php?id=345">随意契約の公表</a></dd>
+				</dl>
+				<dl>
+					<dt>2024年07月24日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=199">新型コロナウイルス対策に伴う面会制限について</a></dd>
+				</dl>
+				<dl>
+					<dt>2024年06月20日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=308">診察・検査予約申込書の変更について</a></dd>
+				</dl>
+				<dl>
+					<dt>2024年01月05日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=203">入館時間・受付時間のお知らせ</a></dd>
+				</dl>
+				<dl>
+					<dt>2021年10月12日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=243">日本財団様から設備整備の支援を受けました！</a></dd>
+				</dl>
+				<dl>
+					<dt>2021年10月08日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=236">（健診部）健診受診者の方へお知らせとお願い</a></dd>
+				</dl>
+				<dl>
+					<dt>2021年09月30日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=239">当院で新型コロナワクチン抗体検査ができます！</a></dd>
+				</dl>
+				<dl>
+					<dt>2020年12月28日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=24">オンライン面会を開始しました！</a></dd>
+				</dl>
+				<dl>
+					<dt>2018年10月29日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=142">レスパイト入院のご案内</a></dd>
+				</dl>
+				<dl>
+					<dt>2016年05月20日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=54">当院は紹介状なしでも選定療養費のご負担はございません。</a></dd>
+				</dl>
+				<dl>
+					<dt>2014年06月30日<span class="cat01">お知らせ</span></dt>
+					<dd><a href="news/detail.php?id=36">あじさいネットについて</a></dd>
+				</dl>
+
+				</div>
+				<div class="panel">
+				<dl>
+					<dt>2026年06月03日<span class="cat05">臨時職員</span></dt>
+					<dd><a href="news/detail.php?id=352">臨時事務員（医療連携室）の募集について</a></dd>
+				</dl>
+				<dl>
+					<dt>2026年06月03日<span class="cat06">嘱託職員</span></dt>
+					<dd><a href="news/detail.php?id=351">嘱託医師事務作業補助者の募集について</a></dd>
+				</dl>
+				<dl>
+					<dt>2026年06月01日<span class="cat05">臨時職員</span></dt>
+					<dd><a href="news/detail.php?id=350">臨時事務員（医療事務等）の募集について</a></dd>
+				</dl>
+				<dl>
+					<dt>2026年06月01日<span class="cat05">臨時職員</span></dt>
+					<dd><a href="news/detail.php?id=338">臨時看護助手（フルタイム）の募集について</a></dd>
+				</dl>
+				<dl>
+					<dt>2026年06月01日<span class="cat05">臨時職員</span></dt>
+					<dd><a href="news/detail.php?id=337">臨時看護助手（パート）の募集について</a></dd>
+				</dl>
+
+				</div>
+					</div>
+
+
+				</div>
+			</div><!-- #news_end -->
+		</div><!-- #main_end -->
+		<footer id="footer">
+	<div class="footer_container">
+		<div class="footer_top_menu">
+			<div class="footer_col">
+				<p class="title">ご来院の方へ</p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/gairai/">外来のご案内</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/nyuin/">入院のご案内</a></p>
+				<ul>
+					<li><a href="http://isahaya.jrc.or.jp/shinryo/nyuin/">・入院・退院手続き</a></li>
+					<li><a href="http://isahaya.jrc.or.jp/shinryo/nyuin/life/">・入院中の生活</a></li>
+				</ul>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/certificate/">各種診断書等</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/record/">カルテ開示について</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/pdf/gairai_shinsatsui.pdf" target="_blank">外来診療医表</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/suimin_center/">睡眠センター</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/senmon/">専門外来</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/">各種教室</a></p>
+				<ul>
+					<li><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/#kokyuki">・呼吸器教室</a></li>
+					<li><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/#tounyoubyou">・糖尿病教室</a></li>
+					<li><a href="http://isahaya.jrc.or.jp/shinryo/schoolroom/#zenso">・喘息教室</a></li>
+				</ul>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/safety/">医療安全</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/ishi/">医師の紹介</a></p>
+				<p class="title mt1em">診療科のご案内</p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/shinryoka/kokyukika/">呼吸器科</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/shinryoka/syokakika/">消化器科</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/shinryo/shinryoka/jyunkankika/">循環器科</a></p>
+			</div>
+			<div class="footer_col">
+				<div class="section">
+					<p class="title">部門紹介</p>
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/yakuzaibu/">薬剤部</a></p>
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/hoshasenkabu/">放射線科部</a></p>
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/rehabilitationkabu/">リハビリテーション科部</a></p>
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/kensaka/">医療技術部　検査課</a></p>
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/eiyoka/">医療技術部　栄養課</a></p>
+				</div>
+
+				<p class="title"><a href="http://isahaya.jrc.or.jp/bumon/kango/">看護部</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/kango/introduction/">看護部紹介</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/kango/specific/">認定看護師・特定行為に係る看護師</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/kango/education/">看護職員教育支援・看護教育</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/kango/welfare/">福利厚生</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/bumon/kango/nurse/">きらり☆ナースのお仕事</a></p>
+			</div>
+			<div class="footer_col">
+				<p class="title">地域との連携・在宅医療</p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/chiiki/renkei/">医療連携室</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/chiiki/care/">地域包括ケア病棟</a></p>
+				<!-- <p class="arw"><a href="">外来・検査予約について</a></p> -->
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/chiiki/respite/">レスパイト入院</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/chiiki/houmonkango/">訪問看護ステーション</a></p>
+			</div>　
+			<div class="footer_col">
+				<p class="title">人間ドック・健診について</p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/dock/summary/">各種健診のご案内</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/dock/beginners/">人間ドックについて</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/dock/shukanbyo/">生活習慣病予防健診<br>
+						&nbsp;&nbsp;&nbsp;基本健診、特定健診</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/dock/support/">健診後のサポート</a></p>
+				<p class="arw"><a href="http://isahaya.jrc.or.jp/dock/option/">オプション検査</a></p>
+			</div>　
+			<div class="footer_col">
+				<div class="section">
+					<p class="title">病院のご案内</p>
+					<ul>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section01">・院長あいさつ</a></li>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section02">・理念・方針</a></li>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section03">・病院概要</a></li>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section04">・取扱い医療保険等</a></li>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section05">・診療機能等</a></li>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section06">・指定医療機関</a></li>
+						<li><a href="http://isahaya.jrc.or.jp/byoin/information/#section07">・学会等認定施設</a></li>
+					</ul>
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/byoin/katsudo/">赤十字病院としての活動</a></p>
+					<!-- <p class="arw"><a href="http://isahaya.jrc.or.jp/byoin/publications/">病院刊行物</a></p> -->
+					<p class="arw"><a href="http://isahaya.jrc.or.jp/byoin/information/shisetsu_kijun/">
+							厚生労働大臣が定める<br>
+							&nbsp;&nbsp;&nbsp;掲示事項
+						</a></p>
+				</div>
+
+				<p class="title"><a href="http://isahaya.jrc.or.jp/sitemap/">サイトマップ</a></p>
+				<p class="title"><a href="http://isahaya.jrc.or.jp/privacy/">個人情報保護方針</a></p>
+				<p class="title"><a href="http://isahaya.jrc.or.jp/access/">交通アクセス</a></p>
+			</div>　
+		</div><!-- .footer_top_menu_end -->
+	</div><!-- .footer_container_end -->
+
+	<ul class="sp" id="footer_sub_menu">
+		<li><a href="http://isahaya.jrc.or.jp/sitemap/">サイトマップ</a></li>
+		<li><a href="http://isahaya.jrc.or.jp/privacy/">個人情報保護方針</a></li>
+		<li><a href="http://isahaya.jrc.or.jp/access/">交通アクセス</a></li>
+	</ul>
+
+	<div class="footer_bottom_menu">
+		<div class="container">
+			<div class="pc">
+				<div class="footer_logo">
+					<p class="title">日本赤十字社　長崎原爆諫早病院</p>
+					<p class="address">〒859-0497　長崎県諫早市多良見町化屋986番地2</p>
+					<p class="tel">TEL：0957-43-2111</p>
+					<p class="fax">FAX：0957-43-2274</p>
+				</div>
+			</div>
+			<div class="sp center_align">
+				<div class="footer_logo">
+					<img src="http://isahaya.jrc.or.jp/images/common/red_cross.jpg" alt="">
+				</div>
+				<div class="description">
+					<p class="title">日本赤十字社　長崎原爆諫早病院</p>
+					<p class="address">〒859-0497　長崎県諫早市多良見町化屋986番地2</p>
+					<p class="tel">TEL：0957-43-2111</p>
+					<p class="fax">FAX：0957-43-2274</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- .footer_bottom_menu_end -->
+
+	<p class="copyright">&copy;Japanese Red Cross Nagasaki Genbaku Isahaya Hospital.</p>
+</footer>
+<p id="pagetop"><a href="#wrap"><img src="http://isahaya.jrc.or.jp/images/common/pagetop.png" alt=""></a></p>
+</div><!-- #wrap_end -->
+</body>
+
+</html>
+		<link rel="stylesheet" href="/css/remodal.css">
+		<link rel="stylesheet" type="text/css" href="/css/remodal-default-theme.css">
+		<script src="/js/remodal.min.js"></script>
+		<script src="/js/js.cookie.min.js"></script>
+		<script>
+		$(function() {
+			const date = new Date();
+			date.setDate(date.getDate() + 1);
+			date.setHours(0, 0, 0);
+
+			if (Cookies.get('access_sample') == undefined) {
+				Cookies.set('access_sample', 'access', {
+					expires: date
+				});
+				$('[data-remodal-id=modal]').remodal().open();
+			}
+		});
+		</script>
+
+		<a data-remodal-target="modal" data-remodal-options="hashTracking:false" style="display: none;">要素を表示</a>
+		<div class="remodal" data-remodal-id="modal">
+			<button data-remodal-action="close" class="remodal-close"></button>
+
+			<p><a target="_blank"><img class="pc" src="images/popup.jpg" alt=""><img class="sp" src="images/popup_sp.jpg" alt=""></a></p>
+		</div>
