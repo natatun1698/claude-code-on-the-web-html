@@ -1,0 +1,5 @@
+000	OK 200	https://www.nagoya-1st.jrc.or.jp/about/bid/	98744 bytes
+001	OK 200	https://www.nagoya2.jrc.or.jp/about/choutatsujouhou/	79721 bytes
+002	OK 200	https://www.gifu-med.jrc.or.jp/medical/nyusatu/zuiikeiyaku.html	17838 bytes
+003	ERROR	https://www.takayama.jrc.or.jp/	URLError(ConnectionRefusedError(111, 'Connection refused'))
+004	ERROR	https://ise.jrc.or.jp/bind/index.html	<HTTPError 404: 'Not Found'>
