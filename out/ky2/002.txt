@@ -1,0 +1,223 @@
+URL: https://www.kumamoto-med.jrc.or.jp/facilities/bid
+FINAL: https://www.kumamoto-med.jrc.or.jp/facilities/bid
+STATUS: 200
+
+
+入札に関するお知らせ | 熊本赤十字病院｜人道・博愛・奉仕の実践
+MENU
+検索:
+HOME
+一般外来を受診される方へ
+救急外来を受診される方へ
+お知らせ
+外来担当医表
+ご来院の方へ
+医療関係者の方へ
+当院で働きたい方へ
+当院について
+診療科・部門案内
+サイトマップ
+交通アクセス
+サイトマップ
+よくあるご質問・お問い合わせ
+For International patients
+一般外来受診
+救急外来受診
+お知らせ
+外来担当医表
+よくあるご質問
+お問い合わせ
+For International patients
+ご来院の方へ
+外来担当医表
+各種相談について
+診断書・証明書について
+一般外来受診のご案内
+入院のご案内
+かかりつけ医への相談について
+(ふたりの主治医で支えます)
+医療関係者の方へ
+保険薬局の皆さまへ
+患者サポートセンター
+患者さんのご紹介について
+当院で働きたい方へ
+採用サイト
+募集要項
+職種のご紹介
+福利厚生
+当院について
+院長あいさつ
+理念・基本方針
+病院概要
+情報公開
+フロアマップ・施設紹介
+交通アクセス
+ボランティア
+院内教室・イベント
+診療トピックス
+クローズアップ
+臨床研究・治験
+入札に関するお知らせ
+診療科・部門案内
+医師のご紹介
+診療科
+センター・室
+部門
+サイトマップ
+096-384-2111
+交通アクセス
+検索
+-->
+検索:
+-->
+新型コロナウイルスに関するお知らせ
+ -->
+HOME
+当院について
+入札に関するお知らせ
+入札に関するお知らせ
+Bid information
+現在入札に関するお知らせはありません。
+〒861-8520
+熊本県熊本市東区長嶺南2丁目1番1号
+TEL.096-384-2111(代)　FAX.096-384-3939
+外来受付時間　8:30 ~ 11:30
+再来受付機　　8:00 ~
+© 2021 Japanese Red Cross Kumamoto Hospital.
+日本赤十字社
+熊本県支部
+熊本県赤十字血液センター
+熊本健康管理センター
+フロアマップ・施設紹介
+交通アクセス
+プライバシーポリシー
+サイトマップ
+入札に関するお知らせ
+ソーシャルメディアガイドライン
+病院案内パンフレット
+facebook
+公式チャンネル
+Instagram
+〒861-8520
+熊本県熊本市東区長嶺南2丁目1番1号
+TEL.096-384-2111(代)　FAX.096-384-3939
+日本赤十字社
+熊本県支部
+熊本県赤十字血液センター
+熊本健康管理センター
+facebook
+公式チャンネル
+フロアマップ・施設紹介
+交通アクセス
+プライバシーポリシー
+サイトマップ
+Copyright 2020 Japanese Red Cross Kumamoto Hospital All Rights Reserved.
+--> 
+googlemapデザインに入ってたら使う。
+  headerにAPIキーを入れないとmapが表示されません
+  使用しない場合は、bodyタグのonLoad="initialize();とcube.jsのgooglemap
+  footer.phpのHTMLを消す。
+ f01 
+ f02 
+ f03 
+Copyright© 2026 CUBE All rights reserved.
+-->
+
+
+==== IMG TAGS ====
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_logo.png" alt="熊本赤十字病院">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_otherlink_icon001.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_otherlink_icon003.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_logo.png" alt="熊本赤十字病院">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_otherlink_icon001.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_otherlink_icon002.png" alt="tel:096-384-2111">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_otherlink_icon003.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/assets/img/common/header_otherlink_icon004.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/library/images/common/footer_logo.png" alt="熊本赤十字病院">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/library/images/common/snsllink_icon001.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/library/images/common/snsllink_icon002.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/library/images/common/footer_logo.png" alt="熊本赤十字病院">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/library/images/common/snsllink_icon01.png" alt="">
+<img src="https://www.kumamoto-med.jrc.or.jp/wp-content/themes/gamma/library/images/common/snsllink_icon02.png" alt="">
+
+==== LINKS ====
+https://www.kumamoto-med.jrc.or.jp	
+https://www.kumamoto-med.jrc.or.jp	HOME
+https://www.kumamoto-med.jrc.or.jp/user/outpatient	一般外来を受診される方へ
+https://www.kumamoto-med.jrc.or.jp/info-departementale/center/synthesis	救急外来を受診される方へ
+https://www.kumamoto-med.jrc.or.jp/news	お知らせ
+https://www.kumamoto-med.jrc.or.jp/user/patients/	外来担当医表
+https://www.kumamoto-med.jrc.or.jp/user	ご来院の方へ
+https://www.kumamoto-med.jrc.or.jp/medical	医療関係者の方へ
+https://www.kumamoto-med.jrc.or.jp/medical/recruit	当院で働きたい方へ
+https://www.kumamoto-med.jrc.or.jp/facilities	当院について
+https://www.kumamoto-med.jrc.or.jp/info-departementale	診療科・部門案内
+https://www.kumamoto-med.jrc.or.jp	サイトマップ
+https://www.kumamoto-med.jrc.or.jp/facilities/access	交通アクセス
+https://www.kumamoto-med.jrc.or.jp/sitemap	サイトマップ
+https://www.kumamoto-med.jrc.or.jp/contact	よくあるご質問・お問い合わせ
+https://translate.google.com/translate?sl=auto&tl=en&u=https://www.kumamoto-med.jrc.or.jp/facilities/bid	For International patients
+https://www.kumamoto-med.jrc.or.jp	
+https://www.kumamoto-med.jrc.or.jp/user/outpatient	一般外来受診
+https://www.kumamoto-med.jrc.or.jp/info-departementale/center/synthesis	救急外来受診
+https://www.kumamoto-med.jrc.or.jp/news	お知らせ
+https://www.kumamoto-med.jrc.or.jp/user/patients/	外来担当医表
+https://www.kumamoto-med.jrc.or.jp/contact	よくあるご質問お問い合わせ
+https://translate.google.com/translate?sl=auto&tl=en&u=https://www.kumamoto-med.jrc.or.jp/facilities/bid	For International patients
+https://www.kumamoto-med.jrc.or.jp/user	ご来院の方へ
+https://www.kumamoto-med.jrc.or.jp/user/patients	外来担当医表
+https://www.kumamoto-med.jrc.or.jp/user/consultation	各種相談について
+https://www.kumamoto-med.jrc.or.jp/user/report	診断書・証明書について
+https://www.kumamoto-med.jrc.or.jp/user/outpatient	一般外来受診のご案内
+https://www.kumamoto-med.jrc.or.jp/user/info	入院のご案内
+https://www.kumamoto-med.jrc.or.jp/user/familydoctor	かかりつけ医への相談について(ふたりの主治医で支えます)
+https://www.kumamoto-med.jrc.or.jp/medical	医療関係者の方へ
+https://www.kumamoto-med.jrc.or.jp/medical/insurance_pharmacies	保険薬局の皆さまへ
+https://www.kumamoto-med.jrc.or.jp/medical/patientsupportcenter	患者サポートセンター
+https://www.kumamoto-med.jrc.or.jp/medical/regionalpartnership	患者さんのご紹介について
+https://www.kumamoto-med.jrc.or.jp/medical/recruit	当院で働きたい方へ
+https://www.kumamoto-med.jrc.or.jp/medical/recruit	採用サイト
+https://www.kumamoto-med.jrc.or.jp/archives/boshu	募集要項
+https://www.kumamoto-med.jrc.or.jp/medical/recruit/welfare	福利厚生
+https://www.kumamoto-med.jrc.or.jp/facilities	当院について
+https://www.kumamoto-med.jrc.or.jp/facilities/hospital	院長あいさつ
+https://www.kumamoto-med.jrc.or.jp/facilities/basicidea	理念・基本方針
+https://www.kumamoto-med.jrc.or.jp/facilities/summary	病院概要
+https://www.kumamoto-med.jrc.or.jp/facilities/publication	情報公開
+https://www.kumamoto-med.jrc.or.jp/facilities/introduction	フロアマップ・施設紹介
+https://www.kumamoto-med.jrc.or.jp/facilities/access	交通アクセス
+https://www.kumamoto-med.jrc.or.jp/facilities/volunteer	ボランティア
+https://www.kumamoto-med.jrc.or.jp/facilities/lectureship	院内教室・イベント
+https://www.kumamoto-med.jrc.or.jp/archives/medical_topics	診療トピックス
+https://www.kumamoto-med.jrc.or.jp/facilities/close_up	クローズアップ
+https://www.kumamoto-med.jrc.or.jp/facilities/clinicaltrial	臨床研究・治験
+https://www.kumamoto-med.jrc.or.jp/facilities/bid	入札に関するお知らせ
+https://www.kumamoto-med.jrc.or.jp/info-departementale	診療科・部門案内
+https://www.kumamoto-med.jrc.or.jp/info-departementale/doctor	医師のご紹介
+https://www.kumamoto-med.jrc.or.jp/clinical-department	診療科
+https://www.kumamoto-med.jrc.or.jp/info-departementale/center	センター・室
+https://www.kumamoto-med.jrc.or.jp	サイトマップ
+tel:0963842111	096-384-2111
+https://www.kumamoto-med.jrc.or.jp/facilities/access	交通アクセス
+https://www.kumamoto-med.jrc.or.jp	検索
+https://www.kumamoto-med.jrc.or.jp/colona	新型コロナウイルスに関するお知らせ
+https://www.kumamoto-med.jrc.or.jp	HOME
+https://www.kumamoto-med.jrc.or.jp/facilities	当院について
+https://www.kumamoto-med.jrc.or.jp/facilities/bid	入札に関するお知らせ
+http://www.jrc.or.jp/	日本赤十字社
+https://www.jrc.or.jp/chapter/kumamoto/	熊本県支部
+https://www.bs.jrc.or.jp/bc9/kumamoto/	熊本県赤十字血液センター
+https://www.kenkan.gr.jp/	熊本健康管理センター
+https://www.kumamoto-med.jrc.or.jp/facilities/introduction	フロアマップ・施設紹介
+https://www.kumamoto-med.jrc.or.jp/facilities/access	交通アクセス
+https://www.kumamoto-med.jrc.or.jp/sitemap	サイトマップ
+https://www.kumamoto-med.jrc.or.jp/facilities/bid	入札に関するお知らせ
+https://www.kumamoto-med.jrc.or.jp/wp-content/uploads/socialmediaguideline.pdf	ソーシャルメディアガイドライン
+https://www.kumamoto-med.jrc.or.jp/wp-content/uploads/pamphle_202605.pdf	病院案内パンフレット
+https://www.facebook.com/%E7%86%8A%E6%9C%AC%E8%B5%A4%E5%8D%81%E5%AD%97%E7%97%85%E9%99%A2-646244752236544	facebook
+https://www.youtube.com/channel/UCLjufUNlHYMQe5sVZK3XVww	公式チャンネル
+https://www.instagram.com/kumamoto_red_cross	Instagram
+https://www.kumamoto-med.jrc.or.jp/	フロアマップ・施設紹介
+https://www.kumamoto-med.jrc.or.jp/	交通アクセス
+https://www.kumamoto-med.jrc.or.jp/	プライバシーポリシー
+https://www.kumamoto-med.jrc.or.jp/	サイトマップ
