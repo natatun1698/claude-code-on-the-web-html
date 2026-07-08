@@ -1,0 +1,115 @@
+import json
+import sys
+
+sys.path.insert(0, "work")
+from parse_pdf2 import parse_pdf
+
+JOBS = {
+    "tottori": [
+        ("out/cg2/000.html", "https://www.tottori-med.jrc.or.jp/trch/wp-content/uploads/2025/12/e5fa9be5186f542ec6ec9366c6d17285.pdf"),
+        ("out/cg2/001.html", "https://www.tottori-med.jrc.or.jp/trch/wp-content/uploads/2025/07/e1a2674457c80df832a78911488a22c2.pdf"),
+        ("out/cg2/002.html", "https://www.tottori-med.jrc.or.jp/trch/wp-content/uploads/2024/03/b40c5ac8033021256496273c40d0f3ab.pdf"),
+    ],
+    "matsue": [(f"out/cg2/{i:03d}.html", u) for i, u in [
+        (3, "https://www.matsue.jrc.or.jp/files/libs/7756/202607061320322953.pdf"),
+        (4, "https://www.matsue.jrc.or.jp/files/libs/7692/2026060418570644.pdf"),
+        (5, "https://www.matsue.jrc.or.jp/files/libs/7715/202606161902083837.pdf"),
+        (6, "https://www.matsue.jrc.or.jp/files/libs/7670/202605181829243694.pdf"),
+        (7, "https://www.matsue.jrc.or.jp/files/libs/7658/202605131553535104.pdf"),
+        (8, "https://www.matsue.jrc.or.jp/files/libs/7652/202605081750531211.pdf"),
+        (9, "https://www.matsue.jrc.or.jp/files/libs/7612/202604201708581831.pdf"),
+        (10, "https://www.matsue.jrc.or.jp/files/libs/7470/202603051133525733.pdf"),
+        (11, "https://www.matsue.jrc.or.jp/files/libs/7464/202603021550332364.pdf"),
+        (12, "https://www.matsue.jrc.or.jp/files/libs/7392/202602021431556677.pdf"),
+        (13, "https://www.matsue.jrc.or.jp/files/libs/7283/202512091551574762.pdf"),
+        (14, "https://www.matsue.jrc.or.jp/files/libs/7142/202511041149572853.pdf"),
+        (15, "https://www.matsue.jrc.or.jp/files/libs/7005/202510021724214760.pdf"),
+        (16, "https://www.matsue.jrc.or.jp/files/libs/7130/202510301414206375.pdf"),
+        (17, "https://www.matsue.jrc.or.jp/files/libs/6873/202509020959195455.pdf"),
+        (18, "https://www.matsue.jrc.or.jp/files/libs/6847/202508210848085048.pdf"),
+        (19, "https://www.matsue.jrc.or.jp/files/libs/6799/202508071320386111.pdf"),
+        (20, "https://www.matsue.jrc.or.jp/files/libs/6786/202507171713161167.pdf"),
+        (21, "https://www.matsue.jrc.or.jp/files/libs/6767/20250701111321163.pdf"),
+        (22, "https://www.matsue.jrc.or.jp/files/libs/6701/202506051418146858.pdf"),
+        (23, "https://www.matsue.jrc.or.jp/files/libs/6700/202506051156558205.pdf"),
+        (24, "https://www.matsue.jrc.or.jp/files/libs/6708/20250616101515784.pdf"),
+        (25, "https://www.matsue.jrc.or.jp/files/libs/6593/202505091305024953.pdf"),
+        (26, "https://www.matsue.jrc.or.jp/files/libs/6587/202505071428482600.pdf"),
+        (27, "https://www.matsue.jrc.or.jp/files/libs/6476/202503061526376649.pdf"),
+        (28, "https://www.matsue.jrc.or.jp/files/libs/6475/202503061526308316.pdf"),
+        (29, "https://www.matsue.jrc.or.jp/files/libs/6433/202502130831173966.pdf"),
+        (30, "https://www.matsue.jrc.or.jp/files/libs/6246/202412161318084611.pdf"),
+        (31, "https://www.matsue.jrc.or.jp/files/libs/6474/20250306152624257.pdf"),
+        (32, "https://www.matsue.jrc.or.jp/files/libs/6244/202412100902189548.pdf"),
+        (33, "https://www.matsue.jrc.or.jp/files/libs/6156/202411070839362183.pdf"),
+        (34, "https://www.matsue.jrc.or.jp/files/libs/6482/202503241520086076.pdf"),
+        (35, "https://www.matsue.jrc.or.jp/files/libs/6151/202410290912214296.pdf"),
+        (36, "https://www.matsue.jrc.or.jp/files/libs/6006/202408131409287619.pdf"),
+        (37, "https://www.matsue.jrc.or.jp/files/libs/5975/202407100847214928.pdf"),
+        (38, "https://www.matsue.jrc.or.jp/files/libs/5874/202406031528053797.pdf"),
+        (39, "https://www.matsue.jrc.or.jp/files/libs/5801/202405091325275352.pdf"),
+        (40, "https://www.matsue.jrc.or.jp/files/libs/5844/202405241033589428.pdf"),
+        (41, "https://www.matsue.jrc.or.jp/files/libs/5798/202405091322106898.pdf"),
+        (42, "https://www.matsue.jrc.or.jp/files/libs/5695/202404041431296831.pdf"),
+        (43, "https://www.matsue.jrc.or.jp/files/libs/5612/202403011116543310.pdf"),
+        (44, "https://www.matsue.jrc.or.jp/files/libs/5530/202401181508563812.pdf"),
+    ]],
+    "masuda": [(f"out/cg2/{i:03d}.html", u) for i, u in [
+        (45, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2026/06/c9646c603320e4e970c7c4525d424956.pdf"),
+        (46, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2026/04/27e2ca7c1ac8d399ec1eae5c97cc7d54.pdf"),
+        (47, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2025/05/9179252e40f16f4d13a1cece7a7e2cee.pdf"),
+        (48, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2024/04/R5年度公表の随意契約ﾎｰﾑﾍﾟｰｼﾞ掲載-1.pdf"),
+        (49, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2023/05/20230529R4年度公表の随意契約ﾎｰﾑﾍﾟｰｼﾞ掲載（企画課用）修正後.pdf"),
+        (50, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2022/05/R3年度公表の随意契約ﾎｰﾑﾍﾟｰｼﾞ掲載2021-1.pdf"),
+        (51, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2020/12/R2年度公表の随意契約ﾎｰﾑﾍﾟｰｼﾞ掲載-.pdf"),
+        (52, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2019/12/令和1年度随意契約締結状況-1.pdf"),
+        (53, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2019/03/30年度公表の随意契約ﾎｰﾑﾍﾟｰｼﾞ掲載.pdf"),
+        (54, "https://masuda.jrc.or.jp/wp/wp-content/uploads/2016/01/29年度公表の随意契約ﾎｰﾑﾍﾟｰｼﾞ掲載-1-1.pdf"),
+    ]],
+    "hiroshima_genbaku": [(f"out/cg2/{i:03d}.html", u) for i, u in [
+        (58, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2026/07/20260702公表_令和8年度随意契約情報①.pdf"),
+        (59, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2026/06/令和7年度　随意契約情報①.pdf"),
+        (60, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2026/07/令和7年度　随意契約情報②.pdf"),
+        (61, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2026/06/令和6年度　随意契約情報①.pdf"),
+        (62, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2026/07/令和6年度　随意契約情報②.pdf"),
+        (63, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2023/12/令和5年度上半期　随意契約一覧-.pdf"),
+        (64, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2023/12/令和5年度　随意契約情報②.pdf"),
+        (65, "https://www.hiroshima-med.jrc.or.jp/med_cms/wp-content/uploads/2024/01/令和5年度　随意契約一覧③.pdf"),
+    ]],
+    "shobara": [(f"out/cg2/{i:03d}.html", u) for i, u in [
+        (66, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2026/04/1f137efcf8b52d80929ad7651ba532ab.pdf"),
+        (67, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2025/08/68857caf673adaaaea16cd1629b0f64a.pdf"),
+        (68, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2025/08/b2baa9ef56ad7e5de061ca9ef039e472.pdf"),
+        (69, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2025/08/912f06f84028111c66ae65a877d27854.pdf"),
+        (70, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/03/587f97eda29f48e1176f836224c6531f.pdf"),
+        (71, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/03/ec9c72411d9982f220e30d5079f4abae.pdf"),
+        (72, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/05/e7eeb55c61163dca61b92a0b2511ab6f.pdf"),
+        (73, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/08/875d4c377f72d84b43167e23dfe6bf6d.pdf"),
+        (74, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/10/9bac358eb38852f08fa42fda88819ded.pdf"),
+        (75, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/cfa3e672fd102d61e9280a320ebbd51f.pdf"),
+        (76, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/14ccc7e953607d2041b0c9721362fb2a.pdf"),
+        (77, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/67f37aeb69179145fb61ac42f4c2d922.pdf"),
+        (78, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/20d98772bb05e6a6ceee648643aa091e.pdf"),
+        (79, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/9f5f29edf22a4de72f0a126c1d7b8844.pdf"),
+        (80, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/7b84fe3e3c6f940b7ef354e065c2df4b.pdf"),
+        (81, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/13967c442f27fbf6675810fa331df31b.pdf"),
+        (82, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/2f84685285831e76b30b9a4bdd48bca9.pdf"),
+        (83, "https://www.shobara.jrc.or.jp/wpcms/wp-content/uploads/2024/04/df18199945798e9cad0dc0e2712ea0df.pdf"),
+    ]],
+    "yamaguchi": [(f"out/cg2/{i:03d}.html", u) for i, u in [
+        (85, "https://www.yamaguchi-redcross.jp/wp/wp-content/uploads/2026/04/R7_zuiikeiyaku_somu.pdf"),
+        (86, "https://www.yamaguchi-redcross.jp/wp/wp-content/uploads/2025/03/随意契約_用度課_令和5年度.pdf"),
+        (87, "https://www.yamaguchi-redcross.jp/wp/wp-content/uploads/2025/03/随意契約_用度課_令和6年度.pdf"),
+        (88, "https://www.yamaguchi-redcross.jp/wp/wp-content/uploads/2026/04/R7_zuiikeiyaku_yodo.pdf"),
+        (89, "https://www.yamaguchi-redcross.jp/wp/wp-content/uploads/2024/03/随意契約の公表R6管財-1.pdf"),
+        (90, "https://www.yamaguchi-redcross.jp/wp/wp-content/uploads/2026/04/R7_zuiikeiyaku_kanzai_3.pdf"),
+    ]],
+}
+
+for hospital, files in JOBS.items():
+    rows = []
+    for path, url in files:
+        rows.extend(parse_pdf(path, url))
+    out_path = f"work/contracts_{hospital}.json"
+    json.dump(rows, open(out_path, "w"), ensure_ascii=False, indent=1)
+    print(f"{hospital}: {len(rows)} rows total from {len(files)} files -> {out_path}")
