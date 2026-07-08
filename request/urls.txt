@@ -1,8 +1,5 @@
-https://web.archive.org/web/20250404070313/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai1.pdf
-https://web.archive.org/web/20250402161259/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai2.pdf
-https://web.archive.org/web/20251016070612/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai3.pdf
-https://web.archive.org/web/20251016070805/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei06dai4.pdf
-https://web.archive.org/web/20240304084814/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai1.pdf
-https://web.archive.org/web/20240528003822/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai2.pdf
-https://web.archive.org/web/20240528003835/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai3.pdf
-https://web.archive.org/web/20250402132330/https://himeji.jrc.or.jp/data/media/himeji-jrc/page/nyusatsu/index/zuikei05dai4_2.pdf
+https://www.kyoto1.jrc.or.jp/about/contract-info/
+https://www.kyoto2.jrc.or.jp/medical_personnel/bidding/
+https://www.otsu.jrc.or.jp/about/procurement/
+https://www.otsu-shiga.jrc.or.jp/about/procurement/
+https://www.nagahama.jrc.or.jp/about/bidding.html
