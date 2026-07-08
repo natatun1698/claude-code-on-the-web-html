@@ -1,0 +1,14 @@
+000	OK 200	https://www.asahikawa.jrc.or.jp/bid/	153961 bytes
+001	OK 200	https://www.kitami.jrc.or.jp/%E5%85%A5%E6%9C%AD%E3%83%BB%E5%A5%91%E7%B4%84%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6	172797 bytes
+002	OK 200	https://date.jrc.or.jp/information/nyuusatsu/	76893 bytes
+003	OK 200	https://kushiro.jrc.or.jp/procurement	38073 bytes
+004	OK 200	http://urakawa.jrc.or.jp/public/	63806 bytes
+005	OK 200	https://kuriyama.jrc.or.jp/bid/	35757 bytes
+006	OK 200	https://shimizu.jrc.or.jp/auction.html	26644 bytes
+007	OK 200	http://oketo.jrc.or.jp/%E5%85%A5%E6%9C%AD%E5%85%AC%E5%91%8A/	42463 bytes
+008	OK 200	http://www.phoenix-c.or.jp/~krchp/pdf/zuii.pdf	378382 bytes
+009	OK 200	http://www.hakodate.jrc.or.jp/posts/news_archive.html	19765 bytes
+010	OK 200	https://www.takamatsu.jrc.or.jp/news/bidinfo/	75552 bytes
+011	OK 200	https://www.tokushima-med.jrc.or.jp/medicalPersonnel/	41525 bytes
+012	OK 200	https://www.tokushima-med.jrc.or.jp/sitemaps/	51169 bytes
+013	OK 200	https://www.matsuyama.jrc.or.jp/news/31929/	257752 bytes
