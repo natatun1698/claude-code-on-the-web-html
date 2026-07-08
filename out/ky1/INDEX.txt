@@ -1,0 +1,10 @@
+000	OK 200	https://fukuoka-med.jrc.or.jp/	91645 bytes
+001	OK 200	https://imazu-med-jrc.jp/	126886 bytes
+002	OK 200	https://kama-jrc.jp/	109144 bytes
+003	ERROR	https://karatsu.jrc.or.jp/	URLError(TimeoutError('timed out'))
+004	OK 200	https://nagasaki-med.jrc.or.jp/	61891 bytes
+005	ERROR	https://isahaya.jrc.or.jp/	URLError(ConnectionRefusedError(111, 'Connection refused'))
+006	ERROR	https://kumamoto-med.jrc.or.jp/	URLError(gaierror(-5, 'No address associated with hostname'))
+007	OK 200	https://oitasekijyuji.jp/	106883 bytes
+008	ERROR	https://kagoshima-med.jrc.or.jp/	<HTTPError 403: 'Forbidden'>
+009	ERROR	https://okinawa-med.jrc.or.jp/	<HTTPError 403: 'Forbidden'>
