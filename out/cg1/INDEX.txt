@@ -1,0 +1,9 @@
+000	OK 200	https://www.tottori-med.jrc.or.jp/about/nyuusatsu	39476 bytes
+001	OK 200	https://www.matsue.jrc.or.jp/pages/458	133354 bytes
+002	OK 200	https://masuda.jrc.or.jp/hospitalguide/notification	86091 bytes
+003	OK 200	https://www.okayama-med.jrc.or.jp/tender	36882 bytes
+004	OK 200	https://www.okaseki-tamano.jrc.or.jp/	37641 bytes
+005	OK 200	https://www.hiroshima-med.jrc.or.jp/renkei/page-2/	49914 bytes
+006	OK 200	https://www.shobara.jrc.or.jp/department-2/nyusatu-2-2/	72508 bytes
+007	OK 200	http://mihara.jrc.or.jp/	93921 bytes
+008	OK 200	https://www.yamaguchi-redcross.jp/p8_sonota/7_nyusatu/index.html	39285 bytes
