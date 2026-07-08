@@ -1,0 +1,1 @@
+000	OK 200	https://web.archive.org/cdx/search/cdx?url=himeji.jrc.or.jp&matchType=domain&output=json&limit=300&filter=urlkey:.*(zuii|nyusatsu|nyuusatsu|zuiikeiyaku).*&collapse=urlkey&from=2023&to=2026	7668 bytes
