@@ -1,0 +1,5 @@
+000	OK 200	https://www.kyoto1.jrc.or.jp/about/contract-info/	61150 bytes
+001	OK 200	https://www.kyoto2.jrc.or.jp/medical_personnel/bidding/	78430 bytes
+002	OK 200	https://www.otsu.jrc.or.jp/about/procurement/	55705 bytes
+003	OK 200	https://www.otsu-shiga.jrc.or.jp/about/procurement/	46481 bytes
+004	OK 200	https://www.nagahama.jrc.or.jp/about/bidding.html	29781 bytes
