@@ -1,0 +1,21 @@
+000	ERROR	https://himeji.jrc.or.jp/category/gaiyou/nyusatsu/index.html	URLError(TimeoutError('timed out'))
+001	OK 200	https://www.osaka-med.jrc.or.jp/information/upload/tenter/3ac4ab4b10c0c2c77b1c842b89bd82f6.pdf	144820 bytes
+002	OK 200	https://www.osaka-med.jrc.or.jp/information/upload/tenter/a368a4d6b6c07cf49f33ddbe4eba51fd.pdf	147924 bytes
+003	OK 200	https://www.osaka-med.jrc.or.jp/information/upload/tenter/36ba74356c154c644e8922b06c4c1662.pdf	194216 bytes
+004	OK 200	https://www.osaka-med.jrc.or.jp/information/upload/tenter/f45b1c939cf23972b6d6e29ff8c63240.pdf	180336 bytes
+005	OK 200	https://www.osaka-med.jrc.or.jp/information/upload/tenter/a10db9371d8f4080bf37c484136db8b0.pdf	151669 bytes
+006	OK 200	https://www.osaka-med.jrc.or.jp/information/upload/tenter/883826cebb032966623ac08b8784fdcb_1.pdf	156084 bytes
+007	OK 200	https://www.takatsuki.jrc.or.jp/wp_root/wp-content/uploads/2021/12/bid_r8_04.pdf	90198 bytes
+008	OK 200	https://www.takatsuki.jrc.or.jp/wp_root/wp-content/uploads/2021/12/bid_r8_03.pdf	133585 bytes
+009	OK 200	https://www.takatsuki.jrc.or.jp/wp_root/wp-content/uploads/2021/12/bid_r8_1-2.pdf	126289 bytes
+010	OK 200	https://www.takatsuki.jrc.or.jp/wp_root/wp-content/uploads/2021/12/bid_r7_11-12.pdf	120114 bytes
+011	OK 200	https://www.takatsuki.jrc.or.jp/wp_root/wp-content/uploads/2021/12/bid_r7_9-10.pdf	146704 bytes
+012	ERROR	https://www.kobejrc.jp/admin/wp-content/uploads/2021/05/随意契約一覧_202504-202603.pdf	UnicodeEncodeError('ascii', 'GET /admin/wp-content/uploads/2021/05/随意契約一覧_202504-202603.pdf HTTP/1.1', 38, 44, 'ordinal not in range(128)')
+013	OK 200	https://www.taka.jrc.or.jp/data/media/zuikeijyokyo.R7.2.pdf	85320 bytes
+014	OK 200	https://www.taka.jrc.or.jp/data/media/zuikeiyokyo.R7.4.pdf	82430 bytes
+015	OK 200	https://www.taka.jrc.or.jp/data/media/takared-hos/page/information/tender/pdf/zuikei-2024-12.pdf	82781 bytes
+016	ERROR	https://www.taka.jrc.or.jp/data/media/takared-hos/page/information/tender/pdf/随意契約締結状況（令和6年10月分）.pdf	UnicodeEncodeError('ascii', 'GET /data/media/takared-hos/page/information/tender/pdf/随意契約締結状況（令和6年10月分）.pdf HTTP/1.1', 56, 67, 'ordinal not in range(128)')
+017	OK 200	https://www.wakayama-med.jrc.or.jp/about/nyusatu/bca6bl0000001o8b-att/zuiikeiyaku20260405.pdf	86669 bytes
+018	OK 200	https://www.wakayama-med.jrc.or.jp/about/nyusatu/bca6bl0000001o8b-att/20260203zuiikeiyaku.pdf	410817 bytes
+019	OK 200	https://www.wakayama-med.jrc.or.jp/about/nyusatu/bca6bl0000001o8b-att/20260219zuiikeiyaku_.pdf	270496 bytes
+020	OK 200	https://www.wakayama-med.jrc.or.jp/about/nyusatu/bca6bl0000001o8b-att/20251209_zuiikeiyaku.pdf	104167 bytes
