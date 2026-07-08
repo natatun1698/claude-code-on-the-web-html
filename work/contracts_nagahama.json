@@ -1,0 +1,38 @@
+[
+ {
+  "no": 1,
+  "name": "館内警備業務委託",
+  "qty": "",
+  "dept": "総務課滋賀県長浜市宮前町14番7号",
+  "date": "令和8年4月1日",
+  "counterparty": "滋賀双葉ビル整備（株）滋賀県大津市大萱一丁目4番19号",
+  "amount": "2,409,000円（月額）",
+  "reason": "契約業者は当該施設内の業務を熟知しており、過去の実績により必要な能力及び経験を有し、迅速かつ円滑に実施できるのは契約業者のみであることから、契約の性質又は目的は競争を許さない場合に該当するため（日本赤十字社会計規則第36条第4項）",
+  "remark": "",
+  "source_url": "https://www.nagahama.jrc.or.jp/data/media/nagahama-jrc/page/about/bidding/pdf09.pdf"
+ },
+ {
+  "no": 1,
+  "name": "防犯カメラシステム工事",
+  "qty": "",
+  "dept": "滋賀県長浜市宮前町14－7",
+  "date": "令和7年11月27日",
+  "counterparty": "ＡＬＳＯＫ（株）東京都港区元赤坂一丁目6－6",
+  "amount": "1,276,000円",
+  "reason": "既存システムの追加工事となるため、契約の性質又は目的は競争を許さない場合に該当するため（日本赤十字社会計規則第36条第4項）",
+  "remark": "",
+  "source_url": "https://www.nagahama.jrc.or.jp/data/media/nagahama-jrc/page/about/bidding/pdf08.pdf"
+ },
+ {
+  "no": 1,
+  "name": "プリムス1058Ｌｉｆｅ２式(歯科診療用ユニット)",
+  "qty": "",
+  "dept": "事務部用度課滋賀県長浜市宮前町１４－７",
+  "date": "令和5年1月21日",
+  "counterparty": "株式会社 別田滋賀県大津市本宮",
+  "amount": "9,625,000円",
+  "reason": "契約の性質又は目的が競争に加わるべき者が少数で競争に付する必要がない場合の規定による。",
+  "remark": "",
+  "source_url": "https://www.nagahama.jrc.or.jp/data/media/nagahama-jrc/page/about/bidding/pdf07.pdf"
+ }
+]

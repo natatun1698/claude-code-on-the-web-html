@@ -1,0 +1,13 @@
+000	OK 200	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku%E2%82%8B2026042.pdf	198888 bytes
+001	OK 200	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku%E2%82%8B202603.pdf	177587 bytes
+002	OK 200	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku%E2%82%8B202602.pdf	125987 bytes
+003	OK 200	https://www.kyoto2.jrc.or.jp/wp/wp-content/uploads/zuiikeiyaku%E2%82%8B202601.pdf	163288 bytes
+004	OK 200	https://www.otsu.jrc.or.jp/wp-content/uploads/2024/05/2023%E5%B9%B4%E5%BA%A6_%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84%EF%BC%88%E6%A7%98%E5%BC%8F11%EF%BC%89.pdf	210333 bytes
+005	OK 200	https://www.otsu.jrc.or.jp/wp-content/uploads/2023/08/2022%E5%B9%B4%E5%BA%A6_%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84%EF%BC%88%E6%A7%98%E5%BC%8F11%EF%BC%89.pdf	179198 bytes
+006	OK 200	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2025/10/%E3%80%90%E4%BB%A4%E5%92%8C7%E5%B9%B45-6%E6%9C%88%E5%88%86%E3%80%91%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84.pdf	314376 bytes
+007	OK 200	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2025/04/%E3%80%90%E4%BB%A4%E5%92%8C6%E5%B9%B412%E6%9C%88%E5%88%86-%E4%BB%A4%E5%92%8C7%E5%B9%B43%E6%9C%88%E5%88%86%E3%80%91%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84.pdf	394399 bytes
+008	OK 200	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2024/12/%E3%80%90%E4%BB%A4%E5%92%8C6%E5%B9%B411-12%E6%9C%88%E5%88%86%E3%80%91%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84.pdf	407506 bytes
+009	OK 200	https://www.otsu-shiga.jrc.or.jp/wp-content/uploads/2024/05/%E3%80%90%E4%BB%A4%E5%92%8C6%E5%B9%B45%E6%9C%88%E5%88%86%E3%80%91%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84.pdf	373853 bytes
+010	OK 200	https://www.kyoto1.jrc.or.jp/file/attachment/9673.pdf	136727 bytes
+011	OK 200	https://www.kyoto1.jrc.or.jp/file/attachment/9397.pdf	95635 bytes
+012	OK 200	https://www.kyoto1.jrc.or.jp/file/attachment/8433.pdf	130624 bytes
