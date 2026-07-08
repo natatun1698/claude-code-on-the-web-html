@@ -1,0 +1,9 @@
+000	OK 200	https://www.hachinohe.jrc.or.jp/wp/wp-content/uploads/2024/11/184682d5984070e78bbc56a517fd9143-1.pdf	195387 bytes
+001	OK 200	https://www.hachinohe.jrc.or.jp/wp/wp-content/uploads/2024/11/74937714a167b97fb1dc7837287891ea.pdf	215911 bytes
+002	OK 200	https://www.hachinohe.jrc.or.jp/wp/wp-content/themes/red_cross_society/lib/pdf/voluntary-contract-r4.pdf	250445 bytes
+003	OK 200	http://www.morioka.jrc.or.jp/wp-content/uploads/2026/06/zuii_20260624.pdf	332527 bytes
+004	OK 200	http://www.morioka.jrc.or.jp/wp-content/uploads/2026/04/zuii_20260416.pdf	731558 bytes
+005	OK 200	http://www.morioka.jrc.or.jp/wp-content/uploads/2025/05/zuii_20250515.pdf	564900 bytes
+006	OK 200	https://www.sendai.jrc.or.jp/auctionInformation/1187/	47108 bytes
+007	OK 200	https://www.sendai.jrc.or.jp/auctionInformation/1168/	47101 bytes
+008	OK 200	https://www.sendai.jrc.or.jp/auctionInformation/1106/	47101 bytes
