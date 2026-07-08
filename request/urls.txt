@@ -1,10 +1,5 @@
-https://fukuoka-med.jrc.or.jp/
-https://imazu-med-jrc.jp/
-https://kama-jrc.jp/
-https://karatsu.jrc.or.jp/
-https://nagasaki-med.jrc.or.jp/
-https://isahaya.jrc.or.jp/
-https://kumamoto-med.jrc.or.jp/
-https://oitasekijyuji.jp/
-https://kagoshima-med.jrc.or.jp/
-https://okinawa-med.jrc.or.jp/
+https://www.karatsu.jrc.or.jp/
+http://isahaya.jrc.or.jp/
+https://www.kumamoto-med.jrc.or.jp/
+http://www.kagoshima-med.jrc.or.jp/
+https://www.okinawa-med.jrc.or.jp/
