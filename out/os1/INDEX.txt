@@ -1,0 +1,6 @@
+000	OK 200	https://www.osaka-med.jrc.or.jp/information/tenter.html	24752 bytes
+001	OK 200	https://www.takatsuki.jrc.or.jp/about/bid/	81593 bytes
+002	OK 200	https://www.kobejrc.jp/nyuusatsu/	39138 bytes
+003	ERROR	https://himeji.jrc.or.jp/category/gaiyou/nyusatsu/index.html	URLError(TimeoutError('timed out'))
+004	OK 200	https://www.taka.jrc.or.jp/information/tender.html	27492 bytes
+005	OK 200	https://www.wakayama-med.jrc.or.jp/about/nyusatu/nyusatsu.html	38068 bytes
