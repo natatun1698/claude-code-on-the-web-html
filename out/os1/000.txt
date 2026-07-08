@@ -1,0 +1,277 @@
+URL: https://www.osaka-med.jrc.or.jp/information/tenter.html
+FINAL: https://www.osaka-med.jrc.or.jp/information/tenter.html
+STATUS: 200
+
+
+入札・契約情報｜大阪赤十字病院
+背景色の変更
+白
+黄
+青
+黒
+文字サイズの変更
+小
+中
+大
+言語
+ENGLISH
+中文簡体
+中文繁体
+한국어
+病院のご案内
+医療関係者の方へ
+お知らせ・広報
+採用情報
+代表番号
+06-6774-5111
+診察予約・変更
+(平日 8:30～17:00)
+は
+こちら
+検索
+閉じる
+アクセス
+お問い合わせ
+ -->
+ENGLISH
+中文簡体
+中文繁体
+한국어
+外来受診のご案内
+入院のご案内
+診察科・部門
+              医師のご紹介
+病院のご案内
+医療関係者
+              の方へ
+お知らせ
+              広報
+採用
+              情報
+交通
+              アクセス
+個人情報の
+              保護について
+サイト
+              マップ
+大阪赤十字
+              看護専門学校
+大阪赤十字病院付属
+              大手前整肢学園
+代表電話
+外国人患者用
+(英語のみ)
+診察予約変更
+お問い合わせ
+トップページ
+お知らせ・広報
+入札・契約情報
+入札・契約情報
+Information about Bid and Contract
+入札・契約情報
+一般競争入札公告
+現在入札情報はありません。
+随意契約の公表
+令和８年５月.pdf
+令和８年４月.pdf
+令和８年３月.pdf
+令和８年２月.pdf
+令和８年１月.pdf
+令和７年12月.pdf
+令和７年11月.pdf
+令和７年10月.pdf
+令和７年９月.pdf
+令和７年８月.pdf
+令和７年７月.pdf
+令和７年６月.pdf
+令和７年５月.pdf
+令和７年４月.pdf
+随意契約関係規則.pdf
+競争入札参加資格に関する公示
+2024・2025・2026年度版.pdf
+競争入札参加資格審査申請書
+XLS
+PDF
+競争入札参加資格審査申請書変更届
+XLS
+PDF
+競争入札参加資格審査申請書記入要領
+2024・2025・2026年度版.pdf
+お知らせ・広報
+最新情報一覧
+当院の感染対策に関する
+お知らせ・お願い
+患者さんへ
+院内無料Wi-Fi接続サービスについて
+情報誌「びり～ぶ」
+各種教室・患者さんの会
+・相談窓口
+治験のご案内
+医療倫理審査委員会のご案内
+入札・契約情報
+日赤オンライン医学講座
+手術支援ロボット
+da Vinci（ダヴィンチ）
+長期収載品にかかる
+選定療養について
+NCDデータベース事業への
+参加について
+医療情報の提供について
+（次世代医療基盤法）
+「エホバの証人」の信者である患者等、
+輸血拒否患者への対応の基本方針
+ボランティア募集
+&#12306;543-8555
+            大阪市天王寺区筆ケ崎町
+5-30
+地図を見る
+TEL:06-6774-5111
+（代表）
+FAX:06-6774-5131
+（代表）
+診察・検査予約
+変更フォーム
+お問い合わせ
+MENU
+外来受診のご案内
+入院のご案内
+診療科・部門・医師のご紹介
+病院のご案内
+医療関係者の方へ
+お知らせ・広報
+採用情報
+サイトマップ
+大阪赤十字看護専門学校
+大阪赤十字病院附属大手前整肢学園
+Copyright &copy; Osaka Red Cross Hospital All rights reserved.
+
+
+==== IMG TAGS ====
+<img src="/assets/images/topImg/logo_pc.svg" alt="日本赤十字社のロゴ">
+<img src="/assets/images/topImg/search_icon.svg" alt="虫眼鏡" class="nhover">
+<img src="/assets/images/topImg/search_icon_red.svg" alt="虫眼鏡" class="hover">
+<img src="/assets/images/topImg/search_close.svg" alt="バツ" class="nhover">
+<img src="/assets/images/topImg/search_close_red.svg" alt="バツ" class="hover">
+<img src="/assets/images/topImg/map_icon.svg" alt="マップ" class="nhover">
+<img src="/assets/images/topImg/map_icon_red.svg" alt="マップ" class="hover">
+<img src="/assets/images/topImg/mail_icon.svg" alt="お問い合わせ" class="nhover">
+<img src="/assets/images/topImg/mail_icon_red.svg" alt="お問い合わせ" class="hover">
+<img src="/assets/images/topImg/sp_nav_icon1.svg" alt="外来">
+<img src="/assets/images/topImg/sp_nav_icon2.svg" alt="入院">
+<img src="/assets/images/topImg/sp_nav_icon3.svg" alt="医師・看護師">
+<img src="/assets/images/topImg/sp_nav_icon4.svg" alt="病院">
+<img src="/assets/images/topImg/sp_nav_icon5.svg" alt="医師・看護師">
+<img src="/assets/images/topImg/sp_nav_icon6.svg" alt="ニュース">
+<img src="/assets/images/topImg/sp_nav_icon7.svg" alt="採用">
+<img src="/assets/images/topImg/sp_nav_icon8.svg" alt="交通">
+<img src="/assets/images/topImg/sp_nav_icon9.svg" alt="個人情報保護">
+<img src="/assets/images/topImg/sp_nav_icon10.svg" alt="サイトマップ">
+<img src="/assets/images/topImg/sp_nav_icon11.svg" alt="看護専門学校">
+<img src="/assets/images/topImg/sp_nav_icon12.svg" alt="子供たち">
+<img src="/assets/images/topImg/sp_fixed_bottom1.svg" alt="tel">
+<img src="/assets/images/topImg/sp_fixed_bottom1.svg" alt="tel">
+<img src="/assets/images/topImg/sp_fixed_bottom2.svg" alt="予約">
+<img src="/assets/images/topImg/sp_fixed_bottom3.svg" alt="お問い合わせ">
+<img src="/assets/images/underlayerImg/information_icon.svg" alt="">
+<img src="/assets/images/underlayerImg/goTop_icon.svg" alt="トップに戻る">
+<img src="/assets/images/topImg/logo_pc.svg" alt="日本赤十字社大阪赤十字病院">
+<img src="/assets/images/topImg/ft_button_icon1.svg" alt="予約">
+<img src="/assets/images/topImg/ft_button_icon2.svg" alt="お問い合わせ">
+
+==== LINKS ====
+https://www.osaka-med.jrc.or.jp.e.apa.hp.transer.com/	ENGLISH
+https://www.osaka-med.jrc.or.jp.c.apa.hp.transer.com/	中文簡体
+https://www.osaka-med.jrc.or.jp.t.apa.hp.transer.com/	中文繁体
+https://www.osaka-med.jrc.or.jp.k.apa.hp.transer.com/	한국어
+/index.html	
+/aboutus/index.html	病院のご案内
+/medic/index.html	医療関係者の方へ
+/information/index.html	お知らせ・広報
+https://www.osaka-med.jrc.or.jp/jinji/	採用情報
+tel:06-6774-5111	06-6774-5111
+/reserve/	こちら
+/access/index.html	アクセス
+/contact/index.html	お問い合わせ
+https://www.osaka-med.jrc.or.jp.e.apa.hp.transer.com/	ENGLISH
+https://www.osaka-med.jrc.or.jp.c.apa.hp.transer.com/	中文簡体
+https://www.osaka-med.jrc.or.jp.t.apa.hp.transer.com/	中文繁体
+https://www.osaka-med.jrc.or.jp.k.apa.hp.transer.com/	한국어
+/reception/index.html	外来受診のご案内
+/admission/index.html	入院のご案内
+/department/index.html	診察科・部門
+              医師のご紹介
+/aboutus/index.html	病院のご案内
+/medic/index.html	医療関係者
+              の方へ
+/information/index.html	お知らせ
+              広報
+/recruit/index.html	採用
+              情報
+/access/index.html	交通
+              アクセス
+/privacy/index.html	個人情報の
+              保護について
+/sitemap.html	サイト
+              マップ
+https://www.osaka-med.jrc.or.jp/sckango/index.html	大阪赤十字
+              看護専門学校
+https://www.osaka-med.jrc.or.jp/seishi/index.html	大阪赤十字病院付属
+              大手前整肢学園
+tel:0667745111	代表電話
+tel:0667745184	外国人患者用(英語のみ)
+/reserve/	診察予約変更
+/contact/index.html	お問い合わせ
+/	トップページ
+/information/	お知らせ・広報
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/3ac4ab4b10c0c2c77b1c842b89bd82f6.pdf	令和８年５月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/a368a4d6b6c07cf49f33ddbe4eba51fd.pdf	令和８年４月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/36ba74356c154c644e8922b06c4c1662.pdf	令和８年３月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/f45b1c939cf23972b6d6e29ff8c63240.pdf	令和８年２月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/a10db9371d8f4080bf37c484136db8b0.pdf	令和８年１月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/883826cebb032966623ac08b8784fdcb_1.pdf	令和７年12月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/335fb5154868d2b8c6943fa13a5f1187.pdf	令和７年11月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/4b542de82981515c8685bc20e5f8a931.pdf	令和７年10月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/c04c8b75e2bfeee5f7b739ee6ab30228.pdf	令和７年９月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/fe3b544f2852c9a2cb5e8a95036827a0.pdf	令和７年８月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/1af40787f642219a745128e843b4108e.pdf	令和７年７月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/b199453709049c62646349f2ed5ae270_1.pdf	令和７年６月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/66a2cfcd3323665145a24bb51121b90f_1.pdf	令和７年５月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/9f30446d3ed99ee67308ebfc39dcae29_1.pdf	令和７年４月.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/7b6e1c5056ca964a7258e7f9f0701210_1.pdf	随意契約関係規則.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/6414b56e7f44a3b3da5991f7328168fd_2.pdf	2024・2025・2026年度版.pdf
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/XLS.xlsx	XLS
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/PDF.pdf	PDF
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/005_entryqca_03.xlsx	XLS
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/005_entryqca_03.pdf	PDF
+https://www.osaka-med.jrc.or.jp/information/upload/tenter/6414b56e7f44a3b3da5991f7328168fd_3.pdf	2024・2025・2026年度版.pdf
+/information/list.html	最新情報一覧
+/information/covid-19.html	当院の感染対策に関するお知らせ・お願い
+/information/patient.html	患者さんへ
+../information/free_wi-fi.html	院内無料Wi-Fi接続サービスについて
+/information/magazine.html	情報誌「びり～ぶ」
+/information/workshop.html	各種教室・患者さんの会・相談窓口
+/information/trial.html	治験のご案内
+/information/ethics.html	医療倫理審査委員会のご案内
+/information/tenter.html	入札・契約情報
+/information/online_cm_seminar.html	日赤オンライン医学講座
+/aboutus/davinci.html	手術支援ロボットda Vinci（ダヴィンチ）
+/information/longterm_selected.html	長期収載品にかかる選定療養について
+/information/ncd.html	NCDデータベース事業への参加について
+/information/ngmil.html	医療情報の提供について（次世代医療基盤法）
+/information/jehovah.html	「エホバの証人」の信者である患者等、輸血拒否患者への対応の基本方針
+/information/volunteer.html	ボランティア募集
+https://www.osaka-med.jrc.or.jp/	
+/access/index.html	地図を見る
+tel:0667745111	TEL:06-6774-5111
+/reserve/	診察・検査予約変更フォーム
+/contact/index.html	お問い合わせ
+/reception/index.html	外来受診のご案内
+/admission/index.html	入院のご案内
+/department/index.html	診療科・部門・医師のご紹介
+/aboutus/index.html	病院のご案内
+/medic/index.html	医療関係者の方へ
+/information/index.html	お知らせ・広報
+/jinji/	採用情報
+/sitemap.html	サイトマップ
+https://www.osaka-med.jrc.or.jp/sckango/index.html	大阪赤十字看護専門学校
+https://www.osaka-med.jrc.or.jp/seishi/index.html	大阪赤十字病院附属大手前整肢学園
