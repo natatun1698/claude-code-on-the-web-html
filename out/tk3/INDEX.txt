@@ -1,0 +1,2 @@
+000	OK 200	https://www.ise.jrc.or.jp/	85311 bytes
+001	ERROR	https://www.ise.jrc.or.jp/bind/index.html	<HTTPError 404: 'Not Found'>
