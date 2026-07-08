@@ -1,0 +1,216 @@
+URL: http://izurc.jp/
+FINAL: http://izurc.jp/
+STATUS: 200
+
+
+伊豆赤十字病院
+-->
+-->
+&nbsp;
+0558-72-2148
+〒410-2413&nbsp;&nbsp;静岡県伊豆市小立野100
+病院案内
+院長挨拶
+病院概要
+病院沿革
+理念
+基本方針
+統計
+診察案内
+診療科紹介
+外来担当表
+受診案内
+入院案内
+救急担当表
+看護部の紹介
+その他関連部門の紹介
+健診・予防接種
+人間ドック
+事業所健診
+特定健診
+婦人検診
+骨密度検診
+予防接種
+地域連携
+地域連携について
+相談窓口
+検査のご依頼
+しびれ・腰痛・骨粗鬆症
+交通アクセス
+交通アクセス
+採用情報
+採用情報
+top
+病院案内
+院長挨拶
+病院概要
+病院沿革
+理念
+基本方針
+統計
+診察案内
+診療科紹介
+外来担当表
+受診案内
+入院案内
+救急担当表
+検診・予防接種
+人間ドック
+事業所検診
+特定検診
+婦人検診
+骨密度検診
+予防接種
+地域連携
+地域連携について
+相談窓口
+検査のご依頼
+しびれ・腰痛・骨粗鬆症
+診療科案内
+内科
+外科
+整形外科
+泌尿器科
+婦人科
+小児科
+交通アクセス
+採用情報
+看護師募集
+医師募集
+看護学生奨学金制度
+職員募集
+伊豆市との共同事業
+各部門紹介
+看護部
+理念
+部署紹介
+教育・研修
+看護師募集
+医療社会事業部
+栄養課
+検査課
+人工透析課
+放射線課
+薬剤部
+リハビリテーション課
+ご案内
+伊豆赤十字病院だより
+赤十字病院としての特徴
+禁止事項について
+入札情報
+個人情報保護方針
+個人情報の利用目的
+匿名加工情報の取扱方針
+お問い合わせ
+日本赤十字社カスタマーハラスメント基本方針
+〒410-2413 静岡県伊豆市小立野100&nbsp;TEL.0558-72-2148&nbsp;FAX.0558-72-6564 
+copyright&nbsp;2016&nbsp;Izu&nbsp;Red&nbsp;Cross&nbsp;Hospital&nbsp;all&nbsp;rights&nbsp;reserved.
+
+
+==== IMG TAGS ====
+<img src="images/navibtn/shinryoka.jpg" border="0">
+<img src="images/navibtn/sinryo.jpg" border="0">
+<img src="images/navibtn/kyushin.jpg" border="0">
+<img src="images/navibtn/kyukyu.jpg" border="0">
+<img src="images/oshirase.png" border="0">
+<img src="images/navibtn/izushi.jpg" border="0">
+<img src="images/outsidelink/r1.png" border="0">
+<img src="images/outsidelink/r2.png" border="0">
+<img src="images/outsidelink/r7.png" border="0">
+<img src="images/outsidelink/r8.png" border="0">
+<img src="images/outsidelink/r3.png" border="0">
+<img src="images/outsidelink/r4.png" border="0">
+<img src="images/outsidelink/r5.png" border="0">
+<img src="images/outsidelink/r6.png" border="0">
+<img src="images/logo/footer-logo.jpg" border="0">
+
+==== LINKS ====
+about/message.html	院長挨拶
+about/outline.html	病院概要
+about/history.html	病院沿革
+about/vision.html	理念
+about/policy.html	基本方針
+about/statistics.html	統計
+section/medical/internal.html	診療科紹介
+section/schedule.html	外来担当表
+section/guide.html	受診案内
+section/guide-ad.html	入院案内
+section/schedule-er.html	救急担当表
+section/nurse/nurse-vision.html	看護部の紹介
+section/related/socialprojct.html	その他関連部門の紹介
+check/dock.html	人間ドック
+check/office.html	事業所健診
+check/specific.html	特定健診
+check/gynecology.html	婦人検診
+check/bonedensity.html	骨密度検診
+check/vaccination.html	予防接種
+network/regionNet.html	地域連携について
+network/helpdesk.html	相談窓口
+network/request.html	検査のご依頼
+network/specialty.html	しびれ・腰痛・骨粗鬆症
+access/access.html	交通アクセス
+recruit/recruit-nurse.html	採用情報
+section/medical/internal.html	
+section/schedule.html	
+section/pdf/kyuushin.pdf	
+section/schedule-er.html	
+http://izurckaigoiryouin.jp/	
+greens/g-recross.html	
+greens/g-houmon.html	
+https://www.jrc.or.jp/	
+https://www.jrc.or.jp/chapter/shizuoka/	
+http://www.city.izu.shizuoka.jp/	
+https://www.city.izunokuni.shizuoka.jp/	
+about/message.html	院長挨拶
+about/outline.html	病院概要
+about/history.html	病院沿革
+about/vision.html	理念
+about/policy.html	基本方針
+about/statistics.html	統計
+section/medical/internal.html	診療科紹介
+section/schedule.html	外来担当表
+section/guide.html	受診案内
+section/guide-ad.html	入院案内
+section/schedule-er.html	救急担当表
+check/dock.html	人間ドック
+check/office.html	事業所検診
+check/specific.html	特定検診
+check/gynecology.html	婦人検診
+check/bonedensity.html	骨密度検診
+check/vaccination.html	予防接種
+network/regionNet.html	地域連携について
+network/helpdesk.html	相談窓口
+network/request.html	検査のご依頼
+network/specialty.html	しびれ・腰痛・骨粗鬆症
+section/medical/internal.html	内科
+section/medical/surgery.html	外科
+section/medical/orthopedics.html	整形外科
+section/medical/urology.html	泌尿器科
+section/medical/gynecology.html	婦人科
+section/medical/pediatrics.html	小児科
+access/access.html	交通アクセス
+recruit/recruit-nurse.html	看護師募集
+http://www.jrc-doctor.com/izu/	医師募集
+recruit/scholarship.html	看護学生奨学金制度
+recruit/recruit-staff.html	職員募集
+guidance/jointproject.html	伊豆市との共同事業
+section/nurse/nurse-vision.html	理念
+section/nurse/nurse-section.html	部署紹介
+section/nurse/nurse-training.html	教育・研修
+recruit/recruit-nurse.html	看護師募集
+section/related/socialprojct.html	医療社会事業部
+section/related/nutrition.html	栄養課
+section/related/inspection.html	検査課
+section/related/dialysis.html	人工透析課
+section/related/radiation.html	放射線課
+section/related/pharmacy.html	薬剤部
+section/related/rehabilitation.html	リハビリテーション課
+guidance/free_paper.html	伊豆赤十字病院だより
+guidance/attribute.html	赤十字病院としての特徴
+guidance/nonsmoking.html	禁止事項について
+guidance/bid.html	入札情報
+guidance/privacypolicy.html	個人情報保護方針
+guidance/personaldata.html	個人情報の利用目的
+guidance/pdf/anonymous-policy.pdf	匿名加工情報の取扱方針
+guidance/contact_us.html	お問い合わせ
+guidance/pdf/customerharassment.pdf	日本赤十字社カスタマーハラスメント基本方針
