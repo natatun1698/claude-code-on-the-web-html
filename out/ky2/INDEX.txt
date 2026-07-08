@@ -1,0 +1,15 @@
+000	OK 200	https://www.karatsu.jrc.or.jp/byoin/nyusatsu.html	26117 bytes
+001	OK 200	http://isahaya.jrc.or.jp/news/detail.php?id=345	24040 bytes
+002	OK 200	https://www.kumamoto-med.jrc.or.jp/facilities/bid	55839 bytes
+003	OK 200	https://www.okinawa-med.jrc.or.jp/about/bid/	51281 bytes
+004	OK 200	https://www.fukuoka-med.jrc.or.jp/medical/tender_20260708	58848 bytes
+005	OK 200	https://imazu-med-jrc.jp/pages/85/	69042 bytes
+006	OK 200	https://www.kama-jrc.jp/pages/85/	72742 bytes
+007	OK 200	https://www.oitasekijyuji.jp/outline/bid	94866 bytes
+008	OK 200	https://nagasaki-med.jrc.or.jp/news/detail.php?id=1241	43605 bytes
+009	OK 200	https://nagasaki-med.jrc.or.jp/news/detail.php?id=1224	43038 bytes
+010	OK 200	https://nagasaki-med.jrc.or.jp/news/detail.php?id=1185	43084 bytes
+011	OK 200	https://nagasaki-med.jrc.or.jp/news/corona_detail.php?id=1148	43177 bytes
+012	OK 200	http://www.kagoshima-med.jrc.or.jp/news/bidding/370-%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84%E3%81%AE%E5%85%AC%E8%A1%A8-%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6%E7%AC%AC4%E5%9B%9B%E5%8D%8A%E6%9C%9F.html	17187 bytes
+013	OK 200	http://www.kagoshima-med.jrc.or.jp/news/bidding/369-%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84%E3%81%AE%E5%85%AC%E8%A1%A8-%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6%E7%AC%AC3%E5%9B%9B%E5%8D%8A%E6%9C%9F.html	17229 bytes
+014	OK 200	http://www.kagoshima-med.jrc.or.jp/news/bidding/366-%E9%9A%8F%E6%84%8F%E5%A5%91%E7%B4%84%E3%81%AE%E5%85%AC%E8%A1%A8-%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6%E7%AC%AC2%E5%9B%9B%E5%8D%8A%E6%9C%9F.html	17206 bytes
