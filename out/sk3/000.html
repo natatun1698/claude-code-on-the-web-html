@@ -1,0 +1,1552 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>入札情報  |  日本赤十字社 旭川赤十字病院</title>
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="日本赤十字社 旭川赤十字病院 &raquo; フィード" href="https://www.asahikawa.jrc.or.jp/feed/" />
+<link rel="alternate" type="application/rss+xml" title="日本赤十字社 旭川赤十字病院 &raquo; コメントフィード" href="https://www.asahikawa.jrc.or.jp/comments/feed/" />
+<!-- This site uses the Google Analytics by ExactMetrics plugin v7.16 - Using Analytics tracking - https://www.exactmetrics.com/ -->
+<script src="//www.googletagmanager.com/gtag/js?id=G-D2HPVYEGCK"  data-cfasync="false" data-wpfc-render="false" async></script>
+<script data-cfasync="false" data-wpfc-render="false">
+var em_version = '7.16';
+var em_track_user = true;
+var em_no_track_reason = '';
+var disableStrs = [
+'ga-disable-G-D2HPVYEGCK',
+];
+/* Function to detect opted out users */
+function __gtagTrackerIsOptedOut() {
+for (var index = 0; index < disableStrs.length; index++) {
+if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+return true;
+}
+}
+return false;
+}
+/* Disable tracking if the opt-out cookie exists. */
+if (__gtagTrackerIsOptedOut()) {
+for (var index = 0; index < disableStrs.length; index++) {
+window[disableStrs[index]] = true;
+}
+}
+/* Opt-out function */
+function __gtagTrackerOptout() {
+for (var index = 0; index < disableStrs.length; index++) {
+document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+window[disableStrs[index]] = true;
+}
+}
+if ('undefined' === typeof gaOptout) {
+function gaOptout() {
+__gtagTrackerOptout();
+}
+}
+window.dataLayer = window.dataLayer || [];
+window.ExactMetricsDualTracker = {
+helpers: {},
+trackers: {},
+};
+if (em_track_user) {
+function __gtagDataLayer() {
+dataLayer.push(arguments);
+}
+function __gtagTracker(type, name, parameters) {
+if (!parameters) {
+parameters = {};
+}
+if (parameters.send_to) {
+__gtagDataLayer.apply(null, arguments);
+return;
+}
+if (type === 'event') {
+parameters.send_to = exactmetrics_frontend.v4_id;
+var hookName = name;
+if (typeof parameters['event_category'] !== 'undefined') {
+hookName = parameters['event_category'] + ':' + name;
+}
+if (typeof ExactMetricsDualTracker.trackers[hookName] !== 'undefined') {
+ExactMetricsDualTracker.trackers[hookName](parameters);
+} else {
+__gtagDataLayer('event', name, parameters);
+}
+} else {
+__gtagDataLayer.apply(null, arguments);
+}
+}
+__gtagTracker('js', new Date());
+__gtagTracker('set', {
+'developer_id.dNDMyYj': true,
+});
+__gtagTracker('config', 'G-D2HPVYEGCK', {"forceSSL":"true"} );
+window.gtag = __gtagTracker;										(function () {
+/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+/* ga and __gaTracker compatibility shim. */
+var noopfn = function () {
+return null;
+};
+var newtracker = function () {
+return new Tracker();
+};
+var Tracker = function () {
+return null;
+};
+var p = Tracker.prototype;
+p.get = noopfn;
+p.set = noopfn;
+p.send = function () {
+var args = Array.prototype.slice.call(arguments);
+args.unshift('send');
+__gaTracker.apply(null, args);
+};
+var __gaTracker = function () {
+var len = arguments.length;
+if (len === 0) {
+return;
+}
+var f = arguments[len - 1];
+if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+if ('send' === arguments[0]) {
+var hitConverted, hitObject = false, action;
+if ('event' === arguments[1]) {
+if ('undefined' !== typeof arguments[3]) {
+hitObject = {
+'eventAction': arguments[3],
+'eventCategory': arguments[2],
+'eventLabel': arguments[4],
+'value': arguments[5] ? arguments[5] : 1,
+}
+}
+}
+if ('pageview' === arguments[1]) {
+if ('undefined' !== typeof arguments[2]) {
+hitObject = {
+'eventAction': 'page_view',
+'page_path': arguments[2],
+}
+}
+}
+if (typeof arguments[2] === 'object') {
+hitObject = arguments[2];
+}
+if (typeof arguments[5] === 'object') {
+Object.assign(hitObject, arguments[5]);
+}
+if ('undefined' !== typeof arguments[1].hitType) {
+hitObject = arguments[1];
+if ('pageview' === hitObject.hitType) {
+hitObject.eventAction = 'page_view';
+}
+}
+if (hitObject) {
+action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+hitConverted = mapArgs(hitObject);
+__gtagTracker('event', action, hitConverted);
+}
+}
+return;
+}
+function mapArgs(args) {
+var arg, hit = {};
+var gaMap = {
+'eventCategory': 'event_category',
+'eventAction': 'event_action',
+'eventLabel': 'event_label',
+'eventValue': 'event_value',
+'nonInteraction': 'non_interaction',
+'timingCategory': 'event_category',
+'timingVar': 'name',
+'timingValue': 'value',
+'timingLabel': 'event_label',
+'page': 'page_path',
+'location': 'page_location',
+'title': 'page_title',
+};
+for (arg in args) {
+if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+hit[gaMap[arg]] = args[arg];
+} else {
+hit[arg] = args[arg];
+}
+}
+return hit;
+}
+try {
+f.hitCallback();
+} catch (ex) {
+}
+};
+__gaTracker.create = newtracker;
+__gaTracker.getByName = newtracker;
+__gaTracker.getAll = function () {
+return [];
+};
+__gaTracker.remove = noopfn;
+__gaTracker.loaded = true;
+window['__gaTracker'] = __gaTracker;
+})();
+} else {
+console.log("");
+(function () {
+function __gtagTracker() {
+return null;
+}
+window['__gtagTracker'] = __gtagTracker;
+window['gtag'] = __gtagTracker;
+})();
+}
+</script>
+<!-- / Google Analytics by ExactMetrics -->
+<!-- <link rel='stylesheet' id='cocoon-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/style.css?ver=5.2.21&#038;fver=20190524121909' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.asahikawa.jrc.or.jp/app/wp-content/cache/wpfc-minified/8ye7zae8/hx450.css" media="all"/>
+<style id='cocoon-style-inline-css'>
+@media screen and (max-width:480px){.page-body{font-size:14px}}body.public-page{background-color:#fff}#header-container,#header-container .navi,#navi .navi-in>.menu-header .sub-menu{background-color:#fff}.header,.header .site-name-text,#navi .navi-in a,#navi .navi-in a:hover{color:#fff}#header-container .navi,#navi .navi-in>.menu-header .sub-menu{background-color:#f6f7f7}#navi .navi-in a,#navi .navi-in a:hover{color:#fff}#navi .navi-in a,#navi .navi-in a:hover{color:#333}#navi .navi-in a:hover{background-color:rgba(255,255,255,.2)}#navi .navi-in>ul>li{width:200px}.go-to-top .go-to-top-button{background-color:#e70012}.go-to-top .go-to-top-button{color:#fff}.cat-label.cat-label-1,.cat-link.cat-link-1{background-color:#e70012;color:#fff}.cat-label.cat-label-9,.cat-link.cat-link-9{background-color:#0068b7;color:#fff}.cat-label.cat-label-174,.cat-link.cat-link-174{background-color:#287e25;color:#fff}.cat-label.cat-label-1,.cat-link.cat-link-1,.cat-label.cat-label-9,.cat-link.cat-link-9{color:#fff}.main{width:1260px}.sidebar{width:356px}.wrap{width:1636px}@media screen and (max-width:1640px){ .wrap{width:auto}.main,.sidebar,.sidebar-left .main,.sidebar-left .sidebar{margin:0 .5%}.main{width:67%}.sidebar{padding:10px;width:30%}.entry-card-thumb{width:38%}.entry-card-content{margin-left:40%}}.logo-header img{height:100px;width:auto}.logo-header img{width:420px;height:auto}#respond{display:none}#navi .navi-in>ul>li{width:auto}#navi .navi-in>ul>li>a{padding:0 1.4em}#footer{background:#333}#footer,#footer a,.footer-title{color:#fff}.entry-content>*,.demo .entry-content p{line-height:1.5}.entry-content>*,.demo .entry-content p{margin-top:1.6em;margin-bottom:1.6em}.entry-content>.micro-top{margin-bottom:-1.76em}.entry-content>.micro-balloon{margin-bottom:-1.28em}.entry-content>.micro-bottom{margin-top:-1.76em}.entry-content>.micro-bottom.micro-balloon{margin-top:-1.28em;margin-bottom:1.6em}.blank-box.bb-key-color{border-color:#19448e}.iic-key-color li::before{color:#19448e}.blank-box.bb-tab.bb-key-color::before{background-color:#19448e}.tb-key-color .toggle-button{border:1px solid #19448e;background:#19448e;color:#fff}.tb-key-color .toggle-button::before{color:#ccc}.tb-key-color .toggle-checkbox:checked~.toggle-content{border-color:#19448e}.cb-key-color.caption-box{border-color:#19448e}.cb-key-color .caption-box-label{background-color:#19448e;color:#fff}.tcb-key-color .tab-caption-box-label{background-color:#19448e;color:#fff}.tcb-key-color .tab-caption-box-content{border-color:#19448e}.lb-key-color .label-box-content{border-color:#19448e}.mc-key-color{background-color:#19448e;color:#fff;border:0}.mc-key-color.micro-bottom::after{border-bottom-color:#19448e;border-top-color:transparent}.mc-key-color::before{border-top-color:transparent;border-bottom-color:transparent}.mc-key-color::after{border-top-color:#19448e}.btn-key-color,.btn-wrap.btn-wrap-key-color>a{background-color:#19448e}.has-text-color.has-key-color-color{color:#19448e}.has-background.has-key-color-background-color{background-color:#19448e}.article.page-body,body#tinymce.wp-editor{background-color:#fff}.article.page-body,.editor-post-title__block .editor-post-title__input,body#tinymce.wp-editor{color:#333}
+</style>
+<!-- <link rel='stylesheet' id='font-awesome-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/webfonts/fontawesome/css/font-awesome.min.css?ver=5.2.21&#038;fver=20190524121909' media='all' /> -->
+<!-- <link rel='stylesheet' id='icomoon-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/webfonts/icomoon/style.css?ver=5.2.21&#038;fver=20190524121909' media='all' /> -->
+<!-- <link rel='stylesheet' id='baguettebox-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/plugins/baguettebox/dist/baguetteBox.min.css?ver=5.2.21&#038;fver=20190524121908' media='all' /> -->
+<!-- <link rel='stylesheet' id='slick-theme-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/plugins/slick/slick-theme.css?ver=5.2.21&#038;fver=20190524121909' media='all' /> -->
+<!-- <link rel='stylesheet' id='scrollhint-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/plugins/scroll-hint-master/css/scroll-hint.css?ver=5.2.21&#038;fver=20190524121908' media='all' /> -->
+<!-- <link rel='stylesheet' id='cocoon-child-style-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/style.css?ver=5.2.21&#038;fver=20251224022000' media='all' /> -->
+<!-- <link rel='stylesheet' id='wp-block-library-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-includes/css/dist/block-library/style.min.css?ver=5.2.21&#038;fver=20210415073840' media='all' /> -->
+<!-- <link rel='stylesheet' id='uagb-block-css-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/ultimate-addons-for-gutenberg/dist/blocks.style.build.css?ver=1.13.3&#038;fver=20190512115957' media='all' /> -->
+<!-- <link rel='stylesheet' id='contact-form-7-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.5&#038;fver=20190520043625' media='all' /> -->
+<!-- <link rel='stylesheet' id='hcnav-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/css/hc-offcanvas-nav.css?ver=5.2.21&#038;fver=20190228062807' media='all' /> -->
+<!-- <link rel='stylesheet' id='meanmenu-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/css/meanmenu.css?ver=5.2.21&#038;fver=20190702055800' media='all' /> -->
+<!-- <link rel='stylesheet' id='menuicon-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/font-style.css?ver=5.2.21&#038;fver=20190418124550' media='all' /> -->
+<!-- <link rel='stylesheet' id='menuiconstyle-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/icon-style.css?ver=5.2.21&#038;fver=20190418125604' media='all' /> -->
+<!-- <link rel='stylesheet' id='menustyle-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/menu-style.css?ver=5.2.21&#038;fver=20190725031018' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.asahikawa.jrc.or.jp/app/wp-content/cache/wpfc-minified/kllc9frs/hx450.css" media="all"/>
+<link rel='stylesheet' id='ui-css'  href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css?ver=5.2.21' media='all' />
+<!-- <link rel='stylesheet' id='pscrollbar-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/pscrollbar/perfect-scrollbar.min.css?ver=1.8.4&#038;fver=20190520050206' media='all' /> -->
+<!-- <link rel='stylesheet' id='owlcarousel-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/owlcarousel/owl.carousel.min.css?ver=1.8.4&#038;fver=20190520050206' media='all' /> -->
+<!-- <link rel='stylesheet' id='quadmenu-normalize-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/css/quadmenu-normalize.min.css?ver=1.8.4&#038;fver=20190520050206' media='all' /> -->
+<!-- <link rel='stylesheet' id='quadmenu-widgets-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/cocoon-child-master/quadmenu-widgets.css?ver=1574119326&#038;fver=20191118112206' media='all' /> -->
+<!-- <link rel='stylesheet' id='quadmenu-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/css/quadmenu.min.css?ver=1.8.4&#038;fver=20190520050206' media='all' /> -->
+<!-- <link rel='stylesheet' id='quadmenu-locations-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/cocoon-child-master/quadmenu-locations.css?ver=1574119326&#038;fver=20191118112206' media='all' /> -->
+<!-- <link rel='stylesheet' id='dashicons-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-includes/css/dashicons.min.css?ver=5.2.21&#038;fver=20210415073840' media='all' /> -->
+<!-- <link rel='stylesheet' id='advanced-classifieds-and-directory-pro-bootstrap-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/advanced-classifieds-and-directory-pro/public/css/acadp-bootstrap.css?ver=3.3.5&#038;fver=20190418121032' media='all' /> -->
+<!-- <link rel='stylesheet' id='advanced-classifieds-and-directory-pro-css'  href='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/advanced-classifieds-and-directory-pro/public/css/acadp-public.css?ver=1.6.4&#038;fver=20190418121032' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.asahikawa.jrc.or.jp/app/wp-content/cache/wpfc-minified/m8c1b0wx/hx45j.css" media="all"/>
+<!--n2css--><script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js?ver=3.0.1'></script>
+<script src='//www.asahikawa.jrc.or.jp/app/wp-content/cache/wpfc-minified/kde4fqyw/hx450.js' type="text/javascript"></script>
+<!-- <script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/google-analytics-dashboard-for-wp/assets/js/frontend-gtag.min.js?ver=7.16&#038;fver=20230616042545'></script> -->
+<script data-cfasync="false" data-wpfc-render="false" id='exactmetrics-frontend-script-js-extra'>/* <![CDATA[ */
+var exactmetrics_frontend = {"js_events_tracking":"true","download_extensions":"","inbound_paths":"[]","home_url":"https:\/\/www.asahikawa.jrc.or.jp","hash_tracking":"false","ua":"","v4_id":"G-D2HPVYEGCK"};/* ]]> */
+</script>
+<script src='//www.asahikawa.jrc.or.jp/app/wp-content/cache/wpfc-minified/1swfuo2/hx450.js' type="text/javascript"></script>
+<!-- <script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/ultimate-addons-for-gutenberg/assets/js/table-of-contents.js?ver=1.13.3&#038;fver=20190512115957'></script> -->
+<!-- <script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/liquid-rwd-plus/js/jquery.cookie.js?ver=5.2.21&#038;fver=20190426074546'></script> -->
+<!-- <script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/liquid-rwd-plus/js/rwd.js?ver=5.2.21&#038;fver=20190529072005'></script> -->
+<link rel='shortlink' href='https://www.asahikawa.jrc.or.jp/?p=4299' />
+<!-- Cocoon canonical -->
+<link rel="canonical" href="https://www.asahikawa.jrc.or.jp/bid/">
+<!-- Cocoon meta description -->
+<meta name="description" content=" 入札情報 一般競争入札の公示2026年度　競争入札参加資格に関する公示2024.04.01競争入札参加資格に関する公示競争入札参加資格に関する公示（2024・2025・2026年度）一般競争（指名競争）入札参加資...">
+<!-- Cocoon JSON-LD -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"mainEntityOfPage":{
+"@type":"WebPage",
+"@id":"https://www.asahikawa.jrc.or.jp/bid/"
+},
+"headline": "入札情報",
+"image": {
+"@type": "ImageObject",
+"url": "https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/images/no-image-large.png",
+"width": 800,
+"height": 451
+},
+"datePublished": "2019-04-15T11:37:28+09:00",
+"dateModified": "2026-04-30T15:30:43+00:00",
+"author": {
+"@type": "Person",
+"name": "サイト管理者"
+},
+"publisher": {
+"@type": "Organization",
+"name": "日本赤十字社 旭川赤十字病院",
+"logo": {
+"@type": "ImageObject",
+"url": "https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/images/no-amp-logo.png",
+"width": 206,
+"height": 60
+}
+},
+"description": " 入札情報 一般競争入札の公示2026年度　競争入札参加資格に関する公示2024.04.01競争入札参加資格に関する公示競争入札参加資格に関する公示（2024・2025・2026年度）一般競争（指名競争）入札参加資...…"
+}
+</script>
+<!-- OGP -->
+<meta property="og:type" content="article">
+<meta property="og:description" content=" 入札情報 一般競争入札の公示2026年度　競争入札参加資格に関する公示2024.04.01競争入札参加資格に関する公示競争入札参加資格に関する公示（2024・2025・2026年度）一般競争（指名競争）入札参加資...">
+<meta property="og:title" content="入札情報">
+<meta property="og:url" content="https://www.asahikawa.jrc.or.jp/bid/">
+<meta property="og:image" content="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/05/sp_slide01.jpg">
+<meta property="og:site_name" content="日本赤十字社 旭川赤十字病院">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2019-04-15T11:37:28+09:00" />
+<meta property="article:modified_time" content="2026-04-30T15:30:43+00:00" />
+<!-- /OGP -->
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content=" 入札情報 一般競争入札の公示2026年度　競争入札参加資格に関する公示2024.04.01競争入札参加資格に関する公示競争入札参加資格に関する公示（2024・2025・2026年度）一般競争（指名競争）入札参加資...">
+<meta name="twitter:title" content="入札情報">
+<meta name="twitter:url" content="https://www.asahikawa.jrc.or.jp/bid/">
+<meta name="twitter:image" content="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/05/sp_slide01.jpg">
+<meta name="twitter:domain" content="www.asahikawa.jrc.or.jp">
+<!-- /Twitter Card -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style media="all" id="uagb-style-frontend">#uagb-section-9ff67b2d-5f91-4e92-9392-a7f568d87363.uagb-section__wrap{padding-top: 20px;padding-bottom: 0;padding-left: 20px;padding-right: 20px;margin-right: auto;margin-left: auto;max-width: 100%;}#uagb-section-9ff67b2d-5f91-4e92-9392-a7f568d87363 > .uagb-section__video-wrap{opacity: 0.5;}#uagb-section-9ff67b2d-5f91-4e92-9392-a7f568d87363 > .uagb-section__inner-wrap{max-width: 1200px;}#uagb-section-bff89f38-d4aa-49dd-93c8-8237e764b0ab.uagb-section__wrap{padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;margin-right: auto;margin-left: auto;max-width: 100%;}#uagb-section-bff89f38-d4aa-49dd-93c8-8237e764b0ab > .uagb-section__video-wrap{opacity: 0.5;}#uagb-section-bff89f38-d4aa-49dd-93c8-8237e764b0ab > .uagb-section__inner-wrap{max-width: 1200px;}#uagb-section-78fbd20b-0284-4787-a133-ebb01c32e4df.uagb-section__wrap{padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;margin-right: auto;margin-left: auto;max-width: 100%;}#uagb-section-78fbd20b-0284-4787-a133-ebb01c32e4df > .uagb-section__video-wrap{opacity: 0.5;}#uagb-section-78fbd20b-0284-4787-a133-ebb01c32e4df > .uagb-section__inner-wrap{max-width: 1200px;}#uagb-section-d30e7bcf-cc35-4f5d-92b0-8b34fbaef91d.uagb-section__wrap{padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;margin-right: auto;margin-left: auto;max-width: 100%;}#uagb-section-d30e7bcf-cc35-4f5d-92b0-8b34fbaef91d > .uagb-section__video-wrap{opacity: 0.5;}#uagb-section-d30e7bcf-cc35-4f5d-92b0-8b34fbaef91d > .uagb-section__inner-wrap{max-width: 1200px;}</style>
+<link rel="icon" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/03/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/03/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/03/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/03/cropped-favicon-270x270.png" />
+<script>
+// document.addEventListener('DOMContentLoaded', function() {
+// 	if ('serviceWorker' in navigator) {
+// 		navigator.serviceWorker.getRegistration()
+// 			.then(registration => {
+// 				registration.unregister();
+// 		})
+// 	}
+// }, false);
+</script>
+<!-- 電話番号自動リンク無効 -->
+<meta name="format-detection" content="telephone=no">
+</head>
+<body data-rsssl=1 class="page-template-default page page-id-4299 public-page page-body ff-meiryo fz-14px fw-400 hlt-center-logo-wrap ect-entry-card-wrap rect-vartical-card-4-wrap no-sidebar no-scrollable-sidebar no-scrollable-main sidebar-right mblt-slide-in author-admin mobile-button-slide-in no-mobile-sidebar no-sp-snippet" itemscope itemtype="https://schema.org/WebPage">
+<div class="lang-sp">
+<a href="/english" class="lang"><span class="lang-icon"></span><span class="lang-text">English</span></a>
+</div>
+<div id="container" class="container cf">
+<div id="header-container" class="header-container">
+<div class="header-container-in hlt-center-logo">
+<header id="header" class="header cf" itemscope itemtype="https://schema.org/WPHeader">
+<div id="header-in" class="header-in wrap cf" itemscope itemtype="https://schema.org/WebSite">
+<div class="logo logo-header logo-image"><a href="https://www.asahikawa.jrc.or.jp" class="site-name site-name-text-link" itemprop="url"><span class="site-name-text" itemprop="name about"><img class="site-logo-image" src="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/logo.svg" alt="日本赤十字社 旭川赤十字病院" width="420" height="100"></span></a></div>
+<div class="header-right-menu">
+<div class="item">
+<dl class="font_size_switching">
+<dt>文字の大きさ</dt>
+<dd>
+<span id="btn_small" class="switch">小</span>
+<span id="btn_middle" class="switch">中</span>
+<span id="btn_large" class="switch">大</span>
+</dd>
+</dl>
+</div>
+<div class="item">
+<a href="/english" class="lang"><span class="lang-icon"></span><span class="lang-text">English</span></a>
+</div>
+<div class="item">
+<form class="search-box input-box" method="get" action="https://www.asahikawa.jrc.or.jp/">
+<input type="text" placeholder="サイト内検索" name="s" class="search-edit" aria-label="input">
+<button type="submit" class="search-submit" role="button" aria-label="button"></button>
+</form>
+</div>
+<div class="item">
+<div class="header-contact">
+<a href="https://www.asahikawa.jrc.or.jp/contact"><i class="menu-i-mail" aria-hidden="true"></i><span class="text">お問い合わせ</span></a>
+</div>
+</div>
+</div>
+</div>
+</header>
+</div><!-- /.header-container-in -->
+</div><!-- /.header-container -->
+<div class="mainmenu-pc">
+<!-- Navigation -->
+<nav id="navi" class="navi cf" itemscope itemtype="https://schema.org/SiteNavigationElement">
+<div id="navi-in" class="navi-in wrap cf">
+<nav id="quadmenu" class="quadmenu-default_theme quadmenu-v1.8.4 quadmenu-align-center quadmenu-divider-show quadmenu-carets-show quadmenu-background-color quadmenu-mobile-shadow-show quadmenu-dropdown-shadow-show quadmenu-hover-ripple" data-template="collapse" data-theme="default_theme" data-unwrap="1" data-width="0" data-selector="" data-breakpoint="0" data-sticky="0" data-sticky-offset="0">
+<div class="quadmenu-container">
+<div class="quadmenu-navbar-header">
+<button type="button" class="quadmenu-navbar-toggle collapsed" data-quadmenu="collapse" data-target="#quadmenu_0" aria-expanded="false" aria-controls="#quadmenu">
+<span class="icon-bar-container">
+<span class="icon-bar icon-bar-top"></span>
+<span class="icon-bar icon-bar-middle"></span>
+<span class="icon-bar icon-bar-bottom"></span>
+</span>
+</button>        <a class="quadmenu-navbar-brand img" href="https://www.asahikawa.jrc.or.jp/"><img height="60" width="160" src="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/logo.svg" alt="日本赤十字社 旭川赤十字病院"/></a>
+</div>
+<div id="quadmenu_0" class="quadmenu-navbar-collapse collapse">
+<ul class="quadmenu-navbar-nav"><li id="menu-item-91" class="quadmenu-item-91 gmenu-jusin gmenu-no-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/jusin/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-man" aria-hidden="true"></i>受診される<span class="inline-block">皆様へ</span></span>
+<span class="quadmenu-subtitle  hover t_1000">Consultation</span>
+</span>
+</a>
+<div id="dropdown-91" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-92" class="quadmenu-item-92 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-4 col-md-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-92" class="">
+<ul>
+<li id="menu-item-163" class="quadmenu-item-163 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-man" aria-hidden="true"></i><span class="text">受診される皆様へ</span><span class="sub">Consultation</span></div></div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-93" class="quadmenu-item-93 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-93" class="">
+<ul>
+<li id="menu-item-7740" class="quadmenu-item-7740 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_jusin-container"><ul id="menu-submenu_jusin" class="menu"><li id="menu-item-34" class="menuimg menuimg-jusin01 menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://www.asahikawa.jrc.or.jp/jusin/syosin/">病院を初めて受診される方へ</a></li>
+<li id="menu-item-1957" class="menuimg menuimg-jusin02 menu-item menu-item-type-post_type menu-item-object-page menu-item-1957"><a href="https://www.asahikawa.jrc.or.jp/jusin/saisin/">再診の方へ</a></li>
+<li id="menu-item-35" class="menuimg menuimg-jusin03 menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://www.asahikawa.jrc.or.jp/jusin/working/">病院の休日および受付時間</a></li>
+<li id="menu-item-1959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1959"><a href="https://www.asahikawa.jrc.or.jp/jusin/hyoubou/">標榜診療科および外来担当医師</a></li>
+<li id="menu-item-1960" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1960"><a href="https://www.asahikawa.jrc.or.jp/jusin/first-aid/">救急で受診を希望される方へ</a></li>
+<li id="menu-item-1958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1958"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/i_net/">たいせつ安心i医療ネット</a></li>
+<li id="menu-item-38406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38406"><a href="https://www.asahikawa.jrc.or.jp/jusin/access/">交通・駐車場のご案内</a></li>
+<li id="menu-item-38407" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38407"><a href="https://www.asahikawa.jrc.or.jp/jusin/access/#parking">駐車場のご案内</a></li>
+<li id="menu-item-38408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38408"><a href="https://www.asahikawa.jrc.or.jp/jusin/floor-guidance/">フロア案内</a></li>
+<li id="menu-item-52192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52192"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/07/kinen.pdf">禁煙について</a></li>
+<li id="menu-item-52193" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52193"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/07/satsueikinshi2.pdf">撮影、録音の禁止について</a></li>
+<li id="menu-item-52194" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52194"><a href="https://www.asahikawa.jrc.or.jp/jusin/goteian/">患者さまからのご提案</a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-114" class="quadmenu-item-114 gmenu-nyuuin gmenu-no-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/nyuuin/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-bed-solid" aria-hidden="true"></i>入院される<span class="inline-block">皆様へ</span></span>
+<span class="quadmenu-subtitle  hover t_1000">Hospitalization</span>
+</span>
+</a>
+<div id="dropdown-114" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-164" class="quadmenu-item-164 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-164" class="">
+<ul>
+<li id="menu-item-167" class="quadmenu-item-167 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-bed-solid" aria-hidden="true"></i><span class="text">入院される皆様へ</span><span class="sub">Hospitalization</span></div></div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-5984" class="quadmenu-item-5984 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-5984" class="">
+<ul>
+<li id="menu-item-7739" class="quadmenu-item-7739 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_nyuuin-container"><ul id="menu-submenu_nyuuin" class="menu"><li id="menu-item-5688" class="menuimg menuimg-nyuuin01 menu-item menu-item-type-post_type menu-item-object-page menu-item-5688"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/tetuduki/">入院手続き</a></li>
+<li id="menu-item-5687" class="menuimg menuimg-nyuuin02 menu-item menu-item-type-post_type menu-item-object-page menu-item-5687"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/seikatu/">入院中の生活</a></li>
+<li id="menu-item-5689" class="menuimg menuimg-nyuuin03 menu-item menu-item-type-post_type menu-item-object-page menu-item-5689"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/innai/">院内のご案内</a></li>
+<li id="menu-item-5690" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5690"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/soudan/">医療相談の利用</a></li>
+<li id="menu-item-5691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5691"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/osiharai/">お支払い方法</a></li>
+<li id="menu-item-5692" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5692"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/omimai/">お見舞いの方へ</a></li>
+<li id="menu-item-5693" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5693"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/hospitalization-support/">入院支援コーナー</a></li>
+<li id="menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8907"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/douga/">入院のご案内【動画】</a></li>
+<li id="menu-item-27556" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27556"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/tentoutenrakuyobo/">転倒・転落事故予防【動画】</a></li>
+<li id="menu-item-38717" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38717"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/yakuzaitekiougai/">薬剤の適応外使用について</a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-113" class="quadmenu-item-113 gmenu-kensincenter gmenu-no-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/kensincenter/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-stethoscope" aria-hidden="true"></i>健診センター</span>
+<span class="quadmenu-subtitle  hover t_1000">Medical checkup</span>
+</span>
+</a>
+<div id="dropdown-113" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-168" class="quadmenu-item-168 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-168" class="">
+<ul>
+<li id="menu-item-170" class="quadmenu-item-170 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-stethoscope" aria-hidden="true"></i><span class="text">健診センター</span><span class="sub">Medical checkup</span></div></div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-5997" class="quadmenu-item-5997 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-5997" class="">
+<ul>
+<li id="menu-item-7738" class="quadmenu-item-7738 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_kensincenter-container"><ul id="menu-submenu_kensincenter" class="menu"><li id="menu-item-5971" class="menuimg menuimg-kensin01 menu-item menu-item-type-post_type menu-item-object-page menu-item-5971"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/k-about/">健診センターからのお知らせ</a></li>
+<li id="menu-item-5700" class="menuimg menuimg-kensin03 menu-item menu-item-type-post_type menu-item-object-page menu-item-5700"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/charge_application/">各健診コース検査項目・<span class="inline-block">料金及び流れ</span></a></li>
+<li id="menu-item-5696" class="menuimg menuimg-kensin02 menu-item menu-item-type-post_type menu-item-object-page menu-item-5696"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/cancer-screening/">がん健診・旭川市民のがん検診</a></li>
+<li id="menu-item-5701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5701"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/charge_application/#method">お申込み方法・予約スケジュール</a></li>
+<li id="menu-item-5695" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5695"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/lifestyle_diseases_prevention/">生活習慣病予防健診(協会けんぽ)</a></li>
+<li id="menu-item-26831" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26831"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/%e7%89%b9%e5%ae%9a%e5%81%a5%e5%ba%b7%e8%a8%ba%e6%9f%bb/">特定健診</a></li>
+<li id="menu-item-5699" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5699"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/%e4%ba%ba%e9%96%93%e3%83%89%e3%83%83%e3%82%af%e3%83%bb%e7%94%9f%e6%b4%bb%e7%bf%92%e6%85%a3%e7%97%85%e4%ba%88%e9%98%b2%e5%81%a5%e8%a8%ba/">人間ドック</a></li>
+<li id="menu-item-5697" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5697"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/braindock/">脳ドック・認知症予防健診</a></li>
+<li id="menu-item-31881" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31881"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/doumyaku/">動脈硬化症健診</a></li>
+<li id="menu-item-31858" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31858"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/07/teisenryo.pdf">低線量肺ヘリカルCT健診</a></li>
+<li id="menu-item-31860" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31860"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/cancer-screening/#aminoindekkusu">アミノインデックス<span class="inline-block">（1回の採血で疾病リスク評価）</span></a></li>
+<li id="menu-item-5972" class="menu-item menu-item-type-taxonomy menu-item-object-category_doctor_info menu-item-5972"><a href="https://www.asahikawa.jrc.or.jp/category_doctor_info/dr-kensin/">医師紹介</a></li>
+<li id="menu-item-52960" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52960"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/%e6%84%9f%e6%9f%93%e7%97%87%e6%a4%9c%e6%9f%bb%e3%82%b3%e3%83%bc%e3%82%b9/">感染症検査コース</a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-115" class="quadmenu-item-115 gmenu-depart gmenu-no-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/depart/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-hierarchical-structure" aria-hidden="true"></i>診療科紹介</span>
+<span class="quadmenu-subtitle  hover t_1000">Clinical departments</span>
+</span>
+</a>
+<div id="dropdown-115" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-171" class="quadmenu-item-171 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-171" class="">
+<ul>
+<li id="menu-item-173" class="quadmenu-item-173 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-hierarchical-structure" aria-hidden="true"></i><span class="text">診療科紹介</span><span class="sub">Clinical departments</span></div></div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-172" class="quadmenu-item-172 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-172" class="">
+<ul>
+<li id="menu-item-5872" class="quadmenu-item-5872 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_depart-container"><ul id="menu-submenu_depart" class="menu"><li id="menu-item-6635" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6635"><a href="https://www.asahikawa.jrc.or.jp/depart/internal-secretion/">糖尿病・内分泌内科</a></li>
+<li id="menu-item-5714" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5714"><a href="https://www.asahikawa.jrc.or.jp/depart/respiratory/">呼吸器内科</a></li>
+<li id="menu-item-5715" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5715"><a href="https://www.asahikawa.jrc.or.jp/depart/digestive/">消化器内科</a></li>
+<li id="menu-item-5716" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5716"><a href="https://www.asahikawa.jrc.or.jp/depart/circulatory/">循環器内科</a></li>
+<li id="menu-item-5717" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5717"><a href="https://www.asahikawa.jrc.or.jp/depart/nephrology/">腎臓内科</a></li>
+<li id="menu-item-5718" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5718"><a href="https://www.asahikawa.jrc.or.jp/depart/pediatrics/">小児科</a></li>
+<li id="menu-item-5719" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5719"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery/">外科</a></li>
+<li id="menu-item-5720" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5720"><a href="https://www.asahikawa.jrc.or.jp/depart/orthopedic/">整形外科</a></li>
+<li id="menu-item-5721" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5721"><a href="https://www.asahikawa.jrc.or.jp/depart/plastic-surgery/">形成外科</a></li>
+<li id="menu-item-5722" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5722"><a href="https://www.asahikawa.jrc.or.jp/depart/brain/">脳神経外科</a></li>
+<li id="menu-item-5723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5723"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery-heart/">心臓血管外科</a></li>
+<li id="menu-item-14172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14172"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery-respiratory/">呼吸器外科</a></li>
+<li id="menu-item-52398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52398"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery/bs/">乳腺外科</a></li>
+<li id="menu-item-5725" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5725"><a href="https://www.asahikawa.jrc.or.jp/depart/urology/">泌尿器科</a></li>
+<li id="menu-item-5726" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5726"><a href="https://www.asahikawa.jrc.or.jp/depart/obstetrician-gynecologist/">産婦人科</a></li>
+<li id="menu-item-5727" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5727"><a href="https://www.asahikawa.jrc.or.jp/depart/ophthalmology/">眼科</a></li>
+<li id="menu-item-5728" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5728"><a href="https://www.asahikawa.jrc.or.jp/depart/otolaryngology/">耳鼻咽喉科</a></li>
+<li id="menu-item-5729" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5729"><a href="https://www.asahikawa.jrc.or.jp/depart/anesthesia/">麻酔科</a></li>
+<li id="menu-item-16441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16441"><a href="https://www.asahikawa.jrc.or.jp/depart/general/">総合診療科（院内標榜）</a></li>
+<li id="menu-item-5730" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5730"><a href="https://www.asahikawa.jrc.or.jp/depart/dental-and-oral-surgery/">歯科口腔外科</a></li>
+<li id="menu-item-5731" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5731"><a href="https://www.asahikawa.jrc.or.jp/depart/nerve/">脳神経内科</a></li>
+<li id="menu-item-5732" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5732"><a href="https://www.asahikawa.jrc.or.jp/depart/hematology-and-oncology/">血液・腫瘍内科</a></li>
+<li id="menu-item-5734" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5734"><a href="https://www.asahikawa.jrc.or.jp/depart/dermatology/">皮膚科</a></li>
+<li id="menu-item-5733" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5733"><a href="https://www.asahikawa.jrc.or.jp/depart/emergency/">救急科</a></li>
+<li id="menu-item-5735" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5735"><a href="https://www.asahikawa.jrc.or.jp/depart/radiology/">放射線科</a></li>
+<li id="menu-item-5736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5736"><a href="https://www.asahikawa.jrc.or.jp/depart/regional-collaboration/">地域連携科</a></li>
+<li id="menu-item-5737" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5737"><a href="https://www.asahikawa.jrc.or.jp/depart/diagnosis/">病理診断科</a></li>
+<li id="menu-item-5713" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5713"><a href="https://www.asahikawa.jrc.or.jp/depart/mental/">精神科（休診中）</a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-109" class="quadmenu-item-109 gmenu-iryoustaff gmenu-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/iryoustaff/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-doctor" aria-hidden="true"></i>医療関係の方へ</span>
+<span class="quadmenu-subtitle  hover t_1000">Medical people</span>
+</span>
+</a>
+<div id="dropdown-109" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-110" class="quadmenu-item-110 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-110" class="">
+<ul>
+<li id="menu-item-112" class="quadmenu-item-112 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-doctor" aria-hidden="true"></i><span class="text">医療関係の方へ</span><span class="sub">Medical people</span></div></div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-111" class="quadmenu-item-111 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-111" class="">
+<ul>
+<li id="menu-item-193" class="quadmenu-item-193 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_iryoustaff-container"><ul id="menu-submenu_iryoustaff" class="menu"><li id="menu-item-1950" class="gmenu-sm menu-item menu-item-type-post_type menu-item-object-page menu-item-1950"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/regional-support-system/">当院の地域医療連携推進にご協力をお願いします</a></li>
+<li id="menu-item-1938" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1938"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/">地域医療連携室</a>
+<ul class="sub-menu">
+<li id="menu-item-5745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5745"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/touroku/">登録医制度</a>
+<ul class="sub-menu">
+<li id="menu-item-8105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8105"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/touroku/">登録医制度</a></li>
+<li id="menu-item-5746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5746"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/tosyo/">図書室のご利用について</a></li>
+</ul>
+</li>
+<li id="menu-item-6173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6173"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/iryou-yoyaku/">診療予約</a></li>
+<li id="menu-item-6168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6168"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/gairaitantoui/">外来担当医一覧</a></li>
+<li id="menu-item-26064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26064"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/shinryokagoannai2022/">診療科のご案内</a></li>
+<li id="menu-item-5748" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5748"><a href="https://www.asahikawa.jrc.or.jp/jusin/working/">診療受付時間のお知らせ</a></li>
+<li id="menu-item-5749" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5749"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/medicalequipment/">医療機器の共同利用</a></li>
+<li id="menu-item-5750" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5750"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/byoutou/">開放病棟のご利用</a></li>
+<li id="menu-item-5751" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5751"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/">各種講演会</a>
+<ul class="sub-menu">
+<li id="menu-item-5755" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5755"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/medical-connection/">医療連携の集い</a></li>
+<li id="menu-item-5758" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5758"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/staff-training/">医療機関職員研修会</a></li>
+<li id="menu-item-5757" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5757"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/case-study/">症例検討会</a></li>
+<li id="menu-item-5756" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5756"><a href="https://www.asahikawa.jrc.or.jp/tiiki/siminkouza/">市民公開講座について</a></li>
+</ul>
+</li>
+<li id="menu-item-5752" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5752"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/renkei-info/">連携室だより</a></li>
+<li id="menu-item-5747" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5747"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/pathological-examination/">病理組織診断受託</a></li>
+<li id="menu-item-5753" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5753"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/ai/">院外Ai（死亡時画像診断検査について）</a></li>
+<li id="menu-item-33433" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33433"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/hivkensahitsuyousyorui/">HIV検査必要書類</a></li>
+</ul>
+</li>
+<li id="menu-item-1946" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1946"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-sien/">地域医療支援病院</a></li>
+<li id="menu-item-1951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1951"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/i_net/">たいせつ安心i医療ネット</a></li>
+<li id="menu-item-1947" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1947"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-clinicalpath/">地域連携クリニカルパス</a>
+<ul class="sub-menu">
+<li id="menu-item-5744" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5744"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-clinicalpath/nousotu/">旭川脳卒中地域連携パス</a></li>
+<li id="menu-item-5743" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5743"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-clinicalpath/daitai/">旭川大腿骨頸部骨折地域連携パス</a></li>
+</ul>
+</li>
+<li id="menu-item-1952" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1952"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/hospital-path/">院内パス一覧</a></li>
+<li id="menu-item-1942" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1942"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/pathological-examination/">病理組織診断受託</a></li>
+<li id="menu-item-1953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1953"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/ai/">院外Ai（死亡時画像診断検査について）</a></li>
+<li id="menu-item-8104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8104"><a href="https://www.asahikawa.jrc.or.jp/educenter/delivery-lecture/">出前講座のご案内</a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-116" class="quadmenu-item-116 gmenu-tiiki gmenu-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/tiiki/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-hokkaido" aria-hidden="true"></i>地域の皆様へ</span>
+<span class="quadmenu-subtitle  hover t_1000">Local residents</span>
+</span>
+</a>
+<div id="dropdown-116" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-174" class="quadmenu-item-174 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-174" class="">
+<ul>
+<li id="menu-item-176" class="quadmenu-item-176 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-hokkaido" aria-hidden="true"></i><span class="text">地域の皆様へ</span><span class="sub">Local residents</span></div>
+</div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-175" class="quadmenu-item-175 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-175" class="">
+<ul>
+<li id="menu-item-5873" class="quadmenu-item-5873 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_tiiki-container"><ul id="menu-submenu_tiiki" class="menu"><li id="menu-item-5764" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5764"><a href="https://www.asahikawa.jrc.or.jp/tiiki/volunteer/">ボランティア・アンリー</a></li>
+<li id="menu-item-5766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5766"><a href="https://www.asahikawa.jrc.or.jp/tiiki/kyousitu/">各種教室・患者会</a></li>
+<li id="menu-item-5767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5767"><a href="https://www.asahikawa.jrc.or.jp/tiiki/siminkouza/">市民公開講座のご案内</a></li>
+<li id="menu-item-5772" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5772"><a href="https://www.asahikawa.jrc.or.jp/tiiki/community-work-jrc/">赤十字の活動について</a></li>
+<li id="menu-item-5760" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5760"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/">がん診療について</a>
+<ul class="sub-menu">
+<li id="menu-item-5762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5762"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/consultation-support/">がん相談支援センター</a></li>
+<li id="menu-item-10285" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10285"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/palliative-care/">緩和ケアチームについて</a></li>
+<li id="menu-item-5763" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5763"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/second-opinion/">セカンドオピニオンのご案内</a></li>
+<li id="menu-item-5776" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5776"><a target="_blank" rel="noopener noreferrer" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/10/cancer09.pdf">がん診療機能について</a></li>
+<li id="menu-item-5777" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5777"><a target="_blank" rel="noopener noreferrer" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/cancer05.pdf">スキンケア外来について</a></li>
+<li id="menu-item-5778" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5778"><a target="_blank" rel="noopener noreferrer" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2022/05/cancer06.pdf">リンパ浮腫ケア外来について</a></li>
+<li id="menu-item-5761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5761"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/salon/">がんサロンについて</a></li>
+<li id="menu-item-5775" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5775"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/registration-count/">院内がん登録集計</a></li>
+</ul>
+</li>
+<li id="menu-item-5771" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5771"><a href="https://www.asahikawa.jrc.or.jp/tiiki/training-practice/">医師臨床研修と学生実習の受入について</a></li>
+<li id="menu-item-5768" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5768"><a target="_blank" rel="noopener noreferrer" href="http://www.report.jcqhc.or.jp/detail/id=4365">病院機能評価結果の情報提供</a></li>
+<li id="menu-item-12579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12579"><a href="https://www.asahikawa.jrc.or.jp/tiiki/%e3%82%aa%e3%83%97%e3%83%88%e3%82%a2%e3%82%a6%e3%83%88%ef%bc%88%e3%81%8c%e3%82%93%e7%99%bb%e9%8c%b2%e3%80%81ncd%ef%bc%8fjnd%ef%bc%89%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">オプトアウト（がん登録、NCD／JND）</a></li>
+<li id="menu-item-23605" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23605"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/06/yobosesshu20260612.pdf">予防接種について</a></li>
+<li id="menu-item-25798" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25798"><a href="https://www.asahikawa.jrc.or.jp/tiiki/%e6%82%a3%e8%80%85%e7%9b%b8%e8%ab%87%e7%aa%93%e5%8f%a3%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">患者相談窓口について</a></li>
+<li id="menu-item-38831" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38831"><a href="https://www.asahikawa.jrc.or.jp/tiiki/crossletter/">広報誌「クロス・レター」</a></li>
+<li id="menu-item-38404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38404"><a href="https://www.asahikawa.jrc.or.jp/tiiki/obesity/">肥満症に対する減量手術について</a></li>
+<li id="menu-item-39466" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39466"><a href="https://www.asahikawa.jrc.or.jp/minimallyinvasivesurgery/">先進低侵襲・ロボット手術センター</a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-117" class="quadmenu-item-117 gmenu-hospital gmenu-no-submenu gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-has-children quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-dropdown quadmenu-has-subtitle quadmenu-has-caret quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/hospital/" class="quadmenu-dropdown-toggle hoverintent">
+<span class="quadmenu-item-content">
+<span class="quadmenu-caret"></span>
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-hospital" aria-hidden="true"></i>病院紹介</span>
+<span class="quadmenu-subtitle  hover t_1000">Hospital introduction</span>
+</span>
+</a>
+<div id="dropdown-117" class="quadmenu_btt t_300 quadmenu-dropdown-menu quadmenu-dropdown-stretch-boxed">
+<ul class="quadmenu-row">
+<li id="menu-item-177" class="quadmenu-item-177 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-3 hidden-xs hidden-sm hidden-md">    <div id="dropdown-177" class="">
+<ul>
+<li id="menu-item-179" class="quadmenu-item-179 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_custom_html">
+<div class="textwidget custom-html-widget"><div class="megamenu-title"><i class="menu-i-hospital" aria-hidden="true"></i><span class="text">病院紹介</span><span class="sub">Hospital introduction</span></div></div>        </div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-178" class="quadmenu-item-178 quadmenu-item quadmenu-item-object-column quadmenu-item-has-children quadmenu-item-type-column col-12 col-sm-12 col-md-12 col-lg-9">    <div id="dropdown-178" class="">
+<ul>
+<li id="menu-item-5874" class="quadmenu-item-5874 quadmenu-item quadmenu-item-object-widget quadmenu-item-type-widget">        <div class="quadmenu-item-widget widget widget_nav_menu">
+<div class="menu-submenu_hospital-container"><ul id="menu-submenu_hospital" class="menu"><li id="menu-item-5780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5780"><a href="https://www.asahikawa.jrc.or.jp/hospital/rinen/">病院の理念・方針</a></li>
+<li id="menu-item-26385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26385"><a href="https://www.asahikawa.jrc.or.jp/hospital/%e6%82%a3%e8%80%85%e3%81%95%e3%82%93%e3%81%ae%e6%a8%a9%e5%88%a9%e3%81%a8%e8%b2%ac%e5%8b%99%e3%80%80%e6%97%a5%e6%9c%ac%e8%b5%a4%e5%8d%81%e5%ad%97%e7%a4%be%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%83%bc/">患者さんの権利と責務・<span class="inline-block">日本赤十字社ｶｽﾀﾏｰﾊﾗｽﾒﾝﾄ基本方針</span></a></li>
+<li id="menu-item-5792" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-5792"><a href="https://www.asahikawa.jrc.or.jp/about/">赤十字及びポリシーについて</a></li>
+<li id="menu-item-5782" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5782"><a href="https://www.asahikawa.jrc.or.jp/hospital/aisatu/">院長挨拶</a></li>
+<li id="menu-item-5781" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5781"><a href="https://www.asahikawa.jrc.or.jp/hospital/yonyaku/">幹部職員</a></li>
+<li id="menu-item-6169" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6169"><a href="https://www.asahikawa.jrc.or.jp/category_doctor_info/dr-internal-secretion/">医師紹介</a></li>
+<li id="menu-item-5783" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5783"><a href="https://www.asahikawa.jrc.or.jp/hospital/enkaku/">概要・沿革</a></li>
+<li id="menu-item-7726" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7726"><a href="https://www.asahikawa.jrc.or.jp/hospital/kiki/">院内機器・設備</a></li>
+<li id="menu-item-5784" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5784"><a href="https://www.asahikawa.jrc.or.jp/hospital/iryoukakuhou/">医療各法の指定・<span class="inline-block">学会施設認定・施設基準</span></a></li>
+<li id="menu-item-6170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6170"><a href="https://www.asahikawa.jrc.or.jp/hospital/data/">病院のデータ</a></li>
+<li id="menu-item-5791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5791"><a href="https://www.asahikawa.jrc.or.jp/clinical/">クリニカル・インディケーター</a></li>
+<li id="menu-item-36464" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36464"><a href="https://www.asahikawa.jrc.or.jp/hospital/library/">図書室・医学雑誌</a></li>
+<li id="menu-item-5788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5788"><a href="https://www.asahikawa.jrc.or.jp/hospital/subsidized-project/">補助事業</a></li>
+<li id="menu-item-6171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6171"><a href="https://www.asahikawa.jrc.or.jp/bumon/">部門紹介</a></li>
+<li id="menu-item-5789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5789"><a href="https://www.asahikawa.jrc.or.jp/kangobu/">看護部のご案内</a></li>
+<li id="menu-item-25797" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25797"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2022/08/tokuteikouikenshuoyobikangosiniyorutokuteikouinojissinituite.pdf">特定行為研修および看護師による<span class="inline-block">特定行為の実施について</a></li>
+<li id="menu-item-5790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5790"><a href="https://www.asahikawa.jrc.or.jp/educenter/">臨床研修/職員研修<span class="inline-block">(教育研修センター)</span></a></li>
+<li id="menu-item-5798" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5798"><a href="https://www.asahikawa.jrc.or.jp/emcenter-doctor-heli/">救命救急センター・<span class="inline-block">道北ドクターヘリ</span></a></li>
+<li id="menu-item-5797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5797"><a href="https://www.asahikawa.jrc.or.jp/rinri/">旭川赤十字病院 倫理委員会</a></li>
+<li id="menu-item-5793" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4299 current_page_item menu-item-5793"><a href="https://www.asahikawa.jrc.or.jp/bid/" aria-current="page">入札情報</a></li>
+<li id="menu-item-14646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14646"><a href="https://www.asahikawa.jrc.or.jp/hospital/hutankeigenshogukaizentorikumi/">医療従事者の負担軽減及び<span class="inline-block">処遇の改善に関する取組事項</span></a></li>
+</ul></div>        </div>
+</li>      </ul>
+</div>
+</li>      </ul>
+</div>
+</li><li id="menu-item-2235" class="quadmenu-item-2235 gmenu-recruit gmenu-parent quadmenu-item quadmenu-item-object-mega quadmenu-item-type-mega quadmenu-item-level-0 quadmenu-has-subtitle quadmenu-has-title quadmenu-has-link quadmenu-dropdown-right     dropdown-maxheight">        <a  href="https://www.asahikawa.jrc.or.jp/recruit/">
+<span class="quadmenu-item-content">
+<span class="quadmenu-text  hover t_1000"><i class="menu-i-recruitment" aria-hidden="true"></i>採用情報</span>
+<span class="quadmenu-subtitle  hover t_1000">Recruit</span>
+</span>
+</a>
+</li></ul>    </div>
+</div>
+</nav>      </div><!-- /#navi-in -->
+</nav>
+<!-- /Navigation -->
+</div>
+<div class="mainmenu-sp">
+<div class="meanmenu_logo"><a href="https://www.asahikawa.jrc.or.jp"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/logo.svg" alt=""></a></div>
+<ul>
+<li><a href="https://www.asahikawa.jrc.or.jp/jusin" class="parent_items"><i class="menu-i-man"></i>受診される皆様へ<span class="menu-subtitle">Consultation</span></a>
+<div class="menu-submenu_jusin-container"><ul id="menu-submenu_jusin-1" class="menu"><li class="menuimg menuimg-jusin01 menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://www.asahikawa.jrc.or.jp/jusin/syosin/">病院を初めて受診される方へ</a></li>
+<li class="menuimg menuimg-jusin02 menu-item menu-item-type-post_type menu-item-object-page menu-item-1957"><a href="https://www.asahikawa.jrc.or.jp/jusin/saisin/">再診の方へ</a></li>
+<li class="menuimg menuimg-jusin03 menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://www.asahikawa.jrc.or.jp/jusin/working/">病院の休日および受付時間</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1959"><a href="https://www.asahikawa.jrc.or.jp/jusin/hyoubou/">標榜診療科および外来担当医師</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1960"><a href="https://www.asahikawa.jrc.or.jp/jusin/first-aid/">救急で受診を希望される方へ</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1958"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/i_net/">たいせつ安心i医療ネット</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38406"><a href="https://www.asahikawa.jrc.or.jp/jusin/access/">交通・駐車場のご案内</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38407"><a href="https://www.asahikawa.jrc.or.jp/jusin/access/#parking">駐車場のご案内</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38408"><a href="https://www.asahikawa.jrc.or.jp/jusin/floor-guidance/">フロア案内</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52192"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/07/kinen.pdf">禁煙について</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52193"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/07/satsueikinshi2.pdf">撮影、録音の禁止について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52194"><a href="https://www.asahikawa.jrc.or.jp/jusin/goteian/">患者さまからのご提案</a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/nyuuin" class="parent_items"><i class="menu-i-bed-solid"></i>入院される皆様へ<span class="menu-subtitle">Hospitalization</span></a>
+<div class="menu-submenu_nyuuin-container"><ul id="menu-submenu_nyuuin-1" class="menu"><li class="menuimg menuimg-nyuuin01 menu-item menu-item-type-post_type menu-item-object-page menu-item-5688"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/tetuduki/">入院手続き</a></li>
+<li class="menuimg menuimg-nyuuin02 menu-item menu-item-type-post_type menu-item-object-page menu-item-5687"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/seikatu/">入院中の生活</a></li>
+<li class="menuimg menuimg-nyuuin03 menu-item menu-item-type-post_type menu-item-object-page menu-item-5689"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/innai/">院内のご案内</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5690"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/soudan/">医療相談の利用</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5691"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/osiharai/">お支払い方法</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5692"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/omimai/">お見舞いの方へ</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5693"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/hospitalization-support/">入院支援コーナー</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8907"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/douga/">入院のご案内【動画】</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27556"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/tentoutenrakuyobo/">転倒・転落事故予防【動画】</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38717"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/yakuzaitekiougai/">薬剤の適応外使用について</a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/kensincenter" class="parent_items"><i class="menu-i-stethoscope"></i>健診センター<span class="menu-subtitle">Medical checkup</span></a>
+<div class="menu-submenu_kensincenter-container"><ul id="menu-submenu_kensincenter-1" class="menu"><li class="menuimg menuimg-kensin01 menu-item menu-item-type-post_type menu-item-object-page menu-item-5971"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/k-about/">健診センターからのお知らせ</a></li>
+<li class="menuimg menuimg-kensin03 menu-item menu-item-type-post_type menu-item-object-page menu-item-5700"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/charge_application/">各健診コース検査項目・<span class="inline-block">料金及び流れ</span></a></li>
+<li class="menuimg menuimg-kensin02 menu-item menu-item-type-post_type menu-item-object-page menu-item-5696"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/cancer-screening/">がん健診・旭川市民のがん検診</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5701"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/charge_application/#method">お申込み方法・予約スケジュール</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5695"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/lifestyle_diseases_prevention/">生活習慣病予防健診(協会けんぽ)</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26831"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/%e7%89%b9%e5%ae%9a%e5%81%a5%e5%ba%b7%e8%a8%ba%e6%9f%bb/">特定健診</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5699"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/%e4%ba%ba%e9%96%93%e3%83%89%e3%83%83%e3%82%af%e3%83%bb%e7%94%9f%e6%b4%bb%e7%bf%92%e6%85%a3%e7%97%85%e4%ba%88%e9%98%b2%e5%81%a5%e8%a8%ba/">人間ドック</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5697"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/braindock/">脳ドック・認知症予防健診</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31881"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/doumyaku/">動脈硬化症健診</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31858"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/07/teisenryo.pdf">低線量肺ヘリカルCT健診</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31860"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/cancer-screening/#aminoindekkusu">アミノインデックス<span class="inline-block">（1回の採血で疾病リスク評価）</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category_doctor_info menu-item-5972"><a href="https://www.asahikawa.jrc.or.jp/category_doctor_info/dr-kensin/">医師紹介</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52960"><a href="https://www.asahikawa.jrc.or.jp/kensincenter/%e6%84%9f%e6%9f%93%e7%97%87%e6%a4%9c%e6%9f%bb%e3%82%b3%e3%83%bc%e3%82%b9/">感染症検査コース</a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/depart" class="parent_items"><i class="menu-i-hierarchical-structure"></i>診療科紹介<span class="menu-subtitle">Clinical departments</span></a>
+<div class="menu-submenu_depart-container"><ul id="menu-submenu_depart-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6635"><a href="https://www.asahikawa.jrc.or.jp/depart/internal-secretion/">糖尿病・内分泌内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5714"><a href="https://www.asahikawa.jrc.or.jp/depart/respiratory/">呼吸器内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5715"><a href="https://www.asahikawa.jrc.or.jp/depart/digestive/">消化器内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5716"><a href="https://www.asahikawa.jrc.or.jp/depart/circulatory/">循環器内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5717"><a href="https://www.asahikawa.jrc.or.jp/depart/nephrology/">腎臓内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5718"><a href="https://www.asahikawa.jrc.or.jp/depart/pediatrics/">小児科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5719"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery/">外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5720"><a href="https://www.asahikawa.jrc.or.jp/depart/orthopedic/">整形外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5721"><a href="https://www.asahikawa.jrc.or.jp/depart/plastic-surgery/">形成外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5722"><a href="https://www.asahikawa.jrc.or.jp/depart/brain/">脳神経外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5723"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery-heart/">心臓血管外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14172"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery-respiratory/">呼吸器外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52398"><a href="https://www.asahikawa.jrc.or.jp/depart/surgery/bs/">乳腺外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5725"><a href="https://www.asahikawa.jrc.or.jp/depart/urology/">泌尿器科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5726"><a href="https://www.asahikawa.jrc.or.jp/depart/obstetrician-gynecologist/">産婦人科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5727"><a href="https://www.asahikawa.jrc.or.jp/depart/ophthalmology/">眼科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5728"><a href="https://www.asahikawa.jrc.or.jp/depart/otolaryngology/">耳鼻咽喉科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5729"><a href="https://www.asahikawa.jrc.or.jp/depart/anesthesia/">麻酔科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16441"><a href="https://www.asahikawa.jrc.or.jp/depart/general/">総合診療科（院内標榜）</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5730"><a href="https://www.asahikawa.jrc.or.jp/depart/dental-and-oral-surgery/">歯科口腔外科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5731"><a href="https://www.asahikawa.jrc.or.jp/depart/nerve/">脳神経内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5732"><a href="https://www.asahikawa.jrc.or.jp/depart/hematology-and-oncology/">血液・腫瘍内科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5734"><a href="https://www.asahikawa.jrc.or.jp/depart/dermatology/">皮膚科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5733"><a href="https://www.asahikawa.jrc.or.jp/depart/emergency/">救急科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5735"><a href="https://www.asahikawa.jrc.or.jp/depart/radiology/">放射線科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5736"><a href="https://www.asahikawa.jrc.or.jp/depart/regional-collaboration/">地域連携科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5737"><a href="https://www.asahikawa.jrc.or.jp/depart/diagnosis/">病理診断科</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5713"><a href="https://www.asahikawa.jrc.or.jp/depart/mental/">精神科（休診中）</a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/iryoustaff" class="parent_items"><i class="menu-i-doctor"></i>医療関係の方へ<span class="menu-subtitle">Medical people</span></a>
+<div class="menu-submenu_iryoustaff-container"><ul id="menu-submenu_iryoustaff-1" class="menu"><li class="gmenu-sm menu-item menu-item-type-post_type menu-item-object-page menu-item-1950"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/regional-support-system/">当院の地域医療連携推進にご協力をお願いします</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1938"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/">地域医療連携室</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5745"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/touroku/">登録医制度</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8105"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/touroku/">登録医制度</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5746"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/tosyo/">図書室のご利用について</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6173"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/iryou-yoyaku/">診療予約</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6168"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/gairaitantoui/">外来担当医一覧</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26064"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/shinryokagoannai2022/">診療科のご案内</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5748"><a href="https://www.asahikawa.jrc.or.jp/jusin/working/">診療受付時間のお知らせ</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5749"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/medicalequipment/">医療機器の共同利用</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5750"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/byoutou/">開放病棟のご利用</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5751"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/">各種講演会</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5755"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/medical-connection/">医療連携の集い</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5758"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/staff-training/">医療機関職員研修会</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5757"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/iryoustaff-kyoushitu/case-study/">症例検討会</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5756"><a href="https://www.asahikawa.jrc.or.jp/tiiki/siminkouza/">市民公開講座について</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5752"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-link/renkei-info/">連携室だより</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5747"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/pathological-examination/">病理組織診断受託</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5753"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/ai/">院外Ai（死亡時画像診断検査について）</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33433"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/hivkensahitsuyousyorui/">HIV検査必要書類</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1946"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-sien/">地域医療支援病院</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1951"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/i_net/">たいせつ安心i医療ネット</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1947"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-clinicalpath/">地域連携クリニカルパス</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5744"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-clinicalpath/nousotu/">旭川脳卒中地域連携パス</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5743"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/tiiki-clinicalpath/daitai/">旭川大腿骨頸部骨折地域連携パス</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1952"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/hospital-path/">院内パス一覧</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1942"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/pathological-examination/">病理組織診断受託</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1953"><a href="https://www.asahikawa.jrc.or.jp/iryoustaff/ai/">院外Ai（死亡時画像診断検査について）</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8104"><a href="https://www.asahikawa.jrc.or.jp/educenter/delivery-lecture/">出前講座のご案内</a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/tiiki" class="parent_items"><i class="menu-i-hokkaido"></i>地域の皆様へ<span class="menu-subtitle">Local residents</span></a>
+<div class="menu-submenu_tiiki-container"><ul id="menu-submenu_tiiki-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5764"><a href="https://www.asahikawa.jrc.or.jp/tiiki/volunteer/">ボランティア・アンリー</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5766"><a href="https://www.asahikawa.jrc.or.jp/tiiki/kyousitu/">各種教室・患者会</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5767"><a href="https://www.asahikawa.jrc.or.jp/tiiki/siminkouza/">市民公開講座のご案内</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5772"><a href="https://www.asahikawa.jrc.or.jp/tiiki/community-work-jrc/">赤十字の活動について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5760"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/">がん診療について</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5762"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/consultation-support/">がん相談支援センター</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10285"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/palliative-care/">緩和ケアチームについて</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5763"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/second-opinion/">セカンドオピニオンのご案内</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5776"><a target="_blank" rel="noopener noreferrer" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/10/cancer09.pdf">がん診療機能について</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5777"><a target="_blank" rel="noopener noreferrer" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/cancer05.pdf">スキンケア外来について</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5778"><a target="_blank" rel="noopener noreferrer" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2022/05/cancer06.pdf">リンパ浮腫ケア外来について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5761"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/salon/">がんサロンについて</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5775"><a href="https://www.asahikawa.jrc.or.jp/tiiki/cancer-treatment/registration-count/">院内がん登録集計</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5771"><a href="https://www.asahikawa.jrc.or.jp/tiiki/training-practice/">医師臨床研修と学生実習の受入について</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5768"><a target="_blank" rel="noopener noreferrer" href="http://www.report.jcqhc.or.jp/detail/id=4365">病院機能評価結果の情報提供</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12579"><a href="https://www.asahikawa.jrc.or.jp/tiiki/%e3%82%aa%e3%83%97%e3%83%88%e3%82%a2%e3%82%a6%e3%83%88%ef%bc%88%e3%81%8c%e3%82%93%e7%99%bb%e9%8c%b2%e3%80%81ncd%ef%bc%8fjnd%ef%bc%89%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">オプトアウト（がん登録、NCD／JND）</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23605"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/06/yobosesshu20260612.pdf">予防接種について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25798"><a href="https://www.asahikawa.jrc.or.jp/tiiki/%e6%82%a3%e8%80%85%e7%9b%b8%e8%ab%87%e7%aa%93%e5%8f%a3%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">患者相談窓口について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38831"><a href="https://www.asahikawa.jrc.or.jp/tiiki/crossletter/">広報誌「クロス・レター」</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38404"><a href="https://www.asahikawa.jrc.or.jp/tiiki/obesity/">肥満症に対する減量手術について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39466"><a href="https://www.asahikawa.jrc.or.jp/minimallyinvasivesurgery/">先進低侵襲・ロボット手術センター</a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/hospital" class="parent_items"><i class="menu-i-hospital"></i>病院紹介<span class="menu-subtitle">Hospital introduction</span></a>
+<div class="menu-submenu_hospital-container"><ul id="menu-submenu_hospital-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5780"><a href="https://www.asahikawa.jrc.or.jp/hospital/rinen/">病院の理念・方針</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26385"><a href="https://www.asahikawa.jrc.or.jp/hospital/%e6%82%a3%e8%80%85%e3%81%95%e3%82%93%e3%81%ae%e6%a8%a9%e5%88%a9%e3%81%a8%e8%b2%ac%e5%8b%99%e3%80%80%e6%97%a5%e6%9c%ac%e8%b5%a4%e5%8d%81%e5%ad%97%e7%a4%be%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%83%bc/">患者さんの権利と責務・<span class="inline-block">日本赤十字社ｶｽﾀﾏｰﾊﾗｽﾒﾝﾄ基本方針</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-5792"><a href="https://www.asahikawa.jrc.or.jp/about/">赤十字及びポリシーについて</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5782"><a href="https://www.asahikawa.jrc.or.jp/hospital/aisatu/">院長挨拶</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5781"><a href="https://www.asahikawa.jrc.or.jp/hospital/yonyaku/">幹部職員</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6169"><a href="https://www.asahikawa.jrc.or.jp/category_doctor_info/dr-internal-secretion/">医師紹介</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5783"><a href="https://www.asahikawa.jrc.or.jp/hospital/enkaku/">概要・沿革</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7726"><a href="https://www.asahikawa.jrc.or.jp/hospital/kiki/">院内機器・設備</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5784"><a href="https://www.asahikawa.jrc.or.jp/hospital/iryoukakuhou/">医療各法の指定・<span class="inline-block">学会施設認定・施設基準</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6170"><a href="https://www.asahikawa.jrc.or.jp/hospital/data/">病院のデータ</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5791"><a href="https://www.asahikawa.jrc.or.jp/clinical/">クリニカル・インディケーター</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36464"><a href="https://www.asahikawa.jrc.or.jp/hospital/library/">図書室・医学雑誌</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5788"><a href="https://www.asahikawa.jrc.or.jp/hospital/subsidized-project/">補助事業</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6171"><a href="https://www.asahikawa.jrc.or.jp/bumon/">部門紹介</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5789"><a href="https://www.asahikawa.jrc.or.jp/kangobu/">看護部のご案内</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25797"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2022/08/tokuteikouikenshuoyobikangosiniyorutokuteikouinojissinituite.pdf">特定行為研修および看護師による<span class="inline-block">特定行為の実施について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5790"><a href="https://www.asahikawa.jrc.or.jp/educenter/">臨床研修/職員研修<span class="inline-block">(教育研修センター)</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5798"><a href="https://www.asahikawa.jrc.or.jp/emcenter-doctor-heli/">救命救急センター・<span class="inline-block">道北ドクターヘリ</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5797"><a href="https://www.asahikawa.jrc.or.jp/rinri/">旭川赤十字病院 倫理委員会</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4299 current_page_item menu-item-5793"><a href="https://www.asahikawa.jrc.or.jp/bid/" aria-current="page">入札情報</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14646"><a href="https://www.asahikawa.jrc.or.jp/hospital/hutankeigenshogukaizentorikumi/">医療従事者の負担軽減及び<span class="inline-block">処遇の改善に関する取組事項</span></a></li>
+</ul></div>    </li>
+<li><a href="https://www.asahikawa.jrc.or.jp/recruit" class="parent_items"><i class="menu-i-recruitment"></i>採用情報<span class="menu-subtitle">Recruit</span></a></li>
+</ul>
+</div>
+<header class="page-titlearea page-bid">
+<h1 class="page-title">入札情報</h1>
+</header>
+<!-- 赤十字及びポリシーについて -->
+<!-- 医師紹介タイトル -->
+<div id="content" class="content cf">
+<!-- サイドメニュー追加ここから -->
+<div id="side-menu">
+<nav id="main-nav">
+<!-- 親子関係毎にサイドメニュー切り替え -->
+<!-- 受診される皆様へ用のサイドバー -->
+<ul>
+<li><a class="back-to-front" href="https://www.asahikawa.jrc.or.jp">トップページに戻る</a></li>
+<li class="menu-title"><a href="https://www.asahikawa.jrc.or.jp/hospital/">病院紹介<span class="sub">Hospital introduction</span></a></li>
+</ul>
+<ul id="menu-submenu_hospital-2" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5780"><a href="https://www.asahikawa.jrc.or.jp/hospital/rinen/">病院の理念・方針</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26385"><a href="https://www.asahikawa.jrc.or.jp/hospital/%e6%82%a3%e8%80%85%e3%81%95%e3%82%93%e3%81%ae%e6%a8%a9%e5%88%a9%e3%81%a8%e8%b2%ac%e5%8b%99%e3%80%80%e6%97%a5%e6%9c%ac%e8%b5%a4%e5%8d%81%e5%ad%97%e7%a4%be%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%83%bc/">患者さんの権利と責務・<span class="inline-block">日本赤十字社ｶｽﾀﾏｰﾊﾗｽﾒﾝﾄ基本方針</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-5792"><a href="https://www.asahikawa.jrc.or.jp/about/">赤十字及びポリシーについて</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5782"><a href="https://www.asahikawa.jrc.or.jp/hospital/aisatu/">院長挨拶</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5781"><a href="https://www.asahikawa.jrc.or.jp/hospital/yonyaku/">幹部職員</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6169"><a href="https://www.asahikawa.jrc.or.jp/category_doctor_info/dr-internal-secretion/">医師紹介</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5783"><a href="https://www.asahikawa.jrc.or.jp/hospital/enkaku/">概要・沿革</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7726"><a href="https://www.asahikawa.jrc.or.jp/hospital/kiki/">院内機器・設備</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5784"><a href="https://www.asahikawa.jrc.or.jp/hospital/iryoukakuhou/">医療各法の指定・<span class="inline-block">学会施設認定・施設基準</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6170"><a href="https://www.asahikawa.jrc.or.jp/hospital/data/">病院のデータ</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5791"><a href="https://www.asahikawa.jrc.or.jp/clinical/">クリニカル・インディケーター</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36464"><a href="https://www.asahikawa.jrc.or.jp/hospital/library/">図書室・医学雑誌</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5788"><a href="https://www.asahikawa.jrc.or.jp/hospital/subsidized-project/">補助事業</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6171"><a href="https://www.asahikawa.jrc.or.jp/bumon/">部門紹介</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5789"><a href="https://www.asahikawa.jrc.or.jp/kangobu/">看護部のご案内</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25797"><a href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2022/08/tokuteikouikenshuoyobikangosiniyorutokuteikouinojissinituite.pdf">特定行為研修および看護師による<span class="inline-block">特定行為の実施について</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5790"><a href="https://www.asahikawa.jrc.or.jp/educenter/">臨床研修/職員研修<span class="inline-block">(教育研修センター)</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5798"><a href="https://www.asahikawa.jrc.or.jp/emcenter-doctor-heli/">救命救急センター・<span class="inline-block">道北ドクターヘリ</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5797"><a href="https://www.asahikawa.jrc.or.jp/rinri/">旭川赤十字病院 倫理委員会</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4299 current_page_item menu-item-5793"><a href="https://www.asahikawa.jrc.or.jp/bid/" aria-current="page">入札情報</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14646"><a href="https://www.asahikawa.jrc.or.jp/hospital/hutankeigenshogukaizentorikumi/">医療従事者の負担軽減及び<span class="inline-block">処遇の改善に関する取組事項</span></a></li>
+</ul>  <ul id="menu-submenu_bottom" class="bottom-nav"><li id="menu-item-655" class="menu-mail menu-item menu-item-type-post_type menu-item-object-page menu-item-655"><a href="https://www.asahikawa.jrc.or.jp/contact/"><i class="menu-i-mail" aria-hidden="true"></i><span class="text">メールでお問い合わせ</span></a></li>
+<li id="menu-item-57" class="menu-fureai menu-item menu-item-type-custom menu-item-object-custom menu-item-57"><a target="_blank" rel="noopener noreferrer" href="http://asahikawa-rch-photoclub.com/"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/svg/menu-fureai-txt.svg" alt="ふれあいギャラリー"></a></li>
+<li id="menu-item-5871" class="menu-senmon menu-item menu-item-type-post_type menu-item-object-page menu-item-5871"><a href="https://www.asahikawa.jrc.or.jp/educenter/application/"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/svg/menu-senmon-txt.svg" alt="専門研修プログラム"></a></li>
+</ul>  <!-- 部門紹介用のサイドバー -->
+</nav>
+</div>
+<!-- サイドメニュー追加ここまで -->
+<div id="content-in" class="content-in wrap">
+<main id="main" class="main" itemscope itemtype="https://schema.org/Blog">
+<div id="breadcrumb" class="breadcrumb breadcrumb-page pbp-main-top" itemscope itemtype="https://schema.org/BreadcrumbList"><div class="content-wrap">
+<div class="breadcrumb-home" itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span class="fa fa-home fa-fw"></span><a href="https://www.asahikawa.jrc.or.jp" itemprop="item"><span itemprop="name">ホーム</span></a><meta itemprop="position" content="1" /><span class="sp"><span class="fa fa-angle-right"></span></span></div>
+<div class="breadcrumb-item"><span class="fa fa-file-o fa-fw"></span><span>入札情報</span></div>
+</div></div><!-- /#breadcrumb -->
+<article id="post-4299" class="article post-4299 page type-page status-publish hentry" itemscope="itemscope" itemprop="blogPost" itemtype="https://schema.org/BlogPosting">
+<header class="article-header entry-header">
+<h1 class="entry-title" itemprop="headline">
+入札情報        </h1>
+<div class="eye-catch-wrap display-none">
+<figure class="eye-catch" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+<img src="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/05/sp_slide01.jpg" width="960" height="450" alt="">  <meta itemprop="url" content="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/05/sp_slide01.jpg">
+<meta itemprop="width" content="960">
+<meta itemprop="height" content="450">
+</figure>
+</div>
+<div class="date-tags">
+<span class="post-update"><time class="entry-date date updated" datetime="2026-04-30T15:30:43+00:00" itemprop="dateModified">2026.04.30</time></span><span class="post-date"><time class="entry-date date published" datetime="2019-04-15T11:37:28+09:00" itemprop="datePublished">2019.04.15</time></span>
+</div>
+</header>
+<div class="entry-content cf" itemprop="mainEntityOfPage">
+<div class="wp-block-uagb-section uagb-section__wrap uagb-section__background-undefined" id="uagb-section-9ff67b2d-5f91-4e92-9392-a7f568d87363"><div class="uagb-section__overlay"></div><div class="uagb-section__inner-wrap">
+<p></p>
+<h2> 入札情報 </h2>
+<p></p>
+</div></div>
+<div class="wp-block-uagb-section uagb-section__wrap uagb-section__background-undefined" id="uagb-section-bff89f38-d4aa-49dd-93c8-8237e764b0ab"><div class="uagb-section__overlay"></div><div class="uagb-section__inner-wrap">
+<div class="anchor" id="ippan"></div>
+<h3 class="point-border">一般競争入札の公示</h3>
+<h4 class="em-title">2026年度　</h4>
+<p></p>
+</div></div>
+<div class="wp-block-uagb-section uagb-section__wrap uagb-section__background-undefined" id="uagb-section-78fbd20b-0284-4787-a133-ebb01c32e4df"><div class="uagb-section__overlay"></div><div class="uagb-section__inner-wrap">
+<p></p>
+<h3 class="point-border">競争入札参加資格に関する公示</h3>
+<h4 class="em-title">2024.04.01競争入札参加資格に関する公示</h4>
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/01/kyousounyuusatu-sankasikakukouji.pdf" class="btn btn-key-color btn-s" target="_blank">競争入札参加資格に関する公示（2024・2025・2026年度）</a></div>
+<div class="wp-block-cocoon-blocks-column-2 column-wrap column-2 column-2-2-1-1 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box">
+<h5>一般競争（指名競争）入札参加資格審査申請書</h5>
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/01/kyousounyuusatu-sankasikakusinseisho.pdf" class="btn btn-key-color" target="_blank">入札参加資格審査申請書</a></div>
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/01/kyousounyuusatu-sankasikakusinseisho.xlsx" class="btn btn-key-color btn-s" target="_blank">入札参加資格審査申請書(EXCEL)</a></div>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box">
+<h5>一般競争（指名競争）入札参加資格審査申請書変更届</h5>
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/01/kyousounyuusatu-sankasikakuhenkoutodoke.pdf" class="btn btn-key-color" target="_blank">入札参加資格審査申請書変更届</a></div>
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/01/kyousounyuusatu-sankasikakuhenkoutodoke.xlsx" class="btn btn-key-color btn-s" target="_blank">入札参加資格審査申請書変更届(EXCEL)</a></div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="wp-block-uagb-section uagb-section__wrap uagb-section__background-undefined" id="uagb-section-d30e7bcf-cc35-4f5d-92b0-8b34fbaef91d"><div class="uagb-section__overlay"></div><div class="uagb-section__inner-wrap">
+<div id="zuijikeiyaku"></div>
+<!-- アンカー -->
+<h3 class="point-border">随意契約締結状況</h3>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2025(R7)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R7.6.pdf" class="btn btn-key-color btn-s" target="_blank">2025年6月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R7.9.pdf" class="btn btn-key-color btn-s" target="_blank">2025年9月</a></div>
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R7.10.pdf" class="btn btn-key-color btn-s" target="_blank">2025年10月</a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R7.11.pdf" class="btn btn-key-color btn-s" target="_blank">2025年11月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R7.12.pdf" class="btn btn-key-color btn-s" target="_blank">2025年12月</a></div>
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R8.2.pdf" class="btn btn-key-color btn-s" target="_blank">2026年2月</a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2026/03/R8.3.pdf" class="btn btn-key-color btn-s" target="_blank">2026年3月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2024(R6)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/11/R6.4.pdf" class="btn btn-key-color btn-s" target="_blank">2024年4月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/11/R6.7-1.pdf" class="btn btn-key-color btn-s" target="_blank">2024年7月</a></div>
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2023(R5)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/05/R6.2.pdf" class="btn btn-key-color btn-s" target="_blank">2024年2月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/05/R6.1.pdf" class="btn btn-key-color btn-s" target="_blank">2024年1月</a></div>
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2024/06/R5.10.pdf" class="btn btn-key-color btn-s" target="_blank">2023年10月</a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2023/08/R5zuiikeiyaku-23.6.pdf" class="btn btn-key-color btn-s" target="_blank">2023年6月</a></div>
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2023/09/0d2fc3432a4ccc739e6d7eb152524213.pdf" class="btn btn-key-color btn-s" target="_blank">2023年4月</a></div>
+<p></p>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2022(R4)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2023/05/R4zuiikeiyaku-23.2.pdf" class="btn btn-key-color btn-s" target="_blank">2023年2月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2022/08/R4zuiikeiyaku-22.07.pdf" class="btn btn-key-color btn-s" target="_blank">2022年7月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2021(R3)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2023/02/R403.pdf" class="btn btn-key-color btn-s" target="_blank">2022年3月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/12/2112zuikei.pdf" class="btn btn-key-color btn-s" target="_blank">2021年12月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/12/2109zuikei.pdf" class="btn btn-key-color btn-s" target="_blank">2021年9月</a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2023/02/R307.pdf" class="btn btn-key-color btn-s" target="_blank">2021年7月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/12/2105zuikei.pdf" class="btn btn-key-color btn-s" target="_blank">2021年5月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2020(R2)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/12/2102zuikei.pdf" class="btn btn-key-color" target="_blank">2021年2月</a></div>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/01/20.12.pdf" class="btn btn-key-color" target="_blank">2020年12月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2021/01/20.11-1.pdf" class="btn btn-key-color" target="_blank">2020年11月</a></div>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2020/10/zuiikeiyaku202009.pdf" class="btn btn-key-color btn-s" target="_blank">2020年9月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2020/10/zuiikeiyaku202008.pdf" class="btn btn-key-color btn-s" target="_blank">2020年8月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2020/08/zuiikeiyaku202007.pdf" class="btn btn-key-color btn-s" target="_blank">2020年7月</a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2020/06/zuiikeiyaku202005.pdf" class="btn btn-key-color btn-s" target="_blank">2020年5月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2020/06/zuiikeiyaku202004.pdf" class="btn btn-key-color btn-s" target="_blank">2020年4月</a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2019(R元)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran201907.pdf" class="btn btn-key-color btn-s">2019年7月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/06/zuijikeiyakuichiran20190401.pdf" class="btn btn-key-color btn-s">2019年4月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<p></p>
+</div>
+</div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5>2018(H30)年度</h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran20190301.pdf" class="btn btn-key-color btn-s">2019年3月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran201901.pdf" class="btn btn-key-color btn-s">2019年1月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran201812.pdf" class="btn btn-key-color btn-s">2018年12月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran201810.pdf" class="btn btn-key-color btn-s">2018年10月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/06/zuijikeiyakuichiranH3008.pdf" class="btn btn-key-color btn-s">2018年8月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran201807.pdf" class="btn btn-key-color btn-s">2018年7月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-columns has-2-columns">
+<div class="wp-block-column">
+<p></p>
+</div>
+<div class="wp-block-column"></div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/zuijikeiyakuichiranH3006.pdf" class="btn btn-key-color btn-s">2018年6月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/07/zuijikeiyakuichiran201804.pdf" class="btn btn-key-color btn-s">2018年4月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right"></div>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-blank-box-1 blank-box bb-red block-box box-full">
+<h5> 2017(H29)年度 </h5>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/zuijikeiyakuichiranH2912.pdf" class="btn btn-key-color btn-s">2017年12月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/06/zuijikeiyakuichiranH2909.pdf" class="btn btn-key-color">2017年9月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/06/zuijikeiyakuichiranH2908.pdf" class="btn btn-key-color">2017年8月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+</div>
+<div class="wp-block-cocoon-blocks-column-3 column-wrap column-3 layout-box">
+<div class="wp-block-cocoon-blocks-column-left column-left">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/06/zuijikeiyakuichiran201707.pdf" class="btn btn-key-color">2017年7月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-center column-center">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/06/zuijikeiyakuichiranH2906.pdf" class="btn btn-key-color">2017年6月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+<div class="wp-block-cocoon-blocks-column-right column-right">
+<div class="wp-block-cocoon-blocks-button-1 button-block"><a rel="noopener" target="_blank" href="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/zuijikeiyakuichiranH2904.pdf" class="btn btn-key-color">2017年4月<span class="fa fa-external-link external-icon anchor-icon"></span></a></div>
+<p></p>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<footer class="article-footer entry-footer">
+<div class="entry-categories-tags ctdt-one-row">
+<div class="entry-categories"></div>
+<div class="entry-tags"></div>
+</div>
+<div class="footer-meta">
+<div class="author-info">
+<a href="https://www.asahikawa.jrc.or.jp/author/seki-20-juji-7077-hos/" class="author-link">
+<span class="post-author vcard author" itemprop="editor author creator copyrightHolder" itemscope itemtype="https://schema.org/Person">
+<span class="author-name fn" itemprop="name">サイト管理者</span>
+</span>
+</a>
+</div>
+</div>
+<!-- publisher設定 -->
+<div class="publisher" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+<img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/images/no-amp-logo.png" width="600" height="60" alt="">
+<meta itemprop="url" content="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/images/no-amp-logo.png">
+<meta itemprop="width" content="600">
+<meta itemprop="height" content="60">
+</div>
+<div itemprop="name">日本赤十字社 旭川赤十字病院</div>
+</div>
+</footer>
+</article>
+          </main>
+<div id="sidebar" class="sidebar nwa cf" role="complementary">
+<!-- サイドバーウィジェットエリア：カスタム投稿別追記 -->
+<aside id="search-2" class="widget widget-sidebar widget-sidebar-standard widget_search"><form class="search-box input-box" method="get" action="https://www.asahikawa.jrc.or.jp/">
+<input type="text" placeholder="サイト内検索" name="s" class="search-edit" aria-label="input">
+<button type="submit" class="search-submit" role="button" aria-label="button"></button>
+</form>
+</aside>		<aside id="recent-posts-2" class="widget widget-sidebar widget-sidebar-standard widget_recent_entries">		<h3 class="widget-sidebar-title widget-title">最新の記事</h3>		<ul>
+<li>
+<a href="https://www.asahikawa.jrc.or.jp/2026/07/08/web%e4%ba%88%e7%b4%84%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e5%b0%8e%e5%85%a5%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%e3%81%a8%e5%af%be%e8%b1%a1%e8%a8%ba%e7%99%82%e7%a7%91%e3%81%ab%e3%81%a4/">WEB予約システム導入のお知らせと対象診療科について</a>
+<span class="post-date">2026年7月8日</span>
+</li>
+<li>
+<a href="https://www.asahikawa.jrc.or.jp/2026/07/01/%e7%b7%8f%e5%90%88%e8%a8%ba%e7%99%82%e7%a7%91%e4%bc%91%e8%a8%ba%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%ef%bc%888%e6%9c%8812%e6%97%a5%ef%bc%88%e6%b0%b4%ef%bc%89%ef%bd%9e13%e6%97%a5%ef%bc%88/">総合診療科休診のお知らせ（8月12日（水）～13日（木））</a>
+<span class="post-date">2026年7月1日</span>
+</li>
+<li>
+<a href="https://www.asahikawa.jrc.or.jp/2026/06/23/%e6%95%99%e8%82%b2%e7%a0%94%e4%bf%ae%e3%82%bb%e3%83%b3%e3%82%bf%e3%83%bc%e6%97%a5%e8%a8%98%e6%9b%b4%e6%96%b0%e3%81%97%e3%81%be%e3%81%97%e3%81%9f-12/">教育研修センター日記更新しました</a>
+<span class="post-date">2026年6月23日</span>
+</li>
+<li>
+<a href="https://www.asahikawa.jrc.or.jp/2026/06/16/%e6%95%99%e8%82%b2%e7%a0%94%e4%bf%ae%e3%82%bb%e3%83%b3%e3%82%bf%e3%83%bc%e6%97%a5%e8%a8%98%e6%9b%b4%e6%96%b0%e3%81%97%e3%81%be%e3%81%97%e3%81%9f-11/">教育研修センター日記更新しました</a>
+<span class="post-date">2026年6月16日</span>
+</li>
+<li>
+<a href="https://www.asahikawa.jrc.or.jp/2026/06/04/2026%e5%b9%b4%e5%ba%a6%e7%89%88%e6%97%ad%e5%b7%9d%e8%b5%a4%e5%8d%81%e5%ad%97%e7%97%85%e9%99%a2%e8%87%a8%e5%ba%8a%e7%a0%94%e4%bf%ae%e7%b4%b9%e4%bb%8b%e3%82%92%e6%8e%b2%e8%bc%89%e3%81%97%e3%81%be/">2026年度版旭川赤十字病院臨床研修紹介を掲載しました</a>
+<span class="post-date">2026年6月4日</span>
+</li>
+</ul>
+</aside><aside id="categories-2" class="widget widget-sidebar widget-sidebar-standard widget_categories"><h3 class="widget-sidebar-title widget-title">カテゴリー</h3>		<ul>
+<li class="cat-item cat-item-1"><a class="cf" href="https://www.asahikawa.jrc.or.jp/category/cat-news/">お知らせ</a>
+</li>
+<li class="cat-item cat-item-9"><a class="cf" href="https://www.asahikawa.jrc.or.jp/category/cat-bid/">入札情報</a>
+</li>
+<li class="cat-item cat-item-174"><a class="cf" href="https://www.asahikawa.jrc.or.jp/category/cat-update/">更新情報</a>
+</li>
+</ul>
+</aside><aside id="archives2-3" class="widget widget-sidebar widget-sidebar-standard widget_archives2"><h3 class="widget-sidebar-title widget-title">アーカイブ</h3><ul class="yearArchiveList"><li><a class="year_outer"><span class="year">2026年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/07/' title='2026年7月'>7月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/06/' title='2026年6月'>6月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/05/' title='2026年5月'>5月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/04/' title='2026年4月'>4月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/03/' title='2026年3月'>3月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/02/' title='2026年2月'>2月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2026/01/' title='2026年1月'>1月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2025年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/12/' title='2025年12月'>12月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/11/' title='2025年11月'>11月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/10/' title='2025年10月'>10月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/09/' title='2025年9月'>9月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/08/' title='2025年8月'>8月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/07/' title='2025年7月'>7月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/06/' title='2025年6月'>6月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/05/' title='2025年5月'>5月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/04/' title='2025年4月'>4月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/03/' title='2025年3月'>3月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/02/' title='2025年2月'>2月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2025/01/' title='2025年1月'>1月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2024年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/12/' title='2024年12月'>12月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/11/' title='2024年11月'>11月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/10/' title='2024年10月'>10月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/09/' title='2024年9月'>9月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/07/' title='2024年7月'>7月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/03/' title='2024年3月'>3月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/02/' title='2024年2月'>2月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2024/01/' title='2024年1月'>1月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2023年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2023/11/' title='2023年11月'>11月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2023/10/' title='2023年10月'>10月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2023/09/' title='2023年9月'>9月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2023/08/' title='2023年8月'>8月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2023/02/' title='2023年2月'>2月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2023/01/' title='2023年1月'>1月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2022年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2022/11/' title='2022年11月'>11月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2022/04/' title='2022年4月'>4月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2022/02/' title='2022年2月'>2月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2021年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2021/12/' title='2021年12月'>12月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2021/08/' title='2021年8月'>8月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2021/07/' title='2021年7月'>7月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2021/05/' title='2021年5月'>5月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2021/02/' title='2021年2月'>2月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2021/01/' title='2021年1月'>1月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2020年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/12/' title='2020年12月'>12月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/11/' title='2020年11月'>11月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/10/' title='2020年10月'>10月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/07/' title='2020年7月'>7月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/06/' title='2020年6月'>6月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/05/' title='2020年5月'>5月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/04/' title='2020年4月'>4月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/03/' title='2020年3月'>3月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/02/' title='2020年2月'>2月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2020/01/' title='2020年1月'>1月</a></li>
+</ul></li>
+<li><a class="year_outer"><span class="year">2019年</span></a><ul class="eachYear"><li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/12/' title='2019年12月'>12月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/11/' title='2019年11月'>11月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/09/' title='2019年9月'>9月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/08/' title='2019年8月'>8月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/05/' title='2019年5月'>5月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/04/' title='2019年4月'>4月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/03/' title='2019年3月'>3月</a></li>
+<li class="singleList"><a href='https://www.asahikawa.jrc.or.jp/2019/01/' title='2019年1月'>1月</a></li>
+</ul></li>
+</ul>
+</aside>
+</div>
+</div>
+</div>
+<!-- ブログページのみトップページに戻るボタン表示ここから -->
+<!-- ブログページのみトップページに戻るボタン表示ここまで -->
+<!-- フッター追加パーツ（お問い合わせ）ここから -->
+<section class="footer-contact">
+<div class="content-wrap">
+<div class="title-width-sub">
+<h2 class="title">お気軽に<span class="inline-block">お問い合わせ下さい</span></h2>
+<div class="sub">Contact Us</div>
+</div>
+<ul class="item-contact flex-column">
+<li class="item flex-2">
+<div class="tel-wrap">
+<div class="tel-num-image">
+<a href="tel:0166228111"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/svg/tel-num.svg" alt=""></a>
+</div>
+</div>
+</li>
+<li class="item flex-1">
+<div class="btn-contact"><a href="https://www.asahikawa.jrc.or.jp/contact"><i class="menu-i-mail" aria-hidden="true"></i><span class="text">メールで<span class="inline-block">お問い合わせ</span></span></a>
+<div class="notes">24時間受付可能</div>
+</div>
+</li>
+<li class="item flex-1">
+<div class="btn-contact"><a href="https://www.asahikawa.jrc.or.jp/omimai-mail/"><i class="menu-i-sakura" aria-hidden="true"></i><span class="text">お見舞い<span class="inline-block">メール送信</span></span></a>
+<div class="notes">24時間受付可能</div>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- フッター追加パーツ（お問い合わせ）ここまで -->
+<div id="content-bottom" class="content-bottom">
+<div id="content-bottom-in" class="content-bottom-in wrap">
+<aside id="custom_html-2" class="widget_text widget widget-content-bottom widget_custom_html"><div class="textwidget custom-html-widget"><div class="footer-widget-area">
+<div class="footer-banner-wrap">
+<ul class="footer-banner flex">
+<li class="item">
+<div class="image"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/ba-footer01.jpg" alt="病気機能評価「一般病院2」認定"></div>
+</li>
+<li class="item">
+<div class="image"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/ba-footer02.gif" alt="卒後臨床研修評価機構認定病院 JCEP"></div>
+</li>
+<li class="item">
+<div class="image"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/ba-footer03.jpg" alt="医療被ばく低減施設"></div>
+</li>
+<li class="item">
+<div class="image"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/ba-footer04.jpg" alt="JAB"></div>
+</li>
+</ul>
+</div>
+<figure><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/images/svg/logo-footer.svg" alt="日本赤十字社 旭川赤十字病院"></figure>
+<address>
+〒070-8530<br>
+北海道旭川市曙<span class="inline-block">1条1丁目1番1号</span>
+</address>
+<div class="sitelock_0">
+<div class="sitelock_1">
+<div class="business-hours sitelock_2">
+   <span class="inline-block">[TEL] <a href="tel:0166228111">0166-22-8111</a></span><span class="inline-block">[FAX] 0166-24-4648</span><br>
+[休診日] <span class="inline-block">土・日・祝日、5月1日、</span><span class="inline-block">12月29日～1月3日</span>
+</div>
+</div>
+<div class="sitelock_3">
+<a class="sitelock_4" href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=asahikawa.jrc.or.jp','SiteLock','width=600,height=600,left=160,top=170');" ><img class="img-responsive" alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/asahikawa.jrc.or.jp" /></a>
+</div>
+</div>
+</div>
+</div></aside>      </div>
+</div>
+<footer id="footer" class="footer footer-container nwa" itemscope itemtype="https://schema.org/WPFooter">
+<div id="footer-in" class="footer-in wrap cf">
+<div class="footer-bottom fdt-left-and-right fnm-text-width cf">
+<div class="footer-bottom-logo">
+<div class="logo logo-footer logo-image"><a href="https://www.asahikawa.jrc.or.jp" class="site-name site-name-text-link" itemprop="url"><span class="site-name-text" itemprop="name about"><img class="site-logo-image" src="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/04/logo.svg" alt="日本赤十字社 旭川赤十字病院"></span></a></div>  </div>
+<div class="footer-bottom-content">
+<nav id="navi-footer" class="navi-footer">
+<div id="navi-footer-in" class="navi-footer-in">
+<ul id="menu-%e3%83%95%e3%83%83%e3%82%bf%e3%83%bc%e3%82%b3%e3%83%94%e3%83%bc%e3%83%a9%e3%82%a4%e3%83%88%e9%83%a8%e5%88%86" class="menu-footer"><li id="menu-item-1933" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1933"><a href="https://www.asahikawa.jrc.or.jp/sitemaps/">サイトマップ</a></li>
+<li id="menu-item-5884" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-5884"><a href="https://www.asahikawa.jrc.or.jp/about/">プライバシーポリシー</a></li>
+</ul>  </div>
+</nav>
+<div class="source-org copyright">Copyright (C) Japanese Red Cross Asahikawa Hospital. All Rights Reserved.</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div id="go-to-top" class="go-to-top">
+<a class="go-to-top-button go-to-top-common go-to-top-hide go-to-top-button-image"><img src="https://www.asahikawa.jrc.or.jp/app/wp-content/uploads/2019/03/arrow-up.svg" alt="トップへ戻る"></a>
+</div>
+<ul id="menu-%e3%83%a2%e3%83%90%e3%82%a4%e3%83%ab%e3%83%95%e3%83%83%e3%82%bf%e3%83%bc%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc" class="mobile-menu-buttons"><li id="menu-item-8307" class="menu-i-man menu-item menu-item-type-post_type menu-item-object-page menu-button"><a href="https://www.asahikawa.jrc.or.jp/jusin/hyoubou/" class="menu-button-in"><div class="fa fa-star menu-icon"></div><div class="menu-caption">外 来</div></a></li>
+<li id="menu-item-8308" class="menu-item menu-item-type-post_type menu-item-object-page menu-button"><a href="https://www.asahikawa.jrc.or.jp/nyuuin/" class="menu-button-in"><div class="fa fa-bed menu-icon"></div><div class="menu-caption">入 院</div></a></li>
+<li id="menu-item-8309" class="menu-i-ambulance menu-item menu-item-type-post_type menu-item-object-page menu-button"><a href="https://www.asahikawa.jrc.or.jp/jusin/first-aid/" class="menu-button-in"><div class="fa fa-star menu-icon"></div><div class="menu-caption">救 急</div></a></li>
+<li id="menu-item-8310" class="menu-i-car menu-item menu-item-type-post_type menu-item-object-page menu-button"><a href="https://www.asahikawa.jrc.or.jp/jusin/access/" class="menu-button-in"><div class="fa fa-star menu-icon"></div><div class="menu-caption">アクセス</div></a></li>
+<li id="menu-item-8311" class="menu-item menu-item-type-custom menu-item-object-custom menu-button"><a href="tel:0166228111" class="menu-button-in"><div class="fa fa-phone menu-icon"></div><div class="menu-caption">TEL</div></a></li>
+</ul>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/plugins/baguettebox/dist/baguetteBox.min.js?ver=5.2.21&#038;fver=20190524121908'></script>
+<script>
+(function($){baguetteBox.run(".entry-content")})(jQuery);
+</script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/plugins/slick/slick.min.js?ver=5.2.21&#038;fver=20190524121909'></script>
+<script>
+(function($){$(".carousel-content").slick({dots:!0,autoplaySpeed:5000,infinite:!0,slidesToShow:6,slidesToScroll:6,responsive:[{breakpoint:1240,settings:{slidesToShow:5,slidesToScroll:5}},{breakpoint:1023,settings:{slidesToShow:4,slidesToScroll:4}},{breakpoint:834,settings:{slidesToShow:3,slidesToScroll:3}},{breakpoint:480,settings:{slidesToShow:2,slidesToScroll:2}}]})})(jQuery);
+</script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/plugins/scroll-hint-master/js/scroll-hint.min.js?ver=5.2.21&#038;fver=20190524121908'></script>
+<script>
+(function($){new ScrollHint(".scrollable-table",{suggestiveShadow:!0,i18n:{scrollable:"スクロールできます"}})})(jQuery);
+</script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-includes/js/comment-reply.min.js?ver=5.2.21&#038;fver=20210415073841'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/javascript.js?ver=5.2.21&#038;fver=20190524121910'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-master/js/set-event-passive.js?ver=5.2.21&#038;fver=20190524121909'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/javascript.js?ver=5.2.21&#038;fver=20240703081003'></script>
+<script>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.asahikawa.jrc.or.jp\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.5&#038;fver=20190520043625'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/js/hc-offcanvas-nav.js?ver=5.2.21&#038;fver=20190702024805'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/js/jquery.meanmenu.min.js?ver=5.2.21&#038;fver=20190701031708'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/js/js.cookie.js?ver=5.2.21&#038;fver=20190426012807'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/js/ofi.min.js?ver=5.2.21&#038;fver=20190527065335'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js?ver=5.2.21'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/themes/cocoon-child-master/js/datepicker-ja.js?ver=5.2.21&#038;fver=20240625013018'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/pscrollbar/perfect-scrollbar.jquery.min.js?ver=1.8.4&#038;fver=20190520050206'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/owlcarousel/owl.carousel.min.js?ver=1.8.4&#038;fver=20190520050206'></script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-includes/js/hoverIntent.min.js?ver=1.8.1&#038;fver=20210415073841'></script>
+<script>
+/* <![CDATA[ */
+var quadmenu = {"nonce":"e42382b058","gutter":"30"};
+var ajaxurl = "https:\/\/www.asahikawa.jrc.or.jp\/app\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script src='https://www.asahikawa.jrc.or.jp/app/wp-content/plugins/quadmenu/assets/frontend/js/quadmenu.min.js?ver=1.8.4&#038;fver=20190520050206'></script>
+<script>
+/* <![CDATA[ */
+document.querySelectorAll("ul.nav-menu").forEach(
+ulist => { 
+if (ulist.querySelectorAll("li").length == 0) {
+ulist.style.display = "none";
+} 
+}
+);
+/* ]]> */
+</script>
+<script id="uagb-script-frontend">
+( function( $ ) {
+})(jQuery)
+</script>
+<script>
+objectFitImages();
+</script>
+</body>
+</html><!-- WP Fastest Cache file was created in 1.7524609565735 seconds, on 08-07-26 18:03:35 -->
