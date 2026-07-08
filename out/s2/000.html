@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="GENERATOR" content="JustSystems Homepage Builder Version 19.0.12.0 for Windows">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<title>伊豆赤十字病院</title>
+<meta name="keywords" content="伊豆、日赤、赤十字、病院、救急、ホームページ、伊豆赤十字病院">
+<meta name="description" content="伊豆赤十字病院は伊豆市にあります二次救急指定病院です。">
+<meta property="og:title" content="伊豆赤十字病院">
+<meta property="og:description" content="伊豆赤十字病院は伊豆市にあります二次救急指定病院です。">
+<meta property="og:url" content="http://izurc.jp/">
+<meta property="og:image" content="images/logo/top-logo.jpg">
+
+<link rel="stylesheet" href="css/main.css" type="text/css" id="main"/>
+<link rel="stylesheet" href="css/camera.css" type="text/css" id="slideshow">
+<!--BootstrapのCSS読み込み-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css"/>
+<!--フォント<link rel="stylesheet" href="font/font-awesome.min.css" type="text/css">-->
+<link rel="stylesheet" href="font/css/font-awesome.min.css"/>
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+ <link rel="icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+
+<!--<link rel="stylesheet" href="camera.css" type="text/css" id="hpb-slideshow">-->
+<!-- jQuery読み込み  Bootstrapで必要-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<!-- BootstrapのJS読み込み -->
+<script src="bootstrap/js/bootstrap.min.js"></script> 
+
+<!--HPB_SCRIPT_ROV_50-->
+<script type="text/javascript" src="js/jquery.min.js"><!-- hpbiptitle jQuery library --></script>
+
+<script type="text/javascript" src="js/jquery.mobile.customized.min.js">hpb-jquery-mobile-js</script>
+<script type="text/javascript" src="js/camera.min.js">hpb-slideshow-camera-js</script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js">hpb-jquery-easing-js</script>
+<!--スライダー(HPBのページに表示させるには"hpb-"は省略できない)-->
+<script><!--
+jQuery(function(){jQuery( '#hpb-slideshow' ).camera({ fx: 'scrollLeft', loader: 'none', pagination: true, thumbnails: false, hover: true, navigation: true, playPause: true, time: 3000,height: '260px' , portrait: true, minHeight: '0px' });});
+--><!--hpb-slideshow--></script> 
+<!--サブメニュー以降を動的に開閉する(＝表示/非表示を切り替える)JavaScript-->
+<script type="text/javascript">
+
+   $(function(){
+      // ▼マウスが載ったらサブメニューを表示
+      $("ul.ddmenu li").on("mouseenter", function() {
+         $(this).siblings().find("ul").hide();  // 兄弟要素に含まれるサブメニューを全部消す。
+         $(this).children().slideDown(150);     // 自分のサブメニューを表示する。
+      });
+
+      // ▼どこかがクリックされたらサブメニューを消す
+      $('html').click(function() {
+         $('ul.ddmenu ul').slideUp(150);
+      });
+   });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116006052-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116006052-1');
+</script>
+</head>
+
+<body   class="container-fluid" style="width: 900px;	margin: auto;	"><!--ヘッダー--><!--non-margin:main.css-->
+<div class=" row" id="non-margin">
+  <div class="col-sm-4" >
+    <!--headerLogo:main.css-->
+    <div id="headerLogo"><a href="#">&nbsp;</a></div>
+  </div>
+  <div class="col-sm-4" ></div>
+  <div class="col-sm-4">
+    <div id="headerContact" >
+      <!--注意：main.cssの"#headerContact p.tel" spanタグに擬似要素:beforeで電話のマークを接続しています-->
+      <p class="tel"  aria-hidden="true"><span>0558-72-2148</span></p>
+      <p class="address" aria-hidden="true">〒410-2413&nbsp;&nbsp;静岡県伊豆市小立野100</p>
+    </div>
+  </div>
+</div>
+<!--non-dropmenu:main.css--><!--ドロップダウンメニューー-->
+<div class="row" id="dropmenu" style="padding-left: 0px;	padding-right: 0px;"  >
+  <!--dropmenu-partition:main.css-->
+  <div class="col-sm-2" id="dropmenu-partition">
+    <!--ddmenu:main.css-->
+    <ul class="ddmenu"  >
+      <li  ><p>病院案内</p>
+      <ul>
+        <li><a href="about/message.html">院長挨拶</a></li>
+        <li><a href="about/outline.html">病院概要</a></li>
+        <li><a href="about/history.html">病院沿革</a></li>
+        <li><a href="about/vision.html">理念</a></li>
+        <li><a href="about/policy.html">基本方針</a></li>
+        <li><a href="about/statistics.html">統計</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-2" id="dropmenu-partition"         >
+    <ul class="ddmenu" >
+      <li ><p>診察案内</p>
+      <ul style="width:165px;">
+        <!--内科を表示-->
+        <li><a href="section/medical/internal.html">診療科紹介</a></li>
+        <li><a href="section/schedule.html">外来担当表</a></li>
+        <li><a href="section/guide.html">受診案内</a></li>
+        <li><a href="section/guide-ad.html">入院案内</a></li>
+        <li><a href="section/schedule-er.html">救急担当表</a></li>
+        <!--看護部理念を表示-->
+        <li><a href="section/nurse/nurse-vision.html">看護部の紹介</a></li>
+        <!--医療社会事業部を表示-->
+        <li><a href="section/related/socialprojct.html">その他関連部門の紹介</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-2" id="dropmenu-partition"         >
+    <ul class="ddmenu"   >
+      <li ><p>健診・予防接種</p>
+      <ul>
+        <li><a href="check/dock.html">人間ドック</a></li>
+        <li><a href="check/office.html">事業所健診</a></li>
+        <li><a href="check/specific.html">特定健診</a></li>
+        <li><a href="check/gynecology.html">婦人検診</a></li>
+        <li><a href="check/bonedensity.html">骨密度検診</a></li>
+        <li><a href="check/vaccination.html">予防接種</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-2" id="dropmenu-partition">
+    <ul class="ddmenu">
+      <li><p>地域連携</p>
+      <ul style="width:165px;">
+        <li><a href="network/regionNet.html">地域連携について</a></li>
+        <li><a href="network/helpdesk.html">相談窓口</a></li>
+        <li><a href="network/request.html">検査のご依頼</a></li>
+        <li><a href="network/specialty.html">しびれ・腰痛・骨粗鬆症</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-2" id="dropmenu-partition"         >
+    <ul class="ddmenu" >
+      <li ><p>交通アクセス</p>
+      <ul style="width:100%;">
+        <li><a href="access/access.html">交通アクセス</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-2"    id="dropmenu-partition"   >
+    <ul class="ddmenu"   >
+      <li style="	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color : red;"><p>採用情報</p>
+      <ul style="width:100%;">
+        <li ><a href="recruit/recruit-nurse.html" >採用情報</a>
+	      </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--スライダー--><!--non-margin:main.css-->
+<div class="row non-margin"  style="margin:0px;">
+  <div  class="col-sm-12"  style="padding:0px;">
+    <div id="hpb-slideshow" style="align: center; " data-bgsize-contain="true" >
+      <div data-src="images/slider/top1.jpg"></div>
+      <div data-src="images/slider/top2.jpg"></div>
+      <div data-src="images/slider/top3.jpg"></div>
+      <div data-src="images/slider/top4.jpg" data-link="https://www.jrc-doctor.com/index-feature_detail.php?h=52" data-target="_blank"></div>
+
+
+    </div>
+  </div>
+</div>
+<!--リンクボタン-->
+<div>
+  <!--診療科の紹介-->
+  <div class="col-sm-3" id="link-head" >
+    <ul   	>
+      <li ><a href="section/medical/internal.html"><img src="images/navibtn/shinryoka.jpg" border="0"></a></li>
+    </ul>
+  </div>
+  <!--診療時間-->
+  <div class="col-sm-3" id="link-head" >
+    <ul  >
+      <li  ><a href="section/schedule.html"><img src="images/navibtn/sinryo.jpg" border="0"></a></li>
+    </ul>
+  </div>
+  <!--休診のご案内-->
+  <div class="col-sm-3" id="link-head" >
+    <ul  >
+      <li  ><a href="section/pdf/kyuushin.pdf" target="_blank"><img src="images/navibtn/kyushin.jpg" border="0"></a></li>
+    </ul>
+  </div>
+  <!--救急担当-->
+  <div class="col-sm-3" id="link-head" style="margin-right : 0px;">
+    <ul  >
+      <li  ><a href="section/schedule-er.html"><img src="images/navibtn/kyukyu.jpg" border="0"></a></li>
+    </ul>
+  </div>
+</div>
+<!--当院からのお知らせ/外部リンク-->
+<div class="row">
+  <!--当院からのお知らせ-->
+  <div class="col-sm-9" id="infomation" >
+    <ol>
+      <li><img src="images/oshirase.png" border="0"></li>
+    </ol>
+    <ol>
+      <li  ><iframe src="news/news.html" width="100%" height="300px" name="news" frameborder="0"></iframe></li>
+    </ol>
+  </div>
+  <div class="col-sm-3" id="sidelinkarea" >
+    <!--伊豆市との共同事業-->
+    <ul  >
+      <li >
+      <div id="sidelink-izu">
+        <ul    >
+          <li  ><img src="images/navibtn/izushi.jpg" border="0"></li>
+        </ul>
+      </div>
+      </li>
+    </ul>
+    <!--外部リンク-->
+    <ul  >
+      <li >
+      <div>
+        <ul>
+          <li  ><img src="images/outsidelink/r1.png" border="0"></li  >
+        </ul>
+        <ul  >
+          <li  ><a href="http://izurckaigoiryouin.jp/" target="_blank"><img src="images/outsidelink/r2.png" border="0"></a></li>
+          <li  ><a href="greens/g-recross.html" target="_blank"><img src="images/outsidelink/r7.png" border="0"></a></li>
+          <li  ><a href="greens/g-houmon.html" target="_blank"><img src="images/outsidelink/r8.png" border="0"></a></li>
+          <li  ><a href="https://www.jrc.or.jp/"target="_blank"><img src="images/outsidelink/r3.png" border="0"></a></li>
+          <li  ><a href="https://www.jrc.or.jp/chapter/shizuoka/" target="_blank"><img src="images/outsidelink/r4.png" border="0"></a></li>
+          <li  ><a href="http://www.city.izu.shizuoka.jp/" target="_blank"><img src="images/outsidelink/r5.png" border="0"></a></li>
+          <li  ><a href="https://www.city.izunokuni.shizuoka.jp/" target="_blank"><img src="images/outsidelink/r6.png" border="0"></a></li>
+        </ul>
+      </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--サイトナビ--><!--sitemap/sitemap-fram/sitemap_sepa/sitemap_blanks/sitemap-head/sitemap-section:main.css-->
+<div  class="row " id="sitemap"  >
+  <div class="col-sm-12" id="sitemap-fram" >
+    <div class="col-sm-7" id="sitemap_sepa" >
+      <div class="col-sm-4" id="sitemap_blanks" >
+        <!--注意：main.cssの"#hsitemap-head" liタグに擬似要素:beforeで●のマークを接続しています-->
+        <ul id="sitemap-head" >
+          <li >top</li>
+        </ul>
+        <ul id="sitemap-section" >
+          <li >病院案内
+          <ul id="sitemap-section">
+            <li><a href="about/message.html">院長挨拶</a></li>
+            <li><a href="about/outline.html">病院概要</a></li>
+            <li><a href="about/history.html">病院沿革</a></li>
+            <li><a href="about/vision.html">理念</a></li>
+            <li><a href="about/policy.html">基本方針</a></li>
+            <li><a href="about/statistics.html">統計</a></li>
+          </ul>
+          </li>
+        </ul>
+        <ul id="sitemap-section">
+          <li>診察案内
+          <ul id="sitemap-section">
+            <li><a href="section/medical/internal.html">診療科紹介</a></li>
+            <!--内科を表示-->
+            <li><a href="section/schedule.html">外来担当表</a></li>
+            <li><a href="section/guide.html">受診案内</a></li>
+            <li><a href="section/guide-ad.html">入院案内</a></li>
+            <li><a href="section/schedule-er.html">救急担当表</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div  class="col-sm-4" id="sitemap_blanks" >
+        <ul id="sitemap-section" style="margin-top:30px;" >
+          <li >検診・予防接種
+          <ul id="sitemap-section">
+            <li><a href="check/dock.html">人間ドック</a></li>
+            <li><a href="check/office.html">事業所検診</a></li>
+            <li><a href="check/specific.html">特定検診</a></li>
+            <li><a href="check/gynecology.html">婦人検診</a></li>
+            <li><a href="check/bonedensity.html">骨密度検診</a></li>
+            <li><a href="check/vaccination.html">予防接種</a></li>
+          </ul>
+          </li>
+        </ul>
+        <ul id="sitemap-section">
+          <li>地域連携
+          <ul id="sitemap-section">
+            <li><a href="network/regionNet.html">地域連携について</a></li>
+            <li><a href="network/helpdesk.html">相談窓口</a></li>
+            <li><a href="network/request.html">検査のご依頼</a></li>
+            <li><a href="network/specialty.html">しびれ・腰痛・骨粗鬆症</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-4" id="sitemap_blanks" >
+        <ul id="sitemap-section" style="margin-top:30px;" >
+          <li >診療科案内
+          <ul id="sitemap-section">
+            <li><a href="section/medical/internal.html">内科</a></li>
+            <li><a href="section/medical/surgery.html">外科</a></li>
+            <li><a href="section/medical/orthopedics.html">整形外科</a></li>
+            <li><a href="section/medical/urology.html">泌尿器科</a></li>
+            <li><a href="section/medical/gynecology.html">婦人科</a></li>
+            <li><a href="section/medical/pediatrics.html">小児科</a></li>
+          </ul>
+          </li>
+        </ul>
+        <ul id="sitemap-section">
+          <li ><a href="access/access.html">交通アクセス</a></li>
+        </ul>
+        <ul id="sitemap-section" >
+          <li >採用情報
+          <ul id="sitemap-section">
+            <li><a href="recruit/recruit-nurse.html">看護師募集</a></li>
+            <li class="outsidelink"><a  href="http://www.jrc-doctor.com/izu/" target="_blank">医師募集</a></li>
+            <li><a href="recruit/scholarship.html">看護学生奨学金制度</a></li>
+            <li><a href="recruit/recruit-staff.html">職員募集</a></li>
+          </ul>
+          </li>
+        </ul>
+        <ul id="sitemap-section">
+          <li ><a href="guidance/jointproject.html">伊豆市との共同事業</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-5" 	id="sitemap_blanks" >
+      <div class="col-sm-6" id="sitemap_sepa" >
+        <!--注意：main.cssの"#hsitemap-head" liタグに擬似要素:beforeで●のマークを接続しています-->
+        <ul id="sitemap-head" >
+          <li >各部門紹介</li>
+        </ul>
+        <ul id="sitemap-section" >
+          <li >看護部
+          <ul id="sitemap-section">
+            <li><a href="section/nurse/nurse-vision.html">理念</a></li>
+            <!--看護部理念を表示-->
+            <li><a href="section/nurse/nurse-section.html">部署紹介</a></li>
+            <li><a href="section/nurse/nurse-training.html">教育・研修</a></li>
+            <li><a href="recruit/recruit-nurse.html">看護師募集</a></li>
+          </ul>
+          </li>
+        </ul>
+        <ul id="sitemap-section">
+          <li><a href="section/related/socialprojct.html">医療社会事業部</a></li>
+          <li><a href="section/related/nutrition.html">栄養課</a></li>
+          <li><a href="section/related/inspection.html">検査課</a></li>
+          <li><a href="section/related/dialysis.html">人工透析課</a></li>
+          <li><a href="section/related/radiation.html">放射線課</a></li>
+          <li><a href="section/related/pharmacy.html" target="_parent">薬剤部</a></li>
+          <li><a href="section/related/rehabilitation.html">リハビリテーション課</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6"  >
+        <!--注意：main.cssの"#hsitemap-head" liタグに擬似要素:beforeで●のマークを接続しています-->
+        <ul id="sitemap-head" >
+          <li >ご案内</li>
+        </ul>
+        <ul id="sitemap-section" >
+          <li ><a href="guidance/free_paper.html">伊豆赤十字病院だより</a></li>
+          <li ><a href="guidance/attribute.html">赤十字病院としての特徴</a></li>
+          <li ><a href="guidance/nonsmoking.html">禁止事項について</a></li>
+          <li ><a href="guidance/bid.html">入札情報</a></li>
+          <li ><a href="guidance/privacypolicy.html">個人情報保護方針</a></li>
+          <li ><a href="guidance/personaldata.html">個人情報の利用目的</a></li>
+          <li ><a href="guidance/pdf/anonymous-policy.pdf" target="_blank">匿名加工情報の取扱方針</a></li>
+          <li ><a href="guidance/contact_us.html">お問い合わせ</a></li>
+          <li ><a href="guidance/pdf/customerharassment.pdf" target="_blank">日本赤十字社カスタマーハラスメント基本方針</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--フッター-->
+<div class="row">
+  <div class="col-sm-12"id="footerLogo"><img src="images/logo/footer-logo.jpg" border="0">〒410-2413 静岡県伊豆市小立野100&nbsp;TEL.0558-72-2148&nbsp;FAX.0558-72-6564 </div>
+</div>
+<div class="row">
+  <!--footerMain:main.css-->
+  <div id="footerMain">
+    <p >copyright&nbsp;2016&nbsp;Izu&nbsp;Red&nbsp;Cross&nbsp;Hospital&nbsp;all&nbsp;rights&nbsp;reserved.</p>
+  </div>
+</div>
+</body>
+</html>
