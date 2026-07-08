@@ -1,0 +1,7 @@
+000	OK 200	https://www.yokohama.jrc.or.jp/top/now_tender.html	154878 bytes
+001	OK 200	http://www.sagamihara.jrc.or.jp/06_nyuusatsu/	101880 bytes
+002	OK 200	https://hadano-med-jrc.jp/pages/135/	121275 bytes
+003	OK 200	https://www.shizuoka-med.jrc.or.jp/medical/bid/	18357 bytes
+004	OK 200	http://www.hamamatsu.jrc.or.jp/basic-information/basic-information02/	52439 bytes
+005	OK 200	http://izurc.jp/guidance/bid.html	10829 bytes
+006	OK 200	https://www.susono-jrc.jp/section/list.php?id=1	31260 bytes
