@@ -1,0 +1,2 @@
+000	OK 200	https://www.jrc.or.jp/chapter/hokkaido/about/facility/	33853 bytes
+001	OK 200	https://www.jrc.or.jp/chapter/kagawa/about/facility/	25205 bytes
