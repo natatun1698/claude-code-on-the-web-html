@@ -1,0 +1,2 @@
+000	OK 200	https://www.nagaoka.jrc.or.jp/nyusatsu/keiyaku/	87977 bytes
+001	ERROR	http://www.haramachi.jrc.or.jp/08_gyousya/08_00gyousya.html	<HTTPError 404: 'Not Found'>
