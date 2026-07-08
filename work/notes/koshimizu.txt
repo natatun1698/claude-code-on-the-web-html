@@ -1,0 +1,2 @@
+・データソース: 小清水赤十字病院 トップページ（http://www.phoenix-c.or.jp/~krchp/）に掲載の「随意契約の公表」PDF（http://www.phoenix-c.or.jp/~krchp/pdf/zuii.pdf、累積形式1ファイル）を調査。
+・お知らせ欄によると同PDFの最終更新は2023年10月であり、それ以降の更新は確認できなかった。
