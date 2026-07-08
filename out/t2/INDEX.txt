@@ -1,0 +1,14 @@
+000	OK 200	https://www.hachinohe.jrc.or.jp/business/bid/voluntary-contract/	59353 bytes
+001	OK 200	http://www.morioka.jrc.or.jp/bid_info/ct13p080/	48169 bytes
+002	ERROR	https://www.sendai.jrc.or.jp/auctionInformation/page/2/	<HTTPError 404: 'Not Found'>
+003	OK 200	https://www.akita-med.jrc.or.jp/data/media/akita-med/page/bid/zuii20260401.pdf	219540 bytes
+004	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20260610_01.pdf	92514 bytes
+005	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20260405_01.pdf	183732 bytes
+006	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20260205_01.pdf	164475 bytes
+007	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20251210_01.pdf	140734 bytes
+008	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20251012_01.pdf	160108 bytes
+009	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20250812_01.pdf	155411 bytes
+010	OK 200	https://www.ishinomaki.jrc.or.jp/data/media/ishimaki_rc_personnel/page/tender/zuikeikouhyou20250612_01.pdf	99563 bytes
+011	OK 200	https://www.fukushima-med-jrc.jp/data/bidlist_r7.pdf	62670 bytes
+012	OK 200	https://www.fukushima-med-jrc.jp/data/bidlist_r6.pdf	84601 bytes
+013	OK 200	https://www.fukushima-med-jrc.jp/data/bidlist_r5.pdf	60783 bytes
