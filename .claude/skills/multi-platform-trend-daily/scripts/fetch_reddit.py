@@ -4,7 +4,8 @@
 取得戦略（フォールバックチェーン）:
   1. old.reddit.com の hot.json（住宅IPなら通る。データセンターIPは403）
   2. www.reddit.com の hot.rss（403環境でも通るが、スコアを含まない）
-     + api.pullpush.io でスコア/コメント数を補完（値はやや古い場合あり）
+     + arctic-shift APIでスコア/コメント数を補完（取り込み時点の概算値。
+       pullpushはレート制限が厳しく、直近投稿のヒット率も低いため使わない）
 
 RSSはレート制限が厳しい（連続リクエストで429）ため、
 サブレッド間で12秒待機し、429時は指数バックオフでリトライする。
@@ -90,22 +91,26 @@ def via_rss(sub):
     return posts
 
 
-def enrich_pullpush(posts):
-    """RSS経路のスコアをpullpushで補完（ベストエフォート）"""
-    ids = ",".join(p["id"] for p in posts if p["id"])
-    if not ids:
-        return
-    try:
-        data = json.loads(fetch(
-            f"https://api.pullpush.io/reddit/search/submission/?ids={ids}", UA_BROWSER))
-        meta = {d["id"].replace("t3_", ""): d for d in data.get("data", [])}
-        for p in posts:
-            d = meta.get(p["id"])
-            if d:
-                p["ups"] = d.get("score")
-                p["num_comments"] = d.get("num_comments")
-    except Exception as ex:
-        print(f"  pullpush enrichment failed: {ex}", file=sys.stderr)
+def enrich_arctic_shift(all_posts):
+    """RSS経路のスコアをarctic-shiftで補完（ベストエフォート、25件ずつ）"""
+    ids = [p["id"] for p in all_posts if p["id"]]
+    meta = {}
+    for i in range(0, len(ids), 25):
+        chunk = ",".join(ids[i:i + 25])
+        try:
+            data = json.loads(fetch(
+                f"https://arctic-shift.photon-reddit.com/api/posts/ids?ids={chunk}",
+                UA_BROWSER, tries=2))
+            for d in data.get("data", []):
+                meta[d["id"]] = d
+        except Exception as ex:
+            print(f"  arctic-shift enrichment failed: {ex}", file=sys.stderr)
+        time.sleep(2)
+    for p in all_posts:
+        d = meta.get(p["id"])
+        if d:
+            p["ups"] = d.get("score")
+            p["num_comments"] = d.get("num_comments")
 
 
 def main():
@@ -127,13 +132,14 @@ def main():
         if json_blocked:
             try:
                 posts = via_rss(sub)
-                enrich_pullpush(posts)
             except Exception as ex:
                 print(f"  {sub}: rss error {ex}", file=sys.stderr)
         out[sub] = posts
         print(f"{sub}: {len(posts)} posts", file=sys.stderr)
         if i < len(subs) - 1:
             time.sleep(12 if json_blocked else 1.5)
+    if json_blocked:
+        enrich_arctic_shift([p for posts in out.values() for p in posts])
     json.dump(out, sys.stdout, ensure_ascii=False, indent=1)
 
 

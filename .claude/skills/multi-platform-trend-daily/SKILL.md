@@ -59,14 +59,14 @@ WebFetchで最新1〜3記事をチェックし、興味度★★★のものが�
 
 **重要**: WebFetchはreddit.comをブロックし、さらにデータセンターIPからは
 `hot.json` も**403**を返す。同梱スクリプトがフォールバックチェーン
-（hot.json → hot.rss + pullpushスコア補完）を実装済みなのでこれを使う:
+（hot.json → hot.rss + arctic-shift APIによるスコア補完）を実装済みなのでこれを使う:
 
 ```bash
 python3 .claude/skills/multi-platform-trend-daily/scripts/fetch_reddit.py > reddit.json
 ```
 
 - RSS経路はレート制限が厳しい（連続リクエストで429）。スクリプトは12秒間隔+指数バックオフ済み。**全13サブレッドで3〜5分かかるので、必ずバックグラウンド実行し、待ち時間に他プラットフォームを収集する**
-- 各記事の**タイトル、Redditコメントページの完全URL、投票数（ups）、コメント数**を取得（RSS経路でpullpush補完に失敗した場合、スコアは「-」でよい）
+- 各記事の**タイトル、Redditコメントページの完全URL、投票数（ups）、コメント数**を取得（RSS経路のスコアはarctic-shiftの取り込み時点の概算値。補完に失敗した場合は「-」でよい）
 - **タイトルは日本語に翻訳して出力**
 
 対象サブレッド:
