@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIエージェント・ストラテジスト試験 予想問題集(非公式)</title>
+<style>
+  :root {
+    --bg: #fafaf8; --fg: #1a1a1a; --muted: #666;
+    --card: #ffffff; --border: #e2e0da; --accent: #2c5f8a;
+    --accent-bg: #eef4f9; --quote-bg: #f5f2ec; --ans-bg: #f0f7f0;
+    --warn-bg: #fdf6e3; --warn-border: #e6d9a8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c; --fg: #e8e6e3; --muted: #9a9890;
+      --card: #1f2228; --border: #33363d; --accent: #7db3dd;
+      --accent-bg: #22303c; --quote-bg: #26282e; --ans-bg: #1e2c1e;
+      --warn-bg: #2c2818; --warn-border: #5a5230;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    line-height: 1.75; font-size: 16px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+  h1 { font-size: 1.6rem; line-height: 1.4; border-bottom: 3px solid var(--accent); padding-bottom: .5rem; }
+  h2 { font-size: 1.3rem; margin-top: 3rem; color: var(--accent); border-left: 5px solid var(--accent); padding-left: .6rem; }
+  h3 { font-size: 1.05rem; margin-top: 2.2rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .disclaimer {
+    background: var(--warn-bg); border: 1px solid var(--warn-border);
+    border-radius: 8px; padding: .9rem 1.1rem; font-size: .88rem; margin: 1.2rem 0;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+  .table-scroll { overflow-x: auto; }
+  th, td { border: 1px solid var(--border); padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  th { background: var(--accent-bg); }
+  blockquote {
+    background: var(--quote-bg); border-left: 4px solid var(--accent);
+    margin: 1rem 0; padding: .8rem 1.1rem; border-radius: 0 8px 8px 0; font-size: .95rem;
+  }
+  blockquote .src { display: block; margin-top: .5rem; font-size: .8rem; color: var(--muted); }
+  .q {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.1rem 1.3rem; margin: 1.3rem 0;
+  }
+  .q .qnum { font-weight: 700; color: var(--accent); }
+  .q .tag {
+    display: inline-block; font-size: .72rem; background: var(--accent-bg); color: var(--accent);
+    border-radius: 999px; padding: .1rem .6rem; margin-left: .5rem; vertical-align: middle;
+  }
+  .q ol { list-style-type: none; counter-reset: choice; padding-left: .2rem; margin: .8rem 0 .5rem; }
+  .q ol li { counter-increment: choice; margin: .35rem 0; padding-left: 1.8rem; position: relative; }
+  .q ol li::before {
+    content: counter(choice, upper-alpha) "."; position: absolute; left: 0; font-weight: 700; color: var(--accent);
+  }
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: .9rem; }
+  .ans { background: var(--ans-bg); border-radius: 8px; padding: .7rem 1rem; margin-top: .5rem; font-size: .92rem; }
+  .ans b:first-child { color: var(--accent); }
+  a { color: var(--accent); }
+  .toc { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.5rem; font-size: .92rem; }
+  .toc ul { margin: .3rem 0; padding-left: 1.2rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AICX認定「AIエージェント・ストラテジスト」試験<br>予想問題集(非公式)+出題傾向分析</h1>
+<p class="meta">作成日: 2026年7月10日 ｜ 全52問(ケース判断型40問+時事型12問)・解答解説付き</p>
+
+<div class="disclaimer">
+⚠️ <b>免責事項</b>: 本問題集は公開情報(AICX協会公式サイト、公式シラバス構成、受験者・学習者ブログ等)をもとに作成した<b>非公式の予想問題</b>です。実際の試験問題の複製ではありません。「ケース約40問+時事問題10数問」という構成は受験者からの伝聞情報であり、公式には全体構成は公開されていません(公式発表は「75分・多肢選択式」のみ)。第1回試験は2026年7月実施のため、確定的な過去問情報は存在しません。
+</div>
+
+<div class="toc">
+<b>目次</b>
+<ul>
+<li>1. 試験概要と出題傾向</li>
+<li>2. 受験者・学習者の声</li>
+<li>3. 第1部: ケース判断型 予想問題40問(章別・ワークシート型含む)</li>
+<li>4. 第2部: 時事型 予想問題12問(MCP・AI動向・法規制)</li>
+<li>5. 学習アドバイスと参考リンク</li>
+</ul>
+</div>
+
+<h2>1. 試験概要と出題傾向</h2>
+
+<div class="table-scroll">
+<table>
+<tr><th>項目</th><th>内容</th></tr>
+<tr><td>主催</td><td>一般社団法人AICX協会(AICX認定資格)</td></tr>
+<tr><td>試験時間</td><td>75分</td></tr>
+<tr><td>形式</td><td>多肢選択式(4択)・オンライン受験(IBT)</td></tr>
+<tr><td>問題構成</td><td>公式非公開。受験者情報では「ケース問題 約40問+時事問題 10数問」とされる</td></tr>
+<tr><td>受験料</td><td>14,800円(税込)</td></tr>
+<tr><td>公式教材</td><td>公式テキスト(約400ページ・2,980円)、公式実践ワークシート、公式問題集(発売予定)</td></tr>
+<tr><td>シラバス</td><td>6章32セクション(下表)</td></tr>
+<tr><td>評価観点</td><td>①知識理解 ②適用判断 ③設計力 ④説明責任</td></tr>
+<tr><td>標準学習時間</td><td>公式目安40〜50時間(実務経験者は15〜30時間との分析あり)</td></tr>
+</table>
+</div>
+
+<h3>シラバス6章と予想される出題ウェイト</h3>
+<div class="table-scroll">
+<table>
+<tr><th>Chapter</th><th>テーマ</th><th>頻出が予想されるキーワード</th></tr>
+<tr><td>1 (S1-8)</td><td>生成AIとAIエージェントの基礎</td><td>エージェントの定義・自律性レベル・起動タイプ・LLM/RAG/<b>MCP(必出とされる)</b></td></tr>
+<tr><td>2 (S9-11)</td><td>業務の基礎</td><td>As-Is/To-Be、BPR、ECRS、IPO/SIPOC/HTA、スイムレーン図</td></tr>
+<tr><td>3 (S12-18)</td><td>AIデータリテラシーとマネジメント</td><td>RAGの仕組み、構造化/非構造化データ、データガバナンス</td></tr>
+<tr><td>4 (S19-22)</td><td>自動化レベルとワークフロー設計</td><td>Human-in-the-Loop、トリガーとアクション、コンテキストエンジニアリング</td></tr>
+<tr><td>5 (S23-27)</td><td>人と組織のAI時代の組織設計</td><td>中央集権型/分散型/CoE型、チェンジマネジメント</td></tr>
+<tr><td>6 (S28-32)</td><td>AIエージェント実装の5Dモデル</td><td>Discovery→Definition→Design→Development→Deployment</td></tr>
+</table>
+</div>
+
+<h3>出題傾向のポイント</h3>
+<ul>
+<li><b>暗記型ではなくケース判断型</b>: 架空企業の業務シーンが提示され、「このケースでどのプロセスを自動化すべきか」「次に取るべき行動はどれか」という<b>最適判断</b>を選ばせる形式が中心。</li>
+<li><b>「正論すぎる選択肢」がひっかけ</b>: 実務の制約(予算・反対派・データ品質)を無視した理想論の選択肢が誤答として置かれる傾向が指摘されている。</li>
+<li><b>ワークシート連動</b>: 公式実践ワークシート(業務棚卸し・自動化適性評価など)の使い方・記入手順・分析観点がそのまま問われるとされる。</li>
+<li><b>MCPは必出</b>: MCPの役割(外部ツール接続の標準化)、RAGとの使い分け、M×N問題の解消といった観点での出題が濃厚。</li>
+<li><b>時事問題</b>: MCP/A2A等のプロトコル動向、EU AI Act、日本のAI推進法、AI事業者ガイドライン、著作権、エージェントのセキュリティリスクあたりが射程。</li>
+</ul>
+
+<h2>2. 受験者・学習者の声</h2>
+<p>第1回試験は2026年7月に実施が始まったばかりのため、合格体験記はまだ少なく、以下は主に公式テキストで学習した受験者・学習予定者の公開ブログからの引用・要約です。</p>
+
+<blockquote>
+G検定持ちで自動化を実践してきた筆者が、業務設計の章を読んで「<b>脳のOSが強制的に書き換えられるような衝撃</b>」を受けたと述べ、Human-in-the-Loopの本質についてこう記しています——「AIがハルシネーションを起こして2%の確率で誤った判断を出した時、会社が法的・金銭的に致命傷を負わないために、業務プロセスのどこに『人間の検問』を配置してリスク管理(するか)」。また「<b>用語の暗記だけなら3〜5時間で合格ラインに届く</b>」としつつ、実務応用には50時間以上を投資すると宣言しています。
+<span class="src">— note「AIエージェント・ストラテジストのテキストをめくったら、自動化ガチ勢(G検定持ち)の脳がバグった話。」(IT×AI×人事を繋ぐビジネスアーキテクト)</span>
+</blockquote>
+
+<blockquote>
+NotebookLMを活用しながら公式テキストを学習している受験者の勉強記録には、MCPについて「<b>データベース(構造化データ)はナレッジベースではなくMCPで必要な分を問い合わせるが吉</b>」というメモが残されており、RAGとMCPの使い分けが学習上の重要ポイントになっていることがうかがえます。
+<span class="src">— note「AIエージェント・ストラテジスト資格 試験勉強の記録」(だいすけ)</span>
+</blockquote>
+
+<blockquote>
+公式テキスト約400ページを読破した対策サイト運営者は「<b>覚えるべき固有名詞や数式は驚くほど少なく、内容のほとんどが考え方の道具</b>」と評し、「多くの方は20〜30時間ほどで合格圏を狙える」と分析。同時に、実務未経験者が陥る4つの罠として「教科書の理想論を選んでしまう」「数値感覚の欠落」「ステークホルダー対応が分からない」「AIへの極端な期待/悲観」を挙げています。
+<span class="src">— AIエージェント資格の森「AIエージェント・ストラテジスト試験の難易度と合格戦略」</span>
+</blockquote>
+
+<h2>3. 第1部: ケース判断型 予想問題(40問)</h2>
+<p>実際の試験に倣い、架空企業のシナリオに対する「最も適切な判断」を選ぶ形式です。<b>【WS】</b>タグはワークシート型(公式実践ワークシートの観点を問う)問題です。</p>
+
+<h3>Chapter 1: 生成AIとAIエージェントの基礎(問1〜8)</h3>
+
+<div class="q"><span class="qnum">問1</span><span class="tag">定義理解</span>
+<p>中堅商社A社は、FAQに定型文を返すチャットボットを導入し「わが社もAIエージェントを導入済みだ」と説明している。この認識に対する評価として最も適切なものはどれか。</p>
+<ol>
+<li>FAQに自動応答している時点でAIエージェントと呼んで差し支えない</li>
+<li>定型応答のみでは自律的な計画立案やツール実行を伴わないため、AIエージェントとは言い難い</li>
+<li>生成AIを使っていればすべてAIエージェントに分類される</li>
+<li>チャット形式のUIを持つシステムはすべてAIエージェントである</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — AIエージェントの要件は「目標に対して自律的に計画し、ツールを使い、状況を判断しながらタスクを遂行する」こと。定型応答ボットは生成AI活用ではあってもエージェントの自律性要件を満たさない。定義の線引きは第1章の最頻出論点。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問2</span><span class="tag">自律性レベル</span>
+<p>B社経理部では、AIが請求書データから仕訳の下書きを作成し、担当者が内容を確認・承認した後に会計システムへ登録される運用を行っている。この自動化の形態として最も適切なものはどれか。</p>
+<ol>
+<li>完全自律型(人間の関与なし)</li>
+<li>Human-in-the-Loop型(人間の承認を組み込んだ半自動化)</li>
+<li>手動業務(自動化されていない)</li>
+<li>Human-out-of-the-Loop型(人間は事後監査のみ)</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 実行前に人間の確認・承認ステップが組み込まれているためHuman-in-the-Loop(HITL)。会計処理のような誤りが金銭的損害に直結する業務では、HITLの配置が定石とされる。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問3</span><span class="tag">起動タイプ</span>
+<p>C社は「顧客からの問い合わせフォーム送信を検知したら、内容を分類してCRMに起票する」エージェントを設計したい。この場合の起動タイプとして最も適切なものはどれか。</p>
+<ol>
+<li>スケジュール起動(毎時実行)</li>
+<li>ユーザー起動(担当者がチャットで依頼)</li>
+<li>イベント起動(フォーム送信をトリガーに実行)</li>
+<li>常時起動(無限ループで待機)</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: C</b> — 特定の出来事(フォーム送信)を契機に処理を開始するためイベント起動が適切。スケジュール起動は「毎朝8時に日次レポート作成」のような定時処理に向く。起動タイプ3類型(ユーザー/スケジュール/イベント)の適用判断はケース問題の定番。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問4</span><span class="tag">RAG適用</span>
+<p>D社の社内ヘルプデスクAIは、就業規則について質問すると一般論や古い情報を回答してしまう。改善策として最も適切なものはどれか。</p>
+<ol>
+<li>より大きなパラメータ数のLLMに変更する</li>
+<li>RAGを導入し、最新の社内規程文書を検索して回答の根拠として参照させる</li>
+<li>プロンプトに「正確に答えてください」と追記する</li>
+<li>回答の文字数を制限する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — LLMは学習データにない社内固有情報を知らないため、RAG(検索拡張生成)で社内文書を都度参照させるのが正攻法。モデルサイズ変更やプロンプトの精神論では社内情報は取得できない。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問5</span><span class="tag">MCP★必出</span>
+<p>E社はAIエージェントをCRM、カレンダー、社内データベースなど複数の外部ツールに接続したいが、ツールごとに個別のカスタム連携を開発すると保守コストが膨らむと懸念している。この課題に対する標準的なアプローチとして最も適切なものはどれか。</p>
+<ol>
+<li>すべてのツールのデータを1つのExcelに集約してAIに読み込ませる</li>
+<li>MCP(Model Context Protocol)のような標準プロトコルを介してツールを接続し、連携実装を共通化する</li>
+<li>ツールごとに別々のAIエージェントを開発する</li>
+<li>外部ツール連携は諦め、AIには文章生成のみをさせる</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — MCPはAIモデルと外部ツール・データソースの接続を標準化するオープンプロトコル。個別実装の乱立(M個のAI×N個のツール=M×N通りの開発)を避け、共通規格で接続できる。「AI界のUSB-C」という比喩で説明されることが多い。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問6</span><span class="tag">MCP★必出</span>
+<p>F社は在庫管理システム(リアルタイムに更新される構造化データベース)の情報をAIエージェントに扱わせたい。最も適切なデータ接続方式はどれか。</p>
+<ol>
+<li>データベース全件を定期的に文書化してRAGのナレッジベースに登録する</li>
+<li>MCP経由でデータベースに接続し、必要なデータをその都度問い合わせる</li>
+<li>在庫データをすべてプロンプトに貼り付ける</li>
+<li>LLMをファインチューニングして在庫数を記憶させる</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — リアルタイム性が求められる構造化データは、ナレッジベース化(RAG)すると鮮度が失われる。MCP等でDBに直接問い合わせるのが適切。受験者の学習メモにも「データベース(構造化データ)はナレッジベースではなくMCPで必要な分を問い合わせるが吉」とある通り、<b>RAGとMCPの使い分け</b>は最重要論点。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問7</span><span class="tag">MCP★必出</span>
+<p>MCPを導入する利点の説明として最も適切なものはどれか。</p>
+<ol>
+<li>LLM自体の推論精度が向上する</li>
+<li>AIと外部ツールの統合を標準化し、接続実装の重複開発を削減できる</li>
+<li>ハルシネーションが完全になくなる</li>
+<li>ネットワーク通信が不要になる</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — MCPは「接続の標準化」の技術であり、モデルの賢さやハルシネーションそのものを解決するものではない。誤答A・Cのような「MCPを万能視する選択肢」がひっかけとして置かれる可能性が高い。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問8</span><span class="tag">ハルシネーション</span>
+<p>G社の法務相談AIが、実在しない条文番号を挙げて回答する事象が報告された。対策として最も適切なものはどれか。</p>
+<ol>
+<li>プロンプトに「嘘をつかないでください」と指示する</li>
+<li>RAGで法令・社内規程の原文を参照させ、回答に出典の提示を必須化した上で、重要判断には人間のレビューを組み込む</li>
+<li>AIの回答をそのまま社外に送付してよいことにする</li>
+<li>生成の多様性(temperature)を上げて別の回答を引き出す</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — ハルシネーション対策の基本は「根拠データの参照(RAG)+出典明示+高リスク箇所への人間の検証」の組み合わせ。指示文だけで防げるものではなく、temperatureを上げるのは逆効果。</div></details>
+</div>
+
+<h3>Chapter 2: 業務の基礎(問9〜14)</h3>
+
+<div class="q"><span class="qnum">問9</span><span class="tag">As-Is/To-Be</span>
+<p>H社のDX担当者は「話題のAIエージェントツールをまず契約し、使いながら適用先を探そう」と提案している。ストラテジストとしての助言で最も適切なものはどれか。</p>
+<ol>
+<li>ツール導入が先。触らないと何も分からない</li>
+<li>まず現状業務(As-Is)を可視化・棚卸しし、あるべき姿(To-Be)とのギャップから適用領域を特定した上でツールを選定すべき</li>
+<li>他社が使っているツールをそのまま導入すれば失敗しない</li>
+<li>To-Beを描く必要はなく、As-Is分析だけで十分である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 「ツールから入る」のは典型的な失敗パターン。As-Is可視化→To-Be設計→ギャップ分析→手段選定の順序が原則。この「手順の正しさ」を問う問題は頻出が予想される。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問10</span><span class="tag">ECRS</span>
+<p>I社の経費精算は5段階の承認を要し、担当者から「この承認フローをAIで自動化してほしい」と要望が出た。ECRS原則に基づく検討の進め方として最も適切なものはどれか。</p>
+<ol>
+<li>5段階承認をそのままAIで再現し高速化する</li>
+<li>まず各承認ステップの必要性を疑い、廃止(Eliminate)できる工程がないかを最初に検討する</li>
+<li>承認者を増やして統制を強化する</li>
+<li>いきなりシステムを刷新(Rearrange)する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — ECRSはEliminate(排除)→Combine(結合)→Rearrange(再配置)→Simplify(簡素化)の順に検討する。「ムダな業務をそのまま自動化する」のは最悪手であり、E(排除)を最初に検討するのが原則。ECRSの適用順序は最頻出論点の一つ。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問11</span><span class="tag">【WS】IPO</span>
+<p>公式実践ワークシートの業務棚卸しでは、対象業務を「何を受け取り(Input)、どう処理し(Process)、何を出すか(Output)」に分解して記述する。この分解を行う主な目的として最も適切なものはどれか。</p>
+<ol>
+<li>業務担当者の人事評価を行うため</li>
+<li>業務の構造を形式知化し、AIに任せられる工程と人間が担う工程の切り分けを可能にするため</li>
+<li>提出書類の枚数を増やすため</li>
+<li>ITベンダーへの発注金額を算出するため</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — IPO分解の狙いは、曖昧な「仕事のかたまり」を入出力の明確な工程に構造化し、自動化適性を判断できる単位にすること。ワークシートの「何のためにこの欄を書くのか」を問う出題が予想される。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問12</span><span class="tag">可視化手法</span>
+<p>J社では受注処理が営業→審査→物流と3部門をまたぎ、部門間の受け渡しで滞留が発生しているらしい。ボトルネックの特定に最も適した可視化手法はどれか。</p>
+<ol>
+<li>組織図</li>
+<li>スイムレーン図(部門別レーンで業務フローを描く)</li>
+<li>円グラフ</li>
+<li>ガントチャート</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — スイムレーン図は「誰(どの部門)が」「どの順で」処理するかを可視化でき、部門間の受け渡し(ハンドオフ)の滞留を発見するのに最適。手法名と用途の対応付けは知識問題として出やすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問13</span><span class="tag">HTA</span>
+<p>K社のベテラン審査担当者の業務は「一見1つの判断」に見えるが、実際には複数の下位判断の積み重ねで構成されている。この業務をAI適用のために分解する手法として最も適切なものはどれか。</p>
+<ol>
+<li>HTA(階層的タスク分析)で上位タスクを下位タスクへ段階的に分解する</li>
+<li>SWOT分析で強み・弱みを整理する</li>
+<li>3C分析で市場を分析する</li>
+<li>ブレインストーミングで自由にアイデアを出す</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — HTA(Hierarchical Task Analysis)は複雑な業務を階層的に分解する手法で、「どの下位タスクならAIに任せられるか」の判断材料を作れる。SWOTや3Cは経営分析フレームワークであり業務分解には使わない。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問14</span><span class="tag">暗黙知</span>
+<p>L社では長年の経験で判断してきたベテラン社員が半年後に退職する。この業務にAIエージェントを導入する準備として最も適切な最初の行動はどれか。</p>
+<ol>
+<li>退職後にAIに過去データから判断基準を推測させる</li>
+<li>在職中にヒアリング等を行い、判断基準・例外対応を言語化して暗黙知を形式知化する</li>
+<li>業務マニュアルは作らずAIツールだけ先に契約する</li>
+<li>ベテランの画面操作を録画しておけば十分である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — AIエージェント設計の前提は業務知識の形式知化。特に「なぜそう判断するのか」という基準・例外パターンは録画やログからは復元困難で、在職中の言語化が不可欠。「暗黙知の形式知化」はこの資格の3大スキル軸(業務設計)の中核。</div></details>
+</div>
+
+<h3>Chapter 3: AIデータリテラシーとマネジメント(問15〜20)</h3>
+
+<div class="q"><span class="qnum">問15</span><span class="tag">データ分類</span>
+<p>M社が保有する「顧客マスタ(データベースの表形式データ)」と「顧客からのクレームメール(自由記述)」の分類として正しい組み合わせはどれか。</p>
+<ol>
+<li>両方とも構造化データ</li>
+<li>顧客マスタ=構造化データ、クレームメール=非構造化データ</li>
+<li>顧客マスタ=非構造化データ、クレームメール=構造化データ</li>
+<li>両方とも非構造化データ</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 行と列で定義された表形式データは構造化データ、自由記述の文章・画像・音声は非構造化データ。生成AIは非構造化データの処理を得意とする一方、構造化データはDB問い合わせ(MCP経由等)で扱うのが基本、という接続論点も併せて押さえたい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問16</span><span class="tag">RAGの仕組み</span>
+<p>RAGの処理の流れとして最も適切なものはどれか。</p>
+<ol>
+<li>質問受付→LLMが回答生成→生成後に文書を検索して答え合わせ</li>
+<li>質問受付→関連文書を検索→検索結果をコンテキストとして付与→LLMが回答生成</li>
+<li>全社文書でLLMを再学習→質問受付→回答生成</li>
+<li>質問受付→人間が文書を探して貼り付け→回答生成</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — RAGは「検索(Retrieval)で関連文書を取得→生成(Generation)の入力に加える」の順。ファインチューニング(再学習)とは別物という区別も頻出。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問17</span><span class="tag">ナレッジ運用</span>
+<p>N社の社内規程AIは、3ヶ月前に改定された規程の古い内容を回答し続けている。根本的な対策として最も適切なものはどれか。</p>
+<ol>
+<li>ユーザーに「回答は古い可能性があります」と注意書きを出すだけにする</li>
+<li>ナレッジベースの更新プロセスと更新責任者(オーナー)を定め、規程改定と連動して反映される運用を整備する</li>
+<li>AIの利用を禁止する</li>
+<li>改定のたびにAIシステム全体を作り直す</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — RAGは「参照するデータの鮮度」がすべて。データオーナーと更新フローを定める「運用設計」まで含めて初めて実装と言える、というのがこの試験の思想。注意書きだけの対症療法(A)はひっかけ。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問18</span><span class="tag">ガバナンス</span>
+<p>O社の社内AIアシスタントに一般社員が「役員の報酬額を教えて」と質問すると回答してしまうことが判明した。対策として最も適切なものはどれか。</p>
+<ol>
+<li>該当の質問文をブラックリストに登録する</li>
+<li>ナレッジソースへのアクセス権限を利用者の役割(ロール)に応じて制御する仕組みを導入する</li>
+<li>AIに「機密情報は答えないで」とプロンプトで頼む</li>
+<li>役員報酬データを紙にして保管する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 質問文のブラックリストやプロンプト指示は言い換えで容易に回避される。データソース側のアクセス制御(ロールベース)で「そもそも見せない」のが正攻法。データガバナンスは第3章の重要論点。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問19</span><span class="tag">個人情報</span>
+<p>P社は顧客の氏名・住所を含む問い合わせデータを外部の生成AIサービスで処理しようとしている。事前の対応として最も適切なものはどれか。</p>
+<ol>
+<li>顧客データなので何の確認もなくそのまま入力してよい</li>
+<li>サービスの利用規約(入力データの学習利用有無等)を確認し、必要に応じて個人情報のマスキング・最小化を行い、社内規程・法令に沿った利用とする</li>
+<li>個人情報保護法はAIには適用されないので気にしない</li>
+<li>担当者個人の無料アカウントで処理すれば会社の責任にならない</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 外部AIサービス利用時は「入力データがどう扱われるか」の確認と、個人データの最小化・マスキングが基本動作。個人の無料アカウント利用(D)はシャドーAIの典型でむしろリスク増。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問20</span><span class="tag">データ品質</span>
+<p>Q社のAIエージェントの回答精度が低い。調査の結果、参照元データに重複・旧版・誤記が大量に混在していた。優先すべき対応はどれか。</p>
+<ol>
+<li>より高性能なLLMに乗り換える</li>
+<li>参照元データの整備(重複排除・最新化・正誤確認)を先に行う</li>
+<li>プロンプトを長くする</li>
+<li>回答速度を上げる</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 「Garbage In, Garbage Out」。データ品質の問題はモデル変更では解決しない。原因がデータにあると特定できているのにモデルに手を出す選択肢は典型的ひっかけ。</div></details>
+</div>
+
+<h3>Chapter 4: 自動化レベルとワークフロー設計(問21〜28)</h3>
+
+<div class="q"><span class="qnum">問21</span><span class="tag">【WS】自動化適性</span>
+<p>公式ワークシートの自動化適性評価の観点で、R社の次の4業務のうち、最初のAIエージェント適用対象として最も適切なものはどれか。</p>
+<ol>
+<li>年1回だけ発生する、経営判断を伴う中期計画策定</li>
+<li>毎日大量に発生し、判断ルールが明確で、例外が少ない請求書データ入力・照合</li>
+<li>個別交渉が中心で相手の感情への配慮が成否を分けるクレーム最終対応</li>
+<li>担当者ごとにやり方が異なり手順が言語化されていない業務</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 自動化適性は「頻度が高い×ルールが明確×例外が少ない」で評価するのが定石。頻度が低い(A)、感情対応(C)、形式知化未了(D)はいずれも初期対象に不適。ワークシートのスコアリング観点そのものを問う形式が予想される。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問22</span><span class="tag">HITL配置</span>
+<p>S社は取引先への自動送金までを行う経理エージェントを設計中である。Human-in-the-Loop(人間の承認)を配置すべき箇所として最も適切なものはどれか。</p>
+<ol>
+<li>請求書PDFの文字読み取りの直後</li>
+<li>送金実行の直前(不可逆かつ金銭リスクの高い操作の前)</li>
+<li>処理完了メールの送信後</li>
+<li>人間の承認は一切不要である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — HITLは「すべての工程」ではなく「不可逆・高リスクな意思決定点」に置くのが設計原則。全工程に人を挟むと自動化の意味がなく、ゼロにするとリスク管理が破綻する。「どこに人間の検問を置くか」は受験者ブログでも核心と指摘される最重要論点。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問23</span><span class="tag">トリガー設計</span>
+<p>「問い合わせメールを受信したら、内容を分類し、CRMに起票し、担当者を割り当てる」というワークフローにおける「トリガー」はどれか。</p>
+<ol>
+<li>内容の分類</li>
+<li>問い合わせメールの受信</li>
+<li>CRMへの起票</li>
+<li>担当者の割り当て</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — トリガーはワークフローを開始させる契機となる事象。分類・起票・割当はいずれもトリガー後に実行される「アクション」。トリガーとアクションの識別は基本問題として出やすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問24</span><span class="tag">コンテキスト設計</span>
+<p>T社のエージェントは同じ依頼でも回答品質がばらつく。原因は業務前提(用語定義・手順・判断基準)が十分に与えられていないことにある。改善アプローチとして最も適切なものはどれか。</p>
+<ol>
+<li>思いつく情報をすべて無秩序にプロンプトへ貼り付ける</li>
+<li>業務に必要な文脈(定義・手順・判断基準・良い例)を構造化して与えるコンテキストエンジニアリングを行う</li>
+<li>AIが空気を読むまで待つ</li>
+<li>回答が安定するまで同じ質問を繰り返す</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — コンテキストエンジニアリングは「必要な情報を、必要な形で、過不足なく」与える設計技術。「大量に貼れば良い」(A)は文脈の希釈やコスト増を招く誤答として置かれやすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問25</span><span class="tag">例外設計</span>
+<p>U社のエージェントは外部システムの障害時に処理が失敗するが、そのまま何事もなかったかのように次の処理へ進んでしまう。ワークフロー設計の改善として最も適切なものはどれか。</p>
+<ol>
+<li>失敗は無視して処理を続行する現状のままでよい</li>
+<li>エラーを検知したら処理を保留し、人間へエスカレーションするフォールバック経路を設計する</li>
+<li>成功するまで無制限にリトライさせる</li>
+<li>障害が起きないよう祈る</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 正常系だけでなく異常系(エラー検知→保留→人間へのエスカレーション)まで設計して初めてワークフロー設計と言える。無制限リトライ(C)は障害を拡大させ得る。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問26</span><span class="tag">適用限界</span>
+<p>V社は解約を申し出た顧客への引き止め対応を完全自動化しようとしている。ストラテジストの判断として最も適切なものはどれか。</p>
+<ol>
+<li>感情面の配慮が成否を左右する対応であり、情報収集や下準備はAIが支援しつつ、対話自体は人間が担う設計とする</li>
+<li>すべてAIに任せ、人件費を最大限削減する</li>
+<li>AIには何もさせず、従来通りすべて人間が行う</li>
+<li>解約対応という業務自体を廃止する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — 「全自動 or 全手動」の二者択一ではなく、AIと人間の役割分担を設計するのがストラテジストの仕事。実務未経験者は「全自動化」か「AIには無理」の両極端に振れやすいと指摘されており、中庸の分担設計が正解になるパターンが多いと予想される。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問27</span><span class="tag">工程分割</span>
+<p>W社は「受注から出荷まで全業務を1つの巨大エージェントに任せる」構成で開発したが、動作が不安定で原因調査も困難になっている。改善方針として最も適切なものはどれか。</p>
+<ol>
+<li>さらに多くの業務を同じエージェントに追加する</li>
+<li>業務を工程単位に分割し、各エージェントの責務を明確にした上で連携させる構成に見直す</li>
+<li>プロンプトを10倍の長さにする</li>
+<li>不安定なまま本番運用を続ける</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 責務が肥大化したエージェントは精度低下・デバッグ困難を招く。工程分割(単一責務化)と連携設計が原則で、これはワークフロー設計の章の中核的な考え方。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問28</span><span class="tag">MCP×権限★必出</span>
+<p>X社のエージェントは経費データの「参照」しか必要としないのに、MCPサーバー経由で基幹データベース全体への書き込み権限まで付与されている。この状態の評価として最も適切なものはどれか。</p>
+<ol>
+<li>権限は広いほど便利なので問題ない</li>
+<li>最小権限の原則に反しており、誤動作や悪用時の被害が拡大するため、必要最小限(該当データの読み取りのみ)に絞るべき</li>
+<li>AIは間違えないので権限管理は不要</li>
+<li>書き込み権限があると読み取り速度が上がるので合理的</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — エージェントに与えるツール・権限は「タスク遂行に必要な最小限」が原則。エージェントが自律的に行動する分、過剰権限のリスクは従来システムより大きい。MCP実装面とガバナンスを絡めた複合問題が予想される。</div></details>
+</div>
+
+<h3>Chapter 5: 人と組織の設計(問29〜34)</h3>
+
+<div class="q"><span class="qnum">問29</span><span class="tag">推進体制</span>
+<p>Y社では各部署が個別バラバラにAIツールを導入し、ノウハウが分散し重複投資も発生している。全社的な品質・ガバナンスを確保しつつ現場の自律性も活かす推進体制として最も適切なものはどれか。</p>
+<ol>
+<li>完全中央集権型: 情報システム部門がすべてのAI活用を代行する</li>
+<li>完全分散型: 現状通り各部署の自由に任せる</li>
+<li>CoE型: 全社横断のセンターオブエクセレンスが標準・ガバナンス・支援を担い、実行は各部署が行う</li>
+<li>外部委託型: すべてコンサルタントに丸投げする</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: C</b> — 中央集権型は統制は効くがスピードと現場適合性を欠き、分散型は速いが品質・ガバナンスが崩れる。両者のバランスを取るCoE型が「標準化×現場自律」の両立解として提示されるのが定番。3類型の長所短所の比較は頻出予想。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問30</span><span class="tag">チェンジマネジメント</span>
+<p>Z社でAIエージェント導入を発表したところ、ベテラン社員から「自分たちの仕事を奪う気か」と強い反発が起きた。対応として最も適切なものはどれか。</p>
+<ol>
+<li>反対意見は無視してトップダウンで強行する</li>
+<li>反発した社員を導入プロジェクトから外す</li>
+<li>導入目的(付加価値業務へのシフト等)を丁寧に説明し、ベテランを設計段階から巻き込み、小さな成功体験を共有しながら段階的に進める</li>
+<li>導入自体を取りやめる</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: C</b> — チェンジマネジメントの原則は「早期の巻き込み」「目的の共有」「スモールウィン」。強行(A)や排除(B)は抵抗を潜在化させ定着を阻む。「反対派への動き方」は実務未経験者が判断を誤りやすい領域と指摘されており、出題確度が高い。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問31</span><span class="tag">役割再設計</span>
+<p>AIエージェント導入で事務作業が月100時間削減された部署について、経営層から「その分の人員を削減すべきか」と問われた。ストラテジストの提言として最も適切なものはどれか。</p>
+<ol>
+<li>削減時間=不要人員として即座にリストラを提案する</li>
+<li>創出された時間を顧客対応・改善活動など付加価値業務へ再配分する役割再設計と、それに合わせた評価指標の見直しを提案する</li>
+<li>浮いた時間の使途は各自の自由とし、何も設計しない</li>
+<li>削減効果を経営層には報告しない</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — この資格が掲げる組織設計スキルは「AIとの協働を前提とした役割・評価の再設計」。削減時間の使途を設計しないと効果が霧散し、安易な人員削減はチェンジマネジメント全体を崩壊させる。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問32</span><span class="tag">現場巻き込み</span>
+<p>AA社では情報システム部門だけでAIエージェントのPoCを完了しリリースしたが、現場は「実際の業務と合わない」と使わず、利用率が低迷している。根本原因として最も適切なものはどれか。</p>
+<ol>
+<li>AIの性能が低かった</li>
+<li>業務の実態を知る現場ユーザーを要件定義・設計段階から参画させなかった</li>
+<li>リリース告知のメールが短かった</li>
+<li>現場社員のITリテラシーが低い</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 「作ったのに使われない」の典型原因は現場不在の設計。ユーザー巻き込みは5DモデルのDiscovery/Definition段階からの必須要素であり、原因帰属を現場のせい(D)にする選択肢はひっかけ。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問33</span><span class="tag">シャドーAI</span>
+<p>BB社で、従業員が会社非公認の無料生成AIサービスに顧客情報を入力していたことが発覚した。対応として最も適切なものはどれか。</p>
+<ol>
+<li>生成AIの利用を全面禁止して終わりにする</li>
+<li>利用ガイドラインを整備し、安全に使える公認のAI環境を提供した上で、リスク教育を行う</li>
+<li>発覚した従業員を処分すれば再発しない</li>
+<li>問題が公にならなければ放置する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 全面禁止はシャドーAI(非公認利用)を地下化させるだけで、リスクはむしろ増大する。「安全な公式手段の提供+ルール+教育」のセットが定石。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問34</span><span class="tag">説明責任</span>
+<p>CC社の経営会議でAIエージェント投資の承認を得るための説明として最も適切なものはどれか。</p>
+<ol>
+<li>「AIは時代の流れなのでとにかくやるべきです」と熱意を伝える</li>
+<li>削減工数の金額換算・期待効果・必要投資・リスクと対策を、前提条件とともに定量的に示す</li>
+<li>技術用語を並べて専門性をアピールする</li>
+<li>他社事例だけを紹介して自社の数字には触れない</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 評価観点の一つ「説明責任」に直結する問題。ROIの算定根拠と前提を明示し、リスクも隠さず示すのがストラテジストの説明のあり方。「数値感覚の欠落」は実務未経験者の落とし穴として名指しされている。</div></details>
+</div>
+
+<h3>Chapter 6: 実装の5Dモデル(問35〜40)</h3>
+
+<div class="q"><span class="qnum">問35</span><span class="tag">5D順序</span>
+<p>AIエージェント実装の5Dモデルの正しい順序はどれか。</p>
+<ol>
+<li>Design → Discovery → Definition → Deployment → Development</li>
+<li>Discovery → Definition → Design → Development → Deployment</li>
+<li>Definition → Discovery → Development → Design → Deployment</li>
+<li>Development → Design → Definition → Discovery → Deployment</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 発見(Discovery)→定義(Definition)→設計(Design)→開発(Development)→展開・定着(Deployment)。順序の並べ替えは知識問題としてほぼ確実に出ると予想される。各フェーズの成果物との対応付けまで押さえたい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問36</span><span class="tag">【WS】Discovery</span>
+<p>5DモデルのDiscoveryフェーズで行う活動として最も適切なものはどれか。</p>
+<ol>
+<li>本番環境へのリリースと利用率モニタリング</li>
+<li>ワークシートを用いた業務棚卸しと課題・自動化候補の洗い出し</li>
+<li>エージェントのプログラム実装</li>
+<li>KPIの達成度評価レポート作成</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — Discoveryは「どこに機会があるか」を発見するフェーズで、公式ワークシートによる業務棚卸しはここに対応する。フェーズと活動・ワークシートの対応を問う問題は、ワークシート出題の本命パターン。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問37</span><span class="tag">Definition</span>
+<p>DD社はAIエージェント開発に着手しようとしているが、「成功とは何か」が定義されていない。Definitionフェーズで行うべきこととして最も適切なものはどれか。</p>
+<ol>
+<li>とりあえず開発を始めて、成功基準は後で考える</li>
+<li>処理時間・エラー率・利用率など測定可能なKPIと目標値を、開発着手前に定義する</li>
+<li>「なんとなく便利になった」という感覚で評価することにする</li>
+<li>KPIは導入後1年経ってから設定する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 成功基準(KPI)は着手前に定義するのが原則。事前定義がないと効果検証も投資判断もできず、「説明責任」を果たせない。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問38</span><span class="tag">Design</span>
+<p>Designフェーズのワークフロー設計書に必ず含めるべき要素として最も適切なものはどれか。</p>
+<ol>
+<li>開発担当者の個人的な好みのツール一覧</li>
+<li>各工程における「AIが担う部分」と「人間が担う部分(承認・例外対応)」の役割分担</li>
+<li>競合他社の株価情報</li>
+<li>完成後の打ち上げの計画</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 設計の核心は人間とAIの役割分担(どこにHITLを置くか、例外は誰が拾うか)の明文化。トリガー・アクション・フォールバックとセットで設計書に落とす。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問39</span><span class="tag">Development</span>
+<p>EE社は初のAIエージェントを、いきなり全社3,000人に展開しようとしている。Developmentフェーズの進め方として最も適切なものはどれか。</p>
+<ol>
+<li>予定通り全社一斉展開する</li>
+<li>限定した部署・業務範囲でPoC(概念実証)を行い、KPIで効果検証・改善した上で段階的に拡大する</li>
+<li>PoCを5年間続けて本番展開はしない</li>
+<li>開発を外部委託したらテストせずリリースする</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — スモールスタート→検証→改善→段階拡大が原則。一方で「PoC止まり(PoC疲れ)」も失敗パターンであり、検証後に拡大まで進める設計が問われる。両極端(A・C)が誤答として並ぶ構図が予想される。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問40</span><span class="tag">Deployment</span>
+<p>FF社はエージェントを本番リリースした。Deploymentフェーズにおけるその後の対応として最も適切なものはどれか。</p>
+<ol>
+<li>リリースしたのでプロジェクトは完了。あとは放置する</li>
+<li>利用率・精度・エラー率をモニタリングし、現場フィードバックを収集して改善サイクルを回し、業務への定着を図る</li>
+<li>不具合が起きるまで一切見ない</li>
+<li>利用を強制するルールだけ作って終わりにする</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — Deploymentは「リリース」ではなく「定着」までを含む。モニタリング・フィードバック・改善・定着施策までがスコープで、シラバスが「導入の理解から実装・定着まで」と謳う通り、定着は試験全体を貫くテーマ。</div></details>
+</div>
+
+<h2>4. 第2部: 時事型 予想問題(12問)</h2>
+<p>「時事問題が10数問出る」という受験者情報に基づき、AIエージェント関連の技術動向・法規制・ガバナンスから出題を予想したものです。時事は出題時期により内容が入れ替わるため、直近1年のAIニュースの継続チェックを推奨します。</p>
+
+<div class="q"><span class="qnum">問41</span><span class="tag">MCP★必出</span>
+<p>MCP(Model Context Protocol)の説明として最も適切なものはどれか。</p>
+<ol>
+<li>2024年にAnthropicが公開した、AIモデルと外部ツール・データソースの接続を標準化するオープンプロトコルで、その後業界の主要各社にも採用が広がった</li>
+<li>特定のベンダーの製品でのみ利用できる独自規格である</li>
+<li>LLMの学習(トレーニング)を高速化するためのプロトコルである</li>
+<li>人間同士のビデオ会議のための通信規格である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — MCPは2024年11月にAnthropicがオープンソースで公開した接続標準。OpenAI、Google、Microsoftなど主要各社が相次いで対応を表明し、エージェント接続のデファクトスタンダードとなった。「オープンな標準規格である」点が独自規格(B)との対比で問われやすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問42</span><span class="tag">A2A</span>
+<p>2025年にGoogleが発表した「A2A(Agent2Agent)」プロトコルの目的として最も適切なものはどれか。</p>
+<ol>
+<li>AIエージェント同士が相互に通信・連携するための標準を定めること</li>
+<li>MCPを置き換えて廃止させること</li>
+<li>人間の脳とAIを直接接続すること</li>
+<li>画像生成の画質を向上させること</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — A2Aはエージェント間連携のプロトコル。「MCPはエージェント↔ツール/データの接続、A2Aはエージェント↔エージェントの連携」という補完関係で説明されることが多く、両者の役割の違いを問う問題は時事の本命。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問43</span><span class="tag">EU AI Act</span>
+<p>EUのAI規制法(EU AI Act)の特徴として最も適切なものはどれか。</p>
+<ol>
+<li>すべてのAIを一律に禁止する法律である</li>
+<li>AIをリスクの大きさで分類し、許容できないリスクのAIは禁止、高リスクAIには厳格な義務を課す「リスクベースアプローチ」を採る</li>
+<li>EU域内の企業にのみ適用され、日本企業には一切関係がない</li>
+<li>罰則のない自主的ガイドラインである</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 2024年に成立した世界初の包括的AI規制法で、リスクベースアプローチが最大の特徴。禁止AI規定は2025年2月、汎用AI(GPAI)への義務は2025年8月から段階適用。EU市場に製品・サービスを出す日本企業にも域外適用があり得る点(Cの否定)も重要。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問44</span><span class="tag">日本のAI法</span>
+<p>2025年に日本で成立した「AI推進法(人工知能関連技術の研究開発及び活用の推進に関する法律)」の性格として最も適切なものはどれか。</p>
+<ol>
+<li>EUのAI Actと同様の罰則付き規制法である</li>
+<li>AIの研究開発・活用の推進を基本理念とし、罰則を設けないイノベーション促進型の基本法である</li>
+<li>生成AIの利用を国民に義務付ける法律である</li>
+<li>AIに法人格を与える法律である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 日本初のAIに関する基本法で、規制より推進に軸足を置き、直接罰則を持たない点がEU型との対比で語られる。内閣にAI戦略本部を設置。「日本=ソフトロー中心、EU=ハードロー」という国際比較は時事問題の定番構図。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問45</span><span class="tag">AI事業者ガイドライン</span>
+<p>日本の「AI事業者ガイドライン」(総務省・経済産業省)の説明として最も適切なものはどれか。</p>
+<ol>
+<li>AI開発企業だけを対象とした技術仕様書である</li>
+<li>AIの主体を「開発者」「提供者」「利用者」に分け、それぞれが取り組むべき事項を示した統合的なガイドラインである</li>
+<li>違反すると刑事罰が科される法律である</li>
+<li>個人のスマートフォン利用時間を制限する指針である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 従来の複数ガイドラインを統合し2024年に公表(以後改訂を重ねる)。開発者/提供者/利用者の3主体別に「人間中心」「安全性」「公平性」等の指針を整理。企業がAIエージェントを「利用する側」としても対象になる点が実務上のポイント。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問46</span><span class="tag">国際枠組み</span>
+<p>「広島AIプロセス」の説明として最も適切なものはどれか。</p>
+<ol>
+<li>広島県内限定のAI導入補助金制度</li>
+<li>G7が合意した、高度なAIシステムに関する国際指針・行動規範を策定する国際的な枠組み</li>
+<li>AIによる核軍縮交渉プログラム</li>
+<li>特定企業の社内研修プログラム</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 2023年のG7広島サミットを契機に日本が主導した国際枠組みで、開発者向け国際指針・行動規範を策定。日本発の国際ルール形成の事例として時事で扱われやすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問47</span><span class="tag">著作権</span>
+<p>文化庁「AIと著作権に関する考え方」における整理として最も適切なものはどれか。</p>
+<ol>
+<li>AIの学習に著作物を使うことは、どんな場合でも著作権侵害となる</li>
+<li>AI学習は原則として著作権法30条の4により許容され得るが、生成物が既存著作物と類似性・依拠性を持つ場合は通常の著作権侵害となり得る</li>
+<li>AIが生成したものはすべて著作権フリーで商用利用に何の制約もない</li>
+<li>AI生成物の著作権はすべてAI開発企業に帰属する</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 「学習段階は原則適法となり得る(30条の4)」「生成・利用段階は通常の侵害判断(類似性+依拠性)」という2段階の整理が核心。企業でAIエージェントに文書・画像を生成させる際の実務リスクとして問われやすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問48</span><span class="tag">AIMS規格</span>
+<p>ISO/IEC 42001の説明として最も適切なものはどれか。</p>
+<ol>
+<li>AIマネジメントシステム(AIMS)に関する国際規格で、組織がAIを責任をもって開発・利用するための管理体制の要求事項を定める</li>
+<li>Wi-Fiの通信速度に関する規格である</li>
+<li>プログラミング言語の文法を定めた規格である</li>
+<li>AI人材の給与水準を定めた規格である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — 2023年末に発行された世界初のAIマネジメントシステム国際規格。ISMS(27001)のAI版と説明されることが多く、国内でも認証取得企業が増加中。組織的なAIガバナンス強化の文脈で時事に載りやすい。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問49</span><span class="tag">セキュリティ</span>
+<p>AIエージェント特有のセキュリティリスク「プロンプトインジェクション」の説明として最も適切なものはどれか。</p>
+<ol>
+<li>外部から読み込ませた文書やWebページ等に埋め込まれた悪意ある指示によって、エージェントが本来の指示から逸脱した動作(情報漏えい等)をさせられる攻撃</li>
+<li>プロンプトを注射器でサーバーに物理的に注入する攻撃</li>
+<li>パスワードを総当たりで試す攻撃</li>
+<li>電源ケーブルを抜く攻撃</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — エージェントは外部コンテンツ(メール・Web・文書)を読み取って自律行動するため、そこに仕込まれた指示に操られるリスクがある。対策は権限の最小化、外部コンテンツの信頼区分、高リスク操作へのHITL配置など。エージェント時代の新リスクとして出題確度が高い。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問50</span><span class="tag">偽情報対策</span>
+<p>生成AIによるディープフェイク・偽情報への対策技術として挙げられるものはどれか。</p>
+<ol>
+<li>C2PA等のコンテンツ来歴証明や電子透かしにより、コンテンツの生成元・改変履歴を検証可能にする取り組み</li>
+<li>インターネットの全面遮断</li>
+<li>画像の解像度を下げること</li>
+<li>SNSの利用を法律で禁止すること</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — コンテンツ来歴(Provenance)技術のC2PAや電子透かしが国際的な対策の柱。選挙・災害時の偽情報が社会問題化しており、時事として取り上げられやすいテーマ。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問51</span><span class="tag">エージェント動向</span>
+<p>2025年前後のAI業界動向の説明として最も適切なものはどれか。</p>
+<ol>
+<li>チャット型の質問応答が廃止され、AIは使われなくなった</li>
+<li>自律的に調査・計画・ツール操作を行う「エージェント型AI」への進化が加速し、Deep Research型の調査エージェントやPC・ブラウザを操作するエージェントが各社から登場した</li>
+<li>AIの進化は2023年で完全に停止した</li>
+<li>AIはゲーム分野でのみ使われるようになった</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: B</b> — 2025年は「AIエージェント元年」と呼ばれ、自律調査(Deep Research系)・コンピュータ操作(Computer Use/Operator系)・コーディングエージェントが実用化。この潮流こそが本資格新設の背景であり、背景理解を問う出題があり得る。</div></details>
+</div>
+
+<div class="q"><span class="qnum">問52</span><span class="tag">個人情報×生成AI</span>
+<p>個人情報保護委員会が生成AIサービスの利用に関して示している注意点として最も適切なものはどれか。</p>
+<ol>
+<li>個人データを本人の同意なく、応答目的以外(サービスの学習等)に利用されうる形で入力しないよう留意が必要である</li>
+<li>生成AIには個人情報保護法が一切適用されない</li>
+<li>顧客の個人データは自由に入力してよい</li>
+<li>注意喚起は個人ユーザーのみが対象で、企業は対象外である</li>
+</ol>
+<details><summary>解答・解説</summary><div class="ans"><b>正解: A</b> — 個人情報保護委員会は生成AIサービス利用時の注意喚起として、個人データの入力が目的外利用・第三者提供に該当し得ることへの留意を求めている。企業がエージェントに顧客データを扱わせる際の法的リスクとして、Chapter 3のガバナンス論点と絡めて出題される可能性がある。</div></details>
+</div>
+
+<h2>5. 学習アドバイス</h2>
+<ul>
+<li><b>公式テキストは「暗記」ではなく「自社に当てはめて」読む</b> — 公式自身が「業務への当てはめが暗記との差を生む」と明示。各章のフレームワーク(ECRS、IPO、5D、CoE)を自分の業務で1回ずつ言語化してみるのが最短ルート。</li>
+<li><b>ワークシートは実際に1枚書いてみる</b> — 「どの欄に何を書くか」「その欄は何のためにあるか」が問われると想定。眺めるだけでなく手を動かす。</li>
+<li><b>MCPは3点セットで整理</b> — ①何を標準化するのか(ツール接続) ②RAGとの使い分け(非構造化ナレッジ=RAG/構造化・リアルタイム=MCP問い合わせ) ③権限・セキュリティ(最小権限、プロンプトインジェクション)。</li>
+<li><b>時事は「プロトコル動向+法規制」の2軸</b> — MCP/A2A、EU AI Act、日本のAI推進法・AI事業者ガイドライン、著作権、ISO/IEC 42001あたりを直近ニュースとともに確認。</li>
+<li><b>選択肢の絞り方</b> — 「理想論すぎる」「全自動/全禁止の両極端」「原因をモデルのせいにする」「人を無視する」選択肢は誤答であることが多い、というメタ戦略が有効と分析されている。</li>
+</ul>
+
+<h3>参考リンク(出典)</h3>
+<ul>
+<li><a href="https://aicx.jp/certifications/strategist">AICX協会公式: AIエージェント・ストラテジスト資格</a></li>
+<li><a href="https://ai-agent-master.com/strategist-exam-overview/">AIエージェント資格の森: 試験完全解説</a></li>
+<li><a href="https://ai-agent-master.com/strategist-exam-difficulty/">AIエージェント資格の森: 難易度と合格戦略</a></li>
+<li><a href="https://note.com/joyous_beetle592/n/ne92b85037265">note: 自動化ガチ勢(G検定持ち)の脳がバグった話</a></li>
+<li><a href="https://note.com/hot_sloth2009/n/n03bbfd183cfa">note: 試験勉強の記録(だいすけ)</a></li>
+<li><a href="https://note.com/kazu_t/n/n6ad4d5db686f">note: AICX協会の新資格を徹底解説(谷 一徳)</a></li>
+<li><a href="https://shift-ai.co.jp/blog/52164/">SHIFT AI TIMES: 新資格の内容・スケジュール解説</a></li>
+</ul>
+
+<p class="meta">本問題集は非公式です。最新の試験情報は必ずAICX協会公式サイトでご確認ください。</p>
+
+</div>
+</body>
+</html>
