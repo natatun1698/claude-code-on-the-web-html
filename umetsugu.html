@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>梅津希裕 公式サイト — 三角比から、もう一度。</title>
+<meta name="description" content="学び直す人、越境する人、言葉を残す人、日常を生きる人。営業一筋・転勤族、梅津希裕のパーソナルサイト。" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>梅</text></svg>" />
+<style>
+/* ============ 基礎設計 ============ */
+:root{
+  --sumi:#111318;          /* 墨色（基調） */
+  --sumi-2:#171a21;
+  --sumi-3:#1d222c;
+  --ai:#1f3a5f;            /* 藍 */
+  --ai-deep:#16263f;
+  --kin:#c9a86a;           /* 金茶（和のアクセント） */
+  --ice:#7fd4e4;           /* テック・アクセント */
+  --violet:#8e9bff;
+  --ink:#e8e6e1;           /* 本文 */
+  --ink-dim:#9aa0ab;
+  --line:rgba(201,168,106,.25);
+  --grad:linear-gradient(120deg,#7fd4e4 0%,#8e9bff 55%,#c9a86a 100%);
+  --serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","Noto Sans CJK JP",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--sumi);color:var(--ink);font-family:var(--sans);
+  line-height:1.9;letter-spacing:.04em;overflow-x:hidden;
+}
+::selection{background:var(--ai);color:#fff}
+a{color:var(--ice);text-decoration:none}
+img{max-width:100%}
+
+/* ============ 共通パーツ ============ */
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+section.block{position:relative;padding:110px 0 120px}
+.sec-label{
+  display:flex;align-items:baseline;gap:16px;margin-bottom:14px;
+}
+.sec-label .no{
+  font-family:var(--serif);font-size:.85rem;color:var(--kin);letter-spacing:.3em;
+}
+.sec-label h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3.4vw,2.1rem);
+  letter-spacing:.12em;
+}
+.sec-label h2 .en{
+  display:block;font-size:.7rem;letter-spacing:.35em;color:var(--ink-dim);
+  font-family:var(--sans);margin-top:6px;text-transform:uppercase;
+}
+.lead-copy{
+  font-family:var(--serif);color:var(--ink);font-size:1.02rem;
+  border-left:2px solid var(--kin);padding-left:18px;margin:26px 0 46px;
+  max-width:640px;
+}
+.bridge{
+  margin-top:70px;text-align:center;font-family:var(--serif);
+  color:var(--ink-dim);font-size:.95rem;letter-spacing:.14em;
+}
+.bridge em{font-style:normal;color:var(--kin)}
+.bridge::before{
+  content:"";display:block;width:1px;height:46px;margin:0 auto 22px;
+  background:linear-gradient(to bottom,transparent,var(--kin));
+}
+
+/* 出現アニメーション */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+/* カード・タグ */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{
+  background:linear-gradient(160deg,var(--sumi-3),var(--sumi-2));
+  border:1px solid rgba(255,255,255,.06);border-radius:10px;
+  padding:24px 22px;transition:border-color .4s,transform .4s;
+}
+.card:hover{border-color:var(--line);transform:translateY(-3px)}
+.card h3{
+  font-size:.95rem;letter-spacing:.1em;margin-bottom:10px;color:var(--kin);
+  font-family:var(--serif);
+}
+.card p{font-size:.88rem;color:var(--ink-dim)}
+.card p strong{color:var(--ink);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.tag{
+  font-size:.78rem;padding:5px 14px;border-radius:99px;letter-spacing:.06em;
+  border:1px solid rgba(127,212,228,.3);color:#bfe6ee;background:rgba(31,58,95,.25);
+}
+.tag.wa{border-color:var(--line);color:#e3cfa4;background:rgba(201,168,106,.08)}
+
+/* 数値カウンター */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:44px 0 0}
+.stat{
+  text-align:center;padding:26px 10px;border-radius:10px;
+  background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);
+}
+.stat .num{
+  font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.2;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.stat .num small{font-size:.55em}
+.stat .cap{font-size:.74rem;color:var(--ink-dim);letter-spacing:.1em;margin-top:8px;display:block}
+
+/* ============ 固定ヘッダー ============ */
+header.site{
+  position:fixed;inset:0 0 auto;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 26px;transition:background .4s,box-shadow .4s;
+}
+header.site.scrolled{background:rgba(17,19,24,.9);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(201,168,106,.18)}
+.brand{font-family:var(--serif);letter-spacing:.22em;font-size:1rem;color:var(--ink)}
+.brand span{color:var(--kin);font-size:.7rem;letter-spacing:.3em;margin-left:10px}
+nav.gnav{display:flex;gap:20px}
+nav.gnav a{font-size:.76rem;letter-spacing:.14em;color:var(--ink-dim);transition:color .3s}
+nav.gnav a:hover,nav.gnav a.active{color:var(--ice)}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--grad);width:0;z-index:101}
+
+/* ドットナビ */
+.dots{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:99;
+  display:flex;flex-direction:column;gap:14px;
+}
+.dots a{
+  width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);
+  transition:all .35s;position:relative;
+}
+.dots a.active{background:var(--kin);box-shadow:0 0 10px rgba(201,168,106,.7);transform:scale(1.35)}
+.dots a::after{
+  content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  font-size:.68rem;letter-spacing:.1em;color:var(--kin);white-space:nowrap;
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.dots a:hover::after{opacity:1}
+
+/* ============ ヒーロー ============ */
+#hero{
+  min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 75% 20%,rgba(31,58,95,.55),transparent 65%),
+    radial-gradient(ellipse 50% 45% at 15% 85%,rgba(142,155,255,.12),transparent 70%),
+    var(--sumi);
+}
+#hero .bg-name{
+  position:absolute;right:-2vw;top:50%;transform:translateY(-50%);
+  font-family:var(--serif);writing-mode:vertical-rl;line-height:1;
+  font-size:clamp(6rem,17vw,13rem);color:rgba(255,255,255,.035);
+  letter-spacing:.1em;user-select:none;pointer-events:none;white-space:nowrap;
+}
+#hero .grain{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:110px 110px;
+}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero-kicker{
+  font-size:.78rem;letter-spacing:.4em;color:var(--ice);margin-bottom:26px;
+  text-transform:uppercase;
+}
+.hero-name{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.6rem,7.5vw,5rem);letter-spacing:.14em;line-height:1.25;
+}
+.hero-name small{
+  display:block;font-size:.85rem;letter-spacing:.5em;color:var(--ink-dim);margin-top:14px;
+  font-family:var(--sans);
+}
+.hero-catch{
+  margin-top:38px;font-family:var(--serif);font-size:clamp(1.05rem,2.4vw,1.45rem);
+  letter-spacing:.14em;line-height:2.1;
+}
+.hero-catch .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{margin-top:20px;max-width:560px;color:var(--ink-dim);font-size:.92rem}
+.axes{display:flex;gap:14px;margin-top:52px;flex-wrap:wrap}
+.axis{
+  font-family:var(--serif);writing-mode:vertical-rl;line-height:1;
+  padding:18px 13px;border:1px solid var(--line);border-radius:6px;
+  letter-spacing:.28em;font-size:.92rem;color:#e3cfa4;white-space:nowrap;
+  background:linear-gradient(to bottom,rgba(201,168,106,.07),transparent);
+}
+.scroll-cue{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:.68rem;letter-spacing:.35em;color:var(--ink-dim);text-align:center;z-index:2;
+}
+.scroll-cue::after{
+  content:"";display:block;width:1px;height:52px;margin:12px auto 0;
+  background:linear-gradient(to bottom,var(--ice),transparent);
+  animation:cue 2s ease-in-out infinite;transform-origin:top;
+}
+@keyframes cue{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* ============ タイムライン ============ */
+.timeline{position:relative;margin:50px 0 0;padding-left:30px}
+.timeline::before{
+  content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;
+  background:linear-gradient(to bottom,var(--ice),var(--violet),var(--kin));
+}
+.tl-item{position:relative;padding:0 0 42px 26px}
+.tl-item::before{
+  content:"";position:absolute;left:-27px;top:9px;width:11px;height:11px;border-radius:50%;
+  background:var(--sumi);border:2px solid var(--ice);
+}
+.tl-item.gold::before{border-color:var(--kin);box-shadow:0 0 12px rgba(201,168,106,.55)}
+.tl-item .year{
+  font-family:var(--serif);color:var(--ice);letter-spacing:.15em;font-size:1.05rem;
+}
+.tl-item.gold .year{color:var(--kin)}
+.tl-item h4{font-size:.98rem;margin:4px 0 6px;letter-spacing:.08em}
+.tl-item p{font-size:.86rem;color:var(--ink-dim)}
+
+/* EQ プログレスバー */
+.eq-bar{margin-top:18px}
+.eq-bar .rail{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.eq-bar .fill{
+  height:100%;width:0;border-radius:99px;background:var(--grad);
+  transition:width 1.8s cubic-bezier(.25,.8,.25,1);
+}
+.eq-bar .cap{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-dim);margin-top:8px}
+
+/* 地名クラウド */
+.places{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.place{
+  font-family:var(--serif);letter-spacing:.18em;padding:10px 20px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.1);background:rgba(31,58,95,.2);
+  font-size:.92rem;transition:all .35s;
+}
+.place:hover{border-color:var(--kin);color:#e3cfa4;transform:translateY(-2px)}
+.place.home{border-color:var(--kin);color:var(--kin);background:rgba(201,168,106,.1)}
+
+/* セクション背景の変化 */
+#work{background:linear-gradient(to bottom,var(--sumi),var(--sumi-2))}
+#hobby{background:var(--sumi-2)}
+#daily{background:linear-gradient(to bottom,var(--sumi-2),var(--ai-deep))}
+#people{background:var(--ai-deep)}
+#roots{
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%,rgba(201,168,106,.09),transparent 70%),
+    linear-gradient(to bottom,var(--ai-deep),var(--sumi));
+}
+#money{background:var(--sumi)}
+#health{background:linear-gradient(to bottom,var(--sumi),var(--sumi-2))}
+#travel{
+  background:
+    radial-gradient(ellipse 55% 45% at 80% 15%,rgba(127,212,228,.08),transparent 70%),
+    var(--sumi-2);
+}
+#contact{background:linear-gradient(to bottom,var(--sumi-2),#0c0e12)}
+
+/* 区切り（和の意匠：斜めの継ぎ目） */
+.kire{height:70px;background:linear-gradient(to right,transparent 49.6%,var(--line) 49.6%,var(--line) 50.4%,transparent 50.4%)}
+
+/* ============ SNS ============ */
+.sns{display:flex;gap:22px;justify-content:center;margin-top:44px}
+.sns a{
+  width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.14);color:var(--ink-dim);transition:all .35s;
+}
+.sns a:hover{border-color:var(--ice);color:var(--ice);transform:translateY(-4px);box-shadow:0 6px 18px rgba(127,212,228,.15)}
+.sns svg{width:22px;height:22px;fill:currentColor}
+footer.site{
+  text-align:center;padding:50px 20px 60px;color:var(--ink-dim);font-size:.75rem;letter-spacing:.15em;
+}
+footer.site .close-line{
+  font-family:var(--serif);font-size:1rem;color:var(--ink);letter-spacing:.25em;margin-bottom:24px;
+}
+footer.site .close-line span{color:var(--kin)}
+
+/* ============ レスポンシブ ============ */
+@media(max-width:860px){
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  nav.gnav{display:none}
+  .dots{right:10px;gap:11px}
+}
+@media(max-width:560px){
+  section.block{padding:80px 0 90px}
+  #hero{padding:90px 0 130px}
+  .g2,.g3{grid-template-columns:1fr}
+  .axes{gap:10px}
+  .axis{font-size:.82rem;padding:14px 10px}
+  #hero .bg-name{right:-8vw;font-size:5.4rem}
+  .lead-copy{font-size:.95rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .scroll-cue::after{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="site" id="siteHeader">
+  <div class="brand">梅津希裕<span>UMETSU</span></div>
+  <nav class="gnav">
+    <a href="#work">仕事・学業</a>
+    <a href="#hobby">趣味</a>
+    <a href="#daily">日常</a>
+    <a href="#people">人間関係</a>
+    <a href="#roots">ルーツ</a>
+    <a href="#money">資産</a>
+    <a href="#health">健康</a>
+    <a href="#travel">旅</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<nav class="dots" id="dotNav" aria-label="セクションナビゲーション"></nav>
+
+<!-- ============ 1. HERO ============ -->
+<section id="hero" data-label="序">
+  <div class="bg-name" id="parallaxName">梅津希裕</div>
+  <div class="grain"></div>
+  <div class="wrap hero-inner">
+    <p class="hero-kicker reveal">Personal Story Site</p>
+    <h1 class="hero-name reveal d1">梅津希裕<small>UMETSU KIHIRO — SALES / LIFELONG LEARNER</small></h1>
+    <p class="hero-catch reveal d2">
+      <span class="grad">三角比から、もう一度。</span><br />
+      境界を越え、言葉を残し、今日も一万歩。
+    </p>
+    <p class="hero-sub reveal d2">
+      高校で数学を手放した文系の営業マンが、二十年余りののち、AIを学び直している。
+      上海と山形、仕事と暮らし、過去と未来——このサイトは、その途中経過の記録です。
+    </p>
+    <div class="axes reveal d3">
+      <div class="axis">学び直す人</div>
+      <div class="axis">越境する人</div>
+      <div class="axis">言葉を残す人</div>
+      <div class="axis">日常を生きる人</div>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<!-- ============ 2. 仕事・学業 ============ -->
+<section id="work" class="block" data-label="仕事・学業">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇一</span>
+      <h2>仕事・学業<span class="en">Work &amp; Learning</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      完璧なスタートではなかった。だからこそ、遅れて始める学び直しには本気が宿る。
+      営業一筋の毎日の傍らで、数学は中学生レベルから積み直している。
+    </p>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <span class="year">高校時代</span>
+        <h4>文系を選び、数学を手放す</h4>
+        <p>当時は、それが合理的な選択に思えた。数学力は中学生レベルのまま社会へ。</p>
+      </div>
+      <div class="tl-item">
+        <span class="year">2003</span>
+        <h4>社会人スタート。以来、営業一筋</h4>
+        <p>医療機器の営業として、現場と経営の両方を見つめ続けて二十年余り。</p>
+      </div>
+      <div class="tl-item">
+        <span class="year">2024</span>
+        <h4>G検定 合格（2024 #5）</h4>
+        <p>AIの全体像を掴む。「ここから先は、数学が要る」と気づいてしまった。</p>
+      </div>
+      <div class="tl-item gold">
+        <span class="year">2026</span>
+        <h4>E資格（2026 #1）へ——三角比からの再出発</h4>
+        <p>sin・cos・tan からやり直し、微分と線形代数へ。遅れてきた本気の学び直し、進行中。</p>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:54px">
+      <div class="card reveal">
+        <h3>語学</h3>
+        <p><strong>HSK3級・TOEIC保有。</strong>毎週の英会話（週2時間弱）を継続中。上海駐在で鍛えた中国語も現役。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>AI × 実務</h3>
+        <p><strong>Copilot を日常使い。</strong>Excel・Word・PowerPoint の資料づくりは、AIとの共同作業へ移行済み。</p>
+      </div>
+      <div class="card reveal d2">
+        <h3>営業というキャリア</h3>
+        <p><strong>2003年から一筋。</strong>売るだけでなく、医療機関の経営と評判に通じた「現場の観察者」でもある。</p>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><span class="num"><span data-count="23">0</span><small> 年</small></span><span class="cap">営業一筋（2003〜）</span></div>
+      <div class="stat"><span class="num"><span data-count="2">0</span><small> 時間/週</small></span><span class="cap">英会話レッスン</span></div>
+      <div class="stat"><span class="num">G検定</span><span class="cap">2024 #5 合格</span></div>
+      <div class="stat"><span class="num">E資格</span><span class="cap">2026 #1 挑戦中</span></div>
+    </div>
+
+    <p class="bridge">学び直す人は、机の上だけでは学ばない。<em>遊びの中にも、教科書がある。</em></p>
+  </div>
+</section>
+
+<div class="kire"></div>
+
+<!-- ============ 3. 趣味・娯楽 ============ -->
+<section id="hobby" class="block" data-label="趣味・娯楽">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇二</span>
+      <h2>趣味・娯楽<span class="en">Hobbies &amp; Culture</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      インプットは雑食、ただし毎日。紙の新聞と図書館の本、耳のポッドキャスト、
+      そして生の音と球場の歓声。80年代の少年の心は、いまも現役です。
+    </p>
+
+    <div class="grid g3">
+      <div class="card reveal">
+        <h3>映画・音楽</h3>
+        <p>「<strong>Michel</strong>」は2026年に<strong>2回</strong>鑑賞。「This is it」は2011年に。年数回の音楽ライブへ——ジャンルは問わない、<strong>生バンド</strong>であることが条件。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>読む・聴く</h3>
+        <p>図書館で機械学習・ビジネス書を<strong>年数十冊</strong>。<strong>日経新聞を毎日</strong>、Voicyなどポッドキャストも<strong>毎日</strong>。インプットに休日はない。</p>
+      </div>
+      <div class="card reveal d2">
+        <h3>観る・応援する</h3>
+        <p>野球・サッカー日本代表戦の観戦、男子ゴルフ観戦。心のホームグラウンドは<strong>80〜90年代のプロ野球</strong>。</p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:18px">
+      <h3>少年時代からの本棚とゲーム機</h3>
+      <p>物語の原体験は、あだち充と水島新司と井上雄彦。ゲームは小中学生時代のものが中心。</p>
+      <div class="tags">
+        <span class="tag wa">タッチ</span><span class="tag wa">ラフ</span><span class="tag wa">H2</span>
+        <span class="tag wa">ドカベン</span><span class="tag wa">スラムダンク</span>
+        <span class="tag">スーパーマリオ</span><span class="tag">ロマンシング サガ</span>
+      </div>
+    </div>
+
+    <p class="bridge">物語に浸ったあとは、現実の生活へ。<em>日常こそ、いちばん長い物語だから。</em></p>
+  </div>
+</section>
+
+<!-- ============ 4. 日常生活 ============ -->
+<section id="daily" class="block" data-label="日常生活">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇三</span>
+      <h2>日常生活<span class="en">Everyday Life</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      キャリアも学びも、足元の暮らしの上に建っている。
+      送迎の車内、PTAの集まり、町内会の週末——地に足のついた時間を、ちゃんと大切に。
+    </p>
+
+    <div class="grid g2">
+      <div class="card reveal">
+        <h3>家族と地域の時間</h3>
+        <p>子の習い事の<strong>送迎</strong>はルーティン。<strong>PTA</strong>と<strong>町内会ボランティア</strong>にも顔を出す。転勤族だからこそ、いま住む町との縁を結ぶ。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>仕事が磨いた生活知</h3>
+        <p>医療機器営業として、<strong>医療機関の経営や評判に詳しい</strong>。家族や知人の「どの病院がいい？」に答えられるのは、ささやかな特技。</p>
+      </div>
+    </div>
+
+    <div class="stats reveal" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><span class="num"><span data-count="10">0</span><small> 年</small></span><span class="cap">ルンバと暮らして</span></div>
+      <div class="stat"><span class="num">PTA</span><span class="cap">＋ 町内会ボランティア</span></div>
+      <div class="stat"><span class="num">毎週</span><span class="cap">子の習い事の送迎</span></div>
+    </div>
+
+    <p class="bridge">床掃除はロボットに任せた。<em>けれど人付き合いは、まだ自動化できない。</em></p>
+  </div>
+</section>
+
+<!-- ============ 5. 人間関係 ============ -->
+<section id="people" class="block" data-label="人間関係">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇四</span>
+      <h2>人間関係・コミュニケーション<span class="en">People &amp; Communication</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      数学と同じで、コミュニケーションにも「学び直し」がある。
+      得意ではない。だから伸びしろしかない——そう考えることにしている。
+    </p>
+
+    <div class="grid g2">
+      <div class="card reveal">
+        <h3>EQ — in progress</h3>
+        <p>心の知能指数は、正直まだ<strong>発展途上</strong>。ただし三角比から数学をやり直せる人間に、伸ばせないものはないはず。</p>
+        <div class="eq-bar">
+          <div class="rail"><div class="fill" data-fill="58"></div></div>
+          <div class="cap"><span>現在地</span><span>成長中 — 目標は生涯アップデート</span></div>
+        </div>
+      </div>
+      <div class="card reveal d1">
+        <h3>これから磨く道具</h3>
+        <p><strong>ファシリテーター資格</strong>の取得を視野に。<strong>Teams / Zoom</strong> のオンライン進行にも習熟したい。そして<strong>年齢を問わず、メンターを求めている</strong>——教わる側でいる勇気も、学び直しのうち。</p>
+      </div>
+    </div>
+
+    <p class="bridge">人との縁を辿っていくと、いつも同じ場所に行き着く。<em>山形、油屋の家。</em></p>
+  </div>
+</section>
+
+<!-- ============ 6. ルーツ ============ -->
+<section id="roots" class="block" data-label="ルーツ">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇五</span>
+      <h2>地域・社会・ルーツ<span class="en">Roots &amp; Regions</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      山形の実家の屋号は「油屋」。高祖父は日本製乳の創業者で、
+      社史には高祖父と曾祖父の寄稿がいまも残る。言葉を残した先祖の、末裔として。
+    </p>
+
+    <div class="grid g2">
+      <div class="card reveal">
+        <h3>屋号「油屋」</h3>
+        <p>山形県出身。実家には代々の屋号が受け継がれる。<strong>高祖父は日本製乳の創業者</strong>。百年を超えて言葉が残るということを、家の歴史が教えてくれた。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>社史に残る寄稿</h3>
+        <p>日本製乳の社史には、<strong>高祖父と曾祖父の寄稿</strong>が収められている。書き残された言葉は、時代を越えて子孫に届く——このサイトも、その系譜のつもりで。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:52px;font-family:var(--serif);letter-spacing:.15em;font-size:1.05rem" class="reveal">転勤族として、馴染んだ土地</h3>
+    <div class="places reveal d1">
+      <span class="place home">山形</span>
+      <span class="place">京都</span><span class="place">大阪</span><span class="place">名古屋</span>
+      <span class="place">岐阜</span><span class="place">四国</span><span class="place">岡山</span>
+      <span class="place">横浜</span><span class="place">新潟</span><span class="place">宮城</span>
+    </div>
+    <p class="reveal d2" style="margin-top:20px;font-size:.86rem;color:var(--ink-dim)">
+      引っ越すたびに、その土地の言葉と食と人に馴染んできた。越境は、海の向こうだけの話ではない。
+    </p>
+
+    <p class="bridge">家を継ぎ、土地に馴染み、そして<em>暮らしの土台は、堅実に築く。</em></p>
+  </div>
+</section>
+
+<div class="kire"></div>
+
+<!-- ============ 7. お金・資産 ============ -->
+<section id="money" class="block" data-label="お金・資産">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇六</span>
+      <h2>お金・資産<span class="en">Money &amp; Assets</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      派手さはない。ただ、長い時間をかけて積み上げるのは得意分野——数学の学び直しと同じ要領で。
+    </p>
+
+    <div class="grid g2">
+      <div class="card reveal">
+        <h3>NISA 運用</h3>
+        <p>コツコツと<strong>長期・積立</strong>で。日経新聞を毎日読む習慣が、そのまま運用の土台になっている。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>マンション大規模修繕委員</h3>
+        <p>住まいの資産価値は、住民の手で守る。<strong>大規模修繕委員</strong>として、数十年単位の計画に向き合う。ここでも「長期戦」。</p>
+      </div>
+    </div>
+
+    <p class="bridge">資産と同じく、<em>体もまた、長期運用である。</em></p>
+  </div>
+</section>
+
+<!-- ============ 8. 体・健康 ============ -->
+<section id="health" class="block" data-label="体・健康">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇七</span>
+      <h2>体・健康<span class="en">Body &amp; Health</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      2002年から週1回のジム通い。E資格より、G検定より、何より長く続いている自己投資がこれ。
+      継続だけは、誰にも負けない。
+    </p>
+
+    <div class="stats reveal">
+      <div class="stat"><span class="num"><span data-count="24">0</span><small> 年</small></span><span class="cap">ジム通い（2002〜・週1回）</span></div>
+      <div class="stat"><span class="num"><span data-count="7">0</span><small> 時間</small></span><span class="cap">毎日の睡眠</span></div>
+      <div class="stat"><span class="num"><span data-count="10000">0</span><small> 歩</small></span><span class="cap">1日の歩数目標</span></div>
+      <div class="stat"><span class="num">0<small> 回</small></span><span class="cap">エスカレーター利用（階段派）</span></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:40px">
+      <div class="card reveal">
+        <h3>嗜みは、資格ではなく趣味として</h3>
+        <p><strong>ワインとコーヒー</strong>。ソムリエやバリスタを目指すのではなく、純粋に美味しく楽しむ。学び直しの人にも、資格を取らない領域がある。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>大人のメンテナンス</h3>
+        <p><strong>成人歯列矯正</strong>と<strong>脱毛</strong>も実践中。「今からでは遅い」と思われがちなことを、遅れて本気でやるのは——もはや芸風です。</p>
+      </div>
+    </div>
+
+    <p class="bridge">階段を上る足で、そのまま<em>世界を歩きに行く。</em></p>
+  </div>
+</section>
+
+<!-- ============ 9. 旅行・外出 ============ -->
+<section id="travel" class="block" data-label="旅行・外出">
+  <div class="wrap">
+    <div class="sec-label reveal">
+      <span class="no">〇八</span>
+      <h2>旅行・外出<span class="en">Travel &amp; Crossing Borders</span></h2>
+    </div>
+    <p class="lead-copy reveal">
+      ブラタモリのように、坂と路地と歴史を読みながら歩く。
+      上海に駐在し、中国の15の省を巡った。越境は、キャリアであり、趣味であり、体質。
+    </p>
+
+    <div class="stats reveal" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><span class="num"><span data-count="15">0</span><small> 省</small></span><span class="cap">中国 歴訪</span></div>
+      <div class="stat"><span class="num"><span data-count="3">0</span><small> 回</small></span><span class="cap">大阪・関西万博（2025）</span></div>
+      <div class="stat"><span class="num">上海</span><span class="cap">元駐在員・マイクロツーリズム愛好</span></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:40px">
+      <div class="card reveal">
+        <h3>これまでの越境</h3>
+        <p>海外単身赴任、<strong>シカゴ出張</strong>、<strong>2023年ハノイ一人旅</strong>。元ANAマイラーで、某ホテルの会員でもある。移動は苦にならない、むしろ栄養。</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>街の歩き方</h3>
+        <p><strong>ブラタモリ的街歩き</strong>が信条。上海では路地裏のマイクロツーリズムを愛好。営業で培った「土地と経営を読む目」は、旅でも働く。</p>
+      </div>
+      <div class="card reveal d2">
+        <h3>これからの越境</h3>
+        <p><strong>Waymoに乗りたい。</strong>サンフランシスコ、メルボルン、西欧諸国へ。そして<strong>留学希望</strong>——学び直しの舞台を、海外にも。</p>
+        <div class="tags">
+          <span class="tag">Waymo</span><span class="tag">San Francisco</span>
+          <span class="tag">Melbourne</span><span class="tag">西欧</span><span class="tag">留学</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="bridge">旅の報告も、学びの途中経過も。<em>言葉にして、残しておくために——</em></p>
+  </div>
+</section>
+
+<!-- ============ 10. SNS・CONTACT ============ -->
+<section id="contact" class="block" data-label="繋がる">
+  <div class="wrap" style="text-align:center">
+    <div class="sec-label reveal" style="justify-content:center">
+      <span class="no">〇九</span>
+      <h2>SNS・Contact<span class="en">Get in Touch</span></h2>
+    </div>
+    <p class="lead-copy reveal" style="margin-left:auto;margin-right:auto;border-left:none;border-top:2px solid var(--kin);padding:18px 0 0">
+      高祖父は社史に言葉を残した。私はここに残していく。<br />
+      学びの仲間も、人生のメンターも、旅の話し相手も——年齢を問わず、歓迎します。
+    </p>
+
+    <div class="sns reveal d1">
+      <a href="#" aria-label="Facebook" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21.9v-7.4h2.5l.4-2.9h-2.9V9.7c0-.85.24-1.43 1.46-1.43h1.55V5.68c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.88v2.16H8v2.9h2.47v7.4z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 4.3c2.5 0 2.8 0 3.8.06 2.53.11 3.71 1.31 3.83 3.83.05 1 .06 1.28.06 3.8s-.01 2.8-.06 3.8c-.12 2.51-1.3 3.72-3.83 3.83-1 .05-1.28.06-3.8.06s-2.8-.01-3.8-.06c-2.53-.12-3.71-1.32-3.83-3.83-.05-1-.06-1.28-.06-3.8s.01-2.79.06-3.8C4.49 5.67 5.67 4.47 8.2 4.36c1-.05 1.3-.06 3.8-.06zM12 2.5c-2.58 0-2.9.01-3.91.06C4.7 2.71 2.8 4.6 2.65 8c-.05 1-.06 1.33-.06 3.9s.01 2.9.06 3.91c.15 3.39 2.04 5.29 5.44 5.44 1 .05 1.33.06 3.91.06s2.9-.01 3.91-.06c3.39-.15 5.29-2.04 5.44-5.44.05-1 .06-1.33.06-3.91s-.01-2.9-.06-3.9c-.15-3.39-2.04-5.29-5.43-5.44-1.02-.05-1.34-.06-3.92-.06zm0 4.62a4.88 4.88 0 1 0 0 9.76 4.88 4.88 0 0 0 0-9.76zm0 8.05a3.17 3.17 0 1 1 0-6.34 3.17 3.17 0 0 1 0 6.34zm5.07-9.39a1.14 1.14 0 1 0 0 2.28 1.14 1.14 0 0 0 0-2.28z"/></svg>
+      </a>
+      <a href="#" aria-label="X" title="X">
+        <svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.22-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.49 2.49 0 0 1 2.5 6 2.49 2.49 0 0 1 0 3.5C0 2.12 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.25h4V23h-4zM8.5 8.25h3.83v2.01h.05c.53-1.01 1.84-2.08 3.78-2.08 4.04 0 4.79 2.66 4.79 6.12V23h-4v-7.6c0-1.81-.03-4.15-2.53-4.15-2.53 0-2.92 1.98-2.92 4.02V23h-4z"/></svg>
+      </a>
+    </div>
+    <p class="reveal d2" style="margin-top:24px;font-size:.8rem;color:var(--ink-dim)">※ 各SNSのリンクは準備中です</p>
+  </div>
+</section>
+
+<footer class="site">
+  <p class="close-line">学び直し、<span>越境し</span>、言葉を残し、<span>日常を生きる。</span></p>
+  <p>&copy; 2026 UMETSU KIHIRO — 物語は、まだ途中。</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* スクロール出現 */
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting)return;
+      e.target.classList.add("in");
+      e.target.querySelectorAll("[data-count]").forEach(countUp);
+      e.target.querySelectorAll(".fill[data-fill]").forEach(f=>{
+        f.style.width=f.dataset.fill+"%";f.removeAttribute("data-fill");
+      });
+      io.unobserve(e.target);
+    });
+  },{threshold:.18});
+  document.querySelectorAll(".reveal,.stats").forEach(el=>io.observe(el));
+
+  /* カウントアップ */
+  function countUp(el){
+    if(el.dataset.done)return;el.dataset.done="1";
+    const target=+el.dataset.count,dur=1600,t0=performance.now();
+    (function tick(t){
+      const p=Math.min((t-t0)/dur,1),eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString("ja-JP");
+      if(p<1)requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  /* ドットナビ生成 */
+  const sections=[...document.querySelectorAll("section[data-label]")];
+  const dotNav=document.getElementById("dotNav");
+  sections.forEach(s=>{
+    const a=document.createElement("a");
+    a.href="#"+s.id;a.dataset.label=s.dataset.label;
+    a.setAttribute("aria-label",s.dataset.label);
+    dotNav.appendChild(a);
+  });
+  const dots=[...dotNav.children];
+  const navLinks=[...document.querySelectorAll("nav.gnav a")];
+
+  const secIO=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const id=e.target.id;
+      dots.forEach(d=>d.classList.toggle("active",d.getAttribute("href")==="#"+id));
+      navLinks.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+id));
+    });
+  },{rootMargin:"-45% 0px -45% 0px"});
+  sections.forEach(s=>secIO.observe(s));
+
+  /* ヘッダー背景・読了バー・ヒーローパララックス */
+  const header=document.getElementById("siteHeader");
+  const progress=document.getElementById("progress");
+  const pName=document.getElementById("parallaxName");
+  let ticking=false;
+  addEventListener("scroll",()=>{
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(()=>{
+      const y=scrollY;
+      header.classList.toggle("scrolled",y>40);
+      const max=document.documentElement.scrollHeight-innerHeight;
+      progress.style.width=(max>0?y/max*100:0)+"%";
+      if(pName)pName.style.transform="translateY(calc(-50% + "+y*.18+"px))";
+      ticking=false;
+    });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
