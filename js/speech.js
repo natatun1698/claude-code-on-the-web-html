@@ -1,6 +1,8 @@
 /* =========================================================
  * speech.js — ブラウザ標準の音声認識/音声合成のラッパー
  * 非対応環境(または失敗時)はテキスト入力へフォールバックする。
+ * 声質(性別傾向・ピッチ)は data.js の VOICE_PREF で指定する:
+ *   VOICE_PREF = { genderRegex: /.../, pitch: 1.0 }
  * ========================================================= */
 
 const SpeechIO = {
@@ -56,9 +58,9 @@ const SpeechIO = {
     if (this.ttsSupported()) {
       const pickVoice = () => {
         const voices = speechSynthesis.getVoices();
-        // 日本語の男性系ボイスを優先(部長=高橋先生)
+        // data.jsのVOICE_PREF.genderRegexに合う日本語ボイスを優先
         this.voice =
-          voices.find((v) => v.lang.startsWith("ja") && /male|男性|otoya|ichiro|keita|daichi|hattori/i.test(v.name)) ||
+          voices.find((v) => v.lang.startsWith("ja") && VOICE_PREF.genderRegex.test(v.name)) ||
           voices.find((v) => v.lang.startsWith("ja")) ||
           null;
       };
@@ -69,7 +71,7 @@ const SpeechIO = {
 
   startListening() {
     if (!this.recognition || this.listening) return;
-    // 部長が話している最中は聞き取らない(自声拾い防止)
+    // 相手が話している最中は聞き取らない(自声拾い防止)
     this.stopSpeaking();
     try {
       this.recognition.start();
@@ -86,7 +88,7 @@ const SpeechIO = {
     }
   },
 
-  /* 部長のセリフを読み上げる。onDone は読み上げ完了(またはTTS不可)時に呼ぶ */
+  /* 相手のセリフを読み上げる。onDone は読み上げ完了(またはTTS不可)時に呼ぶ */
   speak(text, onDone) {
     if (!this.ttsEnabled || !this.ttsSupported()) {
       if (onDone) onDone();
@@ -97,7 +99,7 @@ const SpeechIO = {
     u.lang = "ja-JP";
     if (this.voice) u.voice = this.voice;
     u.rate = 1.05;
-    u.pitch = 0.95;
+    u.pitch = VOICE_PREF.pitch;
     let called = false;
     const done = () => { if (!called) { called = true; if (onDone) onDone(); } };
     u.onend = done;

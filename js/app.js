@@ -93,7 +93,7 @@ function renderThemeCards() {
 function renderSetup() {
   $("#setup-summary").innerHTML = `
     <div class="summary-row"><span>シーン</span><strong>${state.scene.emoji} ${state.scene.name}</strong></div>
-    <div class="summary-row"><span>部長</span><strong>${state.mode.emoji} ${state.mode.name}</strong></div>
+    <div class="summary-row"><span>${ROLE_LABEL}</span><strong>${state.mode.emoji} ${state.mode.name}</strong></div>
     <div class="summary-row"><span>評価テーマ</span><strong>🎯 ${state.theme.name}</strong></div>`;
   $("#theme-tip").textContent = "💡 " + state.theme.tip;
   $$("#duration-list .chip").forEach((c) => {
@@ -113,7 +113,7 @@ function addBubble(role, text) {
   const log = $("#chat-log");
   const div = document.createElement("div");
   div.className = `bubble ${role}`;
-  const label = role === "bucho" ? "部長" : "あなた";
+  const label = role === "npc" ? ROLE_LABEL : "あなた";
   div.innerHTML = `<span class="bubble-label">${label}</span><span class="bubble-text"></span>`;
   div.querySelector(".bubble-text").textContent = text;
   log.appendChild(div);
@@ -153,7 +153,7 @@ function updateTimerDisplay() {
 
 /* ---------- セッション ---------- */
 function startSession() {
-  state.engine = new BuchoAI(state.scene.id, state.mode.id, state.theme.id);
+  state.engine = new RoleAI(state.scene.id, state.mode.id, state.theme.id);
   state.sessionActive = true;
   $("#chat-log").innerHTML = "";
   $("#play-header-info").textContent = `${state.scene.name}｜${state.mode.name}｜🎯${state.theme.name}`;
@@ -168,7 +168,7 @@ function startSession() {
   startTimer();
 
   const opener = state.engine.openerText();
-  addBubble("bucho", opener);
+  addBubble("npc", opener);
   SpeechIO.speak(opener);
 }
 
@@ -178,7 +178,7 @@ function playerSpoke(text) {
   const res = state.engine.respond(text);
   setTimeout(() => {
     if (!state.sessionActive) return;
-    addBubble("bucho", res.text);
+    addBubble("npc", res.text);
     SpeechIO.speak(res.text, () => {
       if (res.end && state.sessionActive) {
         setTimeout(() => endSession(res.event === "walkout"), 800);
@@ -216,7 +216,7 @@ function renderResult(r, stats) {
   $("#result-theme").textContent = `🎯 評価テーマ：${state.theme.name}`;
   $("#result-grade").textContent = r.grade;
   $("#result-grade").className = "grade grade-" + { "◎": "best", "○": "good", "△": "ok", "×": "bad" }[r.grade];
-  $("#result-score").textContent = `部長攻略度 ${r.score}点`;
+  $("#result-score").textContent = `${ROLE_LABEL}攻略度 ${r.score}点`;
   $("#result-title").textContent = `称号：${r.title}`;
   $("#result-detail").textContent = r.detail || "";
   $("#result-walkout").hidden = !r.walkout;
