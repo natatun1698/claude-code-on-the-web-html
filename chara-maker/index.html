@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>そっくりメーカー | AIキャラクター作成</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+  <h1>🎨 そっくりメーカー</h1>
+  <p class="tagline">50種類以上のパーツで、あの人そっくりのキャラクターを</p>
+  <nav class="top-nav">
+    <button id="nav-editor" class="nav-btn active">✏️ つくる</button>
+    <button id="nav-collection" class="nav-btn">📚 コレクション <span id="collection-count" class="badge">0</span></button>
+  </nav>
+</header>
+
+<main id="view-editor" class="view">
+  <div class="editor-layout">
+
+    <!-- プレビュー -->
+    <section class="preview-pane">
+      <div class="preview-card">
+        <svg id="avatar-svg" viewBox="0 0 320 360" aria-label="キャラクタープレビュー"></svg>
+        <input id="chara-name" type="text" placeholder="なまえを入力" maxlength="20">
+        <div class="preview-actions">
+          <button id="btn-save" class="btn primary">💾 保存する</button>
+          <button id="btn-random" class="btn">🎲 おまかせ</button>
+          <button id="btn-png" class="btn">🖼️ PNG書き出し</button>
+        </div>
+        <div class="ai-suggest-box">
+          <h3>🤖 AIサジェスト(ベータ)</h3>
+          <p>写真から肌・髪の色味と雰囲気を解析して、近いパーツ構成を提案します。写真は端末内でのみ処理され、送信・保存されません。</p>
+          <label class="btn small" for="photo-input">📷 写真を選ぶ</label>
+          <input type="file" id="photo-input" accept="image/*" hidden>
+          <canvas id="photo-canvas" hidden></canvas>
+          <p id="suggest-status" class="suggest-status"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- パーツ選択 -->
+    <section class="parts-pane">
+      <div id="category-tabs" class="category-tabs"></div>
+      <div class="parts-header">
+        <span id="parts-count" class="parts-count"></span>
+        <span id="parts-hint" class="parts-hint"></span>
+      </div>
+      <div id="parts-grid" class="parts-grid"></div>
+      <div id="fine-tune" class="fine-tune"></div>
+    </section>
+
+  </div>
+</main>
+
+<main id="view-collection" class="view" hidden>
+  <div class="collection-toolbar">
+    <h2>📚 コレクション</h2>
+    <div>
+      <button id="btn-export-json" class="btn small">⬇️ 全体をJSON保存</button>
+      <label class="btn small" for="import-json">⬆️ JSON読み込み</label>
+      <input type="file" id="import-json" accept="application/json" hidden>
+    </div>
+  </div>
+  <div id="collection-grid" class="collection-grid"></div>
+  <p id="collection-empty" class="collection-empty">まだキャラクターがいません。「つくる」から最初の1体を作ってみましょう！</p>
+</main>
+
+<div id="toast" class="toast" hidden></div>
+<footer class="app-footer">ログイン不要・すべての処理はブラウザ内で完結します(データはこの端末のブラウザに保存されます)</footer>
+<script src="parts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
