@@ -1,5 +1,5 @@
 /* =========================================================
- * engine.js — 事務長AI(ルールベース対話エンジン)と自動採点
+ * engine.js — 部長AI(ルールベース対話エンジン)と自動採点
  * ========================================================= */
 
 /* ---------- 発言解析 ---------- */
@@ -28,11 +28,11 @@ function pick(arr) {
 }
 
 /* =========================================================
- * 事務長AI
+ * 部長AI
  * respond(playerText) => { text, end, event }
  *   event: "walkout"(打ち切り) | "done"(シーン完了) | null
  * ========================================================= */
-class JimuchoAI {
+class BuchoAI {
   constructor(sceneId, modeId, themeId) {
     this.scene = SCENES.find((s) => s.id === sceneId);
     this.mode = MODES[modeId];
@@ -44,8 +44,8 @@ class JimuchoAI {
     this.usedSimplifyB = false;
     this.askedJargon = new Set(); // 同じ用語で二度は聞き返さない
     this.injectedDiscountPush = false; // テーマ2で価格シーン以外に1回だけ値引き圧を注入
-    this.lastCat = "need";   // 直前に事務長が投げた質問カテゴリ(採点用)
-    this.turns = [];         // {player:analysis, jimucho:text, cat, interrupted, jargonAsked, discountPushed}
+    this.lastCat = "need";   // 直前に部長が投げた質問カテゴリ(採点用)
+    this.turns = [];         // {player:analysis, bucho:text, cat, interrupted, jargonAsked, discountPushed}
     this.finished = false;
   }
 
@@ -130,9 +130,9 @@ class JimuchoAI {
       rec.discountPushed = true;
       this.lastCat = "cost";
       const push = {
-        A: "ところでね、お値段のことなんだけど…他社さんはずいぶんお安くしてくださるみたいなの。おたくは、お値引きはどうなのかしら？",
+        A: "ところでね、お値段のことなんですが…他社さんはずいぶんお安くしてくださるみたいでね。おたくは、お値引きはどうなんですか？",
         B: "話は変わりますが、価格の件です。他社さんは値引きに応じるそうですよ。御社はいかがですか。",
-        C: "ちょっと待って、先にお金の話。他社はもっと下げるって言ってるの。おたくはいくら引けるの？",
+        C: "ちょっと待って、先にお金の話。他社はもっと下げるって言ってるんだよ。おたくはいくら引けるの？",
       }[this.mode.id];
       return this.out(rec, prefix + push);
     }
@@ -184,7 +184,7 @@ class JimuchoAI {
   }
 
   out(rec, text, event = null, end = false) {
-    rec.jimucho = text;
+    rec.bucho = text;
     return { text, event, end };
   }
 }
@@ -201,7 +201,7 @@ function scoreSession(engine, walkout) {
     result = {
       score: 0, grade: "×", goodQuote: null,
       improvement: {
-        point: "発言がありませんでした。まずは一言、事務長に話しかけてみましょう。",
+        point: "発言がありませんでした。まずは一言、部長に話しかけてみましょう。",
         example: "「本日はお時間をいただきありがとうございます。結論から申しますと〜」",
       },
     };
@@ -259,8 +259,8 @@ function scoreT1(turns) {
 
   const improvement = worstTerm
     ? {
-        point: `専門用語「${worstTerm}」が事務長には通じていません。使うなら必ず身近な言葉に言い換えましょう。`,
-        example: `「${worstTerm}」→「簡単に言うと、少ないX線でもはっきりした画像が撮れる仕組みです。患者さんの体への負担が減ります」のように言い換える。`,
+        point: `専門用語「${worstTerm}」が部長には通じていません。使うなら必ず患者さん・病院のメリットに言い換えましょう。`,
+        example: `「${worstTerm}」→「簡単に言うと、少ないX線でも血管がくっきり見える仕組みです。患者さんの被ばくが減ります」のように翻訳する。`,
       }
     : {
         point: "専門用語は避けられていました。次は「例えば〜」と身近なたとえを加えると、さらに伝わります。",
@@ -285,7 +285,7 @@ function scoreT2(turns) {
       score -= 30;
     }
     if (a.discountRefused) score += 10;
-    // 事務長が値引き圧をかけた直後の発言を重視
+    // 部長が値引き圧をかけた直後の発言を重視
     const pushed = i > 0 && turns[i - 1].discountPushed;
     for (const c of a.valueCats) {
       if (!catsUsed.has(c)) {
@@ -305,16 +305,16 @@ function scoreT2(turns) {
   const improvement = offered
     ? {
         point: "値引きを口にしてしまいました。自社は値引き不可の設定です。価格の土俵に乗らず、価値の話に切り替えましょう。",
-        example: "「申し訳ありません、お値引きは致しかねます。その代わり、故障時は最短で駆けつけて検査を止めません。止まった1日の損失を考えると、決して高くないはずです」",
+        example: "「申し訳ありません、お値引きは致しかねます。その代わり、患者さんの被ばくと処置時間を減らせます。1件あたりの時間が縮めば治療件数も増やせますので、決して高くないはずです」",
       }
     : catsUsed.size < 3
     ? {
-        point: `価格以外の価値の引き出しが${catsUsed.size}種類でした。保守の速さ・患者への安全性・操作性・実績など、複数の武器を組み合わせましょう。`,
-        example: "「価格では他社様に及びませんが、故障時の復旧の速さと、患者さんの体への負担の少なさでは負けません」",
+        point: `価格以外の価値の引き出しが${catsUsed.size}種類でした。被ばく低減・処置時間短縮・安全性・実績・画質・保守など、複数の武器を組み合わせましょう。`,
+        example: "「価格では他社様に及びませんが、患者さんの被ばくの少なさと、故障時の復旧の速さでは負けません」",
       }
     : {
-        point: "価値の引き出しは十分です。次は事務長の一番の関心事(理事長への説明材料)に絞って一言でまとめる練習をしましょう。",
-        example: "「理事長には『検査が止まらない安心を買う』とお伝えください」",
+        point: "価値の引き出しは十分です。次は部長の一番の関心事(院長・事務への説明材料)に絞って一言でまとめる練習をしましょう。",
+        example: "「院長には『患者さんの被ばくを減らしながら治療件数を増やせる投資』とお伝えください」",
       };
   return { score, grade: "", goodQuote, improvement, detail: `価値カテゴリ: ${catsUsed.size}種類 / 値引き発言: ${offered}回` };
 }
@@ -347,28 +347,28 @@ function scoreT3(turns) {
 
   const improvement = interrupted || longCount
     ? {
-        point: "発言が長く、事務長を待たせてしまう場面がありました。まず結論、理由は1つだけ、が鉄則です。",
-        example: "「結論から申しますと、検査が止まらないことが一番のメリットです。理由は、故障時の駆けつけが最短だからです」",
+        point: "発言が長く、部長を待たせてしまう場面がありました。まず結論、理由は1つだけ、が鉄則です。",
+        example: "「結論から申しますと、患者さんの被ばくを減らせることが一番のメリットです。理由は、少ないX線でも血管がくっきり見えるからです」",
       }
     : conclusionCount === 0
     ? {
         point: "発言は簡潔でしたが、「結論から言うと」という頭出しがありませんでした。最初の一言で相手の集中を掴みましょう。",
-        example: "「結論から申しますと、御院の検査待ちの問題はこの1台で解消できます」",
+        example: "「結論から申しますと、御院の治療の待ち患者さんの問題はこの1台で改善できます」",
       }
     : {
         point: "結論から簡潔に話せています。次は数字を1つだけ添えると、さらに説得力が上がります。",
-        example: "「結論から言うと、技師さんの作業時間を1件あたり数分短縮できます」",
+        example: "「結論から言うと、処置時間を1件あたり数分短縮できます」",
       };
   return { score, grade: "", goodQuote, improvement, detail: `平均文字数: ${Math.round(avg)}字 / 遮られた回数: ${interrupted}回` };
 }
 
 /* --- テーマ4: 質問の意図を汲み取る --- */
 const CAT_KEYWORDS = {
-  cost:   /円|万円|価格|費用|コスト|お見積|見積|投資|回収|修理代|維持費|ランニング/,
+  cost:   /円|万円|億|価格|費用|コスト|お見積|見積|投資|回収|修理代|維持費|ランニング/,
   diff:   /違い|他社|比べ|強み|選ぶ理由|差別化|当社は|弊社は|一番の|独自/,
-  safety: /安全|安心|放射線|X線|エックス線|体への|負担が少な|やさし/,
-  ops:    /負担|残業|操作|使いやす|運用|技師|職員|スタッフ|時間|手間|故障|修理|保守|止ま/,
-  sched:  /か月|ヶ月|カ月|納期|間に合|スケジュール|日程|発注|納入|設置|稼働/,
+  safety: /安全|安心|被ば?く|放射線|X線|エックス線|線量|体への|負担が少な|やさし/,
+  ops:    /負担|処置時間|治療時間|短縮|件数|操作|使いやす|運用|先生|術者|看護師|スタッフ|時間|手間|故障|修理|保守|止ま/,
+  sched:  /か月|ヶ月|カ月|半年|年度|納期|間に合|スケジュール|日程|発注|納入|設置|稼働/,
   need:   /ご提案|ご紹介|目的|課題|お役に立|解決|お手伝い|伺い|説明/,
   next:   /デモ|見学|お見積|見積|来週|次回|訪問|日程|資料|アポ|ご都合|お持ち/,
 };
@@ -395,17 +395,17 @@ function scoreT4(turns) {
   let score = 30 + ratio * 70;
 
   const catNames = {
-    cost: "費用・お金", diff: "他社との違い", safety: "患者さんへの安全性",
-    ops: "運用・職員の負担", sched: "納期・スケジュール", need: "用件・目的", next: "次のアクション",
+    cost: "費用・お金", diff: "他社との違い", safety: "患者さんの安全・被ばく",
+    ops: "処置時間・スタッフの負担", sched: "納期・スケジュール", need: "用件・目的", next: "次のアクション",
   };
   const improvement = missedCat
     ? {
-        point: `事務長が「${catNames[missedCat]}」について聞いた場面で、質問の意図から外れた答えになっていました。まず聞かれたことに一言で答えてから、補足しましょう。`,
+        point: `部長が「${catNames[missedCat]}」について聞いた場面で、質問の意図から外れた答えになっていました。まず聞かれたことに一言で答えてから、補足しましょう。`,
         example: `「はい、${catNames[missedCat]}についてお答えしますと〜」と、質問の言葉をオウム返ししてから答える。`,
       }
     : {
         point: "質問の意図はよく汲み取れていました。次は答えたあとに「ご質問の意図に合っていますか？」と確認する一言を加えましょう。",
-        example: "「〜という理解でお答えしましたが、事務長が気にされているのはこの点でよろしいですか？」",
+        example: "「〜という理解でお答えしましたが、先生が気にされているのはこの点でよろしいですか？」",
       };
   return { score, grade: "", goodQuote, improvement, detail: `質問への的中: ${hit}/${asked}` };
 }
