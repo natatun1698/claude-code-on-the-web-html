@@ -24,12 +24,14 @@ description: 梅津希裕 公式パーソナルサイト(umetsu.html)と紹介�
 - セクションは `<section id="…" data-title="…">`。ヘッダーnavと右側ドットnavは `data-title` から自動生成される（JS）
 - 演出：`.rv`(+`.d1〜.d3`)=IntersectionObserverフェードイン、`.cnt[data-n]`=カウントアップ、`.fill[data-w]`=プログレスバー、`.stats`=数値バンド、`.timeline`=年表
 - 配色トークンは `:root` の CSS変数（--sumi 墨 / --ai 藍 / --kin 金茶 / --grad テックグラデ）。和モダン×テクノロジーの基調を崩さない。原色・ネオンは使わない
+- 年号をカウントアップ表示するときは `.cnt` に `data-plain="1"` を付ける（付けないと `toLocaleString` でカンマ区切りになり「2,026年」のような誤表記になる）。歩数など桁区切りが自然な数値には付けない
+- SNSアイコン（`.sns-icons`）は実URLを直書き。プレースホルダー（`href="#"`）に戻さない
 
 ## 動画の再生成（media/ 配下）
 
 1. **フォント準備（コンテナ初回のみ）**: Google FontsのTTFを取得し `/usr/local/share/fonts` に配置して `fc-cache -f`。Shippori Minchoはウェイト別ファミリー名になっているため、fonttoolsで nameID 1/4/16 を "Shippori Mincho" に統一してから配置する（さもないとChromiumで明朝が出ない）
 2. **撮影**: `node media/shoot.mjs` — Playwright（グローバル導入済み、実行バイナリ `/opt/pw-browsers/chromium`）で各セクションを 1920×1080 相当で `media/shots/` に撮影
-3. **BGM**: `python3 media/bgm.py` — D都節音階の琴風プラック＋パッドを純Pythonで64秒合成 → `media/bgm.wav`
+3. **BGM**: `python3 media/bgm.py` — Cメジャー・ペンタトニックの明るく弾む曲調（BPM122、スウィング、シェイカー＋ベース＋メロディ）を純Pythonで64秒合成 → `media/bgm.wav`。曲調を変えたいときは `PENTA`/`CHORD`（音階・コード）と `BPM`/`SWING`（テンポ・跳ね感）を調整する
 4. **合成**: `FFMPEG=<フルビルドffmpeg> bash media/build-video.sh` — Ken Burns（zoompan）＋クロスフェードで約64秒の `umetsu-intro.mp4` を出力。Playwright同梱のffmpegはlibx264非対応なので、`pip install imageio-ffmpeg` のバイナリ（`python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"`）を使う
 
 セクションを増減したら `media/shoot.mjs` の `ids` 配列と `media/build-video.sh` の `SHOTS` 配列、スライド秒数 `D`（合計≈60秒になるよう調整）を揃える。
