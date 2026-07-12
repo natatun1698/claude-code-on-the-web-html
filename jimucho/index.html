@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>営業ロープレ道場 — 循環器内科部長攻略トレーニング</title>
-  <meta name="description" content="医療機器営業のための音声ロールプレイング練習アプリ。明日の商談前に5分だけ、循環器内科の部長を攻略する練習を。" />
+  <title>営業ロープレ道場 — 事務長攻略トレーニング</title>
+  <meta name="description" content="医用機器営業のための音声ロールプレイング練習アプリ。明日の商談前に5分だけ、事務長を攻略する練習を。" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <section class="screen active" id="screen-top">
     <header class="app-header">
       <h1>🏥 営業ロープレ道場</h1>
-      <p class="subtitle">循環器内科部長攻略トレーニング</p>
+      <p class="subtitle">事務長攻略トレーニング</p>
       <p class="stats-badge" id="stats-badge"></p>
     </header>
     <div class="lead">
@@ -23,17 +23,17 @@
     </div>
     <div class="card-list" id="scene-list"></div>
     <footer class="app-footer">
-      <p>商材：血管撮影装置「Trinias OPERA B8」(本体約1億円)／顧客：循環器内科の部長</p>
+      <p>商材：X線透視診断装置「SONIALVISION G4シリーズ」／顧客：病院の事務長</p>
     </footer>
   </section>
 
-  <!-- 2. 部長モード選択 -->
+  <!-- 2. 事務長モード選択 -->
   <section class="screen" id="screen-mode">
     <header class="screen-header">
       <button class="btn-back" data-back="top">← 戻る</button>
-      <h2>相手の部長を選ぶ</h2>
+      <h2>相手の事務長を選ぶ</h2>
     </header>
-    <p class="lead-small">今日はどんな部長と練習しますか？</p>
+    <p class="lead-small">今日はどんな事務長と練習しますか？</p>
     <div class="card-list" id="mode-list"></div>
   </section>
 
@@ -63,7 +63,7 @@
         <button class="chip" data-min="15">15分</button>
         <button class="chip" data-min="20">20分</button>
       </div>
-      <p class="note">🎤 マイクに向かって話すと、部長が音声で返事をします。</p>
+      <p class="note">🎤 マイクに向かって話すと、事務長が音声で返事をします。</p>
       <p class="note" id="stt-note" hidden></p>
       <button class="btn-primary btn-big" id="btn-start">▶ ロープレ開始</button>
     </div>
@@ -88,7 +88,7 @@
       </div>
       <div id="text-controls" hidden>
         <div class="text-row">
-          <textarea id="text-input" rows="2" placeholder="部長への発言を入力…" enterkeyhint="send"></textarea>
+          <textarea id="text-input" rows="2" placeholder="事務長への発言を入力…" enterkeyhint="send"></textarea>
           <button class="btn-send" id="btn-send">送信</button>
         </div>
       </div>
@@ -106,7 +106,7 @@
     </header>
     <div class="result-box">
       <p class="result-theme" id="result-theme"></p>
-      <p class="walkout-note" id="result-walkout" hidden>😱 部長に商談を打ち切られました…</p>
+      <p class="walkout-note" id="result-walkout" hidden>😱 事務長に商談を打ち切られました…</p>
       <div class="grade" id="result-grade">○</div>
       <p class="result-score" id="result-score"></p>
       <p class="result-title" id="result-title"></p>
@@ -135,8 +135,8 @@
   <div class="toast" id="toast"></div>
 
   <script src="js/data.js"></script>
-  <script src="js/engine.js"></script>
-  <script src="js/speech.js"></script>
-  <script src="js/app.js"></script>
+  <script src="../js/engine.js"></script>
+  <script src="../js/speech.js"></script>
+  <script src="../js/app.js"></script>
 </body>
 </html>
