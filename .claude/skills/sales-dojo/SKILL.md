@@ -81,6 +81,11 @@ AI Assist(技師の負担軽減)、保守の速さ。顧客計画: 2か月以内
 
 - **SpeechRecognitionは毎回新規生成**(iOS Safariは再利用すると2回目以降無反応)。
   start()例外は新インスタンスで150ms後に1回だけ再試行。
+- **iOS Safariはfinal結果(isFinal)を返さないまま認識終了することが多い**。
+  `interimResults=true`にしてinterimをバッファし、**onendで確定して届ける**
+  (onresultでは届けない)。破棄するインスタンスには`_discard`を立てて
+  onendでの誤配信を防ぐ。読み上げ停止直後のマイク開始も失敗しやすいので
+  start前に150ms待つ。
 - TTS中はSTTを止める(自声拾い防止)。音声で発言した場合のみ、相手の
   読み上げ完了後にマイクを自動再開。SafariのTTS onend不発対策に
   保険タイマー(1500+len*220ms、上限30s)。
