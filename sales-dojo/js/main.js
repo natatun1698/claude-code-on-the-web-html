@@ -205,6 +205,11 @@ function bindPlayControls() {
     $("btn-mic").textContent = on ? "🎙 聞き取り中…タップで停止" : "🎤 タップして話す";
   };
   Voice.onText = (text) => playerSaid(text, true);
+  Voice.onInterim = (text) => {
+    // 聞き取り中の途中経過をボタンに表示(認識が動いていることを可視化)
+    const t = text.length > 15 ? "…" + text.slice(-15) : text;
+    $("btn-mic").textContent = "🎙 " + t;
+  };
   Voice.onNotice = (msg) => notice(msg);
 
   $("btn-input-toggle").onclick = () => {

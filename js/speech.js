@@ -48,13 +48,20 @@ const SpeechIO = {
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     const rec = new SR();
     rec.lang = "ja-JP";
-    rec.interimResults = false;
+    // iOS Safariはfinal結果を返さないまま終了することが多いため、
+    // interimも受け取ってバッファし、認識終了時(onend)に確定させる。
+    rec.interimResults = true;
     rec.continuous = false;
     rec.maxAlternatives = 1;
 
+    let buf = "";
     rec.onresult = (e) => {
-      const text = Array.from(e.results).map((r) => r[0].transcript).join("");
-      if (text.trim() && this.onResult) this.onResult(text.trim());
+      let final = "", interim = "";
+      for (const r of e.results) {
+        if (r.isFinal) final += r[0].transcript;
+        else interim += r[0].transcript;
+      }
+      buf = (final || interim).trim();
     };
     rec.onend = () => {
       if (this.recognition === rec) {
@@ -62,6 +69,9 @@ const SpeechIO = {
         this.listening = false;
         if (this.onStateChange) this.onStateChange(false);
       }
+      const text = buf.trim();
+      buf = "";
+      if (text && !rec._discard && this.onResult) this.onResult(text);
     };
     rec.onerror = (e) => {
       if (this.recognition === rec) {
@@ -85,12 +95,14 @@ const SpeechIO = {
     if (!this.sttSupported() || this.listening) return;
     // 相手が話している最中は聞き取らない(自声拾い防止)
     this.stopSpeaking();
-    // 前回のインスタンスが残っていれば破棄
+    // 前回のインスタンスが残っていれば破棄(その結果は届けない)
     if (this.recognition) {
+      this.recognition._discard = true;
       try { this.recognition.abort(); } catch (_) {}
       this.recognition = null;
     }
     const tryStart = (retry) => {
+      if (this.listening) return;
       const rec = this._createRecognition();
       this.recognition = rec;
       try {
@@ -108,7 +120,8 @@ const SpeechIO = {
         }
       }
     };
-    tryStart(true);
+    // iOSは読み上げ停止直後のマイク開始に失敗しやすいため、少し待ってから開始
+    setTimeout(() => tryStart(true), 150);
   },
 
   stopListening() {
