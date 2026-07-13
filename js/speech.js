@@ -3,10 +3,14 @@
  * 非対応環境(または失敗時)はテキスト入力へフォールバックする。
  * 声質(性別傾向・ピッチ)は data.js の VOICE_PREF で指定する:
  *   VOICE_PREF = { genderRegex: /.../, pitch: 1.0 }
+ *
+ * 音声認識は毎回新しいインスタンスを生成する。
+ * iOS Safari は同一インスタンスの再利用で2回目以降の start() が
+ * 無反応になるため、使い回しは不可。
  * ========================================================= */
 
 const SpeechIO = {
-  recognition: null,
+  recognition: null,  // 現在アクティブな認識インスタンス
   listening: false,
   ttsEnabled: true,
   voice: null,
@@ -25,36 +29,6 @@ const SpeechIO = {
   },
 
   init() {
-    if (this.sttSupported()) {
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const rec = new SR();
-      rec.lang = "ja-JP";
-      rec.interimResults = false;
-      rec.continuous = false;
-      rec.maxAlternatives = 1;
-
-      rec.onresult = (e) => {
-        const text = Array.from(e.results).map((r) => r[0].transcript).join("");
-        if (text.trim() && this.onResult) this.onResult(text.trim());
-      };
-      rec.onend = () => {
-        this.listening = false;
-        if (this.onStateChange) this.onStateChange(false);
-      };
-      rec.onerror = (e) => {
-        this.listening = false;
-        if (this.onStateChange) this.onStateChange(false);
-        if (e.error === "not-allowed" || e.error === "service-not-allowed") {
-          if (this.onError) this.onError("マイクの使用が許可されていません。テキスト入力をご利用ください。");
-        } else if (e.error === "no-speech") {
-          if (this.onError) this.onError("音声が聞き取れませんでした。もう一度話すか、テキスト入力をどうぞ。");
-        } else if (e.error !== "aborted") {
-          if (this.onError) this.onError("音声認識に失敗しました。テキスト入力でも続けられます。");
-        }
-      };
-      this.recognition = rec;
-    }
-
     if (this.ttsSupported()) {
       const pickVoice = () => {
         const voices = speechSynthesis.getVoices();
@@ -69,23 +43,80 @@ const SpeechIO = {
     }
   },
 
-  startListening() {
-    if (!this.recognition || this.listening) return;
+  /* 認識インスタンスを新規生成(毎回) */
+  _createRecognition() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const rec = new SR();
+    rec.lang = "ja-JP";
+    rec.interimResults = false;
+    rec.continuous = false;
+    rec.maxAlternatives = 1;
+
+    rec.onresult = (e) => {
+      const text = Array.from(e.results).map((r) => r[0].transcript).join("");
+      if (text.trim() && this.onResult) this.onResult(text.trim());
+    };
+    rec.onend = () => {
+      if (this.recognition === rec) {
+        this.recognition = null;
+        this.listening = false;
+        if (this.onStateChange) this.onStateChange(false);
+      }
+    };
+    rec.onerror = (e) => {
+      if (this.recognition === rec) {
+        this.recognition = null;
+        this.listening = false;
+        if (this.onStateChange) this.onStateChange(false);
+      }
+      if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+        if (this.onError) this.onError("マイクの使用が許可されていません。テキスト入力をご利用ください。");
+      } else if (e.error === "no-speech") {
+        if (this.onError) this.onError("音声が聞き取れませんでした。もう一度話すか、テキスト入力をどうぞ。");
+      } else if (e.error !== "aborted") {
+        if (this.onError) this.onError("音声認識に失敗しました。テキスト入力でも続けられます。");
+      }
+    };
+    return rec;
+  },
+
+  /* silent=true のとき、開始に失敗してもエラー表示しない(自動再開用) */
+  startListening(silent) {
+    if (!this.sttSupported() || this.listening) return;
     // 相手が話している最中は聞き取らない(自声拾い防止)
     this.stopSpeaking();
-    try {
-      this.recognition.start();
-      this.listening = true;
-      if (this.onStateChange) this.onStateChange(true);
-    } catch (_) {
-      /* 連続start等は無視 */
+    // 前回のインスタンスが残っていれば破棄
+    if (this.recognition) {
+      try { this.recognition.abort(); } catch (_) {}
+      this.recognition = null;
     }
+    const tryStart = (retry) => {
+      const rec = this._createRecognition();
+      this.recognition = rec;
+      try {
+        rec.start();
+        this.listening = true;
+        if (this.onStateChange) this.onStateChange(true);
+      } catch (_) {
+        // 直前セッションの終了処理中などで start() が例外を投げることがある。
+        // 新しいインスタンスで少し待ってから1回だけやり直す。
+        this.recognition = null;
+        if (retry) {
+          setTimeout(() => { if (!this.listening) tryStart(false); }, 150);
+        } else if (!silent && this.onError) {
+          this.onError("マイクを開始できませんでした。もう一度タップしてください。");
+        }
+      }
+    };
+    tryStart(true);
   },
 
   stopListening() {
-    if (this.recognition && this.listening) {
+    if (this.recognition) {
       try { this.recognition.stop(); } catch (_) {}
     }
+    this.listening = false;
+    if (this.onStateChange) this.onStateChange(false);
   },
 
   /* 相手のセリフを読み上げる。onDone は読み上げ完了(またはTTS不可)時に呼ぶ */

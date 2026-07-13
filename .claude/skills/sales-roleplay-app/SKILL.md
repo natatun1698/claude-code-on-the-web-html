@@ -139,7 +139,8 @@ engine.js/speech.js/app.js は上記グローバルにのみ依存し、**商材
 - [ ] iPhone Safari / Windows Chrome・Edge で動作(webkitSpeechRecognition対応)
 - [ ] STT非対応ブラウザでは自動的にテキスト入力モード、切替ボタンは常設
 - [ ] TTSは `voiceschanged` で日本語ボイスを選択(`VOICE_PREF.genderRegex`で性別傾向を指定)、Safariのonend不発対策に保険タイマー
-- [ ] マイクはタップして話す方式(自声拾い防止のためTTS中は認識しない)
+- [ ] マイクはタップして話す方式(自声拾い防止のためTTS中は認識しない)。音声で話した後は相手の返答終了時に自動でマイクを再開する
+- [ ] **SpeechRecognitionインスタンスは使い回さず、startのたびに新規生成する**(iOS Safariは同一インスタンスの2回目以降のstartが無反応になる)。start()の例外は新インスタンスで1回だけ自動リトライ
 - [ ] `100dvh` + `env(safe-area-inset-bottom)` でモバイルレイアウト
 - [ ] タップターゲット44px以上、textareaのEnter送信はisComposing(日本語IME)を除外
 - [ ] localStorageアクセスはtry/catchで包む(プライベートブラウズ対策)
