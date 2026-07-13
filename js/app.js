@@ -182,6 +182,15 @@ function playerSpoke(text) {
     SpeechIO.speak(res.text, () => {
       if (res.end && state.sessionActive) {
         setTimeout(() => endSession(res.event === "walkout"), 800);
+        return;
+      }
+      // 音声で話していた場合は、相手の返答後に自動でマイクを再開する
+      if (state.sessionActive && state.inputMode === "voice" && state.lastInputVoice) {
+        setTimeout(() => {
+          if (state.sessionActive && state.inputMode === "voice" && !SpeechIO.listening) {
+            SpeechIO.startListening(true);
+          }
+        }, 300);
       }
     });
     if (res.end && !SpeechIO.ttsEnabled) {
@@ -205,6 +214,7 @@ function endSession(walkout) {
 /* ---------- 入力モード(音声/テキスト) ---------- */
 function setInputMode(mode) {
   const voice = mode === "voice";
+  if (!voice) SpeechIO.stopListening();
   $("#voice-controls").hidden = !voice;
   $("#text-controls").hidden = voice;
   $("#btn-input-toggle").textContent = voice ? "⌨️ テキスト入力に切替" : "🎤 音声入力に切替";
@@ -234,7 +244,10 @@ function renderResult(r, stats) {
 /* ---------- 初期化 ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   SpeechIO.init();
-  SpeechIO.onResult = (text) => playerSpoke(text);
+  SpeechIO.onResult = (text) => {
+    state.lastInputVoice = true;
+    playerSpoke(text);
+  };
   SpeechIO.onStateChange = (listening) => {
     const btn = $("#btn-mic");
     btn.classList.toggle("listening", listening);
@@ -274,6 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const text = input.value.trim();
     if (!text) return;
     input.value = "";
+    state.lastInputVoice = false;
     playerSpoke(text);
   };
   $("#btn-send").onclick = sendText;
