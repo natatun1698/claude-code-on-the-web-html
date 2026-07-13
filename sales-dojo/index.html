@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>商談ロープレ道場 — 事務長攻略トレーニング</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥋</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. トップ: シーン選択 -->
+  <section id="screen-home" class="screen active">
+    <header>
+      <h1>🥋 商談ロープレ道場</h1>
+      <div class="sub">営業は本番、ロープレは練習。明日の商談前に5分だけ。</div>
+    </header>
+    <main>
+      <div class="stats">
+        <div><strong id="stat-total">0</strong><span>通算回数</span></div>
+        <div><strong id="stat-streak">0</strong><span>連続日数</span></div>
+        <div><strong id="stat-best">-</strong><span>自己ベスト</span></div>
+      </div>
+      <p class="step">STEP 1/4</p>
+      <h2>練習するシーンを選んでください</h2>
+      <div id="scene-list" class="card-list"></div>
+    </main>
+  </section>
+
+  <!-- 2. 事務長モード選択 -->
+  <section id="screen-mode" class="screen">
+    <header>
+      <h1>🥋 商談ロープレ道場</h1>
+      <div class="sub">相手は病院の山田事務長(医療の専門家ではありません)</div>
+    </header>
+    <main>
+      <p class="step">STEP 2/4</p>
+      <h2>今日の事務長を選んでください</h2>
+      <div id="mode-list" class="card-list"></div>
+      <button class="btn ghost" data-back="screen-home">← シーン選択に戻る</button>
+    </main>
+  </section>
+
+  <!-- 3. 評価テーマ選択 -->
+  <section id="screen-theme" class="screen">
+    <header>
+      <h1>🥋 商談ロープレ道場</h1>
+      <div class="sub">フィードバックは1回につき1テーマだけ</div>
+    </header>
+    <main>
+      <p class="step">STEP 3/4</p>
+      <h2>今日鍛えるテーマを1つ選んでください</h2>
+      <div id="theme-list" class="card-list"></div>
+      <button class="btn ghost" data-back="screen-mode">← 事務長選択に戻る</button>
+    </main>
+  </section>
+
+  <!-- 4. 準備画面 -->
+  <section id="screen-prep" class="screen">
+    <header>
+      <h1>🥋 商談ロープレ道場</h1>
+      <div class="sub">準備ができたら開始。マイクの許可を求められたら「許可」を。</div>
+    </header>
+    <main>
+      <p class="step">STEP 4/4</p>
+      <h2>この内容で練習を始めます</h2>
+      <div id="prep-summary" class="summary"></div>
+      <p id="prep-tip" class="tip"></p>
+      <h2>練習時間(残り時間タイマーを表示します)</h2>
+      <div id="time-list" class="time-row">
+        <button data-min="5">5分</button>
+        <button data-min="10">10分</button>
+        <button data-min="15">15分</button>
+        <button data-min="20">20分</button>
+      </div>
+      <button id="btn-start" class="btn primary">▶ ロープレ開始</button>
+      <button class="btn ghost" data-back="screen-theme">← テーマ選択に戻る</button>
+    </main>
+  </section>
+
+  <!-- 5. ロープレ画面 -->
+  <section id="screen-play" class="screen">
+    <div class="playbar">
+      <span class="name" id="play-title"></span>
+      <span id="timer">10:00</span>
+      <button id="btn-quit">終了する</button>
+    </div>
+    <div id="chat-log"></div>
+    <div class="inputs">
+      <div id="panel-voice">
+        <button id="btn-mic">🎤 タップして話す</button>
+      </div>
+      <div id="panel-text" style="display:none">
+        <div class="text-row">
+          <textarea id="text-input" rows="1" placeholder="発言を入力(Enterで送信)"></textarea>
+          <button id="btn-send">送信</button>
+        </div>
+      </div>
+      <div class="small-row">
+        <button id="btn-input-toggle" data-mode="voice">⌨️ テキストに切替</button>
+        <button id="btn-tts">🔊 読み上げON</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 結果画面 -->
+  <section id="screen-result" class="screen">
+    <header>
+      <h1>🥋 商談ロープレ道場</h1>
+      <div class="sub">お疲れさまでした!今日の評価テーマの結果です</div>
+    </header>
+    <main>
+      <div class="result-hero">
+        <div id="result-grade">◎</div>
+        <div id="result-theme"></div>
+        <div id="result-score"></div>
+        <div><span id="result-title"></span></div>
+        <div id="result-detail"></div>
+      </div>
+      <p id="result-note"></p>
+      <div class="result-block">
+        <h3 class="good">✅ 良かった発言</h3>
+        <p id="result-quote"></p>
+      </div>
+      <div class="result-block">
+        <h3 class="improve">💡 改善点(1つだけ)</h3>
+        <p id="result-improve-point"></p>
+        <p id="result-improve-example"></p>
+      </div>
+      <p id="result-streak"></p>
+      <button id="btn-again" class="btn primary">🔁 同じ条件でもう一度</button>
+      <button id="btn-next-theme" class="btn primary">🎯 次のテーマへ</button>
+      <button id="btn-home" class="btn ghost">トップに戻る</button>
+    </main>
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/dialog.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
