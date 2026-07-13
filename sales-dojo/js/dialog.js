@@ -44,8 +44,17 @@ class CustomerAI {
     this.askedJargon = new Set();   // 同じ用語は1回だけ聞き返す
     this.pushInjected = false;      // テーマ2の値引き圧注入は1回だけ
     this.lastCat = "need";
+    this.lastNpc = "";              // 直前の自分のセリフ(同一セリフの連続を防ぐ)
+    this.answeredCats = new Set();  // プレイヤーの質問に答えたカテゴリ
+    this.noQuestionCount = 0;       // ヒアリングで質問が来なかった回数
     this.turns = [];                // 採点用ログ
     this.finished = false;
+  }
+
+  /* 直前と同じセリフを避けて選ぶ */
+  pickFresh(arr) {
+    const rest = arr.filter((t) => t !== this.lastNpc);
+    return randomOf(rest.length ? rest : arr);
   }
 
   opener() {
@@ -66,7 +75,7 @@ class CustomerAI {
     if (a.len > this.mode.interruptLen && !a.conclusionFirst) {
       rec.interrupted = true;
       if (++this.strikes >= this.mode.maxStrikes) return this._walkout(rec);
-      return this._say(rec, randomOf(INTERRUPT_C));
+      return this._say(rec, this.pickFresh(INTERRUPT_C));
     }
 
     /* 2. 専門用語には必ず聞き返す(同じ用語は1回) */
@@ -75,14 +84,14 @@ class CustomerAI {
       this.askedJargon.add(term);
       rec.jargonAsked = term;
       if (this.mode.id === "C" && ++this.strikes >= this.mode.maxStrikes) return this._walkout(rec);
-      return this._say(rec, randomOf(JARGON_REPLIES[this.mode.id]).replace(/\{term\}/g, term));
+      return this._say(rec, this.pickFresh(JARGON_REPLIES[this.mode.id]).replace(/\{term\}/g, term));
     }
 
     /* 3. 値引きの申し出には揺さぶり */
     if (a.discountOffered) {
       rec.discountPushed = true;
       if (this.mode.id === "C" && ++this.strikes >= this.mode.maxStrikes) return this._walkout(rec);
-      return this._say(rec, randomOf(DISCOUNT_SHAKE[this.mode.id]));
+      return this._say(rec, this.pickFresh(DISCOUNT_SHAKE[this.mode.id]));
     }
 
     /* 4. 値引きを断り価値で切り返した → 認めて前進 */
@@ -101,6 +110,19 @@ class CustomerAI {
     /* 6. モードC: 歯切れのよい返答で信頼回復 */
     if (this.mode.id === "C" && (a.conclusionFirst || a.len <= 60)) {
       this.strikes = Math.max(0, this.strikes - 1);
+    }
+
+    /* 6.5 通常シーン: プレイヤーの質問には台本を進める前に答える
+       (直前の会話を無視して次の質問へ進んでしまう問題の対策) */
+    if (!this.scene.qaDriven && a.isQuestion) {
+      const cat = ["cost", "sched", "ops", "diff", "next", "need"].find((c) => CAT_KEYWORDS[c].test(a.text));
+      if (cat && QA_BANK[cat]) {
+        const repeat = this.answeredCats.has(cat);
+        this.answeredCats.add(cat);
+        this.lastCat = cat;
+        const ans = QA_BANK[cat][this.mode.id];
+        return this._say(rec, prefix + (repeat ? QA_REPEAT_PREFIX[this.mode.id] + ans : ans));
+      }
     }
 
     /* 7. テーマ2: 価格シーン以外でも1回だけ値引き圧を注入 */
@@ -122,7 +144,14 @@ class CustomerAI {
         return this._finish(rec, prefix);
       }
       if (this.mode.id === "C" && ++this.strikes >= this.mode.maxStrikes) return this._walkout(rec);
-      return this._say(rec, prefix + this.scene.noQuestion[this.mode.id]);
+      // 2回目以降は同じセリフを繰り返さず、聞き方のヒントを添える
+      const hint = {
+        A: "そうですねえ……例えば「いま何にお困りですか」と聞いていただければ、いくらでもお話ししますよ。",
+        B: "繰り返しますが、今日はヒアリングです。課題・予算・スケジュール、どこからでも質問してください。",
+        C: "だから、質問。課題でも金でも納期でも、聞けば答えます。次で最後ですよ。",
+      };
+      const text = this.noQuestionCount++ ? hint[this.mode.id] : this.scene.noQuestion[this.mode.id];
+      return this._say(rec, prefix + text);
     }
 
     /* 9. 通常シーン: beat → followup → クローズ */
@@ -152,6 +181,7 @@ class CustomerAI {
 
   _say(rec, text, event = null, end = false) {
     rec.npc = text;
+    this.lastNpc = text;
     return { text, event, end };
   }
 }
