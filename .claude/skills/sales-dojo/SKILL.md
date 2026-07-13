@@ -58,8 +58,13 @@ AI Assist(技師の負担軽減)、保守の速さ。顧客計画: 2か月以内
 ### CustomerAI.reply()の優先順位(dialog.js)
 1. C:長い前置き→遮る 2. 新出専門用語→聞き返す 3. 値引き申し出→揺さぶり
 4. 値引き拒否+価値→承認 5. B:わかりにくい→1回聞き返す 6. C:歯切れ良い→回復
+6.5. 通常シーンでプレイヤーが質問(QUESTION_RE+CAT_KEYWORDS一致)したら、
+台本を進める前にQA_BANK[cat]で文脈回答(同カテゴリ2回目はQA_REPEAT_PREFIX付き)
 7. テーマt2かつ非価格シーン→1回だけ値引き圧注入 8. ヒアリング(qaDriven)は
-質問時のみnugget開示 9. beat→followup→closerでend。
+質問時のみnugget開示(質問なし2回目以降はヒント文に変える) 9. beat→followup→closerでend。
+※同一セリフの連続はpickFresh(lastNpcと同文を避ける)で防ぐ。
+※ロープレ画面は `#screen-play{height:100dvh;overflow:hidden}` で画面内スクロールに
+固定し、タイマーバーが常に見えるようにする(iPhoneでタイマーが隠れる問題の対策)。
 
 ### 採点(scoreSession、選択テーマのみ評価・他観点に言及しない)
 - t1 専門用語: 100点減点型(用語-12、言い換え併用-6、言い換えボーナス+4×3まで)
