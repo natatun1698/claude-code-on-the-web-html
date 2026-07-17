@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>営業ロープレ道場 — 分析センター長攻略トレーニング</title>
+  <meta name="description" content="分析機器営業のための音声ロールプレイング練習アプリ。明日の商談前に5分だけ、分析センター長を攻略する練習を。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧪</text></svg>" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- 1. トップ: シーン選択 -->
+  <section class="screen active" id="screen-top">
+    <header class="app-header">
+      <h1>🧪 営業ロープレ道場</h1>
+      <p class="subtitle">分析センター長攻略トレーニング</p>
+      <p class="stats-badge" id="stats-badge"></p>
+    </header>
+    <div class="lead">
+      <p><strong>営業は本番、ロープレは練習。</strong>練習なしで商談に出るのは、練習なしで試合に出るのと同じです。</p>
+      <p>明日の商談前に <strong>5分だけ</strong>。練習したいシーン・ケースを選んでください。</p>
+    </div>
+    <div class="card-list" id="scene-list"></div>
+    <footer class="app-footer">
+      <p>商材：ガスクロマトグラフ「Nexis GC-2060」+ MMI／顧客：製造業研究所の分析センター長(田中さん・GC歴20年)</p>
+    </footer>
+  </section>
+
+  <!-- 2. センター長モード選択 -->
+  <section class="screen" id="screen-mode">
+    <header class="screen-header">
+      <button class="btn-back" data-back="top">← 戻る</button>
+      <h2>相手のセンター長を選ぶ</h2>
+    </header>
+    <p class="lead-small">今日はどんなセンター長と練習しますか？</p>
+    <div class="card-list" id="mode-list"></div>
+  </section>
+
+  <!-- 3. 評価テーマ選択 -->
+  <section class="screen" id="screen-theme">
+    <header class="screen-header">
+      <button class="btn-back" data-back="mode">← 戻る</button>
+      <h2>評価テーマを1つだけ選ぶ</h2>
+    </header>
+    <p class="lead-small">今日の練習で磨くポイントは<strong>1つだけ</strong>。それ以外は評価されません。</p>
+    <div class="card-list" id="theme-list"></div>
+  </section>
+
+  <!-- 4. 練習時間・開始 -->
+  <section class="screen" id="screen-setup">
+    <header class="screen-header">
+      <button class="btn-back" data-back="theme">← 戻る</button>
+      <h2>準備OK？</h2>
+    </header>
+    <div class="setup-box">
+      <div id="setup-summary"></div>
+      <p class="theme-tip" id="theme-tip"></p>
+      <h3>練習時間</h3>
+      <div class="chip-list" id="duration-list">
+        <button class="chip" data-min="5">5分</button>
+        <button class="chip selected" data-min="10">10分</button>
+        <button class="chip" data-min="15">15分</button>
+        <button class="chip" data-min="20">20分</button>
+      </div>
+      <p class="note">🎤 マイクに向かって話すと、センター長が音声で返事をします。</p>
+      <p class="note" id="stt-note" hidden></p>
+      <button class="btn-primary btn-big" id="btn-start">▶ ロープレ開始</button>
+    </div>
+  </section>
+
+  <!-- 5. 音声ロープレ画面 -->
+  <section class="screen" id="screen-play">
+    <header class="play-header">
+      <div class="timer" id="timer">10:00</div>
+      <div class="play-header-info" id="play-header-info"></div>
+      <button class="btn-end" id="btn-end">終了</button>
+    </header>
+
+    <div class="chat-log" id="chat-log"></div>
+
+    <div class="input-area">
+      <div id="voice-controls">
+        <button class="btn-mic" id="btn-mic">
+          <span class="mic-icon">🎤</span>
+          <span class="mic-label">タップして話す</span>
+        </button>
+      </div>
+      <div id="text-controls" hidden>
+        <div class="text-row">
+          <textarea id="text-input" rows="2" placeholder="センター長への発言を入力…" enterkeyhint="send"></textarea>
+          <button class="btn-send" id="btn-send">送信</button>
+        </div>
+      </div>
+      <div class="input-options">
+        <button class="btn-option" id="btn-input-toggle">⌨️ テキスト入力に切替</button>
+        <button class="btn-option" id="btn-tts-toggle">🔊 読み上げON</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 結果画面 -->
+  <section class="screen" id="screen-result">
+    <header class="screen-header">
+      <h2>結果発表</h2>
+    </header>
+    <div class="result-box">
+      <p class="result-theme" id="result-theme"></p>
+      <p class="walkout-note" id="result-walkout" hidden>😱 センター長に商談を打ち切られました…</p>
+      <div class="grade" id="result-grade">○</div>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-title" id="result-title"></p>
+      <p class="result-detail" id="result-detail"></p>
+
+      <div class="feedback-block">
+        <h3>👍 良かった発言</h3>
+        <p class="quote" id="result-quote"></p>
+      </div>
+      <div class="feedback-block">
+        <h3>💪 改善点（1つだけ）</h3>
+        <p id="result-improve-point"></p>
+        <p class="example"><strong>言い換え例：</strong><span id="result-improve-example"></span></p>
+      </div>
+
+      <p class="stats-badge" id="result-stats"></p>
+
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-retry">🔁 もう一度</button>
+        <button class="btn-secondary" id="btn-next-theme">🎯 次のテーマへ</button>
+        <button class="btn-tertiary" id="btn-top">トップへ戻る</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="../js/engine.js"></script>
+  <script src="../js/speech.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
