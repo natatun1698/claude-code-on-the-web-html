@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Sales Roleplay Dojo — Cardiology Director Conquest Training</title>
+  <meta name="description" content="A voice roleplay practice app for medical device sales reps. Just 5 minutes before tomorrow's meeting, practice winning over a cardiology department director." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- 1. Top: scene selection -->
+  <section class="screen active" id="screen-top">
+    <header class="app-header">
+      <h1>🏥 Sales Roleplay Dojo</h1>
+      <p class="subtitle">Cardiology Director Conquest Training</p>
+      <p class="stats-badge" id="stats-badge"></p>
+    </header>
+    <div class="lead">
+      <p><strong>The sales call is the real game; roleplay is practice.</strong> Walking into a meeting without practice is like playing a match without practice.</p>
+      <p>Just <strong>5 minutes</strong> before tomorrow's meeting. Pick the scene you want to practice.</p>
+    </div>
+    <div class="card-list" id="scene-list"></div>
+    <footer class="app-footer">
+      <p>Product: Angiography system "Trinias OPERA B8" (unit price approx. $1,000,000) / Customer: Director of Cardiology</p>
+    </footer>
+  </section>
+
+  <!-- 2. Director mode selection -->
+  <section class="screen" id="screen-mode">
+    <header class="screen-header">
+      <button class="btn-back" data-back="top">← Back</button>
+      <h2>Choose your Director</h2>
+    </header>
+    <p class="lead-small">What kind of director are you practicing with today?</p>
+    <div class="card-list" id="mode-list"></div>
+  </section>
+
+  <!-- 3. Evaluation theme selection -->
+  <section class="screen" id="screen-theme">
+    <header class="screen-header">
+      <button class="btn-back" data-back="mode">← Back</button>
+      <h2>Pick exactly one evaluation theme</h2>
+    </header>
+    <p class="lead-small">Today's practice hones <strong>one thing only</strong>. Nothing else gets evaluated.</p>
+    <div class="card-list" id="theme-list"></div>
+  </section>
+
+  <!-- 4. Duration & start -->
+  <section class="screen" id="screen-setup">
+    <header class="screen-header">
+      <button class="btn-back" data-back="theme">← Back</button>
+      <h2>Ready?</h2>
+    </header>
+    <div class="setup-box">
+      <div id="setup-summary"></div>
+      <p class="theme-tip" id="theme-tip"></p>
+      <h3>Practice time</h3>
+      <div class="chip-list" id="duration-list">
+        <button class="chip" data-min="5">5 min</button>
+        <button class="chip selected" data-min="10">10 min</button>
+        <button class="chip" data-min="15">15 min</button>
+        <button class="chip" data-min="20">20 min</button>
+      </div>
+      <p class="note">🎤 Speak into the mic, and the director will reply out loud.</p>
+      <p class="note" id="stt-note" hidden></p>
+      <button class="btn-primary btn-big" id="btn-start">▶ Start Roleplay</button>
+    </div>
+  </section>
+
+  <!-- 5. Voice roleplay screen -->
+  <section class="screen" id="screen-play">
+    <header class="play-header">
+      <div class="timer" id="timer">10:00</div>
+      <div class="play-header-info" id="play-header-info"></div>
+      <button class="btn-end" id="btn-end">End</button>
+    </header>
+
+    <div class="chat-log" id="chat-log"></div>
+
+    <div class="input-area">
+      <div id="voice-controls">
+        <button class="btn-mic" id="btn-mic">
+          <span class="mic-icon">🎤</span>
+          <span class="mic-label">Tap to speak</span>
+        </button>
+      </div>
+      <div id="text-controls" hidden>
+        <div class="text-row">
+          <textarea id="text-input" rows="2" placeholder="Type what you'd say to the director…" enterkeyhint="send"></textarea>
+          <button class="btn-send" id="btn-send">Send</button>
+        </div>
+      </div>
+      <div class="input-options">
+        <button class="btn-option" id="btn-input-toggle">⌨️ Switch to text input</button>
+        <button class="btn-option" id="btn-tts-toggle">🔊 Voice ON</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Result screen -->
+  <section class="screen" id="screen-result">
+    <header class="screen-header">
+      <h2>Results</h2>
+    </header>
+    <div class="result-box">
+      <p class="result-theme" id="result-theme"></p>
+      <p class="walkout-note" id="result-walkout" hidden>😱 The director cut the meeting short…</p>
+      <div class="grade" id="result-grade">○</div>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-title" id="result-title"></p>
+      <p class="result-detail" id="result-detail"></p>
+
+      <div class="feedback-block">
+        <h3>👍 Good line</h3>
+        <p class="quote" id="result-quote"></p>
+      </div>
+      <div class="feedback-block">
+        <h3>💪 One thing to improve</h3>
+        <p id="result-improve-point"></p>
+        <p class="example"><strong>Rewrite example:</strong><span id="result-improve-example"></span></p>
+      </div>
+
+      <p class="stats-badge" id="result-stats"></p>
+
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-retry">🔁 Try again</button>
+        <button class="btn-secondary" id="btn-next-theme">🎯 Next theme</button>
+        <button class="btn-tertiary" id="btn-top">Back to top</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="../js-en/engine.js"></script>
+  <script src="../js-en/speech.js"></script>
+  <script src="../js-en/app.js"></script>
+</body>
+</html>
