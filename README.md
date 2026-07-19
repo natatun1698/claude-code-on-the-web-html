@@ -5,6 +5,7 @@
 | 🏥 営業ロープレ道場 | `/jimucho/`・`/bucho/` | 医療機器営業向け音声ロールプレイング練習 |
 | 🎨 そっくりメーカー | `/chara-maker/` | 顔パーツ50種以上×微調整で作るAIキャラクター作成・コレクション(詳細は `chara-maker/PROPOSAL.md`) |
 | 🥋 商談ロープレ道場 | `/sales-dojo/` | 医用機器営業向け音声ロープレ練習(山田事務長攻略・完全自己完結版。初回ガイド: `sales-dojo/docs/`、スキル: `.claude/skills/sales-dojo/`) |
+| ⚖️ 医療機器業公正競争規約Q&A | `/kiyaku-qa/` | 公正競争規約(公取協)のOK/NGを根拠条文つきで答えるチャットボット(取説: `kiyaku-qa/docs/`、スキル: `.claude/skills/kiyaku-qa/`) |
 
 いずれもログイン不要・完全クライアントサイドの静的Webアプリです。
 
