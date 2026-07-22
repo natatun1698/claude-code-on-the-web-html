@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Dojo de Roleplay de Vendas — Treinamento para Conquistar o Diretor de Cardiologia</title>
+  <meta name="description" content="Um aplicativo de prática de roleplay por voz para vendedores de equipamentos médicos. Em apenas 5 minutos antes da reunião de amanhã, treine para conquistar um diretor de cardiologia." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- 1. Início: seleção de cena -->
+  <section class="screen active" id="screen-top">
+    <header class="app-header">
+      <h1>🏥 Dojo de Roleplay de Vendas</h1>
+      <p class="subtitle">Treinamento para Conquistar o Diretor de Cardiologia</p>
+      <p class="stats-badge" id="stats-badge"></p>
+    </header>
+    <div class="lead">
+      <p><strong>A venda é o jogo de verdade; o roleplay é o treino.</strong> Entrar em uma reunião sem praticar é como jogar uma partida sem treinar.</p>
+      <p>Só <strong>5 minutos</strong> antes da reunião de amanhã. Escolha a cena que você quer praticar.</p>
+    </div>
+    <div class="card-list" id="scene-list"></div>
+    <footer class="app-footer">
+      <p>Produto: sistema de angiografia "Trinias OPERA B8" (preço unitário aprox. US$ 1.000.000) / Cliente: Diretor de Cardiologia</p>
+    </footer>
+  </section>
+
+  <!-- 2. Seleção do modo do diretor -->
+  <section class="screen" id="screen-mode">
+    <header class="screen-header">
+      <button class="btn-back" data-back="top">← Voltar</button>
+      <h2>Escolha seu diretor</h2>
+    </header>
+    <p class="lead-small">Com que tipo de diretor você vai praticar hoje?</p>
+    <div class="card-list" id="mode-list"></div>
+  </section>
+
+  <!-- 3. Seleção do tema de avaliação -->
+  <section class="screen" id="screen-theme">
+    <header class="screen-header">
+      <button class="btn-back" data-back="mode">← Voltar</button>
+      <h2>Escolha exatamente um tema de avaliação</h2>
+    </header>
+    <p class="lead-small">O treino de hoje foca em <strong>uma coisa só</strong>. Nada além disso será avaliado.</p>
+    <div class="card-list" id="theme-list"></div>
+  </section>
+
+  <!-- 4. Duração e início -->
+  <section class="screen" id="screen-setup">
+    <header class="screen-header">
+      <button class="btn-back" data-back="theme">← Voltar</button>
+      <h2>Pronto?</h2>
+    </header>
+    <div class="setup-box">
+      <div id="setup-summary"></div>
+      <p class="theme-tip" id="theme-tip"></p>
+      <h3>Tempo de prática</h3>
+      <div class="chip-list" id="duration-list">
+        <button class="chip" data-min="5">5 min</button>
+        <button class="chip selected" data-min="10">10 min</button>
+        <button class="chip" data-min="15">15 min</button>
+        <button class="chip" data-min="20">20 min</button>
+      </div>
+      <p class="note">🎤 Fale no microfone e o diretor vai responder em voz alta.</p>
+      <p class="note" id="stt-note" hidden></p>
+      <button class="btn-primary btn-big" id="btn-start">▶ Iniciar Roleplay</button>
+    </div>
+  </section>
+
+  <!-- 5. Tela do roleplay por voz -->
+  <section class="screen" id="screen-play">
+    <header class="play-header">
+      <div class="timer" id="timer">10:00</div>
+      <div class="play-header-info" id="play-header-info"></div>
+      <button class="btn-end" id="btn-end">Encerrar</button>
+    </header>
+
+    <div class="chat-log" id="chat-log"></div>
+
+    <div class="input-area">
+      <div id="voice-controls">
+        <button class="btn-mic" id="btn-mic">
+          <span class="mic-icon">🎤</span>
+          <span class="mic-label">Toque para falar</span>
+        </button>
+      </div>
+      <div id="text-controls" hidden>
+        <div class="text-row">
+          <textarea id="text-input" rows="2" placeholder="Digite o que você diria ao diretor…" enterkeyhint="send"></textarea>
+          <button class="btn-send" id="btn-send">Enviar</button>
+        </div>
+      </div>
+      <div class="input-options">
+        <button class="btn-option" id="btn-input-toggle">⌨️ Mudar para entrada de texto</button>
+        <button class="btn-option" id="btn-tts-toggle">🔊 Voz ativada</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Tela de resultado -->
+  <section class="screen" id="screen-result">
+    <header class="screen-header">
+      <h2>Resultado</h2>
+    </header>
+    <div class="result-box">
+      <p class="result-theme" id="result-theme"></p>
+      <p class="walkout-note" id="result-walkout" hidden>😱 O diretor encerrou a reunião antes do tempo…</p>
+      <div class="grade" id="result-grade">○</div>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-title" id="result-title"></p>
+      <p class="result-detail" id="result-detail"></p>
+
+      <div class="feedback-block">
+        <h3>👍 Boa fala</h3>
+        <p class="quote" id="result-quote"></p>
+      </div>
+      <div class="feedback-block">
+        <h3>💪 Um ponto a melhorar</h3>
+        <p id="result-improve-point"></p>
+        <p class="example"><strong>Exemplo de reformulação:</strong><span id="result-improve-example"></span></p>
+      </div>
+
+      <p class="stats-badge" id="result-stats"></p>
+
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-retry">🔁 Tentar de novo</button>
+        <button class="btn-secondary" id="btn-next-theme">🎯 Próximo tema</button>
+        <button class="btn-tertiary" id="btn-top">Voltar ao início</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="../js-pt/engine.js"></script>
+  <script src="../js-pt/speech.js"></script>
+  <script src="../js-pt/app.js"></script>
+</body>
+</html>
