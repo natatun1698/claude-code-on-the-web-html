@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Dojo de Roleplay de Ventas — Entrenamiento para Conquistar al Director de Cardiología</title>
+  <meta name="description" content="Una aplicación de práctica de roleplay por voz para vendedores de equipos médicos. En solo 5 minutos antes de la reunión de mañana, entrena para conquistar a un director de cardiología." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- 1. Inicio: selección de escena -->
+  <section class="screen active" id="screen-top">
+    <header class="app-header">
+      <h1>🏥 Dojo de Roleplay de Ventas</h1>
+      <p class="subtitle">Entrenamiento para Conquistar al Director de Cardiología</p>
+      <p class="stats-badge" id="stats-badge"></p>
+    </header>
+    <div class="lead">
+      <p><strong>La venta es el juego real; el roleplay es la práctica.</strong> Entrar a una reunión sin practicar es como jugar un partido sin entrenar.</p>
+      <p>Solo <strong>5 minutos</strong> antes de la reunión de mañana. Elige la escena que quieres practicar.</p>
+    </div>
+    <div class="card-list" id="scene-list"></div>
+    <footer class="app-footer">
+      <p>Producto: sistema de angiografía "Trinias OPERA B8" (precio unitario aprox. US$ 1.000.000) / Cliente: Director de Cardiología</p>
+    </footer>
+  </section>
+
+  <!-- 2. Selección del modo del director -->
+  <section class="screen" id="screen-mode">
+    <header class="screen-header">
+      <button class="btn-back" data-back="top">← Volver</button>
+      <h2>Elige a tu director</h2>
+    </header>
+    <p class="lead-small">¿Con qué tipo de director vas a practicar hoy?</p>
+    <div class="card-list" id="mode-list"></div>
+  </section>
+
+  <!-- 3. Selección del tema de evaluación -->
+  <section class="screen" id="screen-theme">
+    <header class="screen-header">
+      <button class="btn-back" data-back="mode">← Volver</button>
+      <h2>Elige exactamente un tema de evaluación</h2>
+    </header>
+    <p class="lead-small">La práctica de hoy se enfoca en <strong>una sola cosa</strong>. Nada más se evaluará.</p>
+    <div class="card-list" id="theme-list"></div>
+  </section>
+
+  <!-- 4. Duración e inicio -->
+  <section class="screen" id="screen-setup">
+    <header class="screen-header">
+      <button class="btn-back" data-back="theme">← Volver</button>
+      <h2>¿Listo?</h2>
+    </header>
+    <div class="setup-box">
+      <div id="setup-summary"></div>
+      <p class="theme-tip" id="theme-tip"></p>
+      <h3>Tiempo de práctica</h3>
+      <div class="chip-list" id="duration-list">
+        <button class="chip" data-min="5">5 min</button>
+        <button class="chip selected" data-min="10">10 min</button>
+        <button class="chip" data-min="15">15 min</button>
+        <button class="chip" data-min="20">20 min</button>
+      </div>
+      <p class="note">🎤 Habla por el micrófono y el director te responderá en voz alta.</p>
+      <p class="note" id="stt-note" hidden></p>
+      <button class="btn-primary btn-big" id="btn-start">▶ Iniciar Roleplay</button>
+    </div>
+  </section>
+
+  <!-- 5. Pantalla del roleplay por voz -->
+  <section class="screen" id="screen-play">
+    <header class="play-header">
+      <div class="timer" id="timer">10:00</div>
+      <div class="play-header-info" id="play-header-info"></div>
+      <button class="btn-end" id="btn-end">Terminar</button>
+    </header>
+
+    <div class="chat-log" id="chat-log"></div>
+
+    <div class="input-area">
+      <div id="voice-controls">
+        <button class="btn-mic" id="btn-mic">
+          <span class="mic-icon">🎤</span>
+          <span class="mic-label">Toca para hablar</span>
+        </button>
+      </div>
+      <div id="text-controls" hidden>
+        <div class="text-row">
+          <textarea id="text-input" rows="2" placeholder="Escribe lo que le dirías al director…" enterkeyhint="send"></textarea>
+          <button class="btn-send" id="btn-send">Enviar</button>
+        </div>
+      </div>
+      <div class="input-options">
+        <button class="btn-option" id="btn-input-toggle">⌨️ Cambiar a entrada de texto</button>
+        <button class="btn-option" id="btn-tts-toggle">🔊 Voz activada</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Pantalla de resultado -->
+  <section class="screen" id="screen-result">
+    <header class="screen-header">
+      <h2>Resultado</h2>
+    </header>
+    <div class="result-box">
+      <p class="result-theme" id="result-theme"></p>
+      <p class="walkout-note" id="result-walkout" hidden>😱 El director terminó la reunión antes de tiempo…</p>
+      <div class="grade" id="result-grade">○</div>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-title" id="result-title"></p>
+      <p class="result-detail" id="result-detail"></p>
+
+      <div class="feedback-block">
+        <h3>👍 Buena frase</h3>
+        <p class="quote" id="result-quote"></p>
+      </div>
+      <div class="feedback-block">
+        <h3>💪 Un punto a mejorar</h3>
+        <p id="result-improve-point"></p>
+        <p class="example"><strong>Ejemplo de reformulación:</strong><span id="result-improve-example"></span></p>
+      </div>
+
+      <p class="stats-badge" id="result-stats"></p>
+
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-retry">🔁 Intentar de nuevo</button>
+        <button class="btn-secondary" id="btn-next-theme">🎯 Siguiente tema</button>
+        <button class="btn-tertiary" id="btn-top">Volver al inicio</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="../js-es/engine.js"></script>
+  <script src="../js-es/speech.js"></script>
+  <script src="../js-es/app.js"></script>
+</body>
+</html>
