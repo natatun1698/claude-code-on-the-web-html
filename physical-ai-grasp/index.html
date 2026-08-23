@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>つかめるロボットの作り方</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#eceff1; --card:#ffffff; --card-2:#f5f7f8;
+  --ink:#111a20; --sub:#5a6a75; --line:#d3dade;
+  --accent:#0f6d72; --accent-soft:#dceeed; --accent-ink:#0b4e52;
+  --good:#2b7a52; --good-soft:#dcefe3;
+  --bad:#bc4529; --bad-soft:#f7e2db;
+  --shadow:0 1px 2px rgba(16,32,40,.06), 0 12px 30px rgba(16,32,40,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1215; --card:#161e23; --card-2:#1c262c;
+    --ink:#e7edf0; --sub:#95a4ae; --line:#2a353c;
+    --accent:#5cc9c6; --accent-soft:#123330; --accent-ink:#8fdedb;
+    --good:#63bd8b; --good-soft:#15302a;
+    --bad:#e07b5d; --bad-soft:#33201a;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1215; --card:#161e23; --card-2:#1c262c;
+  --ink:#e7edf0; --sub:#95a4ae; --line:#2a353c;
+  --accent:#5cc9c6; --accent-soft:#123330; --accent-ink:#8fdedb;
+  --good:#63bd8b; --good-soft:#15302a;
+  --bad:#e07b5d; --bad-soft:#33201a;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;
+  font-size:16px; line-height:1.8; font-feature-settings:"palt" 1;
+}
+img{max-width:100%; display:block}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* ---- shell ---- */
+.bar{
+  position:sticky; top:0; z-index:20;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+.bar-in{max-width:1040px;margin:0 auto;padding:.6rem 1.2rem;display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.bar-title{font-family:"Shippori Mincho",serif;font-weight:700;font-size:.98rem;letter-spacing:.02em}
+.bar-nav{display:flex;gap:.15rem;margin-left:auto;flex-wrap:wrap}
+.bar-nav a{
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--sub);
+  text-decoration:none;padding:.2rem .5rem;border-radius:999px;
+}
+.bar-nav a:hover,.bar-nav a:focus-visible{background:var(--accent-soft);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.2rem 5rem}
+
+/* ---- hero ---- */
+.hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);
+}
+.hero h1{
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  font-size:clamp(2.1rem,6vw,3.5rem); line-height:1.28; text-wrap:balance;
+  margin:.7rem 0 1rem;
+}
+.hero p{max-width:60ch;color:var(--sub);font-size:1.02rem}
+.hero .src{
+  margin-top:1.6rem;font-size:.82rem;color:var(--sub);
+  border-left:3px solid var(--accent);padding-left:.8rem;line-height:1.7;
+}
+
+/* ---- numbers ---- */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin:2.4rem 0 0}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.1rem 1.2rem}
+.fig .k{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--sub);letter-spacing:.06em}
+.fig .v{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:2.5rem;line-height:1.1;margin:.35rem 0 .2rem;font-variant-numeric:tabular-nums}
+.fig .d{font-size:.84rem;color:var(--sub);line-height:1.6}
+.fig.bad .v{color:var(--bad)} .fig.bad{background:var(--bad-soft)}
+.fig.good .v{color:var(--good)} .fig.good{background:var(--good-soft)}
+
+/* ---- slides ---- */
+.slide{
+  background:var(--card);border:1px solid var(--line);border-radius:6px;
+  box-shadow:var(--shadow);margin-top:2rem;overflow:hidden;
+}
+.slide-head{padding:1.6rem 1.6rem 0;display:flex;gap:1rem;align-items:flex-start}
+.num{
+  font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);border:1px solid var(--accent);border-radius:3px;
+  padding:.1rem .45rem;flex:none;margin-top:.45rem;
+}
+.slide h2{
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  font-size:clamp(1.25rem,3.2vw,1.7rem);line-height:1.4;text-wrap:balance;
+}
+.slide h2 small{display:block;font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:400;letter-spacing:.1em;color:var(--sub);text-transform:uppercase;margin-bottom:.3rem}
+.slide-body{padding:1rem 1.6rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem}
+.lead{font-size:1.02rem;line-height:1.85}
+.lead b{background:linear-gradient(transparent 62%, var(--accent-soft) 62%);padding:0 .1em}
+
+.shot{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--card-2)}
+.shot img{width:100%}
+.shot figcaption{
+  font-size:.8rem;color:var(--sub);padding:.6rem .8rem;border-top:1px solid var(--line);
+  line-height:1.65;background:var(--card-2);
+}
+.shot figcaption .mono{color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+
+ul.pts{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+ul.pts li{padding-left:1.4rem;position:relative;line-height:1.8}
+ul.pts li::before{
+  content:"";position:absolute;left:.25rem;top:.78em;width:.42rem;height:.42rem;
+  background:var(--accent);border-radius:1px;
+}
+.callout{
+  border-left:3px solid var(--accent);background:var(--accent-soft);
+  padding:.85rem 1rem;border-radius:0 4px 4px 0;font-size:.95rem;line-height:1.8;
+}
+.callout.warn{border-color:var(--bad);background:var(--bad-soft)}
+.callout strong{font-weight:700}
+
+/* ---- table ---- */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:460px}
+th,td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--card-2);font-weight:700;font-size:.78rem;letter-spacing:.05em;color:var(--sub)}
+td.n{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
+tr:last-child td{border-bottom:none}
+td .tag{font-family:"JetBrains Mono",monospace;font-size:.72rem;padding:.1rem .4rem;border-radius:3px}
+.tag.g{background:var(--good-soft);color:var(--good)}
+.tag.b{background:var(--bad-soft);color:var(--bad)}
+
+/* ---- checklist ---- */
+.check{display:flex;flex-direction:column;gap:.9rem;counter-reset:c}
+.check li{
+  list-style:none;display:flex;gap:.9rem;align-items:flex-start;
+  background:var(--card-2);border:1px solid var(--line);border-radius:4px;padding:.9rem 1rem;
+}
+.check li::before{
+  counter-increment:c;content:counter(c,decimal-leading-zero);
+  font-family:"JetBrains Mono",monospace;font-weight:600;font-size:.85rem;color:var(--accent);flex:none;padding-top:.15rem;
+}
+.check b{display:block;font-size:1rem;margin-bottom:.15rem}
+.check span{font-size:.9rem;color:var(--sub);line-height:1.75}
+
+footer{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--sub);line-height:1.8}
+@media (max-width:600px){
+  .slide-head{padding:1.2rem 1rem 0} .slide-body{padding:.9rem 1rem 1.2rem}
+  .hero{padding:3rem 0 2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">つかめるロボットの作り方</span>
+    <nav class="bar-nav">
+      <a href="#answer">結論</a>
+      <a href="#proof">実測</a>
+      <a href="#pipeline">工程</a>
+      <a href="#steps">手順</a>
+      <a href="#checklist">チェックリスト</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Physical AI 2026 基礎編 ／ 第6回 演習の要点</p>
+  <h1>ロボットが「つかむ」ようになる<br>分かれ目は、同期だった。</h1>
+  <p>同じ方策（ACT）、同じ学習規模（200k step）、同じタスク。変えたのは<b>データだけ</b>。
+  それでも成功率は 22% と 88% に割れた。この資料は、その差がどこで生まれたのかと、
+  自分のデータで同じ差を作らないための手順をまとめたものです。</p>
+  <p class="src">出典：Physical AI 2026 基礎編 知能ロボティクス講座 2026 Spring 第6回 演習（松尾・岩澤研究室）の録画より。<br>
+  数値・図はすべて講義中に提示された実測値のスクリーンショットです。</p>
+
+  <div class="figs">
+    <div class="fig bad">
+      <div class="k">cond1_dirty</div>
+      <div class="v">0.22</div>
+      <div class="d">同期ずれ（+350&thinsp;ms）を放置したまま学習／300本</div>
+    </div>
+    <div class="fig good">
+      <div class="k">cond2_sync</div>
+      <div class="v">0.88</div>
+      <div class="d">時刻同期だけを直した／「下手だが成功」も残して300本</div>
+    </div>
+    <div class="fig">
+      <div class="k">cond3_curated</div>
+      <div class="v">0.54</div>
+      <div class="d">同期修正＋「下手」を捨てて200本。捨てすぎて逆に落ちた</div>
+    </div>
+  </div>
+</header>
+
+<!-- 01 -->
+<section class="slide" id="answer">
+  <div class="slide-head">
+    <span class="num">01</span>
+    <h2><small>The answer</small>成功させたければ、まず時刻を合わせる。<br>loss は何も教えてくれない</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">3条件の実測。<b>観測と行動のペアが 350&thinsp;ms ずれているだけで、成功率は 0.88 → 0.22 まで落ちる</b>。
+    にもかかわらず、下の学習曲線では dirty 条件も普通に収束している。
+    「学習が回ること」と「ロボットが動くこと」は別物、という結論がこの1枚に出ています。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/12-results-table.jpg" alt="3条件の成功率と学習曲線。cond1_dirty 0.22 / cond2_sync 0.88 / cond3_curated 0.54。損失曲線はどの条件も同じように下がっている">
+      <figcaption>各条件 50 rollouts。図タイトルにある通り <span class="mono">the dirty condition converges too</span> ——
+      loss は3条件ともきれいに下がる。<strong>loss で品質判定はできない。</strong></figcaption>
+    </figure>
+    <div class="callout warn">
+      <strong>1フレームのずれは loss に現れず、実機で暴れる。</strong>
+      観測と行動の対応がずれたデータは「もっともらしく学習できてしまう」ため、
+      学習ログを見ている限り事故に気づけません。判定できるのは rollout の成功率だけです。
+    </div>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/13-rollout-compare.jpg" alt="cond1_dirty と cond2_sync の rollout 動画の比較。dirty は対象を掴めていない">
+      <figcaption>同じチェックポイント数での rollout。上（dirty）はワークの手前で空振りし、
+      下（sync）はグリッパが赤いブロックを掴んで持ち上げている。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide" id="proof">
+  <div class="slide-head">
+    <span class="num">02</span>
+    <h2><small>Dose response</small>何 ms のずれから壊れるのか</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">ずれ幅だけを 0 / 100 / 200&thinsp;ms と変えて学習した講師の実測（各100 rollouts）。
+    <b>100&thinsp;ms は約6pt 低下＝誤差の範囲、200&thinsp;ms で約24pt 低下＝はっきり有意</b>。
+    つまり数十 ms の遅れは許容できるが、100&thinsp;ms を超えたあたりから方策が壊れ始めます。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/01-step6-slide.jpg" alt="Step 6 のスライド。ずれ 0ms/100ms/200ms に対して成功率 80%/74%/56%">
+      <figcaption>lift タスク・デモ20本・小型ACT・5000 step という最小構成なら、T4 で1条件10〜12分。
+      自分の手元で「データ品質→成功率」の線を1本引けます。</figcaption>
+    </figure>
+    <div class="tw">
+      <table>
+        <thead><tr><th>観測と行動のずれ</th><th>成功率（100 rollouts）</th><th>判定</th></tr></thead>
+        <tbody>
+          <tr><td>0&thinsp;ms</td><td class="n">80%</td><td><span class="tag g">基準</span></td></tr>
+          <tr><td>100&thinsp;ms</td><td class="n">74%</td><td>約6pt低下 ＝ 誤差の範囲</td></tr>
+          <tr><td>200&thinsp;ms</td><td class="n">56%</td><td><span class="tag b">約24pt低下 ＝ 有意</span></td></tr>
+          <tr><td>350&thinsp;ms（別実験）</td><td class="n">22%</td><td><span class="tag b">ほぼ機能しない</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="slide" id="pipeline">
+  <div class="slide-head">
+    <span class="num">03</span>
+    <h2><small>The pipeline</small>「集める」で終わらせない。検証までがデータづくり</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">講義全体の主張がこの1枚。<b>データスケールとは収録時間を増やすことではなく、単位コスト当たりに
+    「同期され・多様で・正しくラベル付けされ・検証可能な軌道」をどれだけ作れるか</b>。
+    今日の演習は、その5工程を1周する構成でした。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/14-summary.jpg" alt="本日のまとめスライド。収集→同期→形式→キュレーション→検証→学習→評価の工程図と3つの要点">
+      <figcaption>収集＝速さ／同期＝正しいペア率／形式＝資産化／キュレーション＝何を学習させるか／検証＝判断の信頼。
+      工程は flywheel として回る。</figcaption>
+    </figure>
+    <ul class="pts">
+      <li><b>収集はもうスケールし始めた。</b>次の律速は処理 —— 集めやすい手段ほど後処理が重い（UMI＝SLAM、ego＝ラベル生成）。量は「時間」ではなく「多様性」で数える。</li>
+      <li><b>(o,a) ペアは同期処理が作る。</b>良いデータ ＝ 量 × 多様性 × 実行品質 × ラベル品質。有効な軌道は資産、ラベルは修理可能な部品（filter / relabel / condition）。</li>
+      <li><b>検証までがデータづくり。</b>可視化・統計・実機リプレイまでやって、はじめて1周。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide" id="steps">
+  <div class="slide-head">
+    <span class="num">04</span>
+    <h2><small>Step 1 ／ Inspect</small>まず時刻の健全性を測る</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">トピックごとに <span class="mono">median(stamp − recv)</span>［ms］を出すだけで、壊れた bag が1発で浮かびます。
+    正常な bag は全トピックが <b>−8〜−10&thinsp;ms 程度の一定オフセット</b>（デバイスが打った時刻の方がわずかに古い＝正常）。
+    ところが <span class="mono">ep_006</span> の <span class="mono">/joint_states</span> だけ <b>+348.2&thinsp;ms</b>。これがレイテンシ異常です。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/02-latency-table.jpg" alt="bag別・トピック別のmedian(stamp - recv)テーブル。ep_006 の joint_states だけ 348.2ms">
+      <figcaption>16本中1本だけ、正の大きな値。<span class="mono">stamp</span> がデバイスの打刻、<span class="mono">recv</span> が記録PCの受信時刻。
+      正（未来）に大きくずれる bag は疑う。</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/03-timestamps.jpg" alt="ep_000 のメッセージタイムスタンプ散布図と先頭0.5秒のズーム">
+      <figcaption>センサーごとに周波数が違う（leader / joint_states / cam_wrist）。
+      右のズームで、各トピックの打点が同じ瞬間に揃っているかを見る。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide">
+  <div class="slide-head">
+    <span class="num">05</span>
+    <h2><small>Step 2 ／ Sync</small>最近傍マッチで (o, a) ペアを作る</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">カメラ（agentview）のフレーム時刻を基準に、他トピックから <b>slop 以内の最も近い時刻</b>を拾う。
+    slop を超えたら <span class="mono">None</span> ＝ そのフレームは捨てる。関節は補間、ただし範囲外は捨てる。
+    ここで作られた対応が、そのまま学習データの (観測, 行動) ペアになります。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/04-sync-code.jpg" alt="nearest() と sync_bag() の実装。採用フレーム数 57（カメラ59フレーム中）">
+      <figcaption><span class="mono">nearest(stamps, t, slop)</span> と <span class="mono">sync_bag(topics, slop=0.05)</span>。
+      結果は「採用フレーム数 57（カメラ 59 フレーム中）」——&thinsp;slop を変えると採用率が動く。</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/05-slop-rates.jpg" alt="slop 5/20/100ms ごとの bag別採用率の棒グラフと、最近傍マッチ残差のヒストグラム">
+      <figcaption>slop 5→20→100&thinsp;ms で採用率を比較。</figcaption>
+    </figure>
+    <div class="callout warn">
+      <strong>ここが一番の落とし穴：レイテンシ異常だった bag も、採用率は下がりません。</strong>
+      トピック間で「一定量ずれたまま」揃っていれば、最近傍マッチは何食わぬ顔で成立してしまう。
+      <b>採用率チェックだけでは同期ずれを検出できない</b>ので、Step 1 の遅延テーブルと、次の目視確認が必要になります。
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="slide">
+  <div class="slide-head">
+    <span class="num">06</span>
+    <h2><small>Step 3 ／ Format</small>資産化する。そして「掴む瞬間」を目で確かめる</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">同期済みフレームを LeRobotDataset に変換して、あとから誰でも読める形にする。
+    <b><span class="mono">finalize()</span> の呼び忘れはメタデータが書かれず「壊れたデータセット」になる</b>——公式 docs の Common Issues 筆頭です。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/06-lerobot-dataset.jpg" alt="LeRobotDataset への変換コード。add_frame / save_episode / finalize()">
+      <figcaption><span class="mono">observation.images.agentview / .wrist / observation.state / action / task</span> を1フレームずつ詰め、
+      <span class="mono">save_episode()</span> → 最後に必ず <span class="mono">finalize()</span>。</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/07-episode-video.jpg" alt="self-check の結果と、変換したエピソードの動画確認。グリッパが赤いブロックを掴む瞬間">
+      <figcaption>self-check（エピソード数 / fps 20 / features 4キー / shape）を通したら動画で確認。
+      <strong>確認ポイントはたった1つ：グリッパを閉じる指令（action の7次元目）の立ち上がりと、映像の「掴む瞬間」が一致していること。</strong>
+      ずれていたら同期を疑う。</figcaption>
+    </figure>
+    <div class="callout">
+      この目視チェックが、実務でいちばん効く同期テストです。数値では気づけないずれが、
+      「掴む前に閉じている／掴んだ後に閉じている」という形で必ず見えます。
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="slide">
+  <div class="slide-head">
+    <span class="num">07</span>
+    <h2><small>Step 4a ／ Curate</small>処置は3種類しかない：keep / filter / relabel</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">見つけた問題にどう対処するかを、エピソード単位で表に書く。
+    <b>「成功しているけど下手」なテイクを keep するか filter するかに、一意の正解はありません。
+    根拠を書けることが評価軸</b>——というのが演習の建て付けでした。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/08-curate-rules.jpg" alt="keep / filter / relabel の3処置の定義表と、判断表を作るコード">
+      <figcaption><span class="mono">keep</span>＝そのまま納品（問題なし）／<span class="mono">filter</span>＝除外して納品（直せない汚れ：同期不能・欠落・低品質）／
+      <span class="mono">relabel</span>＝ラベルを直して納品（データ自体は良いのにラベルだけ違うとき）。</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/09-decision-table.jpg" alt="episode_id / bag / decision / method / reason / new_task 列を持つ判断表のDataFrame">
+      <figcaption>列は <span class="mono">decision / method / reason / new_task</span>。
+      例：<span class="mono">ep_006 → filter, latency, "joint stamp +348ms"</span> のように、
+      <strong>単位付きの数値で根拠を書く</strong>と強い。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide">
+  <div class="slide-head">
+    <span class="num">08</span>
+    <h2><small>Step 4b ／ Relabel</small>ラベルの間違いは、捨てずに直す</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">埋め込み空間で <b>leave-one-out の kNN 多数決</b>を取り、付与ラベルと予測が食い違うエピソードを「容疑者」として自動抽出。
+    出てきた2本を目視すると、<b>映像は can のピック&amp;プレースなのに指示文は lift</b> ——ラベルの付け間違いでした。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/10-knn-label-check.jpg" alt="leave-one-out kNN 多数決で容疑者 ep_005 と ep_009 を抽出した出力">
+      <figcaption>「kNN 予測と付与ラベルの不一致（＝容疑者）: <span class="mono">['ep_005', 'ep_009']</span>」。
+      機械が候補を絞り、人間はその2本だけを見る、という運用。</figcaption>
+    </figure>
+    <div class="callout">
+      <strong>有効な軌道は資産、ラベルは修理可能な部品。</strong>
+      ロボットの動き自体が良いなら、ラベルを直せば学習データとして生き返ります。
+      filter（捨てる）より relabel（直す）を先に検討する理由がここにあります。
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide">
+  <div class="slide-head">
+    <span class="num">09</span>
+    <h2><small>Step 5 ／ Compare</small>「下手なデータは捨てるべき」は実測に裏切られる</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">3つのチェックポイントは、方策も学習規模も同じ。<b>違うのはデータだけ</b>。
+    ②（同期修正・worse 100本込みで300本）が 0.88、③（さらに worse を除いて200本）が 0.54。
+    <b>捨てた分だけデータ量とカバレッジが痩せた</b>——講義で言う filter の副作用そのものです。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/11-step5-conditions.jpg" alt="Step 5 の3条件の説明。①同期ずれを放置 ②同期を修正 ③worseもfilter">
+      <figcaption>①同期ずれを放置（+350&thinsp;ms のまま300本）／②同期を修正（「下手だが成功」の worse テイク100本は残す・300本）／
+      ③worse も filter（同期修正に加えて worse を除外・200本）。</figcaption>
+    </figure>
+    <div class="tw">
+      <table>
+        <thead><tr><th>条件</th><th>やったこと</th><th>本数</th><th>成功率</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">cond1_dirty</td><td>同期ずれ（+350&thinsp;ms）を放置</td><td class="n">300</td><td class="n"><span class="tag b">0.22</span></td></tr>
+          <tr><td class="mono">cond2_sync</td><td>時刻同期だけ修正（worse 込み）</td><td class="n">300</td><td class="n"><span class="tag g">0.88</span></td></tr>
+          <tr><td class="mono">cond3_curated</td><td>同期修正＋worse を filter</td><td class="n">200</td><td class="n">0.54</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <strong>効いた順番：①同期の修正 ＞＞ ②キュレーション。</strong>
+      しかも、きれいにキュレーションした③より、雑に見える②の方が強い。
+      この規模では「量とカバレッジ」の方が「1本ごとの上手さ」より効く、ということです。
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" id="checklist">
+  <div class="slide-head">
+    <span class="num">10</span>
+    <h2><small>Playbook</small>つかませるための7手順</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">上から順に、効果の大きい順です。多くの場合、1〜3 を直すだけで成功率は跳ねます。</p>
+    <ol class="check">
+      <li><b>時刻の健全性を測る</b><span>トピック別 <span class="mono">median(stamp − recv)</span>。数十 ms の一定オフセットは正常、数百 ms は異常。1本でも外れ値があれば、そこから先の全工程が汚染される。</span></li>
+      <li><b>最近傍マッチ＋slop で (o, a) ペアを作り直す</b><span>基準はカメラ時刻。slop は「採用率」と「マッチ残差のヒストグラム」の両方を見て決める。採用率が高いことは、同期が正しい証拠にはならない。</span></li>
+      <li><b>「掴む瞬間」とグリッパ指令の立ち上がりを目視で突き合わせる</b><span>いちばん安くて、いちばん確実な同期テスト。ここが一致していなければ、学習しても掴めない。</span></li>
+      <li><b>loss で判断しない</b><span>汚れたデータでも loss は普通に収束する。判定は rollout の成功率だけ。評価用に必ず数十本の rollout を回す。</span></li>
+      <li><b>捨てすぎない</b><span>「下手だが成功」は資産。filter で 0.88 → 0.54 まで落ちた実測がある。除外の前に「これで量と多様性がどれだけ減るか」を数える。</span></li>
+      <li><b>ラベルは直す</b><span>kNN 多数決などで容疑者を自動抽出 →&thinsp;その数本だけ目視 →&thinsp;relabel。捨てるのは「直せない汚れ」だけ。</span></li>
+      <li><b>判断の根拠を残す</b><span><span class="mono">decision / method / reason</span> を単位付きの数値で書いた判断表。再現できない品質改善は、次のデータで再現できない。</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="slide-head">
+    <span class="num">11</span>
+    <h2><small>Next</small>自分で線を1本引いてみる</h2>
+  </div>
+  <div class="slide-body">
+    <p class="lead">講義の締めに出された発展課題。<b>最小構成なら T4 で1条件 10〜12分</b>なので、
+    「データ品質 → 成功率」を自分の手で確かめられます。</p>
+    <figure class="shot">
+      <img src="../media/physical-ai-grasp/15-next-steps.jpg" alt="演習のまとめスライド。発展課題3つ">
+      <figcaption>今日つくったもの：bag → 同期 → LeRobotDataset → 検証 → キュレーション ＝ 講義の全工程を1周。
+      このノートブックは、研究室のデータ整備にそのまま流用できる。</figcaption>
+    </figure>
+    <ul class="pts">
+      <li>Step 6 のミニ実験を1条件やる。分担して 0 / 100 / 200&thinsp;ms の3点カーブを埋める。</li>
+      <li>自分のルールでフルデータをキュレーション → 再学習。閾値（長さ・jerk・レイテンシ）を適用して、<b>講師の② 88% を超えられるか</b>。</li>
+      <li>①の bag をオフセット推定で「救って」再同期し、学習に加えると成功率は上がるか。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  出典：Physical AI 2026 基礎編 知能ロボティクス講座 2026 Spring 第6回 演習（©MATSUO-IWASAWA LAB, THE UNIVERSITY OF TOKYO）の録画。
+  本資料は受講メモとして、録画の該当箇所のスクリーンショットと数値を整理したものです。
+</footer>
+
+</div>
+</body>
+</html>
