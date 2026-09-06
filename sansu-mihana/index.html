@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>ラガマフィンとさんすう｜弥花ちゃんせんよう</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐈</text></svg>">
+</head>
+<body>
+
+<!-- ===== ラガマフィン(CSS/SVGのみ・画像ファイルなし) ===== -->
+<template id="cat-svg">
+<svg class="cat-svg" viewBox="0 0 200 210" aria-hidden="true">
+  <g class="tail"><path d="M150 175 q45 -5 35 -45 q-4 -22 -24 -18 q-14 3 -9 16 q4 10 12 6"
+      fill="none" stroke="#efe0cd" stroke-width="17" stroke-linecap="round"/></g>
+  <ellipse class="body" cx="100" cy="160" rx="56" ry="44" fill="#f7ecdd"/>
+  <ellipse cx="100" cy="168" rx="34" ry="28" fill="#fffaf2"/>
+  <g class="paws"><ellipse cx="76" cy="196" rx="16" ry="10" fill="#fffaf2"/><ellipse cx="124" cy="196" rx="16" ry="10" fill="#fffaf2"/></g>
+  <g class="head">
+    <path d="M52 78 L46 34 L86 56 Z" fill="#f7ecdd"/><path d="M58 72 L55 45 L79 58 Z" fill="#f6c9cf"/>
+    <path d="M148 78 L154 34 L114 56 Z" fill="#f7ecdd"/><path d="M142 72 L145 45 L121 58 Z" fill="#f6c9cf"/>
+    <ellipse cx="100" cy="84" rx="56" ry="49" fill="#fbf3e8"/>
+    <ellipse cx="100" cy="84" rx="47" ry="41" fill="#fffaf2"/>
+    <g class="eyes">
+      <ellipse class="eye" cx="79" cy="80" rx="11" ry="12.5" fill="#5b7fb5"/>
+      <ellipse class="eye" cx="121" cy="80" rx="11" ry="12.5" fill="#5b7fb5"/>
+      <circle cx="79" cy="80" r="5" fill="#222"/><circle cx="121" cy="80" r="5" fill="#222"/>
+      <circle cx="82.5" cy="75.5" r="3.2" fill="#fff"/><circle cx="124.5" cy="75.5" r="3.2" fill="#fff"/>
+    </g>
+    <path d="M94 98 h12 l-6 6 z" fill="#f0a7ae"/>
+    <path d="M100 104 q-8 8 -16 2 M100 104 q8 8 16 2" stroke="#c9a98d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <g stroke="#e4d3bd" stroke-width="2" stroke-linecap="round">
+      <path d="M46 92 h-26"/><path d="M48 100 l-24 8"/><path d="M154 92 h26"/><path d="M152 100 l24 8"/>
+    </g>
+    <g class="hat"><path d="M62 44 L100 12 L138 44 Z" fill="#7cc4d8"/><circle cx="100" cy="10" r="7" fill="#fff0a8"/></g>
+    <g class="ribbon"><path d="M132 42 l18 -12 l2 20 z" fill="#f39aa8"/><path d="M132 42 l24 6 l-6 -18 z" fill="#ef8497"/><circle cx="136" cy="43" r="6" fill="#ffd0d8"/></g>
+  </g>
+</svg>
+</template>
+
+<!-- ===== タイトル ===== -->
+<section id="screen-title" class="screen">
+  <div class="card center">
+    <h1>ラガマフィンと<br>さんすう</h1>
+    <p class="sub">弥花ちゃん、いっしょにあそぼにゃ🐾</p>
+    <div class="ragamuffin big" id="cat-title"></div>
+    <p class="level-name">いまのすがた：<b id="title-level"></b></p>
+    <button id="btn-start" class="btn primary big-btn">はじめる</button>
+    <p class="note">※家庭学習用アプリ／得点や順位は出ません</p>
+  </div>
+</section>
+
+<!-- ===== モード選択 ===== -->
+<section id="screen-modes" class="screen hidden">
+  <div class="card">
+    <h2>どれであそぶ？</h2>
+    <button class="mode" data-mode="weak"><b>🐾 にがて克服モード</b><span>にがてな問題がよく出るよ（10問）</span></button>
+    <button class="mode" data-mode="order"><b>📚 だい1もんから順ばんモード</b><span>テストと同じ流れで30問ぜんぶ</span></button>
+    <button class="mode" data-mode="again"><b>🔁 もう一回チャレンジ</b><span>まえにまちがえた問題だけ</span></button>
+    <h3>がんばり度</h3>
+    <div id="fields"></div>
+    <h3>スタンプカード</h3>
+    <div id="stamps" class="stamps"></div>
+    <p class="mini" id="stamp-count"></p>
+    <div class="row">
+      <button class="btn ghost btn-home">もどる</button>
+      <button class="btn ghost" id="btn-reset">さいしょから</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 出題 ===== -->
+<section id="screen-quiz" class="screen hidden">
+  <div class="card quiz">
+    <div class="topbar"><span id="q-badge" class="chip"></span><span id="q-progress" class="chip"></span>
+      <span id="pts" class="chip"></span><span id="combo" class="chip fire"></span></div>
+    <h2 id="q-title"></h2>
+    <p id="q-setup" class="setup hidden"></p>
+    <p id="q-text" class="qtext"></p>
+    <div class="answer-row">
+      <input id="answer" type="text" inputmode="text" autocomplete="off" placeholder="こたえを入力">
+      <button id="btn-submit" class="btn primary">こたえる</button>
+    </div>
+    <p class="mini" id="q-unit"></p>
+    <button id="btn-hint" class="btn ghost small">💡 ヒントをもらう</button>
+    <div id="hint-box" class="hint hidden"></div>
+    <div id="feedback" class="feedback hidden"></div>
+    <button id="btn-next" class="btn primary hidden">つぎへ →</button>
+    <button class="btn ghost small btn-home">やめる</button>
+  </div>
+</section>
+
+<!-- ===== 結果 ===== -->
+<section id="screen-result" class="screen hidden">
+  <div class="card center">
+    <h2>きょうのけっか</h2>
+    <div class="ragamuffin big"></div>
+    <p class="big-num" id="r-count"></p>
+    <p id="r-points"></p><p id="r-combo"></p><p id="r-level" class="level-name"></p>
+    <p id="r-msg" class="msg"></p>
+    <div id="fields2"></div>
+    <div class="row">
+      <button class="btn primary" id="btn-again">もう一回あそぶ</button>
+      <button class="btn ghost btn-home">タイトルへ</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 常駐ラガマフィン ===== -->
+<div id="cat-corner">
+  <div id="bubble" class="bubble hidden"></div>
+  <div class="ragamuffin" id="cat"></div>
+  <div id="sparkles" class="sparkles"></div>
+</div>
+
+<script src="questions.js"></script>
+<script>
+  // ラガマフィンSVGを各所に差し込む
+  document.querySelectorAll(".ragamuffin").forEach(el => {
+    el.appendChild(document.getElementById("cat-svg").content.cloneNode(true));
+  });
+</script>
+<script src="app.js"></script>
+</body>
+</html>
