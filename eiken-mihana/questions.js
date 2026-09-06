@@ -1,0 +1,379 @@
+// 英検準2級 学習アプリ 問題データ(questions.jsonと同内容)
+const QUESTIONS = [
+  {
+    "id": "V1-01",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Josh was stuck in heavy traffic, so he came ( ) to work.",
+    "choices": [
+      "late",
+      "early",
+      "recently",
+      "soon"
+    ]
+  },
+  {
+    "id": "V1-02",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "David had ( ) knowledge of Japanese customs when he first came to Tokyo.",
+    "choices": [
+      "few",
+      "little",
+      "a few",
+      "many"
+    ]
+  },
+  {
+    "id": "V1-03",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Tom is only ten years old, but surprisingly he solved the math problem with ( ).",
+    "choices": [
+      "ease",
+      "easy",
+      "easier",
+      "easily"
+    ]
+  },
+  {
+    "id": "V1-04",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "When thinking about the plot of his next novel, the writer ( ) a novel idea.",
+    "choices": [
+      "took after",
+      "looked up to",
+      "played a part in",
+      "came up with"
+    ]
+  },
+  {
+    "id": "V1-05",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Although Bob thought that the job offer was attractive, he was too busy to ( ) it.",
+    "choices": [
+      "damage",
+      "reject",
+      "borrow",
+      "accept"
+    ]
+  },
+  {
+    "id": "V1-06",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Some students prefer studying alone at home, while ( ) enjoy working with friends in the library.",
+    "choices": [
+      "other",
+      "others",
+      "another",
+      "the other"
+    ]
+  },
+  {
+    "id": "V1-07",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Mr. Hill had to ( ) various accusations against him in his business.",
+    "choices": [
+      "put up with",
+      "look down on",
+      "see off",
+      "feel like"
+    ]
+  },
+  {
+    "id": "V1-08",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Greg was hired as a ( ) at the National Institute of Science. Now he does experiments in the lab every day.",
+    "choices": [
+      "passenger",
+      "customer",
+      "researcher",
+      "conductor"
+    ]
+  },
+  {
+    "id": "V1-09",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Lucy finally reached the summit of the mountain ( ) the fact that her left leg was injured.",
+    "choices": [
+      "in spite of",
+      "on the way to",
+      "according to",
+      "as a result of"
+    ]
+  },
+  {
+    "id": "V1-10",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "People gather once a month to clean up their town. This activity also helps them build close relationships with others in the ( ).",
+    "choices": [
+      "position",
+      "community",
+      "shape",
+      "danger"
+    ]
+  },
+  {
+    "id": "V1-11",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "The village is famous for its summer festival. The ( ) of the festival can be traced back to the 16th century.",
+    "choices": [
+      "grade",
+      "article",
+      "material",
+      "origin"
+    ]
+  },
+  {
+    "id": "V1-12",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "James is an expert in computer programming. However, when Nancy asked him for help, he ( ) to be unfamiliar with it because he doesn't like her.",
+    "choices": [
+      "pretended",
+      "failed",
+      "proved",
+      "decided"
+    ]
+  },
+  {
+    "id": "V1-13",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Jane was supposed to attend the meeting, but felt sick and left the office early. The next day, she made an ( ) for her absence.",
+    "choices": [
+      "experience",
+      "invitation",
+      "apology",
+      "appointment"
+    ]
+  },
+  {
+    "id": "V1-14",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "Yoko moved to London from Tokyo last year. She had wanted to live ( ) for a long time.",
+    "choices": [
+      "abroad",
+      "finally",
+      "frequently",
+      "either"
+    ]
+  },
+  {
+    "id": "V1-15",
+    "unit": "01-05",
+    "type": "vocab",
+    "sentence": "The marathon this year is scheduled to ( ) on September 20th.",
+    "choices": [
+      "come true",
+      "take place",
+      "be on sale",
+      "get along"
+    ]
+  },
+  {
+    "id": "V2-01",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "A: Who took the pictures ( ) the wall? They are really beautiful.\nB: My brother did. He works as a photographer.",
+    "choices": [
+      "on",
+      "in",
+      "from",
+      "about"
+    ]
+  },
+  {
+    "id": "V2-02",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "Billy has to finish his report ( ) tomorrow, but he hasn't decided what to write about yet.",
+    "choices": [
+      "until",
+      "by",
+      "of",
+      "in"
+    ]
+  },
+  {
+    "id": "V2-03",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "Mr. Allen gave an impressive speech. He received a lot of questions from the audience ( ) the Q&A session.",
+    "choices": [
+      "during",
+      "while",
+      "as",
+      "despite"
+    ]
+  },
+  {
+    "id": "V2-04",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "Ken and Yoko are talking about where to visit ( ) New York or London. They want to go on vacation.",
+    "choices": [
+      "since",
+      "nor",
+      "both",
+      "either"
+    ]
+  },
+  {
+    "id": "V2-05",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "He found an old record that he had been looking for ( ). He was surprised that it was too expensive for him to buy.",
+    "choices": [
+      "at risk",
+      "over and over",
+      "by chance",
+      "either"
+    ]
+  },
+  {
+    "id": "V2-06",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "Peter witnessed a traffic accident ( ) school. He called the police and an ambulance immediately.",
+    "choices": [
+      "in spite of",
+      "with care",
+      "by chance",
+      "on the way to"
+    ]
+  },
+  {
+    "id": "V2-07",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "John and his staff decided to have a meeting next week ( ) discuss the details of the contract.",
+    "choices": [
+      "for a while",
+      "according to",
+      "apart from",
+      "in order to"
+    ]
+  },
+  {
+    "id": "V2-08",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "Because of the strong wind, it took three hours for the firefighters to ( ) the fire.",
+    "choices": [
+      "put out",
+      "break out",
+      "watch out",
+      "make out"
+    ]
+  },
+  {
+    "id": "V2-09",
+    "unit": "06-08",
+    "type": "vocab",
+    "sentence": "The copier in his department was ( ), so Kevin had to go to the nearest convenience store.",
+    "choices": [
+      "on time",
+      "out of order",
+      "by all means",
+      "here and there"
+    ]
+  },
+  {
+    "id": "C2-01",
+    "unit": "06-08",
+    "type": "conversation",
+    "sentence": "A: Be quiet. I have a terrible headache.\nB: ( ) and go to bed?",
+    "choices": [
+      "Why don't you take medicine",
+      "What's the matter with you",
+      "How long do you usually sleep",
+      "What do you do for your health"
+    ]
+  },
+  {
+    "id": "C2-02",
+    "unit": "06-08",
+    "type": "conversation",
+    "sentence": "A: Excuse me. Do you know a Chinese restaurant named Red Dragons?\nB: Yes. ( ), and you will find it on your left.\nA: Thank you. Do you think they are open now?\nB: It's five, so they should be.",
+    "choices": [
+      "Stop at the second corner",
+      "Wait for the next bus to arrive",
+      "Turn left at that traffic light",
+      "Walk for another fifteen minutes"
+    ]
+  },
+  {
+    "id": "E-01",
+    "unit": "24-27",
+    "type": "email",
+    "intro": "あなたは外国人の知り合い(Ben)から、Eメールで質問を受け取りました。この質問に対して答える返信メールを、英文で書きなさい。あなたが書く返信メールの中で、Benのメール文中の下線部について、あなたがより理解を深めるために、下線部の特徴を問う具体的な質問を2つしなさい。あなたが書く返信メールの中で、□に書く英文の語数の目安は40語〜50語です。解答欄の外に書かれたものは採点されません。解答がBenのEメールの内容によく対応していないと判断された場合は、0点と採点されることがあります。□の下のBest wishes,の後にあなたの名前を書く必要はありません。",
+    "originalEmail": {
+      "greeting": "Hi!",
+      "body": "It has been a month since I came to Tokyo to study. Yesterday, there was a local festival. I was so excited when I saw some men carrying an omikoshi. I joined them and carried it! I'm sending a picture of the omikoshi with this e-mail. One of them taught me that the number of young people in the area is decreasing. He is worried if the festival should be continued in the future.",
+      "closing": "Your friend,",
+      "signature": "Ben"
+    },
+    "replyTemplate": {
+      "greeting": "Hi, Ben!",
+      "opening": "Thank you for your e-mail.",
+      "closing": "Best wishes,"
+    },
+    "wordCountRange": [
+      40,
+      50
+    ]
+  },
+  {
+    "id": "E-02",
+    "unit": "24-27",
+    "type": "email",
+    "intro": "あなたは外国人の知り合い(Adam)から、Eメールで質問を受け取りました。この質問に対して答える返信メールを、英文で書きなさい。あなたが書く返信メールの中で、Adamのメール文中の下線部について、あなたがより理解を深めるために、下線部の特徴を問う具体的な質問を2つしなさい。あなたが書く返信メールの中で、□に書く英文の語数の目安は40語〜50語です。解答欄の外に書かれたものは採点されません。解答がAdamのEメールの内容によく対応していないと判断された場合は、0点と採点されることがあります。□の下のBest wishes,の後にあなたの名前を書く必要はありません。",
+    "originalEmail": {
+      "greeting": "Hi!",
+      "body": "Last month, my family and I moved to a new city. Our new place is in a large apartment. I'm so excited! I made a friend who lives on the same floor. Recently, I sometimes miss our old house. I used to play games with him in my room. However, there was nature around the house. It was in the countryside. Which do you prefer, living in the countryside or living in a city?",
+      "closing": "Your friend,",
+      "signature": "Adam"
+    },
+    "replyTemplate": {
+      "greeting": "Hi, Adam!",
+      "opening": "Thank you for your e-mail.",
+      "closing": "Best wishes,"
+    },
+    "wordCountRange": [
+      40,
+      50
+    ]
+  },
+  {
+    "id": "O-01",
+    "unit": "28-34",
+    "type": "opinion",
+    "intro": "あなたは、外国人の知り合いから以下のQUESTIONをされました。QUESTIONについて、あなたの意見とその理由を2つ英文で書きなさい。語数の目安は50語〜60語です。解答欄の外に書かれたものは採点されません。解答がQUESTIONに対応していないと判断された場合は、0点と採点されることがあります。QUESTIONをよく読んでから答えてください。",
+    "question": "Do you think electronic dictionaries are better than paper dictionaries?",
+    "wordCountRange": [
+      50,
+      60
+    ]
+  },
+  {
+    "id": "O-02",
+    "unit": "28-34",
+    "type": "opinion",
+    "intro": "あなたは、外国人の知り合いから以下のQUESTIONをされました。QUESTIONについて、あなたの意見とその理由を2つ英文で書きなさい。語数の目安は50語〜60語です。解答欄の外に書かれたものは採点されません。解答がQUESTIONに対応していないと判断された場合は、0点と採点されることがあります。QUESTIONをよく読んでから答えてください。",
+    "question": "Do you think that college students should live with their parents?",
+    "wordCountRange": [
+      50,
+      60
+    ]
+  }
+];
