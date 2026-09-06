@@ -62,8 +62,8 @@
     92%{ transform:rotate(3deg); }
     94%{ transform:rotate(0deg); }
   }
-  .ear-left{ transform-origin:88px 95px; animation:earTwitch 6s infinite; }
-  .ear-right{ transform-origin:192px 95px; animation:earTwitch 6s infinite 0.5s; }
+  .ear-left{ transform-origin:90px 100px; animation:earTwitch 6s infinite; }
+  .ear-right{ transform-origin:190px 100px; animation:earTwitch 6s infinite 0.5s; }
 
   /* ===== せいかい:ぴょこん ===== */
   @keyframes bounce{
@@ -76,8 +76,8 @@
 </style>
 </head>
 <body>
-<h1>🐾 オレ(au lait) 表情プレビュー v2</h1>
-<p class="lead">丸くてフラットな見た目に描き直しました。まばたき・ヒゲの微揺れ・耳ぴくっが常時動いています。</p>
+<h1>🐾 オレ(au lait) 表情プレビュー v3</h1>
+<p class="lead">耳を太く、目を大きく、口元を高い位置に描き直しました。まばたき・ヒゲの微揺れ・耳ぴくっが常時動いています。</p>
 
 <div class="grid">
 
@@ -85,31 +85,31 @@
   <div class="card">
     <svg viewBox="0 0 280 260">
       <g class="ear-left">
-        <polygon points="95,100 55,20 122,78" fill="#9A8579"/>
-        <polygon points="95,92 70,38 110,74" fill="#E9B7BA"/>
+        <polygon points="102,112 40,12 142,90" fill="#9A8579"/>
+        <polygon points="100,100 62,38 122,82" fill="#E9B7BA"/>
       </g>
       <g class="ear-right">
-        <polygon points="185,100 225,20 158,78" fill="#9A8579"/>
-        <polygon points="185,92 210,38 170,74" fill="#E9B7BA"/>
+        <polygon points="178,112 240,12 138,90" fill="#9A8579"/>
+        <polygon points="180,100 218,38 158,82" fill="#E9B7BA"/>
       </g>
       <circle cx="140" cy="150" r="92" fill="#F6EFE6" stroke="#9A8579" stroke-width="1"/>
-      <!-- 目 -->
+      <!-- 目(大きめ) -->
       <g class="eye-group eye1">
-        <ellipse cx="108" cy="150" rx="15" ry="17" fill="#fff"/>
-        <ellipse cx="108" cy="151" rx="12" ry="14" fill="#5D9CD6"/>
-        <ellipse cx="108" cy="153" rx="5" ry="8" fill="#2b3a42"/>
-        <circle cx="103" cy="145" r="3" fill="#fff"/>
+        <ellipse cx="100" cy="140" rx="26" ry="30" fill="#fff"/>
+        <ellipse cx="100" cy="142" rx="21" ry="25" fill="#5D9CD6"/>
+        <ellipse cx="100" cy="145" rx="8" ry="16" fill="#2b3a42"/>
+        <circle cx="91" cy="128" r="5" fill="#fff"/>
       </g>
       <g class="eye-group eye2">
-        <ellipse cx="172" cy="150" rx="15" ry="17" fill="#fff"/>
-        <ellipse cx="172" cy="151" rx="12" ry="14" fill="#5D9CD6"/>
-        <ellipse cx="172" cy="153" rx="5" ry="8" fill="#2b3a42"/>
-        <circle cx="167" cy="145" r="3" fill="#fff"/>
+        <ellipse cx="180" cy="140" rx="26" ry="30" fill="#fff"/>
+        <ellipse cx="180" cy="142" rx="21" ry="25" fill="#5D9CD6"/>
+        <ellipse cx="180" cy="145" rx="8" ry="16" fill="#2b3a42"/>
+        <circle cx="171" cy="128" r="5" fill="#fff"/>
       </g>
       <!-- 鼻 -->
-      <polygon points="133,178 147,178 140,187" fill="#E39AA0"/>
-      <!-- 口(W字) -->
-      <path d="M124 190 Q132 198 140 190 Q148 198 156 190" fill="none" stroke="#9A8579" stroke-width="1.6" stroke-linecap="round"/>
+      <polygon points="128,172 152,172 140,183" fill="#E39AA0"/>
+      <!-- 口(W字・高め) -->
+      <path d="M122 181 Q131 190 140 181 Q149 190 158 181" fill="none" stroke="#9A8579" stroke-width="1.8" stroke-linecap="round"/>
       <!-- ヒゲ -->
       <g class="whiskers-left" stroke="#c9bdb2" stroke-width="1">
         <line x1="95" y1="178" x2="42" y2="168"/>
@@ -129,30 +129,30 @@
   <!-- ============ 2. わくわく(出題時) ============ -->
   <div class="card">
     <svg viewBox="0 0 280 260">
-      <g style="transform:rotate(-10deg)" transform-origin="88 95">
-        <polygon points="95,100 55,20 122,78" fill="#9A8579"/>
-        <polygon points="95,92 70,38 110,74" fill="#E9B7BA"/>
+      <g style="transform:rotate(-10deg)" transform-origin="90 100">
+        <polygon points="102,112 40,12 142,90" fill="#9A8579"/>
+        <polygon points="100,100 62,38 122,82" fill="#E9B7BA"/>
       </g>
-      <g style="transform:rotate(10deg)" transform-origin="192 95">
-        <polygon points="185,100 225,20 158,78" fill="#9A8579"/>
-        <polygon points="185,92 210,38 170,74" fill="#E9B7BA"/>
+      <g style="transform:rotate(10deg)" transform-origin="190 100">
+        <polygon points="178,112 240,12 138,90" fill="#9A8579"/>
+        <polygon points="180,100 218,38 158,82" fill="#E9B7BA"/>
       </g>
       <circle cx="140" cy="150" r="92" fill="#F6EFE6" stroke="#9A8579" stroke-width="1"/>
-      <!-- 目(キラッと大きめ) -->
-      <ellipse cx="108" cy="148" rx="17" ry="19" fill="#fff"/>
-      <ellipse cx="108" cy="149" rx="14" ry="16" fill="#5D9CD6"/>
-      <ellipse cx="108" cy="151" rx="5.5" ry="9" fill="#2b3a42"/>
-      <circle cx="102" cy="142" r="3.5" fill="#fff"/>
-      <circle cx="112" cy="156" r="1.8" fill="#fff" opacity="0.85"/>
-      <ellipse cx="172" cy="148" rx="17" ry="19" fill="#fff"/>
-      <ellipse cx="172" cy="149" rx="14" ry="16" fill="#5D9CD6"/>
-      <ellipse cx="172" cy="151" rx="5.5" ry="9" fill="#2b3a42"/>
-      <circle cx="166" cy="142" r="3.5" fill="#fff"/>
-      <circle cx="176" cy="156" r="1.8" fill="#fff" opacity="0.85"/>
-      <polygon points="133,178 147,178 140,187" fill="#E39AA0"/>
-      <!-- 口(少し開けて) -->
-      <path d="M126 190 Q140 202 154 190" fill="#B5645C"/>
-      <path d="M126 190 Q140 202 154 190" fill="none" stroke="#9A8579" stroke-width="1.4"/>
+      <!-- 目(キラッと超大きめ) -->
+      <ellipse cx="100" cy="138" rx="29" ry="33" fill="#fff"/>
+      <ellipse cx="100" cy="140" rx="24" ry="28" fill="#5D9CD6"/>
+      <ellipse cx="100" cy="144" rx="9" ry="17" fill="#2b3a42"/>
+      <circle cx="90" cy="124" r="5.5" fill="#fff"/>
+      <circle cx="108" cy="152" r="3" fill="#fff" opacity="0.85"/>
+      <ellipse cx="180" cy="138" rx="29" ry="33" fill="#fff"/>
+      <ellipse cx="180" cy="140" rx="24" ry="28" fill="#5D9CD6"/>
+      <ellipse cx="180" cy="144" rx="9" ry="17" fill="#2b3a42"/>
+      <circle cx="170" cy="124" r="5.5" fill="#fff"/>
+      <circle cx="188" cy="152" r="3" fill="#fff" opacity="0.85"/>
+      <polygon points="128,174 152,174 140,185" fill="#E39AA0"/>
+      <!-- 口(少し開けて・高め) -->
+      <path d="M124 183 Q140 195 156 183" fill="#B5645C"/>
+      <path d="M124 183 Q140 195 156 183" fill="none" stroke="#9A8579" stroke-width="1.6"/>
       <g stroke="#c9bdb2" stroke-width="1">
         <line x1="95" y1="176" x2="40" y2="164"/>
         <line x1="95" y1="184" x2="38" y2="184"/>
@@ -161,8 +161,8 @@
         <line x1="185" y1="184" x2="242" y2="184"/>
         <line x1="185" y1="192" x2="238" y2="204"/>
       </g>
-      <text x="30" y="60" font-size="20">✨</text>
-      <text x="222" y="55" font-size="16">✨</text>
+      <text x="26" y="55" font-size="20">✨</text>
+      <text x="224" y="50" font-size="16">✨</text>
     </svg>
     <div class="label">わくわく</div>
     <div class="sub">出題時・耳が前向き</div>
@@ -172,24 +172,24 @@
   <div class="card">
     <svg viewBox="0 0 280 260" class="bounce">
       <g>
-        <polygon points="95,100 55,20 122,78" fill="#9A8579"/>
-        <polygon points="95,92 70,38 110,74" fill="#E9B7BA"/>
+        <polygon points="102,112 40,12 142,90" fill="#9A8579"/>
+        <polygon points="100,100 62,38 122,82" fill="#E9B7BA"/>
       </g>
       <g>
-        <polygon points="185,100 225,20 158,78" fill="#9A8579"/>
-        <polygon points="185,92 210,38 170,74" fill="#E9B7BA"/>
+        <polygon points="178,112 240,12 138,90" fill="#9A8579"/>
+        <polygon points="180,100 218,38 158,82" fill="#E9B7BA"/>
       </g>
       <circle cx="140" cy="150" r="92" fill="#F6EFE6" stroke="#9A8579" stroke-width="1"/>
-      <!-- 目(^ ^の弧) -->
-      <path d="M92 150 Q108 132 124 150" fill="none" stroke="#2b3a42" stroke-width="4" stroke-linecap="round"/>
-      <path d="M156 150 Q172 132 188 150" fill="none" stroke="#2b3a42" stroke-width="4" stroke-linecap="round"/>
+      <!-- 目(^ ^の弧・大きめ) -->
+      <path d="M82 144 Q100 118 122 144" fill="none" stroke="#2b3a42" stroke-width="5.5" stroke-linecap="round"/>
+      <path d="M158 144 Q180 118 198 144" fill="none" stroke="#2b3a42" stroke-width="5.5" stroke-linecap="round"/>
       <!-- 頬ピンク -->
-      <ellipse cx="90" cy="172" rx="14" ry="9" fill="#E9B7BA" opacity="0.75"/>
-      <ellipse cx="190" cy="172" rx="14" ry="9" fill="#E9B7BA" opacity="0.75"/>
-      <polygon points="133,176 147,176 140,185" fill="#E39AA0"/>
-      <!-- 口(開けて笑う) -->
-      <path d="M118 188 Q140 214 162 188 Q140 204 118 188 Z" fill="#B5645C"/>
-      <path d="M118 188 Q140 214 162 188" fill="none" stroke="#9A8579" stroke-width="1.4"/>
+      <ellipse cx="85" cy="170" rx="15" ry="10" fill="#E9B7BA" opacity="0.75"/>
+      <ellipse cx="195" cy="170" rx="15" ry="10" fill="#E9B7BA" opacity="0.75"/>
+      <polygon points="128,172 152,172 140,183" fill="#E39AA0"/>
+      <!-- 口(開けて笑う・高め&大きめ) -->
+      <path d="M116 182 Q140 212 164 182 Q140 198 116 182 Z" fill="#B5645C"/>
+      <path d="M116 182 Q140 212 164 182" fill="none" stroke="#9A8579" stroke-width="1.6"/>
       <g stroke="#c9bdb2" stroke-width="1">
         <line x1="95" y1="176" x2="40" y2="164"/>
         <line x1="95" y1="184" x2="38" y2="184"/>
@@ -209,27 +209,27 @@
   <div class="card">
     <svg viewBox="0 0 280 260">
       <g>
-        <polygon points="95,100 55,20 122,78" fill="#9A8579"/>
-        <polygon points="95,92 70,38 110,74" fill="#E9B7BA"/>
+        <polygon points="102,112 40,12 142,90" fill="#9A8579"/>
+        <polygon points="100,100 62,38 122,82" fill="#E9B7BA"/>
       </g>
-      <g style="transform:rotate(28deg)" transform-origin="192 95">
-        <polygon points="185,100 225,20 158,78" fill="#9A8579"/>
-        <polygon points="185,92 210,38 170,74" fill="#E9B7BA"/>
+      <g style="transform:rotate(28deg)" transform-origin="190 100">
+        <polygon points="178,112 240,12 138,90" fill="#9A8579"/>
+        <polygon points="180,100 218,38 158,82" fill="#E9B7BA"/>
       </g>
       <circle cx="140" cy="150" r="92" fill="#F6EFE6" stroke="#9A8579" stroke-width="1"/>
       <!-- 眉(下がる) -->
-      <path d="M90 122 Q108 130 126 126" fill="none" stroke="#9A8579" stroke-width="2.4" stroke-linecap="round"/>
-      <path d="M154 126 Q172 130 190 122" fill="none" stroke="#9A8579" stroke-width="2.4" stroke-linecap="round"/>
-      <!-- 目 -->
-      <ellipse cx="108" cy="154" rx="13" ry="15" fill="#fff"/>
-      <ellipse cx="108" cy="156" rx="10.5" ry="12" fill="#5D9CD6"/>
-      <ellipse cx="108" cy="158" rx="4.5" ry="7" fill="#2b3a42"/>
-      <ellipse cx="172" cy="154" rx="13" ry="15" fill="#fff"/>
-      <ellipse cx="172" cy="156" rx="10.5" ry="12" fill="#5D9CD6"/>
-      <ellipse cx="172" cy="158" rx="4.5" ry="7" fill="#2b3a42"/>
-      <polygon points="133,180 147,180 140,189" fill="#E39AA0"/>
-      <!-- 口(小さな弧) -->
-      <path d="M122 200 Q140 192 158 200" fill="none" stroke="#9A8579" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M80 112 Q100 122 124 118" fill="none" stroke="#9A8579" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M156 118 Q180 122 200 112" fill="none" stroke="#9A8579" stroke-width="2.6" stroke-linecap="round"/>
+      <!-- 目(大きめ) -->
+      <ellipse cx="100" cy="145" rx="23" ry="27" fill="#fff"/>
+      <ellipse cx="100" cy="148" rx="18.5" ry="21" fill="#5D9CD6"/>
+      <ellipse cx="100" cy="151" rx="7" ry="13" fill="#2b3a42"/>
+      <ellipse cx="180" cy="145" rx="23" ry="27" fill="#fff"/>
+      <ellipse cx="180" cy="148" rx="18.5" ry="21" fill="#5D9CD6"/>
+      <ellipse cx="180" cy="151" rx="7" ry="13" fill="#2b3a42"/>
+      <polygon points="128,176 152,176 140,187" fill="#E39AA0"/>
+      <!-- 口(小さな弧・高め) -->
+      <path d="M120 195 Q140 187 160 195" fill="none" stroke="#9A8579" stroke-width="1.8" stroke-linecap="round"/>
       <g stroke="#c9bdb2" stroke-width="1">
         <line x1="95" y1="178" x2="42" y2="168"/>
         <line x1="95" y1="185" x2="40" y2="188"/>
@@ -246,23 +246,23 @@
   <!-- ============ 5. おねむ ============ -->
   <div class="card">
     <svg viewBox="0 0 280 260">
-      <g style="transform:rotate(-4deg)" transform-origin="88 95">
-        <polygon points="95,100 55,20 122,78" fill="#9A8579"/>
-        <polygon points="95,92 70,38 110,74" fill="#E9B7BA"/>
+      <g style="transform:rotate(-4deg)" transform-origin="90 100">
+        <polygon points="102,112 40,12 142,90" fill="#9A8579"/>
+        <polygon points="100,100 62,38 122,82" fill="#E9B7BA"/>
       </g>
-      <g style="transform:rotate(4deg)" transform-origin="192 95">
-        <polygon points="185,100 225,20 158,78" fill="#9A8579"/>
-        <polygon points="185,92 210,38 170,74" fill="#E9B7BA"/>
+      <g style="transform:rotate(4deg)" transform-origin="190 100">
+        <polygon points="178,112 240,12 138,90" fill="#9A8579"/>
+        <polygon points="180,100 218,38 158,82" fill="#E9B7BA"/>
       </g>
       <circle cx="140" cy="150" r="92" fill="#F6EFE6" stroke="#9A8579" stroke-width="1"/>
-      <!-- 目(閉じて弧) -->
-      <path d="M94 152 Q108 162 122 152" fill="none" stroke="#2b3a42" stroke-width="3" stroke-linecap="round"/>
-      <path d="M158 152 Q172 162 186 152" fill="none" stroke="#2b3a42" stroke-width="3" stroke-linecap="round"/>
-      <ellipse cx="90" cy="172" rx="12" ry="7" fill="#E9B7BA" opacity="0.5"/>
-      <ellipse cx="190" cy="172" rx="12" ry="7" fill="#E9B7BA" opacity="0.5"/>
-      <polygon points="133,178 147,178 140,187" fill="#E39AA0" opacity="0.85"/>
-      <!-- 口(小さな丸) -->
-      <ellipse cx="140" cy="196" rx="6" ry="5" fill="none" stroke="#9A8579" stroke-width="1.4"/>
+      <!-- 目(閉じて弧・大きめ) -->
+      <path d="M80 146 Q100 160 122 146" fill="none" stroke="#2b3a42" stroke-width="4" stroke-linecap="round"/>
+      <path d="M158 146 Q180 160 200 146" fill="none" stroke="#2b3a42" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="85" cy="172" rx="13" ry="8" fill="#E9B7BA" opacity="0.5"/>
+      <ellipse cx="195" cy="172" rx="13" ry="8" fill="#E9B7BA" opacity="0.5"/>
+      <polygon points="128,174 152,174 140,185" fill="#E39AA0" opacity="0.85"/>
+      <!-- 口(小さな丸・高め) -->
+      <ellipse cx="140" cy="192" rx="7" ry="6" fill="none" stroke="#9A8579" stroke-width="1.6"/>
       <g stroke="#c9bdb2" stroke-width="1">
         <line x1="95" y1="178" x2="42" y2="168"/>
         <line x1="95" y1="185" x2="40" y2="188"/>
