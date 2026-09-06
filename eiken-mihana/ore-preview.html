@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>オレ(au lait) 表情プレビュー</title>
+<style>
+  :root{
+    --cream:#FFF8EE;
+    --mint:#E4F5EE;
+    --pale-blue:#EAF2FB;
+    --ink:#5A4B42;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:24px;
+    font-family:"Hiragino Maru Gothic ProN","Rounded Mplus 1c","Yu Gothic",sans-serif;
+    background:linear-gradient(160deg,var(--cream),var(--pale-blue) 60%,var(--mint));
+    min-height:100vh;
+    color:var(--ink);
+  }
+  h1{
+    text-align:center;
+    font-size:1.4rem;
+    margin:0 0 6px;
+  }
+  p.lead{
+    text-align:center;
+    margin:0 0 24px;
+    font-size:0.95rem;
+    opacity:0.8;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .card{
+    background:#fff;
+    border-radius:28px;
+    padding:16px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(154,133,121,0.18);
+  }
+  .card svg{
+    width:100%;
+    height:auto;
+    max-width:220px;
+  }
+  .card .label{
+    margin-top:8px;
+    font-weight:bold;
+    font-size:1.05rem;
+  }
+  .card .sub{
+    font-size:0.8rem;
+    opacity:0.65;
+  }
+
+  /* ===== まばたき ===== */
+  @keyframes blink{
+    0%,92%,100%{ transform:scaleY(1); }
+    94%,97%{ transform:scaleY(0.08); }
+  }
+  .eye-group{
+    transform-origin:center;
+    animation:blink 5s infinite;
+  }
+  .eye-group.eye2{ animation-delay:0.3s; }
+
+  /* ===== ヒゲの微揺れ ===== */
+  @keyframes whisker{
+    0%,100%{ transform:rotate(0deg); }
+    50%{ transform:rotate(2deg); }
+  }
+  .whiskers-left{ transform-origin:90px 150px; animation:whisker 3.2s ease-in-out infinite; }
+  .whiskers-right{ transform-origin:190px 150px; animation:whisker 3.2s ease-in-out infinite reverse; }
+
+  /* ===== 耳ぴくっ ===== */
+  @keyframes earTwitch{
+    0%,88%,100%{ transform:rotate(0deg); }
+    90%{ transform:rotate(-6deg); }
+    92%{ transform:rotate(3deg); }
+    94%{ transform:rotate(0deg); }
+  }
+  .ear-left{ transform-origin:78px 60px; animation:earTwitch 6s infinite; }
+  .ear-right{ transform-origin:202px 55px; animation:earTwitch 6s infinite 0.5s; }
+
+  /* ===== せいかい:ぴょこん ===== */
+  @keyframes bounce{
+    0%,100%{ transform:translateY(0); }
+    30%{ transform:translateY(-14px); }
+    50%{ transform:translateY(2px); }
+    70%{ transform:translateY(-6px); }
+  }
+  .bounce{ animation:bounce 0.7s ease-out infinite; }
+</style>
+</head>
+<body>
+<h1>🐾 オレ(au lait) 表情プレビュー</h1>
+<p class="lead">ラグドールの「オレ」の5種類の表情です。まばたき・ヒゲの微揺れ・耳ぴくっが常時動いています。</p>
+
+<div class="grid">
+  <!-- ============ 1. つうじょう ============ -->
+  <div class="card">
+    <svg viewBox="0 0 280 260">
+      <!-- 耳(後ろ側=ポイントカラー) -->
+      <g class="ear-left">
+        <path d="M75 70 L45 15 L100 55 Z" fill="#9A8579"/>
+        <path d="M78 62 L60 30 L92 55 Z" fill="#E9B7BA"/>
+      </g>
+      <g class="ear-right">
+        <path d="M205 70 L235 15 L180 55 Z" fill="#9A8579"/>
+        <path d="M202 62 L220 30 L188 55 Z" fill="#E9B7BA"/>
+      </g>
+      <!-- 顔ベース -->
+      <ellipse cx="140" cy="130" rx="88" ry="80" fill="#F6EFE6" stroke="#9A8579" stroke-width="0.7"/>
+      <!-- ポイントカラー(頬〜頭上) -->
+      <path d="M60 90 Q70 40 140 45 Q210 40 220 90 Q205 70 140 68 Q75 70 60 90 Z" fill="#9A8579" opacity="0.85"/>
+      <!-- マズル -->
+      <ellipse cx="140" cy="168" rx="46" ry="30" fill="#EFE2D4" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 目 -->
+      <g class="eye-group eye1">
+        <ellipse cx="112" cy="122" rx="16" ry="20" fill="#fff"/>
+        <ellipse cx="112" cy="122" rx="13" ry="18" fill="#5D9CD6"/>
+        <ellipse cx="112" cy="122" rx="4" ry="16" fill="#2b3a42"/>
+        <circle cx="107" cy="114" r="3.2" fill="#fff"/>
+      </g>
+      <g class="eye-group eye2">
+        <ellipse cx="168" cy="122" rx="16" ry="20" fill="#fff"/>
+        <ellipse cx="168" cy="122" rx="13" ry="18" fill="#5D9CD6"/>
+        <ellipse cx="168" cy="122" rx="4" ry="16" fill="#2b3a42"/>
+        <circle cx="163" cy="114" r="3.2" fill="#fff"/>
+      </g>
+      <!-- 鼻 -->
+      <path d="M133 160 Q140 168 147 160 Q140 166 133 160 Z" fill="#E39AA0" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 口(W字) -->
+      <path d="M118 172 Q128 182 140 172 Q152 182 162 172" fill="none" stroke="#9A8579" stroke-width="1"/>
+      <!-- ヒゲ -->
+      <g class="whiskers-left" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="118" y1="168" x2="60" y2="158"/>
+        <line x1="118" y1="174" x2="58" y2="176"/>
+        <line x1="118" y1="180" x2="62" y2="194"/>
+      </g>
+      <g class="whiskers-right" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="162" y1="168" x2="220" y2="158"/>
+        <line x1="162" y1="174" x2="222" y2="176"/>
+        <line x1="162" y1="180" x2="218" y2="194"/>
+      </g>
+    </svg>
+    <div class="label">つうじょう</div>
+    <div class="sub">いつものオレ</div>
+  </div>
+
+  <!-- ============ 2. わくわく(出題時) ============ -->
+  <div class="card">
+    <svg viewBox="0 0 280 260">
+      <g class="ear-left" style="transform:rotate(-8deg)" transform-origin="78 60">
+        <path d="M78 68 L40 5 L104 52 Z" fill="#9A8579"/>
+        <path d="M80 60 L58 24 L96 52 Z" fill="#E9B7BA"/>
+      </g>
+      <g class="ear-right" style="transform:rotate(8deg)" transform-origin="202 55">
+        <path d="M202 68 L240 5 L176 52 Z" fill="#9A8579"/>
+        <path d="M200 60 L222 24 L184 52 Z" fill="#E9B7BA"/>
+      </g>
+      <ellipse cx="140" cy="130" rx="88" ry="80" fill="#F6EFE6" stroke="#9A8579" stroke-width="0.7"/>
+      <path d="M60 90 Q70 40 140 45 Q210 40 220 90 Q205 70 140 68 Q75 70 60 90 Z" fill="#9A8579" opacity="0.85"/>
+      <ellipse cx="140" cy="168" rx="46" ry="30" fill="#EFE2D4" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 目(丸く大きく輝く) -->
+      <g>
+        <ellipse cx="112" cy="120" rx="18" ry="22" fill="#fff"/>
+        <ellipse cx="112" cy="120" rx="14.5" ry="20" fill="#5D9CD6"/>
+        <ellipse cx="112" cy="122" rx="4.5" ry="12" fill="#2b3a42"/>
+        <circle cx="106" cy="111" r="4" fill="#fff"/>
+        <circle cx="116" cy="128" r="2" fill="#fff" opacity="0.8"/>
+      </g>
+      <g>
+        <ellipse cx="168" cy="120" rx="18" ry="22" fill="#fff"/>
+        <ellipse cx="168" cy="120" rx="14.5" ry="20" fill="#5D9CD6"/>
+        <ellipse cx="168" cy="122" rx="4.5" ry="12" fill="#2b3a42"/>
+        <circle cx="162" cy="111" r="4" fill="#fff"/>
+        <circle cx="172" cy="128" r="2" fill="#fff" opacity="0.8"/>
+      </g>
+      <path d="M133 158 Q140 166 147 158 Q140 164 133 158 Z" fill="#E39AA0" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 口(ちょっと開いてわくわく) -->
+      <path d="M120 170 Q130 180 140 170 Q150 180 160 170 Q140 190 120 170 Z" fill="#7a4b45" opacity="0.15"/>
+      <path d="M118 170 Q128 180 140 170 Q152 180 162 170" fill="none" stroke="#9A8579" stroke-width="1"/>
+      <g class="whiskers-left" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="118" y1="166" x2="58" y2="154"/>
+        <line x1="118" y1="172" x2="56" y2="174"/>
+        <line x1="118" y1="178" x2="60" y2="192"/>
+      </g>
+      <g class="whiskers-right" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="162" y1="166" x2="222" y2="154"/>
+        <line x1="162" y1="172" x2="224" y2="174"/>
+        <line x1="162" y1="178" x2="220" y2="192"/>
+      </g>
+      <!-- キラキラ -->
+      <text x="40" y="60" font-size="18">✨</text>
+      <text x="220" y="50" font-size="14">✨</text>
+    </svg>
+    <div class="label">わくわく</div>
+    <div class="sub">出題時・耳が前向き</div>
+  </div>
+
+  <!-- ============ 3. せいかい ============ -->
+  <div class="card">
+    <svg viewBox="0 0 280 260" class="bounce">
+      <g class="ear-left">
+        <path d="M75 70 L45 15 L100 55 Z" fill="#9A8579"/>
+        <path d="M78 62 L60 30 L92 55 Z" fill="#E9B7BA"/>
+      </g>
+      <g class="ear-right">
+        <path d="M205 70 L235 15 L180 55 Z" fill="#9A8579"/>
+        <path d="M202 62 L220 30 L188 55 Z" fill="#E9B7BA"/>
+      </g>
+      <ellipse cx="140" cy="130" rx="88" ry="80" fill="#F6EFE6" stroke="#9A8579" stroke-width="0.7"/>
+      <path d="M60 90 Q70 40 140 45 Q210 40 220 90 Q205 70 140 68 Q75 70 60 90 Z" fill="#9A8579" opacity="0.85"/>
+      <ellipse cx="140" cy="168" rx="46" ry="30" fill="#EFE2D4" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 目(^ ^の弧) -->
+      <path d="M98 122 Q112 106 126 122" fill="none" stroke="#2b3a42" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M154 122 Q168 106 182 122" fill="none" stroke="#2b3a42" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- 頬ピンク -->
+      <ellipse cx="98" cy="148" rx="13" ry="8" fill="#E9B7BA" opacity="0.7"/>
+      <ellipse cx="182" cy="148" rx="13" ry="8" fill="#E9B7BA" opacity="0.7"/>
+      <path d="M133 158 Q140 166 147 158 Q140 164 133 158 Z" fill="#E39AA0" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 口(開けて笑う) -->
+      <path d="M115 168 Q140 200 165 168 Q140 186 115 168 Z" fill="#B5645C"/>
+      <path d="M115 168 Q140 200 165 168" fill="none" stroke="#9A8579" stroke-width="1"/>
+      <g class="whiskers-left" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="118" y1="166" x2="58" y2="154"/>
+        <line x1="118" y1="172" x2="56" y2="174"/>
+        <line x1="118" y1="178" x2="60" y2="192"/>
+      </g>
+      <g class="whiskers-right" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="162" y1="166" x2="222" y2="154"/>
+        <line x1="162" y1="172" x2="224" y2="174"/>
+        <line x1="162" y1="178" x2="220" y2="192"/>
+      </g>
+      <text x="215" y="90" font-size="16">🎉</text>
+      <text x="35" y="180" font-size="14">🐾</text>
+    </svg>
+    <div class="label">せいかい</div>
+    <div class="sub">跳ねて喜ぶ</div>
+  </div>
+
+  <!-- ============ 4. おしい ============ -->
+  <div class="card">
+    <svg viewBox="0 0 280 260">
+      <g class="ear-left">
+        <path d="M75 70 L45 15 L100 55 Z" fill="#9A8579"/>
+        <path d="M78 62 L60 30 L92 55 Z" fill="#E9B7BA"/>
+      </g>
+      <!-- 耳が片方寝る -->
+      <g style="transform:rotate(35deg)" transform-origin="202 55">
+        <path d="M205 70 L235 15 L180 55 Z" fill="#9A8579"/>
+        <path d="M202 62 L220 30 L188 55 Z" fill="#E9B7BA"/>
+      </g>
+      <ellipse cx="140" cy="130" rx="88" ry="80" fill="#F6EFE6" stroke="#9A8579" stroke-width="0.7"/>
+      <path d="M60 90 Q70 40 140 45 Q210 40 220 90 Q205 70 140 68 Q75 70 60 90 Z" fill="#9A8579" opacity="0.85"/>
+      <ellipse cx="140" cy="168" rx="46" ry="30" fill="#EFE2D4" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 眉(下がる) -->
+      <path d="M96 100 Q112 108 128 104" fill="none" stroke="#9A8579" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M152 104 Q168 108 184 100" fill="none" stroke="#9A8579" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- 目(少し困り目) -->
+      <g>
+        <ellipse cx="112" cy="126" rx="14" ry="17" fill="#fff"/>
+        <ellipse cx="112" cy="128" rx="11" ry="14" fill="#5D9CD6"/>
+        <ellipse cx="112" cy="130" rx="3.5" ry="12" fill="#2b3a42"/>
+      </g>
+      <g>
+        <ellipse cx="168" cy="126" rx="14" ry="17" fill="#fff"/>
+        <ellipse cx="168" cy="128" rx="11" ry="14" fill="#5D9CD6"/>
+        <ellipse cx="168" cy="130" rx="3.5" ry="12" fill="#2b3a42"/>
+      </g>
+      <path d="M133 160 Q140 168 147 160 Q140 166 133 160 Z" fill="#E39AA0" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 口(小さな弧・への字寄り) -->
+      <path d="M126 178 Q140 172 154 178" fill="none" stroke="#9A8579" stroke-width="1.4" stroke-linecap="round"/>
+      <g class="whiskers-left" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="118" y1="168" x2="60" y2="158"/>
+        <line x1="118" y1="174" x2="58" y2="176"/>
+        <line x1="118" y1="180" x2="62" y2="194"/>
+      </g>
+      <g class="whiskers-right" stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="162" y1="168" x2="220" y2="158"/>
+        <line x1="162" y1="174" x2="222" y2="176"/>
+        <line x1="162" y1="180" x2="218" y2="194"/>
+      </g>
+    </svg>
+    <div class="label">おしい</div>
+    <div class="sub">寄り添う顔</div>
+  </div>
+
+  <!-- ============ 5. おねむ ============ -->
+  <div class="card">
+    <svg viewBox="0 0 280 260">
+      <g style="transform:rotate(-4deg)" transform-origin="78 60">
+        <path d="M75 70 L45 15 L100 55 Z" fill="#9A8579"/>
+        <path d="M78 62 L60 30 L92 55 Z" fill="#E9B7BA"/>
+      </g>
+      <g style="transform:rotate(4deg)" transform-origin="202 55">
+        <path d="M205 70 L235 15 L180 55 Z" fill="#9A8579"/>
+        <path d="M202 62 L220 30 L188 55 Z" fill="#E9B7BA"/>
+      </g>
+      <ellipse cx="140" cy="130" rx="88" ry="80" fill="#F6EFE6" stroke="#9A8579" stroke-width="0.7"/>
+      <path d="M60 90 Q70 40 140 45 Q210 40 220 90 Q205 70 140 68 Q75 70 60 90 Z" fill="#9A8579" opacity="0.85"/>
+      <ellipse cx="140" cy="168" rx="46" ry="30" fill="#EFE2D4" stroke="#9A8579" stroke-width="0.5"/>
+      <!-- 目を閉じる -->
+      <path d="M100 124 Q112 130 124 124" fill="none" stroke="#2b3a42" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M156 124 Q168 130 180 124" fill="none" stroke="#2b3a42" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M133 160 Q140 168 147 160 Q140 166 133 160 Z" fill="#E39AA0" stroke="#9A8579" stroke-width="0.5" opacity="0.8"/>
+      <!-- 口(小さな丸) -->
+      <ellipse cx="140" cy="176" rx="6" ry="5" fill="none" stroke="#9A8579" stroke-width="1.2"/>
+      <g stroke="#c9bdb2" stroke-width="0.8">
+        <line x1="118" y1="168" x2="60" y2="158"/>
+        <line x1="118" y1="174" x2="58" y2="176"/>
+        <line x1="162" y1="168" x2="220" y2="158"/>
+        <line x1="162" y1="174" x2="222" y2="176"/>
+      </g>
+      <text x="200" y="70" font-size="18">💤</text>
+    </svg>
+    <div class="label">おねむ</div>
+    <div class="sub">おやすみ中</div>
+  </div>
+</div>
+
+</body>
+</html>
