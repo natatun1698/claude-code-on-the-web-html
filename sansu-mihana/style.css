@@ -1,0 +1,118 @@
+:root{
+  --cream:#fff8ef; --pink:#f39aa8; --blue:#7cc4d8; --ink:#4a3b32;
+  --card:#fffdfa; --line:#f0e2d2;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:18px 14px 190px; color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Rounded Mplus 1c",system-ui,sans-serif;
+  background:linear-gradient(180deg,#fff5e9,#eaf6fb 70%);
+  min-height:100vh;
+}
+.hidden{display:none!important}
+.card{
+  max-width:640px; margin:0 auto; background:var(--card); border-radius:26px;
+  padding:22px 20px; box-shadow:0 10px 30px rgba(180,140,110,.18); border:3px solid #fff;
+}
+.center{text-align:center}
+h1{font-size:2.1rem; line-height:1.25; margin:.2em 0; color:#e0798d}
+h2{font-size:1.3rem; margin:.2em 0 .6em}
+h3{font-size:1rem; margin:1.4em 0 .5em; color:#b58e73}
+.sub{color:#a98b74; margin:.2em 0 .6em}
+.note,.mini{font-size:.78rem; color:#a99}
+.level-name{font-size:.95rem; color:#b0836a}
+.msg{background:#fff4e2; border-radius:14px; padding:12px; line-height:1.6}
+.big-num{font-size:2rem; font-weight:700; color:#e0798d; margin:.2em}
+
+/* ボタン */
+.btn{
+  font:inherit; font-weight:700; border:none; border-radius:999px; padding:13px 22px;
+  cursor:pointer; transition:transform .1s; margin:6px 4px;
+}
+.btn:active{transform:scale(.96)}
+.btn.primary{background:linear-gradient(180deg,#ffb3c0,#f3899c); color:#fff; box-shadow:0 4px 0 #dd7286}
+.btn.ghost{background:#fff; color:#b58e73; border:2px solid var(--line)}
+.btn.small{padding:8px 16px; font-size:.85rem}
+.big-btn{font-size:1.25rem; padding:16px 44px; margin-top:10px}
+.btn:disabled{opacity:.5; cursor:default}
+.row{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+
+.mode{
+  display:block; width:100%; text-align:left; font:inherit; cursor:pointer;
+  background:#fff; border:3px solid var(--line); border-radius:20px; padding:14px 18px; margin:10px 0;
+}
+.mode:hover{border-color:var(--pink); background:#fff6f8}
+.mode b{display:block; font-size:1.1rem}
+.mode span{font-size:.85rem; color:#a98b74}
+
+/* 出題 */
+.topbar{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px}
+.chip{background:#fff0e3; border-radius:999px; padding:4px 12px; font-size:.8rem; font-weight:700; color:#b58e73}
+.chip.fire{background:#ffe6d0; color:#e08a3c}
+.setup{background:#eef8fb; border-radius:14px; padding:12px; font-size:.92rem; line-height:1.7}
+.qtext{font-size:1.45rem; font-weight:700; line-height:1.6; margin:.5em 0}
+.answer-row{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+#answer{
+  flex:1; min-width:160px; font:inherit; font-size:1.3rem; padding:12px 16px;
+  border:3px solid var(--line); border-radius:16px; background:#fffdf8;
+}
+#answer:focus{outline:none; border-color:var(--blue)}
+.hint{background:#fffbe6; border:2px dashed #f2d98a; border-radius:14px; padding:12px; margin-top:12px; line-height:1.6}
+.feedback{border-radius:18px; padding:14px; margin-top:14px; display:flex; gap:12px; line-height:1.7; animation:pop .3s}
+.feedback.ok{background:#e9f9ec; border:2px solid #a8e0b6}
+.feedback.ng{background:#fff2f4; border:2px solid #f8c8d0}
+.feedback .mark{font-size:1.8rem}
+.feedback .exp{margin-top:8px; font-size:.9rem; background:#fff; border-radius:12px; padding:10px}
+@keyframes pop{from{transform:scale(.94); opacity:0} to{transform:scale(1); opacity:1}}
+
+/* がんばり度・スタンプ */
+.field{margin:8px 0}
+.field-head{display:flex; justify-content:space-between; font-size:.88rem; font-weight:700}
+.bar{height:12px; background:#f2e7db; border-radius:999px; overflow:hidden; margin-top:4px}
+.bar i{display:block; height:100%; background:linear-gradient(90deg,#ffc36b,#f3899c); transition:width .5s}
+.stamps{display:grid; grid-template-columns:repeat(5,1fr); gap:8px}
+.stamp{aspect-ratio:1; border-radius:50%; border:2px dashed #e3cdb6; display:grid; place-items:center; font-size:1.4rem; background:#fffdf8}
+.stamp.on{background:#ffeaf0; border-style:solid; border-color:var(--pink)}
+
+/* ラガマフィン */
+.ragamuffin{width:120px; display:inline-block}
+.ragamuffin.big{width:190px; margin:10px auto; display:block}
+.cat-svg{width:100%; height:auto; display:block}
+.tail{transform-origin:150px 175px; animation:tail 2.6s ease-in-out infinite}
+@keyframes tail{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(12deg)}}
+.eyes{animation:blink 5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+.eyes{transform-origin:100px 80px}
+.head{transform-origin:100px 110px; animation:sway 4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+/* 成長（レベルで見た目が変わる） */
+.ragamuffin .ribbon,.ragamuffin .hat{display:none}
+.ragamuffin[data-level="1"] .ribbon{display:block}
+.ragamuffin[data-level="2"] .ribbon,.ragamuffin[data-level="2"] .hat{display:block}
+.ragamuffin[data-level="3"] .ribbon,.ragamuffin[data-level="3"] .hat{display:block}
+.ragamuffin[data-level="4"] .ribbon,.ragamuffin[data-level="4"] .hat{display:block}
+.ragamuffin[data-level="3"] .body,.ragamuffin[data-level="4"] .body{filter:drop-shadow(0 0 6px #ffd98a)}
+.ragamuffin[data-level="4"]{filter:drop-shadow(0 0 10px #ffe7a0)}
+
+#cat-corner{position:fixed; right:12px; bottom:10px; width:150px; z-index:20; pointer-events:none}
+#cat[data-mood="happy"]{animation:none}
+.jump{animation:jump .6s ease}
+@keyframes jump{0%,100%{transform:translateY(0)}30%{transform:translateY(-26px) rotate(-6deg)}60%{transform:translateY(-8px)}}
+.bubble{
+  background:#fff; border:3px solid var(--pink); border-radius:18px; padding:10px 12px;
+  font-size:.85rem; line-height:1.5; margin-bottom:6px; box-shadow:0 6px 16px rgba(0,0,0,.08);
+  animation:pop .25s;
+}
+.bubble::after{content:""; position:absolute; right:36px; bottom:-2px}
+.sparkles{position:absolute; inset:-40px -20px; pointer-events:none}
+.sparkles span{position:absolute; top:60%; font-size:1.2rem; animation:sp 1.2s ease-out forwards}
+@keyframes sp{from{transform:translateY(0) scale(.4); opacity:1}to{transform:translateY(-90px) scale(1.2); opacity:0}}
+
+@media (max-width:520px){
+  body{padding-bottom:150px}
+  .qtext{font-size:1.25rem}
+  #cat-corner{width:108px}
+  .bubble{font-size:.78rem}
+}
+@media (min-width:900px){ .card{max-width:720px} }
+.chip:empty{display:none}
