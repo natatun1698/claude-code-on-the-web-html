@@ -1,0 +1,181 @@
+// 英検準2級 学習アプリ 解答データ(answers.jsonと同内容)
+const ANSWERS = [
+  {
+    "id": "V1-01",
+    "correct": 1,
+    "explanationJa": "ジョシュは<ruby>渋滞<rt>じゅうたい</rt></ruby>にはまってしまったので、仕事に<ruby>遅<rt>おく</rt></ruby>れてやって来ました。「late(遅れて)」が正解です。"
+  },
+  {
+    "id": "V1-02",
+    "correct": 2,
+    "explanationJa": "デービッドは初めて東京に来たころ、日本の<ruby>慣習<rt>かんしゅう</rt></ruby>についてほとんど知識がありませんでした。knowledge(知識)は数えられない名詞なので、「little(ほとんどない)」を使います。"
+  },
+  {
+    "id": "V1-03",
+    "correct": 1,
+    "explanationJa": "トムはたったの10<ruby>歳<rt>さい</rt></ruby>なのに、<ruby>驚<rt>おどろ</rt></ruby>くべきことにその数学の問題を「with ease(簡単に)」解きました。品詞を考えると、前置詞withのあとには名詞のeaseが来ます。"
+  },
+  {
+    "id": "V1-04",
+    "correct": 4,
+    "explanationJa": "次の小説のアイデアを考えていて、その作家は新たなアイデアを「came up with(思いついた)」のです。come up with 〜 は「〜を思いつく」という意味です。"
+  },
+  {
+    "id": "V1-05",
+    "correct": 4,
+    "explanationJa": "ボブはその仕事の申し出は<ruby>魅力的<rt>みりょくてき</rt></ruby>だと考えましたが、<ruby>忙<rt>いそが</rt></ruby>しすぎて「accept(受け入れる)」ことができませんでした。"
+  },
+  {
+    "id": "V1-06",
+    "correct": 2,
+    "explanationJa": "家で一人で勉強することを好む生徒もいれば、図書館で友達と一緒に勉強することを楽しむ生徒も「others(他の生徒たち)」もいます。Some 〜, others … の形です。"
+  },
+  {
+    "id": "V1-07",
+    "correct": 1,
+    "explanationJa": "ヒル氏は自分の事業に対する様々な<ruby>批判<rt>ひはん</rt></ruby>の言葉に「put up with(我慢する)」しなければなりませんでした。"
+  },
+  {
+    "id": "V1-08",
+    "correct": 3,
+    "explanationJa": "グレッグは国立<ruby>科学<rt>かがく</rt></ruby>研究機関で「researcher(研究者)」として雇われました。今では毎日実験室で実験をしています。"
+  },
+  {
+    "id": "V1-09",
+    "correct": 1,
+    "explanationJa": "ルーシーは左脚をけがしていたに「in spite of(〜にもかかわらず)」、ついに山の頂上に到達しました。"
+  },
+  {
+    "id": "V1-10",
+    "correct": 2,
+    "explanationJa": "人々は、町の清掃のために月に1度集まります。この活動は「community(地域社会)」の他の人々と密接な関係を築くのにも役立っています。"
+  },
+  {
+    "id": "V1-11",
+    "correct": 4,
+    "explanationJa": "その村は夏祭りで有名です。その祭りの「origin(起源)」は16世紀までさかのぼることができます。"
+  },
+  {
+    "id": "V1-12",
+    "correct": 1,
+    "explanationJa": "ジェイムズはコンピュータープログラミングに<ruby>長<rt>た</rt></ruby>けています。しかし、ナンシーが助けを求めたとき、彼女が<ruby>嫌<rt>きら</rt></ruby>いだからという理由で、不慣れな「pretended(ふりをした)」のです。pretend to be 〜 で「〜であるふりをする」という意味です。"
+  },
+  {
+    "id": "V1-13",
+    "correct": 3,
+    "explanationJa": "ジェーンは会議に出席するはずでしたが、気分が悪く仕事を早退しました。翌日、彼女は<ruby>欠席<rt>けっせき</rt></ruby>したことを「apology(謝罪)」しました。make an apology で「謝罪をする」という意味です。"
+  },
+  {
+    "id": "V1-14",
+    "correct": 1,
+    "explanationJa": "ヨウコは昨年、東京からロンドンへ引っ越しました。彼女は長い間、「abroad(海外で)」一人暮らしをしたかったのです。live abroad で「海外で暮らす」という意味です。"
+  },
+  {
+    "id": "V1-15",
+    "correct": 2,
+    "explanationJa": "今年のマラソン大会は9月20日に「take place(行われる)」予定です。be scheduled to do は「〜することになっている」という意味です。"
+  },
+  {
+    "id": "V2-01",
+    "correct": 1,
+    "explanationJa": "A:壁の写真を撮ったのは誰ですか。とてもきれいですね。B:私の兄です。写真家として働いているのです。「on」は平面に接触している状態を表すので、on the wall(壁の写真)となります。"
+  },
+  {
+    "id": "V2-02",
+    "correct": 2,
+    "explanationJa": "ビリーは明日「までに」レポートを終わらせなければなりませんが、まだ何について書くか決めていません。<ruby>期限<rt>きげん</rt></ruby>を表す「by」を選びます。"
+  },
+  {
+    "id": "V2-03",
+    "correct": 1,
+    "explanationJa": "アレンさんは素晴らしいスピーチをしました。彼は<ruby>質疑応答<rt>しつぎおうとう</rt></ruby>の時間「中に」、<ruby>聴衆<rt>ちょうしゅう</rt></ruby>から多くの質問を受けました。during(ある期間中に)は前置詞、whileは<ruby>接続詞<rt>せつぞくし</rt></ruby>なので、後ろに名詞だけが来ることはありません。"
+  },
+  {
+    "id": "V2-04",
+    "correct": 4,
+    "explanationJa": "ケンとヨウコは休暇でどこに行くか話しています。彼らはニューヨークかロンドンの「どちらか」に行きたいと思っています。either A or B(AかBのどちらか)と neither A nor B(AもBも〜ない)を区別して覚えましょう。"
+  },
+  {
+    "id": "V2-05",
+    "correct": 3,
+    "explanationJa": "彼は探していた古いレコードを見つけました。それは彼が買うには高すぎることが「偶然に」わかりました。自然と意味が通るのは by chance(偶然)でしょう。"
+  },
+  {
+    "id": "V2-06",
+    "correct": 4,
+    "explanationJa": "ピーターは学校へ行く「途中に」交通事故を目撃しました。彼は警察と救急車にすぐに電話をしました。on the way to 〜 で「〜へ行く途中に」という意味です。"
+  },
+  {
+    "id": "V2-07",
+    "correct": 4,
+    "explanationJa": "ジョンと彼のスタッフは、契約の細部について話し合う「ために」、来週会議を開くことに決めました。in order to do で「〜するために」という意味で、直後に動詞の原形が来ます。"
+  },
+  {
+    "id": "V2-08",
+    "correct": 1,
+    "explanationJa": "強い風のせいで、消防士たちが火を「put out(消し止める)」のに3時間かかりました。"
+  },
+  {
+    "id": "V2-09",
+    "correct": 2,
+    "explanationJa": "彼の部署のコピー機は「out of order(<ruby>故障<rt>こしょう</rt></ruby>中)」だったので、ケビンは一番近くのコンビニに行かなければなりませんでした。"
+  },
+  {
+    "id": "C2-01",
+    "correct": 1,
+    "explanationJa": "A:静かにして。ひどい頭痛がするの。B:「薬を飲んで、寝たらどう?」頭が痛くて寝ようとしている相手には、薬をすすめる Why don't you take medicine が自然です。"
+  },
+  {
+    "id": "C2-02",
+    "correct": 3,
+    "explanationJa": "A:すみません。レッドドラゴンズという中華料理店を知っていますか。B:「その信号を左に曲がってください」、そうすれば左手に見えますよ。道案内の場面なので、具体的な曲がり方を教える文が自然です。"
+  },
+  {
+    "id": "E-01",
+    "modelAnswers": [
+      {
+        "text": "Carrying an omikoshi must be fun! I have two questions. How many people came to see the festival? How many times is the festival held in a year? In answer to your question, I think local festivals should be continued because they give people chances to communicate with their neighbors.",
+        "wordCount": 50
+      }
+    ],
+    "explanationJa": "下線部(おみこしをかつぐ地域の祭りの話題)に軽くふれてから、Benのメールの下線部について具体的な質問を2つします。質問は「何人集まったか」「年に何回開催されるか」のように、下線部の特徴を問うものが書きやすいです。最後にBenからの質問(祭りは今後も続けるべきか)に対して、Yes/Noの立場を決めて理由を答えましょう。"
+  },
+  {
+    "id": "E-02",
+    "modelAnswers": [
+      {
+        "text": "I'm glad to hear that you enjoy your new place. Can I ask you two questions? Which floor is your new place? How many rooms does your new place have? As for your question, I prefer the countryside. I want to build a house near a lake and enjoy nature.",
+        "wordCount": 50
+      }
+    ],
+    "explanationJa": "下線部(新居のこと)を押さえてから、新居の特徴を問う質問を2つ書きます(例:何階か、部屋はいくつあるか)。相手の質問「田舎と都会どちらが好きか」に対しては、どちらか一方を選び、because などを使って理由を1文で表すと簡潔にまとまります。"
+  },
+  {
+    "id": "O-01",
+    "modelAnswers": [
+      {
+        "text": "I think electronic dictionaries are better than paper dictionaries. I have two reasons. First of all, they are much smaller and easier to carry around than paper ones. Second, with an electronic dictionary you can not only look up the meaning of words but also hear sounds, see images, and watch videos. That's why I think electronic dictionaries are better.",
+        "wordCount": 59
+      },
+      {
+        "text": "I don't think that electronic dictionaries are better than paper dictionaries. I have two reasons. The first reason is that, compared with paper dictionaries, electronic dictionaries break easily. The other reason is that it is easier to learn new words with a paper dictionary because you can write in or put a post-it in a paper dictionary.",
+        "wordCount": 56
+      }
+    ],
+    "explanationJa": "まず賛成か反対かの立場を表明したあと、First of all, ... Second, ... のように理由を2つ具体的に述べます。電子辞書は「持ち運びやすい」「音声や動画も見られる」、紙の辞書は「壊れにくい」「書き込みや付せんで単語を覚えやすい」のような対比を使うと書きやすいです。"
+  },
+  {
+    "id": "O-02",
+    "modelAnswers": [
+      {
+        "text": "I think that college students should live with their parents. I have two reasons. To begin with, college students have to study hard. They are too busy to do housework. Moreover, by living with their parents, students can save money. For these reasons, I think college students should live with their parents.",
+        "wordCount": 60
+      },
+      {
+        "text": "I don't think college students should live with their parents. I have two reasons. Firstly, students should live by themselves because college students are old enough to take care of themselves. Secondly, they can learn to do household chores, such as cooking, cleaning or paying utility bills, by living alone. Therefore, I think college students should live by themselves.",
+        "wordCount": 56
+      }
+    ],
+    "explanationJa": "First(ly)/To begin with, ... Second(ly)/Moreover, ... のように理由を2つ順序立てて書きます。親と住むメリットは「勉強に専念できる」「お金を節約できる」、一人暮らしのメリットは「自立できる年齢である」「家事を自分でできるようになる」のように整理すると書きやすいです。"
+  }
+];
