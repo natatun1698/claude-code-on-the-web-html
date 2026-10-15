@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>めぐろ vs ねむろ — 音の類似性を周波数で可視化</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2128;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --blue: #58a6ff;
+      --red: #f78166;
+      --green: #3fb950;
+      --purple: #d2a8ff;
+      --yellow: #e3b341;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Helvetica Neue', Arial,
+                   'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header { text-align: center; padding: 64px 0 48px; }
+    header h1 { font-size: 2.2em; font-weight: 700; letter-spacing: -.02em; }
+    header p { color: var(--muted); margin-top: 8px; font-size: 1.05em; }
+
+    .pair-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 28px; margin: 36px 0;
+    }
+    .word-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 32px; text-align: center;
+      min-width: 160px;
+    }
+    .word-card .kanji  { font-size: 2.4em; font-weight: 700; display: block; }
+    .word-card .kana   { font-size: 1.05em; color: var(--muted); }
+    .word-card .roman  { font-size: 0.85em; color: var(--muted); font-family: monospace; }
+    .word-card.w1 .kanji { color: var(--blue); }
+    .word-card.w2 .kanji { color: var(--red);  }
+    .vs { font-size: 1.6em; color: var(--muted); font-weight: 700; }
+
+    /* ── Sections ────────────────────────────────────────────── */
+    section { margin: 56px 0; }
+    section > h2 {
+      font-size: 1.25em; font-weight: 600;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+    .sec-note { color: var(--muted); font-size: .92em; margin-bottom: 18px; }
+
+    /* ── Mora Table ──────────────────────────────────────────── */
+    .mora-table { width: 100%; border-collapse: collapse; font-size: 1em; }
+    .mora-table th, .mora-table td {
+      border: 1px solid var(--border);
+      padding: 12px 14px; text-align: center;
+    }
+    .mora-table th { background: var(--surface2); color: var(--muted); font-weight: 500; }
+    .mora-char { font-size: 2em; display: block; margin-bottom: 4px; }
+    .mora-ipa  { font-family: monospace; font-size: .82em; color: var(--muted); }
+    .cell-nasal { background: rgba(88,166,255,.08); }
+    .cell-same  { background: rgba(210,168,255,.1); }
+    .cell-sim   { font-size: .82em; color: var(--muted); line-height: 1.5; }
+
+    /* ── Canvas wrappers ─────────────────────────────────────── */
+    .canvas-stack { display: flex; flex-direction: column; gap: 16px; }
+    .canvas-wrap {
+      background: #0a0c12; border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+    }
+    .canvas-label {
+      padding: 8px 14px; font-size: .82em;
+      border-bottom: 1px solid var(--border);
+    }
+    .canvas-wrap canvas { display: block; width: 100%; }
+
+    /* ── Formant canvas ──────────────────────────────────────── */
+    #formantCanvas {
+      display: block; width: 100%;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    /* ── Feature matrix ──────────────────────────────────────── */
+    .feat-table { width: 100%; border-collapse: collapse; font-size: .95em; }
+    .feat-table th, .feat-table td {
+      border: 1px solid var(--border); padding: 11px 14px; text-align: center;
+    }
+    .feat-table th { background: var(--surface2); color: var(--muted); font-weight: 500; }
+    .feat-nasal  { background: rgba(88,166,255,.15); color: var(--blue); font-weight: 600; }
+    .feat-rating { font-size: .82em; color: var(--muted); line-height: 1.5; }
+
+    /* ── Insight box ─────────────────────────────────────────── */
+    .insight {
+      border-radius: 8px; padding: 18px 22px; margin: 20px 0;
+    }
+    .insight.blue  { background: rgba(88,166,255,.08); border: 1px solid rgba(88,166,255,.3); }
+    .insight.green { background: rgba(63,185,80,.07);  border: 1px solid rgba(63,185,80,.3); }
+    .insight h3 { margin-bottom: 8px; font-size: 1em; }
+    .insight h3.blue  { color: var(--blue);  }
+    .insight h3.green { color: var(--green); }
+    .insight ul { padding-left: 1.4em; }
+    .insight li { margin-top: 5px; font-size: .95em; }
+
+    /* ── Legend ──────────────────────────────────────────────── */
+    .legend {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-top: 12px; font-size: .88em; color: var(--muted);
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .legend-dot  { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Similar pairs grid ──────────────────────────────────── */
+    .pairs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .pair-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px;
+    }
+    .pair-card h3 { font-size: .92em; color: var(--muted); margin-bottom: 10px; }
+    .pair-words {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .pw { font-size: 1.35em; font-weight: 700; }
+    .pair-desc { font-size: .88em; color: var(--muted); line-height: 1.55; }
+    .tag {
+      display: inline-block; font-size: .74em; padding: 2px 8px;
+      border-radius: 99px; margin-left: 6px; vertical-align: middle;
+      font-weight: 600;
+    }
+    .tag-nasal  { background: rgba(88,166,255,.15); color: var(--blue); }
+    .tag-pitch  { background: rgba(227,179,65,.15);  color: var(--yellow); }
+    .tag-vot    { background: rgba(63,185,80,.15);   color: var(--green); }
+    .tag-mora   { background: rgba(210,168,255,.15); color: var(--purple); }
+
+    footer {
+      text-align: center; padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: .82em; margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>なぜ聞き間違える？</h1>
+    <p>日本語形態素の音響類似性を周波数で可視化する</p>
+    <div class="pair-row">
+      <div class="word-card w1">
+        <span class="kanji">目黒</span>
+        <span class="kana">めぐろ</span>
+        <span class="roman">/meɡuro/</span>
+      </div>
+      <span class="vs">≈</span>
+      <div class="word-card w2">
+        <span class="kanji">根室</span>
+        <span class="kana">ねむろ</span>
+        <span class="roman">/nemuro/</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ① Mora breakdown -->
+  <section>
+    <h2>① モーラ分解 — 音素を並べて比べる</h2>
+    <table class="mora-table">
+      <thead>
+        <tr>
+          <th>語</th>
+          <th>モーラ 1</th>
+          <th>モーラ 2</th>
+          <th>モーラ 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700;color:var(--blue)">目黒</td>
+          <td class="cell-nasal">
+            <span class="mora-char" style="color:var(--blue)">め</span>
+            <span class="mora-ipa">/m/ + /e/</span>
+          </td>
+          <td class="cell-nasal">
+            <span class="mora-char" style="color:var(--blue)">ぐ</span>
+            <span class="mora-ipa">/ɡ/ → [ŋ]※</span>
+          </td>
+          <td class="cell-same">
+            <span class="mora-char">ろ</span>
+            <span class="mora-ipa">/r/ + /o/</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:var(--red)">根室</td>
+          <td class="cell-nasal">
+            <span class="mora-char" style="color:var(--red)">ね</span>
+            <span class="mora-ipa">/n/ + /e/</span>
+          </td>
+          <td class="cell-nasal">
+            <span class="mora-char" style="color:var(--red)">む</span>
+            <span class="mora-ipa">/m/ + /u/</span>
+          </td>
+          <td class="cell-same">
+            <span class="mora-char">ろ</span>
+            <span class="mora-ipa">/r/ + /o/</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="color:var(--muted);font-size:.85em">類似性</td>
+          <td class="cell-sim">
+            母音 /e/ が一致<br>
+            子音 [m] ≈ [n]<br>（いずれも鼻音）
+          </td>
+          <td class="cell-sim">
+            母音 /u/ が一致<br>
+            子音 [ŋ] ≈ [m]<br>（いずれも鼻音）
+          </td>
+          <td class="cell-sim" style="color:var(--purple)">
+            /ro/ が完全一致
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight blue" style="margin-top:18px">
+      <h3 class="blue">※ 鼻濁音（びだくおん）とは</h3>
+      <p style="font-size:.93em">
+        東京方言では、語中の「が行」が軟口蓋鼻音 <strong>[ŋ]</strong>（英語 <em>sing</em> の末尾音）として実現される。
+        「目黒」の「ぐ」は [ŋu] と発音されることが多く、「む」[mu] と同じく<strong>鼻音子音</strong>になる。
+        その結果、両語の子音はすべて鼻音 [m / n / ŋ / r] で構成される。
+      </p>
+    </div>
+  </section>
+
+  <!-- ② Spectrograms -->
+  <section>
+    <h2>② 合成スペクトログラム — 周波数 × 時間の分布</h2>
+    <p class="sec-note">
+      縦軸＝周波数 (0–4000 Hz)、横軸＝時間。<strong>明るい帯</strong>がフォルマント（共鳴周波数）、
+      <strong>低周波のぼんやりした帯</strong>が鼻音ムーミング特徴。両語のパターンは極めて類似している。
+    </p>
+    <div class="canvas-stack">
+      <div class="canvas-wrap">
+        <div class="canvas-label" style="color:var(--blue)">▶ 目黒（めぐろ） [m e ŋ u r o]</div>
+        <canvas id="sg1" height="170"></canvas>
+      </div>
+      <div class="canvas-wrap">
+        <div class="canvas-label" style="color:var(--red)">▶ 根室（ねむろ） [n e m u r o]</div>
+        <canvas id="sg2" height="170"></canvas>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#ccc"></div>明るい帯 = フォルマント（エネルギー集中）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2a5a8a"></div>低域の帯 = 鼻音ムーミング（300 Hz 付近）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#333"></div>暗部 = 反フォルマント（鼻音によるエネルギー抑圧）</div>
+    </div>
+  </section>
+
+  <!-- ③ Formant plot -->
+  <section>
+    <h2>③ 母音フォルマント軌跡 — F1 × F2 空間</h2>
+    <p class="sec-note">
+      F2（横軸）は舌の前後、F1（縦軸）は舌の高さに対応。二語の母音列 <strong>e→u→o</strong> は完全に一致し、
+      軌跡が重なる。
+    </p>
+    <canvas id="formantCanvas" height="320"></canvas>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>目黒の母音軌跡 e→u→o</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>根室の母音軌跡 e→u→o（ほぼ一致）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ffffff33"></div>日本語5母音の基準位置</div>
+    </div>
+  </section>
+
+  <!-- ④ Consonant feature matrix -->
+  <section>
+    <h2>④ 子音素性マトリクス — すべて鼻音</h2>
+    <table class="feat-table">
+      <thead>
+        <tr>
+          <th>語</th>
+          <th>子音 C1</th>
+          <th>子音 C2</th>
+          <th>子音 C3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700;color:var(--blue)">目黒 [meŋuro]</td>
+          <td class="feat-nasal">[m] 両唇鼻音</td>
+          <td class="feat-nasal">[ŋ] 軟口蓋鼻音</td>
+          <td class="feat-nasal">[r] 歯茎弾き音</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:var(--red)">根室 [nemuro]</td>
+          <td class="feat-nasal">[n] 歯茎鼻音</td>
+          <td class="feat-nasal">[m] 両唇鼻音</td>
+          <td class="feat-nasal">[r] 歯茎弾き音</td>
+        </tr>
+        <tr>
+          <td style="color:var(--muted);font-size:.85em">類似度</td>
+          <td class="feat-rating">★★★<br>同じ鼻音クラス<br>調音点のみ異なる</td>
+          <td class="feat-rating">★★★<br>同じ鼻音クラス<br>調音点のみ異なる</td>
+          <td class="feat-rating">★★★<br>完全一致</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight green" style="margin-top:20px">
+      <h3 class="green">なぜ似ているか — まとめ</h3>
+      <ul>
+        <li><strong>母音列 /e–u–o/ が完全一致</strong> → F1・F2 フォルマント軌跡が重なる</li>
+        <li><strong>鼻濁音を考慮すると全子音が鼻音</strong> → スペクトルの低周波エネルギー分布が類似</li>
+        <li><strong>モーラ数が同じ（3 モーラ）</strong> → 持続時間構造が類似</li>
+        <li><strong>音調型が近い</strong> → 東京方言では目黒 LHL（中高型）、根室 LHH（平板型）と似た輪郭</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ⑤ Other pairs -->
+  <section>
+    <h2>⑤ ほかに混同されやすい日本語ペア</h2>
+    <div class="pairs-grid">
+
+      <div class="pair-card">
+        <h3>中間モーラだけ違う地名<span class="tag tag-mora">1モーラ差</span></h3>
+        <div class="pair-words">
+          <span class="pw" style="color:var(--blue)">目黒</span>
+          <span style="color:var(--muted)">≈</span>
+          <span class="pw" style="color:var(--red)">目白</span>
+        </div>
+        <p class="pair-desc">
+          め●ろ という枠組みが共通で、中間モーラ「ぐ」vs「じ」のみ異なる。
+          どちらも東京・山手線の駅名で使用頻度が高く、語頭・語末の一致が
+          短期記憶に干渉しやすい。
+        </p>
+      </div>
+
+      <div class="pair-card">
+        <h3>ピッチアクセントのみ異なる<span class="tag tag-pitch">声調</span></h3>
+        <div class="pair-words">
+          <span class="pw" style="color:var(--blue)">橋（は↑し↓）</span>
+          <span style="color:var(--muted)">≈</span>
+          <span class="pw" style="color:var(--red)">箸（↑はし）</span>
+        </div>
+        <p class="pair-desc">
+          セグメント列 /haɕi/ は完全同一。東京方言では橋が HL型、箸が LH型。
+          スペクトログラム上のフォルマントは区別不能で、
+          F0（基本周波数）の軌跡だけが手がかりになる。
+        </p>
+      </div>
+
+      <div class="pair-card">
+        <h3>ピッチアクセントのみ異なる②<span class="tag tag-pitch">声調</span></h3>
+        <div class="pair-words">
+          <span class="pw" style="color:var(--blue)">雨（↑あめ↓）</span>
+          <span style="color:var(--muted)">≈</span>
+          <span class="pw" style="color:var(--red)">飴（あ↑め）</span>
+        </div>
+        <p class="pair-desc">
+          雨 HL 型 vs 飴 LH 型。日本語学習者が最初に躓くアクセント最小対。
+          周波数スペクトルは完全一致。F0 軌跡の違いのみが聴覚的手がかりで、
+          騒音下では区別が極めて難しい。
+        </p>
+      </div>
+
+      <div class="pair-card">
+        <h3>語頭の有声・無声対<span class="tag tag-vot">VOT</span></h3>
+        <div class="pair-words">
+          <span class="pw" style="color:var(--blue)">天気</span>
+          <span style="color:var(--muted)">≈</span>
+          <span class="pw" style="color:var(--red)">電気</span>
+        </div>
+        <p class="pair-desc">
+          て /t/ と で /d/ は調音点・方法が同じで、有声か否かのみが違う。
+          VOT（声帯振動開始時間）の差は 30〜80 ms 程度。
+          騒音環境や早口では /t/ の無声区間が短縮され /d/ と聞き間違えやすい。
+        </p>
+      </div>
+
+      <div class="pair-card">
+        <h3>語中の鼻音連鎖 ― 地名<span class="tag tag-nasal">鼻音</span></h3>
+        <div class="pair-words">
+          <span class="pw" style="color:var(--blue)">長野</span>
+          <span style="color:var(--muted)">≈</span>
+          <span class="pw" style="color:var(--red)">名古屋</span>
+        </div>
+        <p class="pair-desc">
+          語頭 /na/ が共通で、語中に鼻濁音 [ŋ] が入る点も同じ（な[ŋ]の vs な[ŋ]や）。
+          長野（なが/の）と名古屋（なご/や）は mora 数が異なるが
+          音響的な印象が重なりやすい。
+        </p>
+      </div>
+
+      <div class="pair-card">
+        <h3>語末 1 音の有声差<span class="tag tag-vot">VOT</span></h3>
+        <div class="pair-words">
+          <span class="pw" style="color:var(--blue)">最高</span>
+          <span style="color:var(--muted)">≈</span>
+          <span class="pw" style="color:var(--red)">最後</span>
+        </div>
+        <p class="pair-desc">
+          「さいこ」と「さいご」の差は語末子音 /k/ vs /g/ のみ。
+          発話速度が上がると語末の閉鎖音の有声性（声帯振動）が弱まり、
+          アクセントも平坦化して区別が失われやすい。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>音響データは合成値（日本語標準フォルマント推定値を使用）</p>
+</footer>
+
+<script>
+/* ================================================================
+   Shared acoustic model
+   ================================================================ */
+
+const MAX_FREQ = 4000;
+
+function gauss(x, mu, sigma) {
+  return Math.exp(-0.5 * ((x - mu) / sigma) ** 2);
+}
+
+function energy(freq, ph) {
+  if (!ph) return 0;
+  let e = 0;
+
+  if (ph.type === 'nasal') {
+    // Nasal murmur: dominant band at nasal pole (~280-450 Hz depending on place)
+    // plus weak higher resonances; higher frequencies suppressed by antiformants
+    const np = ph.nasalPole || 300;
+    e = 1.1  * gauss(freq, np,  68)
+      + 0.20 * gauss(freq, 1000, 95)
+      + 0.09 * gauss(freq, 2100, 95);
+    // Exponential roll-off models antiformant suppression above ~600 Hz
+    e *= (0.25 + 0.75 * gauss(freq, np, 120));
+    e += 0.9 * gauss(freq, np, 68); // restore murmur prominence
+
+  } else if (ph.type === 'vowel') {
+    e = 1.00 * gauss(freq, ph.F1, 92)
+      + 0.88 * gauss(freq, ph.F2, 115)
+      + 0.42 * gauss(freq, ph.F3, 145)
+      + 0.04;  // broadband voice
+
+  } else if (ph.type === 'approx') {
+    // Japanese /r/ — brief, formants between /e/ and /o/
+    e = 0.65 * gauss(freq, 380, 115)
+      + 0.55 * gauss(freq, 1080, 145)
+      + 0.28 * gauss(freq, 2380, 170)
+      + 0.04;
+  }
+  return Math.min(e, 1.0);
+}
+
+// Color map: dark navy → teal → green → yellow (classic phosphor)
+function toColor(e) {
+  const t = Math.max(0, Math.min(1, e));
+  if (t < 0.04) return [4, 6, 18];
+  const r = Math.round(255 * Math.pow(t, 1.4));
+  const g = Math.round(255 * Math.pow(t, 0.65));
+  const b = Math.round(255 * Math.max(0, 0.55 - t * 0.9));
+  return [r, g, b];
+}
+
+/* ================================================================
+   Phoneme definitions
+   ================================================================ */
+
+const MEGURO = [
+  { label:'め', ipa:'m',  type:'nasal',  duration:78,  nasalPole:285 },  // bilabial
+  { label:'め', ipa:'e',  type:'vowel',  duration:108, F1:445, F2:2100, F3:2790 },
+  { label:'ぐ', ipa:'ŋ',  type:'nasal',  duration:68,  nasalPole:445 },  // velar (鼻濁音)
+  { label:'ぐ', ipa:'u',  type:'vowel',  duration:100, F1:295, F2:1395, F3:2590 },
+  { label:'ろ', ipa:'r',  type:'approx', duration:55  },
+  { label:'ろ', ipa:'o',  type:'vowel',  duration:128, F1:498, F2:895,  F3:2490 },
+];
+
+const NEMURO = [
+  { label:'ね', ipa:'n',  type:'nasal',  duration:78,  nasalPole:385 },  // alveolar
+  { label:'ね', ipa:'e',  type:'vowel',  duration:108, F1:445, F2:2100, F3:2790 },
+  { label:'む', ipa:'m',  type:'nasal',  duration:68,  nasalPole:285 },  // bilabial
+  { label:'む', ipa:'u',  type:'vowel',  duration:100, F1:295, F2:1395, F3:2590 },
+  { label:'ろ', ipa:'r',  type:'approx', duration:55  },
+  { label:'ろ', ipa:'o',  type:'vowel',  duration:128, F1:498, F2:895,  F3:2490 },
+];
+
+/* ================================================================
+   Spectrogram renderer
+   ================================================================ */
+
+function drawSpectrogram(canvasId, phonemes) {
+  const canvas = document.getElementById(canvasId);
+  const W = canvas.offsetWidth || 800;
+  canvas.width = W;
+  const H = canvas.height;
+  const ctx = canvas.getContext('2d');
+
+  const totalDur = phonemes.reduce((s, p) => s + p.duration, 0);
+  const imgData  = ctx.createImageData(W, H);
+
+  // Build lookup: x → phoneme
+  const phLookup = new Array(W);
+  for (let x = 0; x < W; x++) {
+    const t = (x / W) * totalDur;
+    let cum = 0;
+    for (const p of phonemes) {
+      if (t < cum + p.duration) { phLookup[x] = p; break; }
+      cum += p.duration;
+    }
+  }
+
+  for (let x = 0; x < W; x++) {
+    const ph = phLookup[x];
+    for (let y = 0; y < H; y++) {
+      const freq = MAX_FREQ * (1 - y / H);
+      const e    = energy(freq, ph);
+      const [r, g, b] = toColor(e);
+      const idx = (y * W + x) * 4;
+      imgData.data[idx]   = r;
+      imgData.data[idx+1] = g;
+      imgData.data[idx+2] = b;
+      imgData.data[idx+3] = 255;
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+
+  // Segment boundaries & IPA labels
+  let cum = 0;
+  const labelY = H - 5;
+
+  for (let i = 0; i < phonemes.length; i++) {
+    const p  = phonemes[i];
+    const x0 = (cum / totalDur) * W;
+    const x1 = ((cum + p.duration) / totalDur) * W;
+    const xm = (x0 + x1) / 2;
+
+    if (i > 0) {
+      ctx.strokeStyle = 'rgba(255,255,255,0.22)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(x0, 0); ctx.lineTo(x0, H); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // IPA label
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.font = '12px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('[' + p.ipa + ']', xm, labelY);
+
+    cum += p.duration;
+  }
+
+  // Frequency axis labels (right side)
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'right';
+  for (const f of [500, 1000, 2000, 3000]) {
+    const y = H * (1 - f / MAX_FREQ);
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.fillText(f + ' Hz', W - 4, y - 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W - 55, y); ctx.stroke();
+  }
+}
+
+/* ================================================================
+   Formant (F1 × F2) plot
+   ================================================================ */
+
+function drawFormant(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  const W = canvas.offsetWidth || 800;
+  canvas.width = W;
+  const H = canvas.height;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#161b22';
+  ctx.fillRect(0, 0, W, H);
+
+  const mg = { t: 38, r: 30, b: 48, l: 62 };
+  const pw = W - mg.l - mg.r;
+  const ph = H - mg.t - mg.b;
+
+  // Axes: F2 high→low on X, F1 low→high on Y
+  const F2_HI = 2700, F2_LO = 650;
+  const F1_LO = 200,  F1_HI = 820;
+  const fx = f2 => mg.l + pw * (1 - (f2 - F2_LO) / (F2_HI - F2_LO));
+  const fy = f1 => mg.t + ph * (f1 - F1_LO) / (F1_HI - F1_LO);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  for (const f2 of [800,1000,1200,1400,1600,1800,2000,2200,2400,2600]) {
+    const x = fx(f2);
+    ctx.beginPath(); ctx.moveTo(x, mg.t); ctx.lineTo(x, mg.t + ph); ctx.stroke();
+  }
+  for (const f1 of [300,400,500,600,700]) {
+    const y = fy(f1);
+    ctx.beginPath(); ctx.moveTo(mg.l, y); ctx.lineTo(mg.l + pw, y); ctx.stroke();
+  }
+
+  // Border
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(mg.l, mg.t, pw, ph);
+
+  // Axis tick labels
+  ctx.fillStyle = 'rgba(255,255,255,0.4)';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'center';
+  for (const f2 of [800,1000,1200,1400,1600,1800,2000,2200,2400,2600]) {
+    ctx.fillText(f2, fx(f2), mg.t + ph + 16);
+  }
+  ctx.textAlign = 'right';
+  for (const f1 of [300,400,500,600,700]) {
+    ctx.fillText(f1, mg.l - 5, fy(f1) + 4);
+  }
+
+  // Axis titles
+  ctx.fillStyle = 'rgba(255,255,255,0.55)';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('← F2 第二フォルマント (Hz) →高', mg.l + pw / 2, H - 6);
+  ctx.save();
+  ctx.translate(14, mg.t + ph / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('↑ F1 低 → 高 ↓', 0, 0);
+  ctx.restore();
+
+  // Japanese vowel reference positions
+  const VOWELS = [
+    { v:'a', F1:770, F2:1250 },
+    { v:'i', F1:260, F2:2450 },
+    { v:'u', F1:288, F2:1380 },
+    { v:'e', F1:440, F2:2100 },
+    { v:'o', F1:492, F2:892  },
+  ];
+  for (const {v, F1, F2} of VOWELS) {
+    const x = fx(F2), y = fy(F1);
+    ctx.fillStyle = 'rgba(255,255,255,0.1)';
+    ctx.beginPath(); ctx.arc(x, y, 22, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+    ctx.font = 'bold 15px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(v, x, y + 5);
+  }
+
+  // Vowel trajectories e→u→o
+  const SEQ = [
+    { v:'e', F1:440, F2:2100 },
+    { v:'u', F1:288, F2:1380 },
+    { v:'o', F1:492, F2:892  },
+  ];
+  const COLORS = ['#58a6ff', '#f78166'];
+  const OFF    = [-4, 4];
+  const LABELS = ['めぐろ', 'ねむろ'];
+
+  for (let wi = 0; wi < 2; wi++) {
+    const col = COLORS[wi];
+    const dx  = OFF[wi];
+
+    // Dashed path
+    ctx.strokeStyle = col;
+    ctx.lineWidth = 2.5;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    for (let i = 0; i < SEQ.length; i++) {
+      const {F1, F2} = SEQ[i];
+      const x = fx(F2) + dx, y = fy(F1) + dx;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Arrowheads at midpoints
+    for (let i = 1; i < SEQ.length; i++) {
+      const {F1:f1a, F2:f2a} = SEQ[i-1];
+      const {F1:f1b, F2:f2b} = SEQ[i];
+      const x1 = fx(f2a)+dx, y1 = fy(f1a)+dx;
+      const x2 = fx(f2b)+dx, y2 = fy(f1b)+dx;
+      const mx = (x1+x2)/2, my = (y1+y2)/2;
+      const ang = Math.atan2(y2-y1, x2-x1);
+      ctx.fillStyle = col;
+      ctx.save();
+      ctx.translate(mx, my); ctx.rotate(ang);
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(-9,4.5); ctx.lineTo(-9,-4.5);
+      ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+
+    // Numbered dots
+    for (let i = 0; i < SEQ.length; i++) {
+      const {F1, F2} = SEQ[i];
+      const x = fx(F2)+dx, y = fy(F1)+dx;
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(x, y, 8, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#0d1117';
+      ctx.font = 'bold 10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(i+1, x, y+4);
+    }
+
+    // Word label near first point
+    const {F1:lf1, F2:lf2} = SEQ[0];
+    const lx = fx(lf2)+dx + (wi === 0 ? -45 : 45);
+    const ly = fy(lf1)+dx - 14;
+    ctx.fillStyle = col;
+    ctx.font = 'bold 12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(LABELS[wi], lx, ly);
+  }
+
+  // Legend: step numbers
+  ctx.fillStyle = 'rgba(255,255,255,0.4)';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'left';
+  const steps = ['① e（え）', '② u（う）', '③ o（お）'];
+  for (let i = 0; i < steps.length; i++) {
+    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+    ctx.fillText(steps[i], mg.l + 8 + i * 80, mg.t + 14);
+  }
+}
+
+/* ================================================================
+   Init
+   ================================================================ */
+
+function init() {
+  drawSpectrogram('sg1', MEGURO);
+  drawSpectrogram('sg2', NEMURO);
+  drawFormant('formantCanvas');
+}
+
+window.addEventListener('load', init);
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(init, 180);
+});
+</script>
+</body>
+</html>
