@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>マンスリーテスト10月号 国語｜ことだま☆5と国語ライブ</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+</head>
+<body>
+<div class="stage-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+<!-- ===== タイトル ===== -->
+<section id="screen-title" class="screen">
+  <div class="card center">
+    <p class="kicker">キャンパス マンスリーテスト 国語・10月号</p>
+    <h1 class="logo">ことだま<span>☆</span>5</h1>
+    <p class="sub">〜 <b id="title-name"></b>ちゃんだけの国語ライブ 〜</p>
+    <div id="members" class="members"></div>
+    <p class="mini">タップして<b>推しメン</b>をえらんでね💖（いつでも変えられるよ）</p>
+    <p class="level-name">ファンランク：<b id="title-level"></b></p>
+    <button id="btn-start" class="btn primary big-btn">ライブ会場へ GO!</button>
+    <p class="note">※家庭学習用アプリ／得点や順位は出ません。ことだま☆5は架空のグループです。</p>
+  </div>
+</section>
+
+<!-- ===== モード選択 ===== -->
+<section id="screen-modes" class="screen hidden">
+  <div class="card">
+    <h2>今日のセットリスト🎶</h2>
+    <button class="mode" data-mode="weak"><b>💖 推しと特訓モード</b><span>にがてな問題がよく出るよ（10問）</span></button>
+    <button class="mode" data-mode="order"><b>🎤 ライブ本番モード</b><span>テストと同じ順番で31問ぜんぶ</span></button>
+    <button class="mode" data-mode="again"><b>🔁 アンコールモード</b><span>まえにまちがえた問題だけ</span></button>
+    <h3>🎯 メンバー指名（大問をえらぶ）</h3>
+    <div id="pick-big" class="pick-big"></div>
+    <h3>がんばり度</h3>
+    <div id="fields"></div>
+    <h3>チケットコレクション</h3>
+    <div id="stamps" class="stamps"></div>
+    <p class="mini" id="stamp-count"></p>
+    <div class="row">
+      <button class="btn ghost btn-home">もどる</button>
+      <button class="btn ghost" id="btn-reset">さいしょから</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 出題 ===== -->
+<section id="screen-quiz" class="screen hidden">
+  <div class="card quiz">
+    <div class="topbar"><span id="q-badge" class="chip"></span><span id="q-progress" class="chip"></span>
+      <span id="pts" class="chip"></span><span id="combo" class="chip fire"></span></div>
+    <div class="presenter"><span id="q-face" class="face-sm"></span><span id="q-presenter"></span></div>
+    <h2 id="q-title"></h2>
+    <div id="q-poem" class="poem-wrap hidden"></div>
+    <p id="q-setup" class="setup hidden"></p>
+    <p id="q-text" class="qtext"></p>
+    <div id="q-area"></div>
+    <button id="btn-hint" class="btn ghost small">💡 ヒントをもらう</button>
+    <div id="hint-box" class="hint hidden"></div>
+    <div id="feedback" class="feedback hidden"></div>
+    <button id="btn-next" class="btn primary hidden">つぎへ →</button>
+    <button class="btn ghost small btn-home">やめる</button>
+  </div>
+</section>
+
+<!-- ===== 結果 ===== -->
+<section id="screen-result" class="screen hidden">
+  <div class="card center">
+    <h2>🎉 ライブ大成功！ 🎉</h2>
+    <div id="r-face" class="face-big"></div>
+    <p class="big-num" id="r-count"></p>
+    <p id="r-points"></p><p id="r-combo"></p><p id="r-level" class="level-name"></p>
+    <p id="r-msg" class="msg"></p>
+    <div id="fields2"></div>
+    <div class="row">
+      <button class="btn primary" id="btn-again">もう一回ライブ！</button>
+      <button class="btn ghost btn-home">タイトルへ</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 常駐の推しメン ===== -->
+<div id="oshi-corner">
+  <div id="bubble" class="bubble hidden"></div>
+  <div id="fansa" class="fansa"></div>
+  <div id="oshi" class="oshi"></div>
+  <div id="sparkles" class="sparkles"></div>
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
