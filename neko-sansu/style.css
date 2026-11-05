@@ -31,7 +31,10 @@ button.link{background:none;border:none;color:#8a7f92;font-size:15px;min-height:
 .catbar .bubble{flex:1;margin-bottom:18px}
 input[type=text],input[type=password]{font:inherit;font-size:22px;padding:10px 14px;border:2px solid var(--accent2);border-radius:12px;width:100%;max-width:300px;display:block;margin:8px auto;text-align:center;-webkit-user-select:text;user-select:text}
 /* もんだい */
-.qhead{display:flex;justify-content:space-between;align-items:center;font-size:15px;color:#8a7f92}
+.qhead{display:flex;justify-content:space-between;align-items:center;font-size:15px;color:#8a7f92;gap:8px}
+.qhead #q-field{flex:1;text-align:center}
+.topbar{display:flex;justify-content:flex-start;margin:-4px 0 0 -8px}
+.topbar .link,.qhead .link{font-size:16px;padding:8px 10px;min-height:44px;color:var(--accent)}
 .qcard{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 4px 14px rgba(240,138,160,.15)}
 .qtext{font-size:21px;margin:4px 0}
 .figure{margin:0 auto 8px;max-width:420px}

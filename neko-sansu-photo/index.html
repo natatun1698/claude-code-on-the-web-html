@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ねこさんすう📷">
+<title>ねこさんすう 写真版</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
+<link rel="stylesheet" href="../neko-sansu/style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+<!-- タイトル -->
+<section id="screen-title" class="screen">
+  <h1>ねこさんすう <span class="badge">写真版</span></h1>
+  <p class="sub">写真で 取りこんだ もんだいを ねこと いっしょに とく</p>
+  <div class="cat big" id="cat-title" aria-label="長押しで ほごしゃ画面"></div>
+  <p class="bubble" id="title-bubble"></p>
+  <div class="row">
+    <button class="primary" id="btn-start">もんだいを とく</button>
+  </div>
+  <div class="row small-btns">
+    <button id="btn-zukan">ずかん</button>
+    <button id="btn-seiseki">せいせき</button>
+    <button id="btn-import">写真を 取りこむ</button>
+  </div>
+  <p class="note" id="title-count"></p>
+  <p class="note">家庭学習用 ・ 写真は この端末の中にだけ 保存されます</p>
+</section>
+
+<!-- なまえ -->
+<section id="screen-name" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <h2>ねこに 名前を つけてにゃ</h2>
+  <div class="cat big"></div>
+  <input id="cat-name" type="text" maxlength="10" placeholder="なまえ" autocomplete="off">
+  <div class="row"><button class="primary" id="btn-name-ok">これで きまり!</button></div>
+</section>
+
+<!-- もんだい -->
+<section id="screen-quiz" class="screen hidden">
+  <header class="qhead"><button class="link btn-home">← やめて もどる</button><span id="q-field"></span><span id="q-count"></span></header>
+  <div class="qcard">
+    <div id="q-figure" class="figure hidden"></div>
+    <div id="q-photo" class="photo-wrap hidden"><img id="q-photo-img" alt="もんだいの 写真"><button class="link zoom-btn" id="btn-zoom">🔍 大きく 見る</button></div>
+    <p id="q-text" class="qtext"></p>
+    <p id="q-answer-note" class="note"></p>
+  </div>
+  <div class="answer-row"><div id="answer-display" class="answer-display"><span class="ph">ここに こたえが 出るにゃ</span></div><span id="answer-unit" class="unit"></span></div>
+  <div id="keypad" class="keypad"></div>
+  <div id="choices" class="choices hidden"></div>
+  <div class="row"><button class="primary" id="btn-submit">こたえる</button></div>
+  <div id="feedback" class="feedback hidden"></div>
+  <div class="row wrap hidden" id="selfcheck-row">
+    <button class="primary ok-btn" id="btn-self-ok">⭕️ あっていた</button>
+    <button class="ng-btn" id="btn-self-ng">❌ ちがっていた</button>
+  </div>
+  <div class="row wrap" id="after-row">
+    <button id="btn-hint1" class="hidden">ヒント1</button>
+    <button id="btn-hint2" class="hidden">ヒント2</button>
+    <button id="btn-exp" class="hidden">かいせつを 見る</button>
+    <button id="btn-giveup" class="hidden">こんかいは ここまで</button>
+    <button id="btn-real" class="hidden">社会で どう役立つ?</button>
+    <button id="btn-similar" class="primary hidden">もう一問 やってみる</button>
+    <button id="btn-next" class="primary hidden">つぎの もんだい</button>
+  </div>
+</section>
+
+<!-- ずかん -->
+<section id="screen-zukan" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <h2>ずかん</h2>
+  <div class="cat big"></div>
+  <h3 id="zukan-name"></h3>
+  <p class="zukan-text">ひんしゅ: <b>スコティッシュフォールド</b><br>耳が 前に おれているのが とくちょうの ねこにゃ。おだやかで 人なつっこく、後ろ足を 投げ出す「スコずわり」も 有名にゃ。</p>
+  <p class="zukan-text" id="zukan-stats"></p>
+  <div class="row"><button id="btn-rename">名前を かえる</button><button class="btn-back">もどる</button></div>
+</section>
+
+<!-- せいせき -->
+<section id="screen-seiseki" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <h2>せいせき</h2>
+  <div id="fields"></div>
+  <div class="row"><button class="btn-back">もどる</button></div>
+</section>
+
+<!-- 写真の取りこみ(一覧) -->
+<section id="screen-import" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <h2>写真を 取りこむ(おうちの人用)</h2>
+  <p class="note">問題の写真と 答えを 登録します。写真は この端末の中にだけ 保存され、公開されません。</p>
+  <div class="row wrap">
+    <label class="filebtn primary">📷 カメラで とる<input type="file" id="photo-camera" accept="image/*" capture="environment"></label>
+    <label class="filebtn">🖼 写真を えらぶ(複数可)<input type="file" id="photo-files" accept="image/*" multiple></label>
+  </div>
+  <div id="import-queue"></div>
+  <h3>出し方</h3>
+  <div class="row wrap mix-row">
+    <label class="radio"><input type="radio" name="mix" value="photo"> 写真の もんだいだけ</label>
+    <label class="radio"><input type="radio" name="mix" value="mix"> 写真と 類題を まぜる</label>
+  </div>
+  <h3>取りこんだ写真 <span id="import-count" class="note inline"></span></h3>
+  <div id="photo-list" class="photo-grid"></div>
+  <div class="row wrap"><button id="btn-import-clear">取りこんだ写真を すべて消す</button><button class="btn-back">もどる</button></div>
+</section>
+
+<!-- 写真1枚の編集 -->
+<section id="screen-edit" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <h2 id="edit-title">写真の 答えを 登録</h2>
+  <div class="edit-photo"><img id="edit-img" alt="問題の写真"><button class="link" id="btn-edit-zoom">🔍 大きく 見る</button></div>
+  <form id="edit-form" class="editform" autocomplete="off">
+    <label>分野 <select name="field" required></select></label>
+    <label>小分野(任意) <input name="sub" type="text" placeholder="例: つるかめ算" list="sub-list"><datalist id="sub-list"></datalist></label>
+    <label>答えの型 <select name="answerType"></select></label>
+    <label id="lab-answer">答え <input name="answerText" type="text" placeholder="例: 12 / 3/4 / 1と1/4 / 5分30秒 / 3,5"></label>
+    <p class="note left" id="answer-help"></p>
+    <label id="lab-choices" class="hidden">選択肢(「,」で区切る) <input name="choicesText" type="text" placeholder="例: ア,イ,ウ,エ"></label>
+    <label id="lab-unit">単位(表示用・任意) <input name="unit" type="text" placeholder="例: cm²、円、%"></label>
+    <details>
+      <summary>ヒント・解説・類題(任意)</summary>
+      <label>ヒント1 <input name="hint1" type="text" placeholder="方向づけだけ(答えの数字は書かない)"></label>
+      <label>ヒント2 <input name="hint2" type="text" placeholder="1手目を具体的に"></label>
+      <label>解説(文) <textarea name="exp" rows="3" placeholder="式や考え方。写真でもOK(下)"></textarea></label>
+      <label>解説の写真(任意) <input type="file" id="exp-photo" accept="image/*"></label>
+      <div id="exp-preview" class="exp-preview hidden"><img alt="解説の写真"><button type="button" class="link" id="btn-exp-remove">解説の写真を 外す</button></div>
+      <label>この問題の本質(1文) <input name="essence" type="text" placeholder="例: 2つの数の和と差から それぞれを求める"></label>
+      <label>解法パターン名 <input name="pattern" type="text" placeholder="例: 和差算"></label>
+      <label>「もう一問」で出す類題テンプレート <select name="templateId"><option value="">なし</option></select></label>
+      <label>メモ(出典など・子どもには見えません) <input name="memo" type="text"></label>
+    </details>
+    <div id="edit-errors" class="import-result hidden"></div>
+    <div class="row wrap">
+      <button type="submit" class="primary" id="btn-edit-save">保存する</button>
+      <button type="button" id="btn-edit-skip" class="hidden">この写真は とばす</button>
+      <button type="button" id="btn-edit-delete" class="hidden">この問題を 消す</button>
+    </div>
+    <p class="note" id="edit-progress"></p>
+  </form>
+</section>
+
+<!-- ほごしゃ -->
+<section id="screen-parent" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <h2>保護者画面</h2>
+  <div id="parent-lock">
+    <p>4桁の暗証番号を入力してください(初回は設定になります)</p>
+    <input id="pin" type="password" inputmode="numeric" maxlength="4" pattern="\d*">
+    <div class="row"><button class="primary" id="btn-pin-ok">OK</button><button class="btn-back">もどる</button></div>
+  </div>
+  <div id="parent-body" class="hidden">
+    <h3>日別の実施数</h3><div id="p-days" class="ptable"></div>
+    <h3>分野別の正答率</h3><div id="p-fields" class="ptable"></div>
+    <h3>途中でやめた問題</h3><div id="p-abandoned" class="ptable"></div>
+    <h3>時間がかかった問題(3分以上)</h3><div id="p-slow" class="ptable"></div>
+    <div class="row wrap"><button id="btn-backup">記録を書き出す</button><label class="filebtn">記録を読み込む<input type="file" id="restore-file" accept=".json"></label><button id="btn-pin-change">暗証番号を変える</button><button class="btn-back">もどる</button></div>
+  </div>
+</section>
+
+<div class="catbar"><div class="cat" id="cat"></div><div id="bubble" class="bubble hidden"></div></div>
+<div id="sparkles"></div>
+<!-- 写真の拡大 -->
+<div id="lightbox" class="lightbox hidden"><div class="lb-bar"><button class="link" id="lb-zoom">🔍 さらに 大きく</button><button class="link" id="lb-close">✕ とじる</button></div><div class="lb-body"><img id="lb-img" alt=""></div></div>
+</div>
+
+<script src="../neko-sansu/rng.js"></script>
+<script src="../neko-sansu/judge.js"></script>
+<script src="../neko-sansu/cat.js"></script>
+<script src="../neko-sansu/history.js"></script>
+<script src="../neko-sansu/templates/_svg.js"></script>
+<script src="../neko-sansu/templates/index.js"></script>
+<script>TEMPLATE_IDS.forEach(id => document.write(`<script src="../neko-sansu/templates/${id}.js"><\/script>`));</script>
+<script src="photo-bank.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

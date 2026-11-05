@@ -29,6 +29,34 @@ const ENCOURAGE = ["おしい! もう一回 紙に 書いてみるにゃ", "だ�
 const SCREENS = ["title", "name", "quiz", "zukan", "seiseki", "import", "parent"];
 function show(id) { SCREENS.forEach(s => $("#screen-" + s).classList.toggle("hidden", s !== id)); $(".catbar").classList.toggle("hidden", id !== "quiz"); window.scrollTo(0, 0); }
 
+// ---------- 画面の行き来(ブラウザの「戻る/進む」と同期) ----------
+// 画面を切り替えるたびに履歴を 1 つ積む(#zukan のような hash)。戻る/進むで popstate が来たら、その画面を描き直す。
+// ページを開き直したときは必ずタイトルから(hash は無視)。問題の途中で戻っても Q は消さず、「進む」や「つづきから」で同じ問題に戻れる。
+const ENTER = {
+  title() { titleGreeting(); },
+  name() {},
+  quiz() { if (!Q) startQuestion(); else say(Q.answered ? "つづきを 見るにゃ" : "さっきの つづきにゃ。紙に 書いて 考えるにゃ", "think"); },
+  zukan() { $("#zukan-name").textContent = catName(); $("#zukan-stats").textContent = `いっしょに といた もんだい: ${state.count}問`; setCats("idle"); },
+  seiseki() { renderFields(); },
+  import() {},
+  parent() { $("#parent-lock").classList.remove("hidden"); $("#parent-body").classList.add("hidden"); $("#pin").value = ""; },
+};
+function nav(id, replace) {
+  const depth = (history.state && history.state.depth) || 0;
+  const st = { app: STORE_KEY, s: id, depth: replace ? depth : depth + 1 };
+  const url = location.pathname + location.search + (id === "title" ? "" : "#" + id);
+  try { replace ? history.replaceState(st, "", url) : history.pushState(st, "", url); } catch (e) {}
+  (ENTER[id] || (() => {}))(); show(id);
+  if (id === "parent") $("#pin").focus();
+}
+/** アプリ内の「もどる」。履歴があれば 1 つ戻る(ブラウザの戻ると同じ動き)。無ければタイトルへ */
+function back() { if (history.state && history.state.app === STORE_KEY && history.state.depth > 0) history.back(); else nav("title", true); }
+window.addEventListener("popstate", e => {
+  const id = e.state && e.state.app === STORE_KEY && SCREENS.includes(e.state.s) ? e.state.s : "title";
+  if (id === "title" && !(e.state && e.state.app === STORE_KEY)) try { history.replaceState({ app: STORE_KEY, s: "title", depth: 0 }, "", location.pathname + location.search); } catch (err) {}
+  (ENTER[id] || (() => {}))(); show(id);
+});
+
 // ---------- 問題の生成 ----------
 // pid: テンプレ "tid#seed" / 原題 "imp:id"
 function makeQuestion(pid) {
@@ -169,7 +197,7 @@ async function importFile(file) {
 }
 
 // ---------- 保護者画面 ----------
-function openParent() { show("parent"); $("#parent-lock").classList.remove("hidden"); $("#parent-body").classList.add("hidden"); $("#pin").value = ""; $("#pin").focus(); }
+function openParent() { nav("parent"); }
 function pinOk() {
   const v = $("#pin").value; if (!/^\d{4}$/.test(v)) { alert("4桁の数字を入れてください"); return; }
   if (!state.pin) { state.pin = v; save(); } else if (v !== state.pin) { alert("暗証番号が違います"); return; }
@@ -189,28 +217,29 @@ function backup() { const blob = new Blob([hist.exportJSON()], { type: "applicat
 // ---------- 起動 ----------
 function titleGreeting() {
   setCats("sleep"); $("#cat-title").innerHTML = renderCat("idle");
-  const pend = hist.pendingStart();
+  const pend = (Q && !Q.ended) ? { pid: Q.pid } : hist.pendingStart();
   if (pend && (pend.pid.startsWith("imp:") || TPL[pend.pid.split("#")[0]])) {
     $("#title-bubble").innerHTML = `おかえりにゃ。さっきの つづきから やる? <br><button id="btn-resume" class="primary" style="margin-top:6px">つづきから</button>`;
-    $("#btn-resume").onclick = () => { show("quiz"); startQuestion(pend.pid); };
+    $("#btn-resume").onclick = () => { if (Q && Q.pid === pend.pid && !Q.ended) nav("quiz"); else { Q = null; nav("quiz"); startQuestion(pend.pid); } };
   } else $("#title-bubble").textContent = state.name ? `${state.name}だにゃ。きょうも いっしょに がんばるにゃ` : "はじめまして。名前を つけてほしいにゃ";
 }
 window.addEventListener("DOMContentLoaded", async () => {
   await refreshBank();
-  titleGreeting();
-  $("#btn-start").onclick = () => { if (!state.name) { show("name"); return; } show("quiz"); startQuestion(); };
-  $("#btn-name-ok").onclick = () => { const v = $("#cat-name").value.trim(); if (!v) return; state.name = v; save(); titleGreeting(); show("title"); };
-  $("#btn-rename").onclick = () => { $("#cat-name").value = state.name; show("name"); };
-  $("#btn-zukan").onclick = () => { $("#zukan-name").textContent = catName(); $("#zukan-stats").textContent = `いっしょに といた もんだい: ${state.count}問`; setCats("idle"); show("zukan"); };
-  $("#btn-seiseki").onclick = () => { renderFields(); show("seiseki"); };
-  $("#btn-import").onclick = () => show("import");
+  nav("title", true); // 開き直したときは hash に関係なくタイトルから
+  $("#btn-start").onclick = () => { if (!state.name) { nav("name"); return; } if (Q && !Q.ended) { nav("quiz"); return; } Q = null; nav("quiz"); };
+  $("#btn-name-ok").onclick = () => { const v = $("#cat-name").value.trim(); if (!v) return; state.name = v; save(); back(); };
+  $("#btn-rename").onclick = () => { $("#cat-name").value = state.name; nav("name"); };
+  $("#btn-zukan").onclick = () => nav("zukan");
+  $("#btn-seiseki").onclick = () => nav("seiseki");
+  $("#btn-import").onclick = () => nav("import");
   $("#import-file").onchange = e => { if (e.target.files[0]) importFile(e.target.files[0]); e.target.value = ""; };
   $("#btn-import-clear").onclick = async () => { if (confirm("取りこんだ原題をすべて消しますか?")) { await clearBank(); await refreshBank(); $("#import-result").textContent = "消しました。"; } };
   $("#btn-submit").onclick = submit;
   $("#btn-hint1").onclick = () => showHint(1); $("#btn-hint2").onclick = () => showHint(2); $("#btn-exp").onclick = showExp; $("#btn-real").onclick = showReal;
   $("#btn-similar").onclick = () => startQuestion(newPid(Q.templateId));
   $("#btn-next").onclick = () => startQuestion();
-  $$(".btn-home").forEach(b => b.onclick = () => { leaveQuestion(); Q = null; qCount = 0; titleGreeting(); show("title"); });
+  $$(".btn-home").forEach(b => b.onclick = () => { if (b.closest("#screen-quiz")) { leaveQuestion(); Q = null; qCount = 0; } back(); });
+  $$(".btn-back").forEach(b => b.onclick = back);
   // 保護者画面: タイトルの猫を長押し
   let pressT = null; const c = $("#cat-title");
   const down = () => { pressT = setTimeout(openParent, 900); }, up = () => clearTimeout(pressT);

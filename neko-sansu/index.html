@@ -33,6 +33,7 @@
 
 <!-- なまえ -->
 <section id="screen-name" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
   <h2>ねこに 名前を つけてにゃ</h2>
   <div class="cat big"></div>
   <input id="cat-name" type="text" maxlength="10" placeholder="なまえ" autocomplete="off">
@@ -41,7 +42,7 @@
 
 <!-- もんだい -->
 <section id="screen-quiz" class="screen hidden">
-  <header class="qhead"><span id="q-field"></span><span id="q-count"></span><button class="link btn-home">やめる</button></header>
+  <header class="qhead"><button class="link btn-home">← やめて もどる</button><span id="q-field"></span><span id="q-count"></span></header>
   <div class="qcard">
     <div id="q-figure" class="figure hidden"></div>
     <p id="q-text" class="qtext"></p>
@@ -64,6 +65,7 @@
 
 <!-- ずかん -->
 <section id="screen-zukan" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
   <h2>ずかん</h2>
   <div class="cat big"></div>
   <h3 id="zukan-name"></h3>
@@ -74,6 +76,7 @@
 
 <!-- せいせき -->
 <section id="screen-seiseki" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
   <h2>せいせき</h2>
   <div id="fields"></div>
   <div class="row"><button class="btn-home">もどる</button></div>
@@ -81,6 +84,7 @@
 
 <!-- とりこみ -->
 <section id="screen-import" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
   <h2>原題を 取りこむ(おうちの人用)</h2>
   <p class="note">JSONファイルは この端末の中にだけ 保存されます。公開されません。</p>
   <input type="file" id="import-file" accept=".json,application/json">
@@ -91,6 +95,7 @@
 
 <!-- ほごしゃ -->
 <section id="screen-parent" class="screen hidden">
+  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
   <h2>保護者画面</h2>
   <div id="parent-lock">
     <p>4桁の暗証番号を入力してください(初回は設定になります)</p>

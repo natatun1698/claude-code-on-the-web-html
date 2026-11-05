@@ -1,0 +1,48 @@
+/* ねこさんすう 写真版 ― ../neko-sansu/style.css に足すぶんだけ */
+.badge{display:inline-block;font-size:14px;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px;vertical-align:middle;margin-left:4px}
+.note.left{text-align:left}
+.note.inline{display:inline;font-weight:400}
+.topbar{display:flex;justify-content:flex-start;margin:-4px 0 0 -8px}
+.topbar .link,.qhead .link{font-size:16px;padding:8px 10px;min-height:44px;color:var(--accent)}
+.qhead{gap:8px}
+.qhead #q-field{flex:1;text-align:center}
+/* 問題の写真 */
+.photo-wrap{text-align:center;margin:0 0 8px}
+.photo-wrap img{max-width:100%;max-height:60vh;border-radius:12px;border:1px solid #eee;display:block;margin:0 auto}
+.zoom-btn{margin-top:4px}
+.lightbox{position:fixed;inset:0;background:rgba(40,30,45,.96);z-index:50;display:flex;flex-direction:column}
+.lb-bar{display:flex;justify-content:space-between;padding:8px 12px;padding-top:calc(8px + env(safe-area-inset-top))}
+.lb-bar .link{color:#fff;font-size:17px}
+.lb-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;padding:0 0 24px}
+.lb-body img{display:block;margin:0 auto;max-width:100%;height:auto;background:#fff}
+.lightbox.zoom2 .lb-body img{max-width:none;width:200%}
+/* 取りこみ */
+.filebtn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.mix-row{gap:16px}
+.radio{font-size:17px;display:flex;align-items:center;gap:6px}
+.radio input{width:22px;height:22px}
+#import-queue:empty{display:none}
+.queue-box{background:#fff;border:2px solid var(--accent);border-radius:12px;padding:10px 14px;margin:8px 0;text-align:center}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:8px 0}
+.photo-card{background:#fff;border-radius:12px;padding:8px;border:2px solid var(--accent2);text-align:left;font-size:13px;min-height:0;line-height:1.4}
+.photo-card img{width:100%;height:100px;object-fit:cover;border-radius:8px;display:block;margin-bottom:6px;background:#f3eff7}
+.photo-card .pc-field{font-weight:700;color:var(--accent)}
+.photo-card .pc-ans{color:#8a7f92;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.photo-grid:empty::after{content:"まだ 1まいも ありません";color:#8a7f92;font-size:14px;grid-column:1/-1;text-align:center;padding:12px}
+/* 編集 */
+.edit-photo{text-align:center}
+.edit-photo img{max-width:100%;max-height:40vh;border-radius:12px;border:1px solid #eee}
+.editform{background:#fff;border-radius:var(--radius);padding:14px;margin-top:10px;-webkit-user-select:text;user-select:text}
+.editform label{display:block;font-size:15px;color:#8a7f92;margin:10px 0 2px}
+.editform input[type=text],.editform select,.editform textarea{font:inherit;font-size:18px;color:var(--ink);width:100%;max-width:none;margin:2px 0 0;padding:8px 12px;border:2px solid var(--accent2);border-radius:10px;background:#fff;text-align:left;display:block;-webkit-user-select:text;user-select:text}
+.editform textarea{resize:vertical}
+.editform details{margin:12px 0;border-top:1px dashed var(--accent2);padding-top:6px}
+.editform summary{font-size:16px;color:var(--accent);cursor:pointer;padding:6px 0}
+.editform input[type=file]{margin:4px 0}
+.exp-preview img{max-width:100%;max-height:200px;border-radius:10px;display:block;margin:4px 0}
+.import-result.err{border:2px solid var(--ng);color:#b05a10}
+/* じぶんで まるつけ */
+.ok-btn{background:var(--ok);border-color:var(--ok);color:#fff}
+.ng-btn{border-color:var(--ng);color:#b05a10}
+.feedback .exp-photo{max-width:100%;border-radius:10px;display:block;margin:8px auto 0;border:1px solid #eee}
+.feedback .selfnote{color:#8a7f92;font-size:15px;margin-top:6px}
