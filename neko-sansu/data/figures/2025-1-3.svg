@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" width="360" height="250" role="img" aria-label="3つの正方形を組み合わせた図形。HGは6cm、DCは18cm">
+  <path d="M30,45 L190,45 L190,105 L210,105 L210,25 L290,25 L290,205 L30,205 Z" fill="#fff" stroke="#222" stroke-width="2"/>
+  <line x1="190" y1="105" x2="190" y2="205" stroke="#222" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="210" y1="105" x2="290" y2="105" stroke="#222" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g font-size="16" fill="#222">
+    <text x="14" y="42">A</text>
+    <text x="184" y="38">H</text>
+    <text x="172" y="122">G</text>
+    <text x="214" y="122">F</text>
+    <text x="203" y="18">E</text>
+    <text x="294" y="20">D</text>
+    <text x="294" y="222">C</text>
+    <text x="14" y="222">B</text>
+    <text x="146" y="80">6cm</text>
+    <text x="300" y="120">18cm</text>
+  </g>
+</svg>
