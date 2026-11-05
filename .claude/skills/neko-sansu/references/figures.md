@@ -1,34 +1,40 @@
-# 図の型(figure)の追加手順
+# 図の描き直し手順とチェックリスト
 
-図は `figure(p)` が返す **SVG 文字列**。外部画像・`<img>`・`<script>` を使わない。
-viewBox は `0 0 320 220` を基本にし、幅 100% で表示する(iPad 縦持ちで 1 画面に収める)。
+図は元の写真を使わず、**1問ごとに手描きの SVG ファイル**にする。場所は `neko-sansu/data/figures/{id}.svg`。
+複数の小問が同じ図を使うときは `figures/{年度}-{回}-{大問}.svg` を1枚作り、各小問の `figure` から同じパスを指す。
 
-## 共通ヘルパー(`templates/_svg.js`)
-```js
-svg(inner, w=320, h=220)            // <svg viewBox="0 0 w h" …>inner</svg>
-line(x1,y1,x2,y2, cls)               // cls: "edge" | "dash"
-text(x,y,str, cls)                   // cls: "lbl"(数値ラベル) | "small"
-arc(cx,cy,r, a0,a1)                  // おうぎ形パス(度数法、時計回り)
-hatch(pathD)                         // 斜線塗り(pattern id "hatch" を自動付与)
+## 手順
+1. **問題文を読み、図に必要な要素を書き出す**: 頂点名(A, B, …)、長さ・角度のラベル、斜線部分、補助線、グラフの軸と目もり。
+   問題文と答え(解説)に出てくるラベルは**すべて**入れる。問題文に無いラベルは足さない。
+2. **viewBox を決める**。横幅は 320〜620、高さは 200〜300 を目安(iPad 縦持ちで1画面に収まる)。
+   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" width="360" height="250" role="img" aria-label="…">`。
+   `aria-label` に図の要点を1文で書く(例「3つの正方形を組み合わせた図形。HGは6cm、DCは18cm」)。
+3. **座標を計算してから描く**。長さの比は問題の数値に合わせる(例 6cm と 18cm なら 1:3)。比率が大きく狂うと子どもが誤解する。
+   角度も実際の角度で描く。「正確でない図」が前提の問題でも、極端にゆがめない。
+4. **描画のルール**
+   - 図形の線: `stroke="#222" stroke-width="2"`、補助線: `stroke-dasharray="5 4"`、斜線部: `<pattern id="hatch">` で塗る(下の雛形)。
+   - 文字: `<g font-size="16" fill="#222">` の中に `<text x y>`。頂点名は図の外側に、長さは辺の近くに置く。
+   - 聞かれている量は `?` または `□` と書く(答えの数値を図に書かない)。
+   - `<script>` `<img>` `<foreignObject>` `on〜=` 属性、外部URLは使わない(テストで FAIL)。
+5. **問題文と矛盾していないか読み直す**(頂点の並び順、どちらが長いか、斜線の範囲、グラフの折れ点の値)。
+6. 描き切れない(立体の見取り図が複雑、斜線の範囲が写真から確定できない等)ときは、無理に描かず問題を `status: "excluded"` にして `reason` に書く。
+
+## 斜線塗りの雛形
+```xml
+<defs>
+  <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="7" stroke="#555" stroke-width="1.5"/>
+  </pattern>
+</defs>
+<path d="…" fill="url(#hatch)" stroke="#222" stroke-width="2"/>
 ```
-色は CSS 変数 `--fig-stroke` `--fig-hatch` を使い、`style.css` 側で決める。
+グラフは軸を `<line>`、目もりの数値を `<text>`、折れ線を `<polyline fill="none">` で描く。折れ点の座標値はラベルを付ける。
 
-## 初期の 3 型(実装済み)
-| 型 | テンプレート | 図の中身 |
-|---|---|---|
-| 1 | `ougigata-shasen` | 正方形(1辺 r)と、その頂点中心・半径 r の 4分円。斜線部 = 正方形 − 4分円 など |
-| 2 | `seihoukei-kumiawase` | 正方形 2〜3 個を L 字に並べた図。周の長さ・面積 |
-| 3 | `ten-idou-graph` | 長方形 ABCD の辺上を点 P が動く図 + 三角形 ABP の面積グラフ(折れ線) |
-
-## 新しい型を足すとき
-1. `templates/<id>.js` の `figure(p)` に描く。`p` の値だけで図が決まること(solve と同じ数値を使う)。
-2. 寸法ラベルは `text()` で図の外側に置く。問題文で聞く値は `?` または `□` と表示する。
-3. 斜線部は `hatch()`、求める長さは `cls:"dash"` で強調。
-4. 図が大きくなるときは `svg(inner, 320, 300)` のように高さだけ変える(幅は固定)。
-5. `tests/templates.test.js` は `figure(p)` が `<svg` で始まり、`<script`・`<img` を含まないことを自動で確認する。
-6. Playwright で `index.html` を開き、1 問だけ表示して図が崩れていないか見る。
-
-## 将来の拡張(未実装)
-- 展開図から立体を作る問題(型 4): 立方体・直方体の展開図 11 種をパラメータ化し、
-  向かい合う面や体積を問う。`params` で「どの展開図か」「各辺の長さ」を選ぶ設計にする。
-- 図形上の点の移動の「2 点同時移動」版。
+## チェックリスト(描いたあとに全部 ✔)
+- [ ] ファイル名が `figures/{id}.svg`(または `{年度}-{回}-{大問}.svg`)で、問題の `figure` と一致している
+- [ ] `viewBox` と `xmlns` がある。正しい XML(`node neko-sansu/tests/run.js` が検査する)
+- [ ] 問題文・解説に出る頂点名・長さ・角度のラベルがすべて入っている
+- [ ] 長さの比・角度が問題の数値と大きく矛盾していない
+- [ ] 答えの数値が図に書かれていない
+- [ ] 斜線部分の範囲が問題文のとおり
+- [ ] `aria-label` に要点が書いてある
