@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="260" height="260" role="img" aria-label="1辺6cmの正方形の内側にぴったり入った円。四すみが斜線部分">
+  <defs>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#333" stroke-width="1.2"/>
+    </pattern>
+  </defs>
+  <rect x="30" y="20" width="200" height="200" fill="url(#hatch)" stroke="#222" stroke-width="2"/>
+  <circle cx="130" cy="120" r="100" fill="#fff" stroke="#222" stroke-width="2"/>
+  <text x="130" y="244" text-anchor="middle" font-size="16" fill="#222">6cm</text>
+</svg>

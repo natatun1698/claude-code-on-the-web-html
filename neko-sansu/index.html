@@ -26,14 +26,14 @@
   <div class="row small-btns">
     <button id="btn-zukan">ずかん</button>
     <button id="btn-seiseki">せいせき</button>
-    <button id="btn-import">原題を 取りこむ</button>
   </div>
-  <p class="note">家庭学習用 ・ このアプリに 過去問は 入っていません</p>
+  <p class="note">家庭学習用 ・ 耳が おれた ねこ「スコティッシュフォールド」が 出題するにゃ</p>
+  <p class="note" id="data-status"></p>
 </section>
 
 <!-- なまえ -->
 <section id="screen-name" class="screen hidden">
-  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <nav class="topbar"><button class="link btn-back">← もどる</button><button class="link btn-home">ホームへ</button></nav>
   <h2>ねこに 名前を つけてにゃ</h2>
   <div class="cat big"></div>
   <input id="cat-name" type="text" maxlength="10" placeholder="なまえ" autocomplete="off">
@@ -42,72 +42,64 @@
 
 <!-- もんだい -->
 <section id="screen-quiz" class="screen hidden">
-  <header class="qhead"><button class="link btn-home">← やめて もどる</button><span id="q-field"></span><span id="q-count"></span></header>
+  <header class="qhead"><button class="link btn-back" id="btn-quiz-back">← もどる</button><span id="q-field"></span><button class="link btn-home">ホームへ</button></header>
+  <p class="eyebrow" id="q-count"></p>
   <div class="qcard">
     <div id="q-figure" class="figure hidden"></div>
     <p id="q-text" class="qtext"></p>
     <p id="q-answer-note" class="note"></p>
   </div>
   <div class="answer-row"><div id="answer-display" class="answer-display"><span class="ph">ここに こたえが 出るにゃ</span></div><span id="answer-unit" class="unit"></span></div>
-  <div id="keypad" class="keypad"></div>
   <div id="choices" class="choices hidden"></div>
+  <div id="keypad" class="keypad"></div>
   <div class="row"><button class="primary" id="btn-submit">こたえる</button></div>
   <div id="feedback" class="feedback hidden"></div>
-  <div class="row wrap" id="after-row">
-    <button id="btn-hint1" class="hidden">ヒント1</button>
-    <button id="btn-hint2" class="hidden">ヒント2</button>
-    <button id="btn-exp" class="hidden">かいせつを 見る</button>
-    <button id="btn-real" class="hidden">社会で どう役立つ?</button>
+  <div class="row wrap" id="extra-row">
+    <button id="btn-real" class="ghost hidden">社会で どう役立つ?</button>
     <button id="btn-similar" class="primary hidden">もう一問 やってみる</button>
-    <button id="btn-next" class="primary hidden">つぎの もんだい</button>
+    <button id="btn-finish" class="ghost hidden">おわる</button>
+  </div>
+  <div class="navrow">
+    <div class="left"><button id="btn-prev" class="ghost">← 前の問題に もどる</button></div>
+    <div class="right"><button id="btn-forward" class="primary">わからない</button></div>
   </div>
 </section>
 
 <!-- ずかん -->
 <section id="screen-zukan" class="screen hidden">
-  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <nav class="topbar"><button class="link btn-back">← もどる</button><button class="link btn-home">ホームへ</button></nav>
   <h2>ずかん</h2>
   <div class="cat big"></div>
   <h3 id="zukan-name"></h3>
-  <p class="zukan-text">ひんしゅ: <b>スコティッシュフォールド</b><br>耳が 前に おれているのが とくちょうの ねこにゃ。おだやかで 人なつっこく、後ろ足を 投げ出す「スコずわり」も 有名にゃ。</p>
+  <p class="zukan-text">ひんしゅ: <b>スコティッシュフォールド</b><br>耳が 前に ぱたんと おれているのが とくちょうの ねこにゃ。まんまるの 顔と 大きな目で、おだやかで 人なつっこいにゃ。後ろ足を 投げ出して すわる「スコずわり」も 有名にゃ。</p>
   <p class="zukan-text" id="zukan-stats"></p>
-  <div class="row"><button id="btn-rename">名前を かえる</button><button class="btn-home">もどる</button></div>
+  <div class="row"><button id="btn-rename">名前を かえる</button><button class="btn-home">ホームへ</button></div>
 </section>
 
 <!-- せいせき -->
 <section id="screen-seiseki" class="screen hidden">
-  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
-  <h2>せいせき</h2>
+  <nav class="topbar"><button class="link btn-back">← もどる</button><button class="link btn-home">ホームへ</button></nav>
+  <h2>せいせき(分野べつ)</h2>
   <div id="fields"></div>
-  <div class="row"><button class="btn-home">もどる</button></div>
-</section>
-
-<!-- とりこみ -->
-<section id="screen-import" class="screen hidden">
-  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
-  <h2>原題を 取りこむ(おうちの人用)</h2>
-  <p class="note">JSONファイルは この端末の中にだけ 保存されます。公開されません。</p>
-  <input type="file" id="import-file" accept=".json,application/json">
-  <div id="import-result" class="import-result"></div>
-  <p id="import-count" class="note"></p>
-  <div class="row"><button id="btn-import-clear">取りこんだ原題を すべて消す</button><button class="btn-home">もどる</button></div>
+  <div class="row"><button class="btn-home">ホームへ</button></div>
 </section>
 
 <!-- ほごしゃ -->
 <section id="screen-parent" class="screen hidden">
-  <nav class="topbar"><button class="link btn-back">← もどる</button></nav>
+  <nav class="topbar"><button class="link btn-back">← もどる</button><button class="link btn-home">ホームへ</button></nav>
   <h2>保護者画面</h2>
   <div id="parent-lock">
     <p>4桁の暗証番号を入力してください(初回は設定になります)</p>
     <input id="pin" type="password" inputmode="numeric" maxlength="4" pattern="\d*">
-    <div class="row"><button class="primary" id="btn-pin-ok">OK</button><button class="btn-home">もどる</button></div>
+    <div class="row"><button class="primary" id="btn-pin-ok">OK</button><button class="btn-home">ホームへ</button></div>
   </div>
   <div id="parent-body" class="hidden">
     <h3>日別の実施数</h3><div id="p-days" class="ptable"></div>
     <h3>分野別の正答率</h3><div id="p-fields" class="ptable"></div>
     <h3>途中でやめた問題</h3><div id="p-abandoned" class="ptable"></div>
     <h3>時間がかかった問題(3分以上)</h3><div id="p-slow" class="ptable"></div>
-    <div class="row wrap"><button id="btn-backup">記録を書き出す</button><label class="filebtn">記録を読み込む<input type="file" id="restore-file" accept=".json"></label><button id="btn-pin-change">暗証番号を変える</button><button class="btn-home">もどる</button></div>
+    <h3>問題データ</h3><div id="p-data" class="ptable"></div>
+    <div class="row wrap"><button id="btn-backup">記録を書き出す</button><label class="filebtn">記録を読み込む<input type="file" id="restore-file" accept=".json"></label><button id="btn-pin-change">暗証番号を変える</button><button class="btn-home">ホームへ</button></div>
   </div>
 </section>
 
@@ -115,14 +107,11 @@
 <div id="sparkles"></div>
 </div>
 
-<script src="rng.js"></script>
 <script src="judge.js"></script>
 <script src="cat.js"></script>
 <script src="history.js"></script>
-<script src="importer.js"></script>
-<script src="templates/_svg.js"></script>
-<script src="templates/index.js"></script>
-<script>TEMPLATE_IDS.forEach(id => document.write(`<script src="templates/${id}.js"><\/script>`));</script>
+<script src="problems.js"></script>
+<script src="nav.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

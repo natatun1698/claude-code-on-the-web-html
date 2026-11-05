@@ -83,3 +83,20 @@ input[type=file]{display:block;margin:10px auto;font-size:15px}
 .ptable div:last-child{border:none}
 .ptable .mono{font-family:ui-monospace,monospace;font-size:13px;color:#8a7f92}
 @media (max-width:420px){body{font-size:16px}.qtext{font-size:19px}.keypad button{min-height:50px}}
+/* 過去問版で追加 */
+:root{--cream:#f7e3c3;--caramel:#e2b07a;--mint:#7fbfb0}
+.cat-svg .tail{transform-origin:150px 172px}
+.qtext .frac,.feedback .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;font-size:.85em;margin:0 2px}
+.qtext .frac i,.feedback .frac i{border-top:2px solid var(--ink);font-style:normal;padding:0 2px}
+.qtext .whole{margin-right:1px}
+.figure svg{width:100%;height:auto;max-height:300px;display:block}
+.navrow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:14px 0 4px}
+.navrow .left,.navrow .right{display:flex;gap:8px;flex-wrap:wrap}
+.navrow .right{justify-content:flex-end}
+button.ghost{background:#fff;border-color:var(--accent2);font-size:16px;padding:8px 14px;min-height:46px}
+.choices button{min-width:64px;font-size:22px}
+.choices button.used{opacity:.4}
+.answer-display .seq{letter-spacing:2px}
+.eyebrow{text-align:center;font-size:14px;color:#8a7f92;margin:0}
+.done-note{text-align:center;font-size:15px;color:#8a7f92}
+.kbd-small{max-width:200px}

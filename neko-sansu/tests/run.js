@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* 全テスト。 node neko-sansu/tests/run.js */
-const files = ["judge", "history", "importer", "templates", "copyright"];
+const files = ["data", "judge", "history", "nav", "pick"];
 let pass = 0, fail = 0; const fails = [];
 const t = {
   ok(c, msg) { if (c) pass++; else { fail++; if (fails.length < 30) fails.push(msg); } },
