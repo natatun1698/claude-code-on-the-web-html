@@ -40,18 +40,22 @@ APIキーがない人・通信できない環境でも今まで通り練習で�
   会話を止めない。チャット欄に小さく「(定型モードで応答)」と出す。
 - iPhone Safari / Windows Chrome・Edge 対応、音声は従来どおり。
   LLM応答の待ち時間中はマイクを止め、「事務長が考えています…」を表示する。
-- 既存の `sales-dojo/js/dialog.js`(ルールベース)は**書き換えない**。
-  LLM版は新ファイルを追加し、`main.js` の分岐だけで切り替える。
+- 既存の `sales-dojo/js/dialog.js`(ルールベース)は**原則書き換えない**。
+  唯一の例外は `_scoreT4` の1行(`player.onPoint` が boolean ならそれを優先、
+  無ければ従来のキーワード判定)。LLM版は新ファイルを追加し、`main.js` の分岐で切り替える。
 
 ## ディレクトリ構成(追加ファイルのみ)
 
 ```
 sales-dojo/
-  js/llm.js          LlmCustomerAI クラス + callClaude()。ブラウザfetch直叩き
-  js/persona.js      事務長の人格・状況・隠し情報・モード別の振る舞い指示(文字列)
-  (既存) index.html  設定画面(APIキー入力)と「AIモード」トグルを追加
-  (既存) main.js     App.useLlm に応じて CustomerAI / LlmCustomerAI を生成
+  js/persona.js      REPLY_SCHEMA / REVIEW_SCHEMA、buildSystemPrompt() / buildTurnDirective() / buildReviewPrompt()
+  js/llm.js          LlmSettings(localStorage)、callClaude()/testClaude()、LlmCustomerAI クラス
+  (既存) index.html  #screen-settings(APIキー・モデル・ON/OFF・接続テスト)、トップの⚙️、#home-ai-status
+  (既存) main.js     App.useLlm で CustomerAI / LlmCustomerAI を生成。非同期返答・待ち表示・AI講評差し替え
+  (既存) css/style.css  .gear / .field / .check / .ai-status / .bubble.thinking
 ```
+
+localStorage キー: `salesDojoApiKey`(キー文字列) / `salesDojoLlm`(`{on, model}`)。
 
 読み込み順: config.js → scenes.js → dialog.js → **persona.js → llm.js** → voice.js → main.js。
 `persona.js` は config.js の PRODUCT / MODES / THEMES / SCENES を参照して
@@ -114,16 +118,17 @@ headers: {
 {
   "type": "object",
   "additionalProperties": false,
-  "required": ["say", "mood", "strike_delta", "event", "observed"],
+  "required": ["say", "mood", "strike_delta", "event", "asked_cat", "observed"],
   "properties": {
     "say": { "type": "string", "description": "事務長のセリフ。話し言葉、1〜3文、120字以内。読み上げるので記号や箇条書きは禁止" },
     "mood": { "type": "string", "enum": ["warm", "neutral", "irritated", "angry"] },
-    "strike_delta": { "type": "integer", "enum": [-1, 0, 1], "description": "モードCの信頼度変化。歯切れ良い=-1、要領を得ない=+1" },
-    "event": { "type": "string", "enum": ["none", "interrupt", "jargon_ask", "discount_shake", "value_ack", "walkout", "done"] },
+    "strike_delta": { "type": "integer", "enum": [-1, 0, 1], "description": "信頼度変化。歯切れ良い=-1、要領を得ない=+1" },
+    "event": { "type": "string", "enum": ["none", "interrupt", "jargon_ask", "discount_shake", "value_ack", "done"] },
+    "asked_cat": { "type": "string", "enum": ["cost", "diff", "safety", "ops", "sched", "need", "next", "none"], "description": "このセリフで事務長が尋ねている事柄(次ターンのt4採点カテゴリになる)" },
     "observed": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["jargon", "has_plain", "conclusion_first", "discount_offered", "discount_refused", "value_cats", "answered_cat", "on_point"],
+      "required": ["jargon", "has_plain", "conclusion_first", "discount_offered", "discount_refused", "value_cats", "on_point"],
       "properties": {
         "jargon": { "type": "array", "items": { "type": "string" }, "description": "事務長に通じなかった専門用語(言い換えが添えられていれば含めない)" },
         "has_plain": { "type": "boolean" },
@@ -131,25 +136,29 @@ headers: {
         "discount_offered": { "type": "boolean" },
         "discount_refused": { "type": "boolean" },
         "value_cats": { "type": "array", "items": { "type": "string", "enum": ["service", "safety", "quality", "usability", "extra", "record"] } },
-        "answered_cat": { "type": "string", "enum": ["cost", "diff", "safety", "ops", "sched", "need", "next", "none"], "description": "直前の事務長の質問カテゴリに対し、プレイヤーの回答が実際に答えていたカテゴリ" },
-        "on_point": { "type": "boolean", "description": "直前の質問の意図に正面から答えていたか" }
+        "on_point": { "type": "boolean", "description": "直前の質問の意図に正面から答えていたか(t4採点に使う)" }
       }
     }
   }
 }
 ```
 
-`LlmCustomerAI.reply()` は `{ text: say, event, end }` を返し(`CustomerAI.reply()` と同じ形)、
-内部の `this.turns` には `{ player: {text,len, ...observed を analyze() 互換の名前に写像}, cat, interrupted, jargonAsked, discountPushed, npc }`
-を積む。これで `main.js` と `scoreSession()` は**どちらのAIでも無改造で動く**。
+`LlmCustomerAI.reply(text, {remainSec})` は **Promise** で `{ text: say, event, end, viaFallback }` を返す
+(`CustomerAI.reply()` は同期。main.js は `Promise.resolve()` で包んで両対応)。
+内部の `this.turns` には `{ player: {text,len, ...observed を analyze() 互換の名前に写像, onPoint}, cat(直前の asked_cat), interrupted, jargonAsked, discountPushed, npc }`
+を積む。これで `scoreSession()` は**どちらのAIでも同じ計算**で動く。
+walkout は LLM の event に含めない(JS側で決める、下記)。
 
 ### walkout(打ち切り)の決め方
-LLMに丸投げせず、**strike は JS 側で数える**(モードCで `strikes >= MODES.C.maxStrikes`)。
-LLMの `event:"walkout"` は無視し、JS側が閾値到達を検知したら次の応答で
-`{role:"system", content:"信頼を失ったので、この返答で商談を打ち切って退席させる"}` を
-添えて最終セリフを生成させる。打ち切りの**判断**は決定論、**セリフ**は非決定論、が原則。
-`done`(自然終了)も同様に、ターン数または残り時間が閾値(残り90秒 or 12ターン)で
-JS側が `{role:"system", content:"次の返答で商談を締めくくる。次回の約束か見送りを一言で"}` を添える。
+LLMに丸投げせず、**strike は JS 側で数える**。モードCのみ、`strike_delta` を加算し
+(event が interrupt/jargon_ask/discount_shake で delta=0 なら +1 扱い)、
+`strikes >= MODES.C.maxStrikes` に達した時点で**その場でもう1回**
+`buildTurnDirective({close:"walkout"})` を添えた呼び出しを行い、退席のセリフを生成して
+`{event:"walkout", end:true}` を返す(失敗時は `WALKOUT_C`)。
+打ち切りの**判断**は決定論、**セリフ**は非決定論、が原則。
+`done`(自然終了)も同様に、`turns >= 12` または `remainSec <= 90` なら
+その呼び出しに `close:"done"` の進行指示を添え、返答を最終セリフとして `end:true` にする。
+LLM自身の `event:"done"` は 8ターン以降のみ採用する。
 
 ## システムプロンプトの組み立て(persona.js)
 
@@ -186,8 +195,10 @@ JS側が `{role:"system", content:"次の返答で商談を締めくくる。次
    出来事)を一言挟んでよい」。
 
 モード・シーン・テーマが決まれば system は固定なので `cache_control` を置く。
-**ターン途中で変わる値(残り時間・strike数・聞き返し済み用語)は system に
-入れず**、`messages` 内の system メッセージで渡す(キャッシュ破壊を避ける)。
+**ターン途中で変わる値(残り時間・strike数・聞き返し済み用語・締め指示)は system に
+入れず**、`buildTurnDirective(state)` が作る `[進行指示]` を `messages` 末尾の
+`{role:"system"}` として渡す(キャッシュ破壊を避ける)。`history` には user/assistant だけを
+保持し、進行指示は毎回作り直して付ける(履歴に残さない)。
 
 ## 採点(非決定論との両立)
 
@@ -214,14 +225,16 @@ LLM講評で**上書き**し、点数は決定論のまま。LLM講評の取得�
 
 - トップ画面に ⚙️ ボタン → `#screen-settings`:
   APIキー(password入力・保存・削除)、モデル選択(opus 5.5 既定 / sonnet 5.5 / haiku 5.5)、
-  「接続テスト」ボタン(`max_tokens: 16` の最小リクエストで 200 を確認)、
+  「AI事務長を使う」チェック、「接続テスト」ボタン(`testClaude()`: `max_tokens: 64` の
+  最小構造化リクエストで成功を確認)、
   注意書き(キーはこのブラウザのみ・送信先・概算コスト・共有端末では削除を)。
 - 準備画面に「🤖 AI事務長(毎回違う反応)」/「📋 定型事務長(台本)」の表示。
   キー未設定なら定型固定で、理由を一行表示。
-- `App.useLlm = !!apiKey && settings.llmOn` で `startSession()` の生成先を分岐。
-  `App.ai` の型が違っても `main.js` の他の箇所は触らない(同じインターフェース)。
-- LLM待ち中のUI: 送信ボタン無効化・「…」バブル表示・マイク停止。
-  応答到着後に従来と同じ `Voice.say()` → 音声で話していたら自動でマイク再開。
+- `App.useLlm = LlmSettings.enabled()` で `startSession()` の生成先を分岐。
+  返答の表示・読み上げ・終了処理は `deliverNpc(res)` に共通化し、両AIで同じ経路を通す。
+- LLM待ち中のUI(`setBusy`): 送信・マイクボタン無効化、`#thinking-bubble`(「考えています…」)表示、
+  `App.busy` で二重送信防止。応答到着後に従来と同じ `Voice.say()` → 音声で話していたら自動でマイク再開。
+- フォールバックで返した発言には `notice("(AIに接続できないため、この返答は定型モードです)")`。
 
 ## 実装上の落とし穴(本スキル固有)
 
@@ -246,14 +259,21 @@ LLM講評で**上書き**し、点数は決定論のまま。LLM講評の取得�
 
 1. **オフライン(ルールベース)回帰**: sales-dojo スキルの node 単体テストが
    そのまま通ること(`dialog.js` 無改変の確認)。
-2. **LlmCustomerAI 単体(node, fetch をモック)**:
-   `globalThis.fetch` を差し替え、(a) 正常JSON (b) 壊れたJSON (c) 401 (d) 429
-   (e) `stop_reason:"refusal"` (f) 20秒超 の6ケースで、(a)以外が
-   `CustomerAI` の応答に切り替わり `turns` が採点可能な形で残ることを確認。
-   モードCで strike を3回積んだら次の応答が `end:true` になること。
+2. **LlmCustomerAI 単体(node, fetch をモック)**: `new LlmCustomerAI(scene, mode, theme,
+   { apiKey, model, fetchImpl })` の `fetchImpl` にモックを渡す(`callClaude` も同様)。
+   (a) 正常JSON (b) 壊れたJSON (c) 401 (d) 429(再試行なし) (e) `stop_reason:"refusal"`
+   (f) タイムアウト(`timeoutMs` を短く) (g) 5xx は1回だけ再試行 の各ケースで、
+   (a)以外が `CustomerAI` の応答に切り替わり `turns` が採点可能な形で残ること。
+   モードCで strike を3回積んだ呼び出しが `event:"walkout", end:true` になり、
+   最後のリクエストの末尾が user→system(進行指示)の順であること。
+   `remainSec:60` で `event:"done"` になること。講評の `good_quote` が実在しなければ null。
+   ルールベース回帰は、質問と説明を交互にした入力で全シーン×全モードが完走すること
+   (同じ質問を繰り返すと QA_BANK 回答でループするのは仕様)。
 3. **E2E(playwright, STT非対応を模擬)**: `page.route("**/v1/messages", …)` で
-   APIを偽装し、設定→キー保存→接続テスト→ロープレ→結果(講評差し替え)まで通す。
-   console/pageerror がないこと。キー削除後は定型モードに戻ること。
+   APIを偽装し(`max_tokens` 64=接続テスト / 2048=講評 / それ以外=返答で分岐)、
+   設定→接続テスト→キー保存→ロープレ→結果(講評差し替え)→`App.remain=50` で締め→
+   500応答でフォールバック通知→キー削除→定型モード、まで通す。
+   意図したAPI失敗以外の console/pageerror がないこと。
 4. **実キーでの手動確認(任意)**: 同じ入力を3回送って事務長のセリフが毎回
    変わること、JARGON配列にない用語(例「コリメータ」)でも聞き返すこと、
    婉曲な値引き(「ご予算に合わせて調整」)に揺さぶりが入ること。

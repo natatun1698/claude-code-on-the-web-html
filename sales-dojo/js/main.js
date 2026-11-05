@@ -15,6 +15,8 @@ const App = {
   remain: 0,
   spokeByVoice: false, // 直前の発言が音声なら相手の返答後にマイク自動再開
   ended: false,
+  useLlm: false,       // AI事務長(Claude API)で動いているか
+  busy: false,         // AI事務長の返答待ち(二重送信防止)
 };
 
 /* ---------- 成績記録(localStorageはtry/catchで包む) ---------- */
@@ -65,6 +67,76 @@ function buildHome() {
     box.appendChild(b);
   }
   renderStats();
+  renderHomeAiStatus();
+}
+
+/* ---------- AI事務長の設定画面 ---------- */
+function renderHomeAiStatus() {
+  const el = $("home-ai-status");
+  if (!el) return;
+  if (LlmSettings.enabled()) el.textContent = "🤖 AI事務長モード(毎回違う反応)で練習します。⚙️で変更できます。";
+  else if (LlmSettings.apiKey()) el.textContent = "📋 定型(台本)モードで練習します。⚙️でAI事務長をONにできます。";
+  else el.textContent = "📋 定型(台本)モードで練習します。⚙️にAPIキーを入れるとAI事務長になります。";
+}
+
+function buildSettings() {
+  const sel = $("llm-model");
+  sel.innerHTML = "";
+  for (const m of LLM_MODELS) {
+    const o = document.createElement("option");
+    o.value = m.id;
+    o.textContent = m.name;
+    sel.appendChild(o);
+  }
+  sel.value = LlmSettings.model();
+  $("llm-key").value = LlmSettings.apiKey();
+  $("llm-on").checked = LlmSettings.on();
+  setLlmStatus(LlmSettings.apiKey() ? "キーは保存済みです。" : "キーは未設定です。", "");
+}
+
+function setLlmStatus(msg, cls) {
+  const el = $("llm-status");
+  el.textContent = msg;
+  el.className = "ai-status " + (cls || "");
+}
+
+function bindSettings() {
+  $("btn-settings").onclick = () => { buildSettings(); show("screen-settings"); };
+  $("btn-llm-save").onclick = () => {
+    LlmSettings.setApiKey($("llm-key").value);
+    LlmSettings.save({ model: $("llm-model").value, on: $("llm-on").checked });
+    setLlmStatus(LlmSettings.enabled() ? "保存しました。次のロープレからAI事務長になります。" : "保存しました(定型モード)。", "ok");
+    renderHomeAiStatus();
+  };
+  $("btn-llm-clear").onclick = () => {
+    LlmSettings.setApiKey("");
+    $("llm-key").value = "";
+    setLlmStatus("キーを削除しました。定型モードで動きます。", "");
+    renderHomeAiStatus();
+  };
+  $("btn-llm-test").onclick = async () => {
+    const key = $("llm-key").value.trim();
+    if (!key) { setLlmStatus("先にAPIキーを入力してください。", "ng"); return; }
+    setLlmStatus("接続を確認しています…", "");
+    $("btn-llm-test").disabled = true;
+    try {
+      await testClaude(key, $("llm-model").value);
+      setLlmStatus("接続できました。「保存する」を押すと有効になります。", "ok");
+    } catch (e) {
+      setLlmStatus(llmErrorMessage(e), "ng");
+    } finally {
+      $("btn-llm-test").disabled = false;
+    }
+  };
+}
+
+function llmErrorMessage(e) {
+  const code = e && e.code;
+  if (code === "auth") return "APIキーが認証されませんでした。キーを確認してください。";
+  if (code === "rate") return "呼び出し回数の上限に達しています。少し待ってからお試しください。";
+  if (code === "timeout") return "応答がありませんでした(タイムアウト)。通信環境を確認してください。";
+  if (code === "network") return "api.anthropic.com に接続できませんでした。通信環境を確認してください。";
+  return "接続に失敗しました(" + (code || "unknown") + ")。";
 }
 
 function buildModes() {
@@ -99,6 +171,10 @@ function buildPrep() {
     `<div><span>シーン</span><strong>${scene.icon} ${scene.name}</strong></div>` +
     `<div><span>相手</span><strong>${mode.icon} ${mode.name}</strong></div>` +
     `<div><span>テーマ</span><strong>🎯 ${theme.name}</strong></div>`;
+  const ai = LlmSettings.enabled()
+    ? "🤖 AI(毎回違う反応)"
+    : LlmSettings.apiKey() ? "📋 定型(台本)" : "📋 定型(⚙️でAI化)";
+  $("prep-summary").innerHTML += `<div><span>事務長役</span><strong>${ai}</strong></div>`;
   $("prep-tip").textContent = "コツ: " + theme.tip;
   document.querySelectorAll("#time-list button").forEach((b) => {
     b.classList.toggle("selected", Number(b.dataset.min) === App.minutes);
@@ -111,8 +187,12 @@ function buildPrep() {
 
 /* ---------- ロープレ本体 ---------- */
 function startSession() {
-  App.ai = new CustomerAI(App.sceneId, App.modeId, App.themeId);
+  App.useLlm = LlmSettings.enabled();
+  App.ai = App.useLlm
+    ? new LlmCustomerAI(App.sceneId, App.modeId, App.themeId)
+    : new CustomerAI(App.sceneId, App.modeId, App.themeId);
   App.ended = false;
+  App.busy = false;
   App.spokeByVoice = false;
   $("chat-log").innerHTML = "";
   $("text-input").value = "";
@@ -120,6 +200,7 @@ function startSession() {
     SCENES.find((s) => s.id === App.sceneId).name + " / " + MODES[App.modeId].icon;
   setInputMode(Voice.hasSTT() ? "voice" : "text");
   if (!Voice.hasSTT()) notice("このブラウザは音声認識に未対応のため、テキスト入力モードで開始します。");
+  if (App.useLlm) notice("🤖 AI事務長モード。返答に数秒かかることがあります。");
   show("screen-play");
   startTimer();
   const opener = App.ai.opener();
@@ -146,15 +227,36 @@ function drawTimer() {
   el.classList.toggle("warn", App.remain <= 60);
 }
 
-function addBubble(who, text) {
+function addBubble(who, text, tag) {
   const log = $("chat-log");
   const div = document.createElement("div");
   div.className = "bubble " + who;
   const name = who === "npc" ? CUSTOMER_NAME : "あなた";
   div.innerHTML = `<small>${name}</small><p></p>`;
+  if (tag) {
+    const t = document.createElement("span");
+    t.className = "ai-tag";
+    t.textContent = tag;
+    div.querySelector("small").appendChild(t);
+  }
   div.querySelector("p").textContent = text;
   log.appendChild(div);
   log.scrollTop = log.scrollHeight;
+  return div;
+}
+
+/* AI事務長の返答待ち表示 */
+function setBusy(on) {
+  App.busy = on;
+  $("btn-send").disabled = on;
+  $("btn-mic").disabled = on;
+  const old = document.getElementById("thinking-bubble");
+  if (old) old.remove();
+  if (on) {
+    const div = addBubble("npc", "考えています");
+    div.classList.add("thinking");
+    div.id = "thinking-bubble";
+  }
 }
 
 function notice(msg) {
@@ -167,23 +269,42 @@ function notice(msg) {
 }
 
 function playerSaid(text, byVoice) {
-  if (App.ended || !App.ai || App.ai.finished) return;
+  if (App.ended || App.busy || !App.ai || App.ai.finished) return;
   App.spokeByVoice = byVoice;
   addBubble("me", text);
+  if (App.useLlm) {
+    // AI事務長: 非同期。待ち時間はマイクを止めて「考えています」を表示
+    Voice.stopListening();
+    setBusy(true);
+    Promise.resolve(App.ai.reply(text, { remainSec: App.remain }))
+      .catch(() => ({ text: "……すみません、もう一度お願いします。", event: null, end: false, viaFallback: true }))
+      .then((res) => {
+        if (App.ended) return;
+        setBusy(false);
+        if (res.viaFallback) notice("(AIに接続できないため、この返答は定型モードです)");
+        deliverNpc(res);
+      });
+    return;
+  }
   const res = App.ai.reply(text);
   setTimeout(() => {
     if (App.ended) return;
-    addBubble("npc", res.text);
-    Voice.say(res.text, () => {
-      if (App.ended) return;
-      if (res.end) {
-        endSession(res.event === "walkout", res.event);
-      } else if (App.spokeByVoice && $("panel-voice").style.display !== "none") {
-        Voice.listen(true); // 音声で話した後は自動でマイク再開
-      }
-    });
-    if (res.end && !Voice.ttsOn) endSession(res.event === "walkout", res.event);
+    deliverNpc(res);
   }, 350);
+}
+
+/* 事務長の返答を表示・読み上げし、終了イベントとマイク再開を処理する */
+function deliverNpc(res) {
+  addBubble("npc", res.text);
+  Voice.say(res.text, () => {
+    if (App.ended) return;
+    if (res.end) {
+      endSession(res.event === "walkout", res.event);
+    } else if (App.spokeByVoice && $("panel-voice").style.display !== "none") {
+      Voice.listen(true); // 音声で話した後は自動でマイク再開
+    }
+  });
+  if (res.end && !Voice.ttsOn) endSession(res.event === "walkout", res.event);
 }
 
 /* ---------- 入力(音声/テキスト切替) ---------- */
@@ -268,6 +389,20 @@ function endSession(walkout, reason) {
   $("result-improve-example").textContent = r.improvement.example;
   $("result-streak").textContent = `通算${rec.total}回 / 連続${rec.streak}日 / 自己ベスト${rec.best}点`;
   show("screen-result");
+
+  // AI事務長のときは、点数はそのままに引用・改善点だけAI講評で差し替える(結果表示は待たせない)
+  if (App.useLlm && App.ai && typeof App.ai.review === "function" && App.ai.turns.length) {
+    const ai = App.ai;
+    $("result-note").textContent += " 🤖 AI講評を作成中…";
+    ai.review().then((rv) => {
+      if (App.ai !== ai) return; // 次のセッションが始まっていたら捨てる
+      $("result-note").textContent = $("result-note").textContent.replace(" 🤖 AI講評を作成中…", rv ? " 🤖 AI講評つき" : "");
+      if (!rv) return;
+      if (rv.goodQuote) $("result-quote").textContent = `「${rv.goodQuote}」`;
+      if (rv.point) $("result-improve-point").textContent = rv.point;
+      if (rv.example) $("result-improve-example").textContent = rv.example;
+    });
+  }
 }
 
 /* ---------- 起動 ---------- */
@@ -275,6 +410,7 @@ window.addEventListener("DOMContentLoaded", () => {
   Voice.init();
   buildHome();
   bindPlayControls();
+  bindSettings();
 
   document.querySelectorAll("[data-back]").forEach((b) => {
     b.onclick = () => show(b.dataset.back);

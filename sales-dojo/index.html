@@ -12,7 +12,7 @@
   <!-- 1. トップ: シーン選択 -->
   <section id="screen-home" class="screen active">
     <header>
-      <h1>🥋 商談ロープレ道場</h1>
+      <h1>🥋 商談ロープレ道場 <button id="btn-settings" class="gear" aria-label="設定">⚙️</button></h1>
       <div class="sub">営業は本番、ロープレは練習。明日の商談前に5分だけ。</div>
     </header>
     <main>
@@ -24,6 +24,42 @@
       <p class="step">STEP 1/4</p>
       <h2>練習するシーンを選んでください</h2>
       <div id="scene-list" class="card-list"></div>
+      <p id="home-ai-status" class="ai-status"></p>
+    </main>
+  </section>
+
+  <!-- 設定: AI事務長(Claude API) -->
+  <section id="screen-settings" class="screen">
+    <header>
+      <h1>⚙️ 設定</h1>
+      <div class="sub">AI事務長(毎回違う反応)を使うにはClaude APIキーが必要です</div>
+    </header>
+    <main>
+      <h2>🤖 AI事務長</h2>
+      <p class="tip">APIキーを保存すると、事務長役がAIになり、台本ではなくあなたの発言を読んで毎回違う反応を返します。キーが無い・通信できないときは、これまで通りの定型(台本)モードで動きます。</p>
+      <label class="field">
+        <span>Claude APIキー</span>
+        <input id="llm-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="sk-ant-...">
+      </label>
+      <label class="field">
+        <span>モデル</span>
+        <select id="llm-model"></select>
+      </label>
+      <label class="check">
+        <input id="llm-on" type="checkbox" checked>
+        <span>AI事務長を使う(OFFにすると定型モードで練習)</span>
+      </label>
+      <button id="btn-llm-save" class="btn primary">💾 保存する</button>
+      <button id="btn-llm-test" class="btn primary">📡 接続テスト</button>
+      <button id="btn-llm-clear" class="btn ghost">🗑 キーを削除する</button>
+      <p id="llm-status" class="ai-status"></p>
+      <div class="result-block">
+        <h3>ご注意</h3>
+        <p>・キーはこのブラウザ(この端末)の中にだけ保存され、送信先は api.anthropic.com だけです。サーバーには一切送られません。</p>
+        <p>・共有端末では練習後に「キーを削除する」を押してください。</p>
+        <p>・料金はご自身のAPIアカウントに課金されます。10分のロープレでおよそ15〜25回の呼び出しです(事務長の返答は短いため、1回あたりはごく少額です)。</p>
+      </div>
+      <button class="btn ghost" data-back="screen-home">← トップに戻る</button>
     </main>
   </section>
 
@@ -137,6 +173,8 @@
   <script src="js/config.js"></script>
   <script src="js/scenes.js"></script>
   <script src="js/dialog.js"></script>
+  <script src="js/persona.js"></script>
+  <script src="js/llm.js"></script>
   <script src="js/voice.js"></script>
   <script src="js/main.js"></script>
 </body>

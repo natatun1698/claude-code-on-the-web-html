@@ -4,7 +4,7 @@
 |---|---|---|
 | 🏥 営業ロープレ道場 | `/jimucho/`・`/bucho/` | 医療機器営業向け音声ロールプレイング練習 |
 | 🎨 そっくりメーカー | `/chara-maker/` | 顔パーツ50種以上×微調整で作るAIキャラクター作成・コレクション(詳細は `chara-maker/PROPOSAL.md`) |
-| 🥋 商談ロープレ道場 | `/sales-dojo/` | 医用機器営業向け音声ロープレ練習(山田事務長攻略・完全自己完結版。初回ガイド: `sales-dojo/docs/`、スキル: `.claude/skills/sales-dojo/`、Claude API利用の非決定論版スキル: `.claude/skills/sales-dojo-llm/`) |
+| 🥋 商談ロープレ道場 | `/sales-dojo/` | 医用機器営業向け音声ロープレ練習(山田事務長攻略・完全自己完結版。⚙️に自分のClaude APIキーを入れると事務長役がAIになり毎回違う反応をする。キー無しでは従来の定型(台本)モード。初回ガイド: `sales-dojo/docs/`、スキル: `.claude/skills/sales-dojo/`、Claude API利用の非決定論版スキル: `.claude/skills/sales-dojo-llm/`) |
 | ⚖️ 医療機器業公正競争規約Q&A | `/kiyaku-qa/` | 公正競争規約(公取協)のOK/NGを根拠条文つきで答えるチャットボット(取説: `kiyaku-qa/docs/`、スキル: `.claude/skills/kiyaku-qa/`) |
 | 🐈 ラガマフィンとさんすう | `/sansu-mihana/` | 小5算数の復習アプリ(猫キャラ伴走・苦手優先出題)。**家庭学習専用・非公開運用** |
 | 🐈 ラガマフィンとさんすう マンスリーテスト10月号 | `/sansu-monthly-10/` | キャンパス マンスリーテスト算数5・10月号(全14問)の復習アプリ。`/sansu-mihana/` と同じ作り。**家庭学習専用・非公開運用** |
