@@ -296,7 +296,9 @@ function _scoreT4(turns) {
     const re = CAT_KEYWORDS[t.cat];
     if (!re) continue;
     asked++;
-    if (re.test(t.player.text)) {
+    // LLM版は質問意図への的中を onPoint で渡してくる。無ければ従来どおりキーワード判定
+    const hitNow = typeof t.player.onPoint === "boolean" ? t.player.onPoint : re.test(t.player.text);
+    if (hitNow) {
       hit++;
       if (!quote || t.player.len < quote.length) quote = t.player.text;
     } else if (!missed) missed = t.cat;

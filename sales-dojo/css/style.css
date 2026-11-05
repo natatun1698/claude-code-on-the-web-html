@@ -163,3 +163,24 @@ main h2 { font-size: 1rem; margin-bottom: 10px; }
 #result-quote { font-style: italic; }
 #result-improve-example { margin-top: 6px; background: #f4f7fc; border-radius: 8px; padding: 8px 10px; font-size: 0.82rem; }
 #result-streak { text-align: center; color: var(--muted); font-size: 0.8rem; margin: 6px 0 14px; }
+
+/* 設定・AI事務長 */
+.gear {
+  background: transparent; border: none; font: inherit; font-size: 1.1rem; cursor: pointer;
+  min-width: 44px; min-height: 44px; vertical-align: middle; margin-left: 4px;
+}
+.ai-status { font-size: 0.8rem; color: var(--muted); text-align: center; margin: 8px 0 4px; min-height: 1.2em; }
+.ai-status.ok { color: var(--ok); }
+.ai-status.ng { color: var(--warn); }
+.field { display: block; margin-bottom: 12px; }
+.field span { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 4px; }
+.field input, .field select {
+  width: 100%; min-height: 44px; border-radius: 12px; border: 2px solid #cdd7ea; padding: 8px 12px;
+  font: inherit; background: var(--card); color: var(--ink);
+}
+.check { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; margin: 6px 0 14px; min-height: 44px; }
+.check input { width: 22px; height: 22px; }
+.bubble.thinking p { color: var(--muted); }
+.bubble.thinking p::after { content: "…"; animation: dots 1.2s steps(4, end) infinite; }
+@keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+.bubble small .ai-tag { color: var(--accent); margin-left: 4px; }
