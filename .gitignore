@@ -1,8 +1,0 @@
-neko-sansu/**/*.json
-!neko-sansu/tests/**/*.json
-neko-sansu-photo/**/*.json
-neko-sansu-photo/**/*.jpg
-neko-sansu-photo/**/*.jpeg
-neko-sansu-photo/**/*.png
-neko-sansu-photo/**/*.heic
-neko-sansu-photo/**/*.webp

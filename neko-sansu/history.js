@@ -12,12 +12,12 @@ function createHistory(storage, now = () => Date.now()) {
   return {
     events: read,
     start(pid, tags) { const ev = read(); ev.push({ t: now(), ev: "start", pid, tags: tags || [] }); write(ev); },
-    end(pid, { result, hints = 0, retries = 0 }) {
+    end(pid, { result, hints = 0, retries = 0, edits = 0 }) {
       if (!RESULTS.includes(result)) throw new Error("bad result " + result);
       const ev = read();
       const st = [...ev].reverse().find(e => e.ev === "start" && e.pid === pid);
       const t = now();
-      ev.push({ t, ev: "end", pid, result, hints, retries, ms: st ? t - st.t : 0 });
+      ev.push({ t, ev: "end", pid, result, hints, retries, edits, ms: st ? t - st.t : 0 });
       write(ev);
     },
     /** 直前の start に end が無ければ、その問題(離脱)を返す。次回起動時の「続きからやる?」に使う */
@@ -35,7 +35,7 @@ function createHistory(storage, now = () => Date.now()) {
       const data = JSON.parse(text);
       const incoming = Array.isArray(data) ? data : data.events;
       if (!Array.isArray(incoming) || !incoming.every(e => e && typeof e.t === "number" && (e.ev === "start" || e.ev === "end") && typeof e.pid === "string")) throw new Error("形式が ちがいます");
-      const clean = incoming.map(e => ({ t: e.t, ev: e.ev, pid: e.pid, tags: e.tags, result: e.result, hints: e.hints, retries: e.retries, ms: e.ms }));
+      const clean = incoming.map(e => ({ t: e.t, ev: e.ev, pid: e.pid, tags: e.tags, result: e.result, hints: e.hints, retries: e.retries, edits: e.edits, ms: e.ms }));
       const merged = mode === "replace" ? clean : dedupe(read().concat(clean));
       write(merged);
       return merged.length;
@@ -51,8 +51,8 @@ function dayKey(t) { const d = new Date(t); return `${d.getFullYear()}-${String(
 function attempts(events) {
   const out = [], open = new Map();
   for (const e of events) {
-    if (e.ev === "start") { const a = { pid: e.pid, tags: e.tags || [], t: e.t, status: "abandoned", hints: 0, retries: 0, ms: 0 }; open.set(e.pid, a); out.push(a); }
-    else if (e.ev === "end") { const a = open.get(e.pid); if (a) { Object.assign(a, { status: e.result, hints: e.hints || 0, retries: e.retries || 0, ms: e.ms || 0 }); open.delete(e.pid); } }
+    if (e.ev === "start") { const a = { pid: e.pid, tags: e.tags || [], t: e.t, status: "abandoned", hints: 0, retries: 0, edits: 0, ms: 0 }; open.set(e.pid, a); out.push(a); }
+    else if (e.ev === "end") { const a = open.get(e.pid); if (a) { Object.assign(a, { status: e.result, hints: e.hints || 0, retries: e.retries || 0, edits: e.edits || 0, ms: e.ms || 0 }); open.delete(e.pid); } }
   }
   return out;
 }
@@ -62,7 +62,7 @@ function summarize(events, { slowMs = 180000 } = {}) {
   for (const a of list) {
     const d = byDay[dayKey(a.t)] ||= { total: 0, ok: 0, ok_hint: 0, ng: 0, exp: 0, abandoned: 0 };
     d.total++; d[a.status]++;
-    const f = byField[a.tags[0] || "その他"] ||= { total: 0, correct: 0, abandoned: 0 };
+    const f = byField[String(a.tags[0] || "その他").split("/")[0]] ||= { total: 0, correct: 0, abandoned: 0 };
     f.total++; if (a.status === "ok" || a.status === "ok_hint") f.correct++; if (a.status === "abandoned") f.abandoned++;
   }
   for (const f of Object.values(byField)) f.rate = f.total - f.abandoned ? Math.round(f.correct / (f.total - f.abandoned) * 100) : null;

@@ -8,7 +8,7 @@ function normalize(s) {
     .replace(/[．]/g, ".").replace(/[／]/g, "/").replace(/[−ー―–]/g, "-")
     .replace(/[，、]/g, ",").replace(/\s/g, "").trim();
 }
-const UNITS = ["cm³", "cm²", "cm3", "cm2", "km", "cm", "mm", "m", "kg", "g", "L", "dL", "mL", "円", "個", "人", "本", "度", "%", "分", "秒", "時間", "通り", "才", "歳", "まい", "枚", "ページ", "こ", "点"];
+const UNITS = ["cm³", "cm²", "cm3", "cm2", "km", "cm", "mm", "m", "kg", "g", "L", "dL", "mL", "円", "個", "人", "本", "度", "%", "分", "秒後", "秒", "時間", "通り", "才", "歳", "まい", "枚", "ページ", "こ", "点", "番目", "倍", "回", "日", "週間", "種類"];
 function stripUnit(s) { let t = s, prev; do { prev = t; for (const u of UNITS) if (t.endsWith(u)) t = t.slice(0, -u.length); } while (t !== prev); return t; }
 function parseNumber(s) {
   s = stripUnit(normalize(s));
@@ -27,10 +27,20 @@ function parseTime(s) {
   return h * 3600 + m * 60 + sec;
 }
 const near = (a, b) => Math.abs(a - b) < 1e-9;
+/** 正解データの値。{n,d} / "7/8" / "2 1/13" / "26" / 26 を数に。数でなければ null */
 function valueOf(answer) {
   if (answer && typeof answer === "object" && "n" in answer) return answer.n / answer.d;
-  return Number(answer);
+  if (typeof answer === "string") { const p = parseNumber(answer.replace(/^(-?\d+)\s+(\d+\/\d+)$/, "$1と$2")); return p ? p.v : null; }
+  const v = Number(answer); return Number.isFinite(v) ? v : null;
 }
+const sameToken = (got, want) => normalize(got) === normalize(want);
+/** 数なら値で、文字(A・イ など)なら文字で比べる */
+function matchOne(gotStr, want) {
+  const wv = valueOf(want);
+  if (wv != null) { const g = parseNumber(gotStr); return !!g && near(g.v, wv); }
+  return sameToken(gotStr, want);
+}
+const timeSec = a => ((a.hours ?? a.h) || 0) * 3600 + ((a.minutes ?? a.m) || 0) * 60 + ((a.seconds ?? a.s) || 0);
 function judge(input, answer, answerType = "int", opts = {}) {
   const raw = normalize(input);
   if (raw === "" || raw === "[]") return { ok: false, reason: "empty" };
@@ -49,30 +59,33 @@ function judge(input, answer, answerType = "int", opts = {}) {
     case "time": {
       const got = parseTime(raw);
       if (got == null) return { ok: false, reason: "parse" };
-      const want = (answer.h || 0) * 3600 + (answer.m || 0) * 60 + (answer.s || 0);
-      return { ok: got === want, reason: "value" };
+      return { ok: got === timeSec(answer), reason: "value" };
     }
     case "multi": case "ordered": {
-      const got = raw.split(",").filter(Boolean).map(parseNumber);
-      if (got.some(g => !g)) return { ok: false, reason: "parse" };
-      const want = answer.map(valueOf);
-      if (got.length !== want.length) return { ok: false, reason: "count" };
-      const gv = got.map(g => g.v);
-      if (answerType === "ordered") return { ok: gv.every((v, i) => near(v, want[i])), reason: "value" };
-      const rest = want.slice();
-      for (const v of gv) { const i = rest.findIndex(w => near(w, v)); if (i < 0) return { ok: false, reason: "value" }; rest.splice(i, 1); }
+      const got = raw.split(",").filter(Boolean);
+      const numeric = answer.every(a => valueOf(a) != null);
+      if (numeric && got.some(g => !parseNumber(g))) return { ok: false, reason: "parse" };
+      if (got.length !== answer.length) return { ok: false, reason: "count" };
+      if (answerType === "ordered" || opts.orderMatters) return { ok: got.every((g, i) => matchOne(g, answer[i])), reason: "value" };
+      const rest = answer.slice();
+      for (const g of got) { const i = rest.findIndex(w => matchOne(g, w)); if (i < 0) return { ok: false, reason: "value" }; rest.splice(i, 1); }
       return { ok: true, reason: "value" };
     }
-    case "choice": return { ok: Number(raw) === Number(answer), reason: "value" };
+    case "choice": return { ok: matchOne(raw, answer), reason: "value" };
     default: return { ok: false, reason: "type" };
   }
 }
-function formatAnswer(answer, answerType, unit = "") {
-  if (answerType === "frac") { const r = reduce(answer.n, answer.d); return r.d === 1 ? `${r.n}` : `${r.n}/${r.d}`; }
-  if (answerType === "time") return [answer.h ? `${answer.h}時間` : "", answer.m ? `${answer.m}分` : "", answer.s ? `${answer.s}秒` : ""].join("") || "0秒";
-  if (Array.isArray(answer)) return answer.map(a => formatAnswer(a, typeof a === "object" ? "frac" : "dec")).join("、");
-  const v = Number(answer);
-  return `${Math.round(v * 1e6) / 1e6}${unit}`;
+function formatAnswer(answer, answerType, unit = "", opts = {}) {
+  if (answerType === "frac") {
+    if (typeof answer === "string") return answer.trim().replace(/^(-?\d+)\s+(\d+\/\d+)$/, "$1と$2") + unit;
+    const r = reduce(answer.n, answer.d); return (r.d === 1 ? `${r.n}` : `${r.n}/${r.d}`) + unit;
+  }
+  if (answerType === "time") { const h = answer.hours ?? answer.h, m = answer.minutes ?? answer.m, sec = answer.seconds ?? answer.s; return [h ? `${h}時間` : "", m ? `${m}分` : "", sec ? `${sec}秒` : ""].join("") || "0秒"; }
+  if (answerType === "ordered") return answer.join(" → ");
+  if (Array.isArray(answer)) { const parts = answer.map(a => valueOf(a) == null ? String(a) : formatAnswer(a, typeof a === "object" ? "frac" : "dec")); return (opts.labels ? parts.map((p, i) => `${opts.labels[i]}=${p}`) : parts).join("、") + (unit ? `(${unit})` : ""); }
+  if (answerType === "choice") return String(answer);
+  const v = valueOf(answer);
+  return `${v == null ? answer : Math.round(v * 1e6) / 1e6}${unit}`;
 }
-var api = { judge, normalize, parseNumber, parseTime, stripUnit, reduce, gcd, formatAnswer };
+var api = { judge, normalize, parseNumber, parseTime, stripUnit, reduce, gcd, formatAnswer, valueOf };
 if (typeof module !== "undefined") module.exports = api; else Object.assign(window, api);
