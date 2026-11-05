@@ -7,6 +7,7 @@ const TEMPLATE_IDS = [
   "tsurukame",
   "ougigata-shasen",
   "ten-idou-graph",
+  "tabibito-deau",
 ];
 if (typeof module !== "undefined") {
   module.exports = { TEMPLATE_IDS, TEMPLATES: TEMPLATE_IDS.map(id => require(`./${id}.js`)) };
