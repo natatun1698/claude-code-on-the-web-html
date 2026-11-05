@@ -99,3 +99,7 @@ GitHub Pagesで公開した場合、それぞれ
 シナリオのdata.jsと共有engine.jsを連結して、ブラウザなしでも確認できます。
 
 再構築・拡張用のスキルを `.claude/skills/sales-roleplay-app/SKILL.md` に用意しています。
+英語版(`/bucho-en/`)・スペイン語版(`/bucho-es/`)・ポルトガル語版(`/bucho-pt/`)は、
+同じ作りで共有JSを `js-en/`・`js-es/`・`js-pt/` に分けた兄弟アプリで、
+スキルは `.claude/skills/sales-roleplay-app-i18n/SKILL.md`(言語別の定数は
+`references/languages.md`)にまとめています。
