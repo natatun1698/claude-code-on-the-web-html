@@ -1,0 +1,82 @@
+:root{--bg:#fff7f9;--card:#fff;--ink:#4a3f52;--accent:#f08aa0;--accent2:#b9b6c9;--ok:#5bb88a;--ng:#f0a35a;--fig-stroke:#4a3f52;--fig-hatch:#f08aa0;--radius:18px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",system-ui,sans-serif;font-size:18px;line-height:1.6;-webkit-user-select:none;user-select:none}
+.app{max-width:720px;margin:0 auto;padding:16px 16px 180px;min-height:100vh}
+h1{font-size:34px;margin:16px 0 0;text-align:center;color:var(--accent)}
+h2{font-size:24px;text-align:center;margin:8px 0 12px}
+h3{font-size:18px;margin:16px 0 6px}
+.sub{text-align:center;margin:0 0 8px;color:#8a7f92}
+.note{font-size:14px;color:#8a7f92;text-align:center}
+.hidden{display:none!important}
+.screen{animation:fade .25s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+button{font:inherit;font-size:19px;padding:12px 18px;border-radius:999px;border:2px solid var(--accent2);background:#fff;color:var(--ink);min-height:52px}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700;padding:14px 32px}
+button:disabled{opacity:.45}
+button.link{background:none;border:none;color:#8a7f92;font-size:15px;min-height:0;padding:4px 8px}
+.row{display:flex;justify-content:center;gap:10px;margin:12px 0}
+.row.wrap{flex-wrap:wrap}
+.small-btns button{font-size:16px;padding:8px 14px;min-height:44px}
+.cat{width:120px;margin:0 auto}
+.cat.big{width:200px;margin:4px auto}
+.cat-svg{width:100%;height:auto;display:block}
+.cat-svg[data-mood=happy]{animation:jump .5s}
+.cat-svg .tail{transform-origin:135px 165px;animation:wag 1.6s infinite ease-in-out}
+@keyframes wag{0%,100%{transform:rotate(-25deg)}50%{transform:rotate(-5deg)}}
+@keyframes jump{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px)}}
+.bubble{background:#fff;border:2px solid var(--accent2);border-radius:var(--radius);padding:10px 14px;font-size:17px;position:relative}
+#title-bubble{max-width:360px;margin:0 auto 8px;text-align:center}
+.catbar{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(transparent,var(--bg) 30%);padding:10px 16px 12px;display:flex;align-items:flex-end;gap:10px;max-width:720px;margin:0 auto;pointer-events:none}
+.catbar .cat{width:96px;margin:0;flex:none}
+.catbar .bubble{flex:1;margin-bottom:18px}
+input[type=text],input[type=password]{font:inherit;font-size:22px;padding:10px 14px;border:2px solid var(--accent2);border-radius:12px;width:100%;max-width:300px;display:block;margin:8px auto;text-align:center;-webkit-user-select:text;user-select:text}
+/* もんだい */
+.qhead{display:flex;justify-content:space-between;align-items:center;font-size:15px;color:#8a7f92}
+.qcard{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 4px 14px rgba(240,138,160,.15)}
+.qtext{font-size:21px;margin:4px 0}
+.figure{margin:0 auto 8px;max-width:420px}
+.fig .edge{stroke:var(--fig-stroke);stroke-width:2;fill:none}
+.fig .shade{fill:url(#hatch);stroke:var(--fig-stroke);stroke-width:2}
+.fig .dash{stroke:var(--fig-stroke);stroke-width:1.5;stroke-dasharray:4 3;fill:none}
+.fig .axis{stroke:#8a7f92;stroke-width:1.5}
+.fig .graph{stroke:var(--accent);stroke-width:3}
+.fig .pt{fill:var(--accent)}
+.fig .lbl{font-size:13px;fill:var(--ink)}
+.fig .small{font-size:12px;fill:#8a7f92}
+.answer-row{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 8px}
+.answer-display{background:#fff;border:2px solid var(--accent);border-radius:12px;min-width:200px;min-height:56px;padding:8px 14px;font-size:30px;text-align:right;font-variant-numeric:tabular-nums}
+.answer-display .ph{font-size:15px;color:#bbb}
+.answer-display .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;font-size:22px}
+.answer-display .frac i{border-top:2px solid var(--ink);font-style:normal}
+.unit{font-size:22px}
+.keypad{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:420px;margin:0 auto}
+.keypad button{font-size:24px;padding:0;min-height:56px;border-radius:14px}
+.keypad button.fn{font-size:17px;background:#f3eff7}
+.keypad button.del{background:#ffe9ee}
+.choices{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px}
+.choices button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+.feedback{margin:14px 0;padding:14px;border-radius:var(--radius);background:#fff;border:2px solid var(--accent2);font-size:17px}
+.feedback.ok{border-color:var(--ok)}
+.feedback.ng{border-color:var(--ng)}
+.feedback .mark{font-size:28px}
+.feedback .box{margin-top:10px;padding:10px 12px;border-radius:12px;background:#fdf3f6}
+.feedback .box b.tag{color:var(--accent)}
+#sparkles{position:fixed;inset:0;pointer-events:none}
+#sparkles span{position:absolute;top:30%;font-size:26px;animation:fly 1.3s ease-out forwards}
+@keyframes fly{to{transform:translateY(-160px) scale(.4);opacity:0}}
+/* せいせき */
+.field{background:#fff;border-radius:12px;padding:10px 12px;margin:8px 0}
+.field-head{display:flex;justify-content:space-between}
+.bar{height:10px;background:#f3eff7;border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+/* ずかん・とりこみ・ほごしゃ */
+.zukan-text{background:#fff;border-radius:12px;padding:12px;font-size:17px}
+.import-result{background:#fff;border-radius:12px;padding:10px;font-size:14px;max-height:200px;overflow:auto;white-space:pre-wrap;-webkit-user-select:text;user-select:text}
+input[type=file]{display:block;margin:10px auto;font-size:15px}
+.filebtn{display:inline-block;font-size:19px;padding:12px 18px;border-radius:999px;border:2px solid var(--accent2);background:#fff}
+.filebtn input{display:none}
+.ptable{background:#fff;border-radius:12px;padding:6px 12px;font-size:15px;-webkit-user-select:text;user-select:text}
+.ptable div{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px solid #f3eff7}
+.ptable div:last-child{border:none}
+.ptable .mono{font-family:ui-monospace,monospace;font-size:13px;color:#8a7f92}
+@media (max-width:420px){body{font-size:16px}.qtext{font-size:19px}.keypad button{min-height:50px}}

@@ -3,7 +3,7 @@
 ## 1. 類題テンプレート(`neko-sansu/templates/<id>.js`)
 
 ```js
-const T = {
+var T = {
   id: "gyakusan",            // 英小文字とハイフン。ファイル名と同じ
   title: "ぎゃくさん",        // 子ども向け表示名
   tags: ["計算", "四則計算・逆算"],   // [大分野, 小分野]。一覧は下記

@@ -1,0 +1,2 @@
+neko-sansu/**/*.json
+!neko-sansu/tests/**/*.json
