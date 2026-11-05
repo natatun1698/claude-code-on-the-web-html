@@ -17,6 +17,13 @@ description: 小5〜小6向け中学受験算数の一問一答アプリ「ね�
 - 猫: スコティッシュフォールド(折れ耳)。名前は初回起動時に子どもが付ける(localStorage)。
 - 口調: ひらがな多め「〜にゃ」。小5が読める漢字だけ。
 
+## 姉妹アプリ「写真版」(`neko-sansu-photo/`)
+- 原題を JSON ではなく写真で取りこむ版。`../neko-sansu/` の `rng.js` `judge.js` `cat.js` `history.js` `templates/` を**そのまま読み込む**ので、
+  テンプレートを足せば両方に反映される。共用ファイルの API(`createHistory(storage)`、`judge`、`formatAnswer`、`TEMPLATE_IDS`)は変えない。
+- 写真版だけのファイル: `index.html` `style.css`(本家の CSS に追記)`app.js` `photo-bank.js`(答え文字列の解析・検証・画像縮小・IndexedDB)`tests/`。
+- 保存キーは別(`neko-sansu-photo-v1` / `neko-sansu-photo-log-v1` / IndexedDB `neko-sansu-photo`)。テストは `node neko-sansu-photo/tests/run.js`。
+- 両アプリとも画面切り替えで `history.pushState` し、ブラウザの戻る/進むと各画面の「← もどる」が同じ動きをする(`nav()` / `back()` / `popstate`)。新しい画面を足すときは `SCREENS` と `ENTER` に登録する。
+
 ## ファイル構成
 | ファイル | 役割 |
 |---|---|
