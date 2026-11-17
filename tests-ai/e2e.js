@@ -2,11 +2,41 @@
  * tests-ai/e2e.js — 生成AI版の画面通し確認(Playwright・ネットワーク不要)
  *   node tests-ai/e2e.js [スクリーンショットの保存先]
  * 音声認識なしの環境を模擬し、テキスト入力で1商談を通す。
+ * E は Worker のコードを手元で動かし(AIだけ偽物)、画面→Worker→画面の
+ * 通信まで通す。
  * ========================================================= */
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const os = require("os");
+const { pathToFileURL } = require("url");
 const { chromium } = require("playwright");
+const { build } = require("../workers/roleplay-ai/build.cjs");
+const { makeFakeAI } = require("./fake-ai.cjs");
+
+/* Worker を node の http サーバーとして動かす */
+async function startWorker(allowedOrigin, ai) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "roleplay-worker-"));
+  const file = path.join(dir, "worker.mjs");
+  fs.writeFileSync(file, build());
+  const worker = (await import(pathToFileURL(file).href)).default;
+  const env = { AI: ai, ACCESS_CODE: "good-code", ALLOWED_ORIGINS: allowedOrigin, MODEL: "@cf/test/model" };
+  const srv = http.createServer(async (req, res) => {
+    const chunks = [];
+    for await (const c of req) chunks.push(c);
+    const headers = new Headers();
+    for (const [k, v] of Object.entries(req.headers)) headers.set(k, v);
+    const r = await worker.fetch(new Request("http://worker" + req.url, {
+      method: req.method, headers, body: ["GET", "HEAD", "OPTIONS"].includes(req.method) ? undefined : Buffer.concat(chunks),
+    }), env);
+    const out = {};
+    r.headers.forEach((v, k) => { out[k] = v; });
+    res.writeHead(r.status, out);
+    res.end(Buffer.from(await r.arrayBuffer()));
+  });
+  await new Promise((r) => srv.listen(0, r));
+  return { srv, url: `http://127.0.0.1:${srv.address().port}/line`, dir };
+}
 
 const root = path.join(__dirname, "..");
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8" };
@@ -24,16 +54,25 @@ const check = (name, cond, detail) => {
   if (cond) pass++; else { fail++; console.log(`  ✗ ${name}${detail ? " — " + detail : ""}`); }
 };
 
-async function openPlay(browser, base, query, modeIndex, themeIndex) {
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  const errors = [];
-  page.on("pageerror", (e) => errors.push(String(e)));
+async function openPlay(browser, base, query, modeIndex, themeIndex, opts = {}) {
+  const page = opts.page || await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const errors = opts.errors || [];
+  if (!opts.page) page.on("pageerror", (e) => errors.push(String(e)));
   await page.addInitScript(() => { delete window.webkitSpeechRecognition; delete window.SpeechRecognition; });
+  if (opts.endpoint) {
+    // 公開中の data-ai.js を書き換えず、テストの中だけ Worker のURLを差し込む
+    await page.route("**/bucho-ai/js/data-ai.js", async (route) => {
+      const res = await route.fetch();
+      const body = (await res.text()).replace('const AI_ENDPOINT = "";', `const AI_ENDPOINT = ${JSON.stringify(opts.endpoint)};`);
+      await route.fulfill({ response: res, body });
+    });
+  }
   await page.goto(`${base}/bucho-ai/${query}`);
   const sceneCount = await page.locator("#scene-list .card").count();
   await page.locator("#scene-list .card").first().click();
   await page.locator("#mode-list .card").nth(modeIndex).click();
   await page.locator("#theme-list .card").nth(themeIndex).click();
+  if (opts.beforeStart) await opts.beforeStart(page);
   await page.click("#btn-start");
   await page.click("#btn-tts-toggle"); // 読み上げOFF(待ち時間を短くする)
   return { page, errors, sceneCount };
@@ -109,6 +148,59 @@ async function say(page, text) {
     check("3ストライクで打ち切られる", await page.isVisible("#result-walkout"));
     check("画面エラーなし", errors.length === 0, errors.join(" | "));
     await page.close();
+  }
+
+  console.log("E. 画面→Worker→画面(Workerは手元で実行、AIだけ偽物)");
+  {
+    const ai = makeFakeAI("ok");
+    const w = await startWorker(base, ai);
+    let codeBoxVisible = null;
+    const { page, errors } = await openPlay(browser, base, "", 1, 0, {
+      endpoint: w.url,
+      beforeStart: async (p) => {
+        codeBoxVisible = await p.isVisible("#access-code-box");
+        await p.fill("#access-code", "good-code");
+      },
+    });
+    check("本物モードでは招待コード欄が出る", codeBoxVisible === true);
+    check("状態表示は(模擬)なし", (await page.textContent("#ai-status")).trim() === "🤖 AI応答");
+    const r1 = await say(page, "結論から申しますと、本体で約1億円です。");
+    check("Worker経由の文面が出る", r1.includes("価格を教えてください"), r1);
+    const r2 = await say(page, "FPDの性能が高いからです。");
+    check("Worker経由で専門用語を聞き返す", r2.includes("「FPD」とは何ですか"), r2);
+    const log = await page.evaluate(() => window.__aiLog);
+    check("どちらも生成AI由来", log.length === 2 && log.every((l) => l.source === "llm"), JSON.stringify(log));
+    check("Workerが2回呼ばれた", ai.calls.length === 2, String(ai.calls.length));
+    check("招待コードは端末に保存", (await page.evaluate(() => localStorage.getItem("roleplayAiAccessCode"))) === "good-code");
+
+    ai.behavior = "limit";
+    await say(page, "安全に治療できることが価値です。");
+    check("無料枠の上限で即、定型モード", (await page.textContent("#ai-status")).includes("定型モード"));
+    check("上限の案内が出る", (await page.textContent("#toast")).includes("上限"));
+    const before = ai.calls.length;
+    await say(page, "お値引きはできません。保守の速さが価値です。");
+    check("定型モードではWorkerを呼ばない", ai.calls.length === before);
+    check("画面エラーなし", errors.length === 0, errors.join(" | "));
+    await page.close();
+
+    // 招待コード違い
+    ai.behavior = "ok";
+    const p2 = await openPlay(browser, base, "", 0, 0, {
+      endpoint: w.url, beforeStart: async (p) => { await p.fill("#access-code", "bad-code"); },
+    });
+    await say(p2.page, "本体で約1億円です。");
+    check("招待コード違いで定型モード", (await p2.page.textContent("#ai-status")).includes("定型モード"));
+    check("招待コード違いの案内が出る", (await p2.page.textContent("#toast")).includes("招待コード"));
+    await p2.page.close();
+
+    // ?mock= を付けると Worker があっても模擬になる
+    const p3 = await openPlay(browser, base, "?mock=ok", 0, 0, { endpoint: w.url });
+    check("?mock= では模擬", (await p3.page.textContent("#ai-status")).includes("模擬"));
+    check("?mock= では招待コード欄を出さない", !(await p3.page.isVisible("#access-code-box")));
+    await p3.page.close();
+
+    w.srv.close();
+    fs.rmSync(w.dir, { recursive: true, force: true });
   }
 
   console.log("D. 通常版(/bucho/)が変わっていないこと");

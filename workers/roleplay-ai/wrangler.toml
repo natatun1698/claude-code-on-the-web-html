@@ -1,0 +1,18 @@
+# 営業ロープレ生成AI版の Worker 設定
+# Workers Free プランのまま使う(Paid に上げると超過分が課金される)。
+name = "roleplay-ai"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Workers AI。LLMのAPIキーは不要。
+[ai]
+binding = "AI"
+
+[vars]
+# アプリを配信しているオリジン(カンマ区切り)。ここ以外からの呼び出しは拒否する。
+ALLOWED_ORIGINS = "https://natatun1698.github.io"
+# 使用モデル。Free プランで使えるモデルを指定する。
+MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+
+# 秘密(招待コード)はここに書かない。ダッシュボードの
+# Settings → Variables and Secrets に ACCESS_CODE という名前の Secret で登録する。

@@ -1,0 +1,6 @@
+{
+  "name": "roleplay-ai",
+  "private": true,
+  "type": "module",
+  "description": "営業ロープレ生成AI版の Cloudflare Worker。worker.js は build.cjs が生成する。"
+}

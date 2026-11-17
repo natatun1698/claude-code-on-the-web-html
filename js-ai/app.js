@@ -4,7 +4,9 @@
  *   - 公開するシーンを AI_SCENE_IDS に限定
  *   - 顧客役の返事を非同期で待つ(手番=AIRoleEngine、文面=LLM)
  *   - 待ち時間の表示、二重送信の防止、定型モードへの切替表示
- *   - URLの ?mock=<scenario>&timeoutMs=<ms> で模擬LLMの挙動を切替
+ *   - AI_ENDPOINT が設定されていれば本物の生成AI(WorkerLLM)、空なら模擬
+ *   - 準備画面で招待コードを入力(本物のときだけ)
+ *   - URLの ?mock=<scenario> で模擬LLMに切替、&timeoutMs=<ms> で時間切れを変更
  * 画面: top(シーン) → mode → theme → setup(時間) → play → result
  * ========================================================= */
 
@@ -106,6 +108,7 @@ function renderSetup() {
     <div class="summary-row"><span>${ROLE_LABEL}</span><strong>${state.mode.emoji} ${state.mode.name}</strong></div>
     <div class="summary-row"><span>評価テーマ</span><strong>🎯 ${state.theme.name}</strong></div>`;
   $("#theme-tip").textContent = "💡 " + state.theme.tip;
+  renderAccessCode();
   $$("#duration-list .chip").forEach((c) => {
     c.classList.toggle("selected", Number(c.dataset.min) === state.duration);
   });
@@ -163,6 +166,7 @@ function updateTimerDisplay() {
 
 /* ---------- セッション ---------- */
 function startSession() {
+  if (LLM.provider === WorkerLLM) WorkerLLM.setCode($("#access-code").value.trim());
   state.engine = new AIRoleEngine(state.scene.id, state.mode.id, state.theme.id);
   state.sessionActive = true;
   state.sessionId++;
@@ -188,15 +192,30 @@ function startSession() {
 }
 
 /* 生成AIの状態表示(生成中 / 定型モード) */
+const DISABLE_MESSAGES = {
+  "access-code": "招待コードが違うため、定型の応答に切り替えました。結果画面のあとで、準備画面から入れ直してください。",
+  "no-access-code": "招待コードが未入力のため、定型の応答で進めます。",
+  limit: "今日のAI応答の上限に達したため、定型の応答に切り替えました。練習はそのまま続けられます。",
+  origin: "このページからはAI応答を使えない設定のため、定型の応答で進めます。",
+};
+
 function renderAiStatus() {
   const el = $("#ai-status");
   if (LLM.disabled) {
     el.textContent = "📋 定型モード";
     el.className = "ai-status canned";
   } else {
-    el.textContent = "🤖 AI応答(模擬)";
+    el.textContent = LLM.provider === WorkerLLM ? "🤖 AI応答" : "🤖 AI応答(模擬)";
     el.className = "ai-status";
   }
+}
+
+/* 準備画面: 本物の生成AIを使うときだけ招待コード欄を出す */
+function renderAccessCode() {
+  const box = $("#access-code-box");
+  if (!box) return;
+  box.hidden = LLM.provider !== WorkerLLM;
+  $("#access-code").value = WorkerLLM.getCode();
 }
 
 function setWaiting(on) {
@@ -300,13 +319,22 @@ function renderResult(r, stats) {
 
 /* ---------- 初期化 ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  // 模擬LLMの挙動をURLで切替(例: ?mock=slow&timeoutMs=500)
+  // 本物か模擬か。?mock=<scenario> なら AI_ENDPOINT があっても模擬にする
   const params = new URLSearchParams(location.search);
-  if (params.get("mock")) MockLLM.scenario = params.get("mock");
+  if (AI_ENDPOINT && !params.get("mock")) {
+    WorkerLLM.endpoint = AI_ENDPOINT;
+    LLM.provider = WorkerLLM;
+    LLM.config.timeoutMs = 6000; // 本物は模擬より遅いので少し長めに待つ
+  } else {
+    if (params.get("mock")) MockLLM.scenario = params.get("mock");
+    LLM.provider = MockLLM;
+  }
   if (Number(params.get("timeoutMs")) > 0) LLM.config.timeoutMs = Number(params.get("timeoutMs"));
-  LLM.onModeChange = () => {
+  const note = $("#ai-note-provider");
+  if (note) note.textContent = LLM.provider === WorkerLLM ? "生成AI(試作)" : "模擬のAI応答";
+  LLM.onModeChange = (_, reason) => {
     renderAiStatus();
-    showToast("AI応答が使えないため、定型の応答に切り替えました。練習はそのまま続けられます。");
+    showToast(DISABLE_MESSAGES[reason] || "AI応答が使えないため、定型の応答に切り替えました。練習はそのまま続けられます。");
   };
 
   SpeechIO.init();

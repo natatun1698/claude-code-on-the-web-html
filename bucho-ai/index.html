@@ -14,6 +14,7 @@
     .ai-status.canned { background: #eee; color: #555; }
     .bubble.typing { color: var(--sub); letter-spacing: 0.2em; }
     .btn-mic:disabled, .btn-send:disabled { opacity: 0.5; }
+    .access-code-input { width: 100%; box-sizing: border-box; min-height: 44px; padding: 10px 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 10px; }
   </style>
 </head>
 <body>
@@ -29,7 +30,7 @@
       <p><strong>営業は本番、ロープレは練習。</strong>練習なしで商談に出るのは、練習なしで試合に出るのと同じです。</p>
       <p>明日の商談前に <strong>5分だけ</strong>。練習したいシーンを選んでください。</p>
     </div>
-    <p class="ai-note">🧪 試作版です。部長の返事は<strong>模擬のAI応答</strong>で、本物の生成AIにはまだつながっていません。採点と商談の進み方は通常版と同じです。通常版は <a href="../bucho/">こちら</a>。</p>
+    <p class="ai-note">🧪 試作版です。部長の返事は<strong id="ai-note-provider">模擬のAI応答</strong>です。AIが使えないときは自動で定型の返事に切り替わります。採点と商談の進み方は通常版と同じです。入力した発言はAIの応答づくりのために送信されます。実在の病院名・個人名は入れないでください。通常版は <a href="../bucho/">こちら</a>。</p>
     <div class="card-list" id="scene-list"></div>
     <footer class="app-footer">
       <p>商材：血管撮影装置「Trinias OPERA B8」(本体約1億円)／顧客：循環器内科の部長</p>
@@ -71,6 +72,11 @@
         <button class="chip selected" data-min="10">10分</button>
         <button class="chip" data-min="15">15分</button>
         <button class="chip" data-min="20">20分</button>
+      </div>
+      <div id="access-code-box" hidden>
+        <h3>招待コード</h3>
+        <input id="access-code" type="password" autocomplete="off" placeholder="配布された招待コード" class="access-code-input" />
+        <p class="note">コードはこの端末のブラウザにだけ保存されます。未入力でも定型の返事で練習できます。</p>
       </div>
       <p class="note">🎤 マイクに向かって話すと、部長が音声で返事をします。</p>
       <p class="note" id="stt-note" hidden></p>

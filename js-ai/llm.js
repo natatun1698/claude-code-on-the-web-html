@@ -8,9 +8,9 @@
  *   4. 返ってきた文面を検証する
  *   5. どれかに失敗したら、同じ手番の定型セリフ(decision.canned)に戻す
  *
- * 現在の provider は MockLLM(模擬)だけ。本物に切り替えるときは
- * 同じ形の { complete(request, decision) => Promise<{text}> } を
- * LLM.provider に差し込む。
+ * provider は2種類。どちらも complete(request, decision) => Promise<{text}>。
+ *   WorkerLLM  本物(Cloudflare Worker + Workers AI)。AI_ENDPOINT が設定されているとき
+ *   MockLLM    模擬。AI_ENDPOINT が空のとき、または ?mock=... のとき
  * ブラウザAPIに依存しない(node でテストできる)。
  * ========================================================= */
 
@@ -113,9 +113,11 @@ const LLM = {
       this.fails = 0;
       return { text: res.text.trim(), source: "llm", reason: null };
     } catch (e) {
-      if (e && e.limit) {
-        this.disable("limit"); // 1日の上限。以後は定型モード
-        return this.canned(d, "limit");
+      if (e && (e.limit || e.disableReason)) {
+        // 1日の上限・招待コード違いなど、再試行しても直らない失敗。以後は定型モード
+        const reason = e.disableReason || "limit";
+        this.disable(reason);
+        return this.canned(d, reason);
       }
       return this.failed(d, e && e.timeout ? "timeout" : "error");
     } finally {
@@ -193,6 +195,53 @@ const MockLLM = {
     const cat = d.rec.player.valueCats.find((c) => cfg && cfg.labels[c]);
     if (!cat) return d.canned;
     return cfg.tpl[request.mode].replace("{x}", cfg.labels[cat]) + d.canned;
+  },
+};
+
+/* =========================================================
+ * 本物の生成AI — Cloudflare Worker(workers/roleplay-ai/)を呼ぶ
+ * 招待コードは利用者が入力し、その人のブラウザにだけ保存する。
+ * ========================================================= */
+const WorkerLLM = {
+  endpoint: "",
+  CODE_KEY: "roleplayAiAccessCode",
+
+  getCode() {
+    try { return localStorage.getItem(this.CODE_KEY) || ""; } catch (_) { return ""; }
+  },
+  setCode(code) {
+    try {
+      if (code) localStorage.setItem(this.CODE_KEY, code);
+      else localStorage.removeItem(this.CODE_KEY);
+    } catch (_) {}
+  },
+
+  async complete(request) {
+    const code = this.getCode();
+    if (!code) throw { disableReason: "no-access-code" };
+    // LLM.line の時間切れより少し後で通信自体も打ち切る(無駄な待ちを残さない)
+    const ctrl = typeof AbortController === "function" ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), LLM.config.timeoutMs + 500) : null;
+    let res;
+    try {
+      res = await fetch(this.endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Access-Code": code },
+        body: JSON.stringify(request),
+        signal: ctrl ? ctrl.signal : undefined,
+      });
+    } catch (e) {
+      throw { network: true };
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
+    let body = {};
+    try { body = await res.json(); } catch (_) {}
+    if (res.ok && typeof body.text === "string") return { text: body.text };
+    if (res.status === 401) throw { disableReason: "access-code" };
+    if (res.status === 403) throw { disableReason: "origin" };
+    if (res.status === 429 && body.limit) throw { disableReason: "limit" };
+    throw { status: res.status };
   },
 };
 
